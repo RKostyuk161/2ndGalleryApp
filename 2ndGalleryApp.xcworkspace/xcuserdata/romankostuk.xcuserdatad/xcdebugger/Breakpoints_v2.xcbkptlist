@@ -3,4 +3,118 @@
    uuid = "BD98243B-1FCB-45FD-AADC-44CBD6A3E2D5"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6DAA6A50-B283-496D-94D0-9EB50A7BB6A4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "2ndGalleryApp/SupportFiles/SceneDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "scene(_:willConnectTo:options:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B77C3F4C-F304-4A2F-829B-526677B22530"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "2ndGalleryApp/Entry/FirstEntryScreen/StartViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "signInButton(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "33141947-8FEF-496C-84C2-FE58D7FF8005"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "2ndGalleryApp/Gateway/UserGateway.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "getRequest(currentUrl:numberOfPage:currentCollection:callback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "08000656-73CE-4ABB-BDAB-33E78D504DC5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "2ndGalleryApp/Gateway/UserGateway.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "getRequest(currentUrl:numberOfPage:currentCollection:callback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DBCAA3A3-62C8-4084-82B3-4615CB626C34"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "2ndGalleryApp/Gateway/UserGateway.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "getRequest(currentUrl:numberOfPage:currentCollection:callback:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DBCAA3A3-62C8-4084-82B3-4615CB626C34 - 756f24fad9d7544e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Foundation.Data) -&gt; () in _ndGalleryApp.UserGateway.getRequest(currentUrl: Swift.String, numberOfPage: Swift.Int, currentCollection: _ndGalleryApp.CollectionType, callback: (Swift.Optional&lt;Any&gt;, Swift.String) -&gt; ()) -&gt; ()"
+                  moduleName = "2ndGalleryApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/romankostuk/Desktop/2ndGalleryApp/2ndGalleryApp/Gateway/UserGateway.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "812">
+               </Location>
+               <Location
+                  uuid = "DBCAA3A3-62C8-4084-82B3-4615CB626C34 - cd4ffb29360f22ea"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Error) -&gt; () in _ndGalleryApp.UserGateway.getRequest(currentUrl: Swift.String, numberOfPage: Swift.Int, currentCollection: _ndGalleryApp.CollectionType, callback: (Swift.Optional&lt;Any&gt;, Swift.String) -&gt; ()) -&gt; ()"
+                  moduleName = "2ndGalleryApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/romankostuk/Desktop/2ndGalleryApp/2ndGalleryApp/Gateway/UserGateway.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

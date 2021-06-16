@@ -113,7 +113,7 @@
                                                             <constraint firstAttribute="width" constant="120" id="8gS-PT-Wsx"/>
                                                             <constraint firstAttribute="height" constant="36" id="ABi-Tx-CBL"/>
                                                         </constraints>
-                                                        <state key="normal" title="Button" image="EntrySignInSignInButton"/>
+                                                        <state key="normal" title="Button" image="EntrySignUpSignUpButton"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLd-Ue-Vwq">
                                                         <rect key="frame" x="146.5" y="66" width="120" height="36"/>
@@ -121,7 +121,7 @@
                                                             <constraint firstAttribute="height" constant="36" id="bQf-B3-7kY"/>
                                                             <constraint firstAttribute="width" constant="120" id="p3v-IV-Vf0"/>
                                                         </constraints>
-                                                        <state key="normal" title="Button" image="EntrySignInSignUpButton"/>
+                                                        <state key="normal" title="Button" image="EntrySignUpSingInButton"/>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -165,9 +165,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="EntrySignInSignInButton" width="120" height="36"/>
-        <image name="EntrySignInSignUpButton" width="120" height="36"/>
         <image name="EntrySignUpLogo" width="105" height="37"/>
+        <image name="EntrySignUpSignUpButton" width="120" height="36"/>
+        <image name="EntrySignUpSingInButton" width="120" height="36"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

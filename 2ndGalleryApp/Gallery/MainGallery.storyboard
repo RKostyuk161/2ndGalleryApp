@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="h9K-Aa-ZBb">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -43,13 +43,13 @@
         <!--Item 1-->
         <scene sceneID="IY3-oJ-bGI">
             <objects>
-                <viewController id="8Zn-cA-3zy" customClass="MainGalleryViewController" customModule="_ndGalleryApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="8Zn-cA-3zy" customClass="MainGalleryViewController" customModule="_ndGalleryApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JBD-Ve-RcX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="djs-rm-gFW">
-                                <rect key="frame" x="0.0" y="119" width="414" height="694"/>
+                                <rect key="frame" x="0.0" y="159" width="414" height="654"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NuR-aS-2ag">
                                     <size key="itemSize" width="128" height="128"/>
@@ -60,9 +60,9 @@
                                 <cells/>
                             </collectionView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="aDF-NL-U77">
-                                <rect key="frame" x="141.5" y="88" width="131" height="32"/>
+                                <rect key="frame" x="2" y="97" width="410" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="131" id="PGU-yk-BDv"/>
+                                    <constraint firstAttribute="width" constant="410" id="PGU-yk-BDv"/>
                                     <constraint firstAttribute="height" constant="31" id="YA3-TW-sCc"/>
                                 </constraints>
                                 <segments>
@@ -71,7 +71,7 @@
                                 </segments>
                             </segmentedControl>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="EgR-gx-Qfi">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="42" width="414" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="414" id="1qt-z3-gUI"/>
                                     <constraint firstAttribute="height" constant="44" id="5cY-NJ-e0J"/>
@@ -82,11 +82,12 @@
                         <viewLayoutGuide key="safeArea" id="bdm-H4-G69"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="EgR-gx-Qfi" firstAttribute="top" secondItem="bdm-H4-G69" secondAttribute="top" id="Ff6-nq-MDz"/>
+                            <constraint firstItem="EgR-gx-Qfi" firstAttribute="width" secondItem="bdm-H4-G69" secondAttribute="width" id="6PT-rX-TJz"/>
+                            <constraint firstItem="EgR-gx-Qfi" firstAttribute="top" secondItem="bdm-H4-G69" secondAttribute="top" constant="-2" id="Ff6-nq-MDz"/>
                             <constraint firstItem="EgR-gx-Qfi" firstAttribute="centerX" secondItem="bdm-H4-G69" secondAttribute="centerX" id="K9T-eG-tpp"/>
-                            <constraint firstItem="djs-rm-gFW" firstAttribute="top" secondItem="aDF-NL-U77" secondAttribute="bottom" id="VZf-tq-Smq"/>
+                            <constraint firstItem="djs-rm-gFW" firstAttribute="top" secondItem="aDF-NL-U77" secondAttribute="bottom" constant="31" id="VZf-tq-Smq"/>
                             <constraint firstItem="djs-rm-gFW" firstAttribute="centerX" secondItem="bdm-H4-G69" secondAttribute="centerX" id="Yew-tT-stJ"/>
-                            <constraint firstItem="aDF-NL-U77" firstAttribute="top" secondItem="EgR-gx-Qfi" secondAttribute="bottom" id="bzO-6i-kHX"/>
+                            <constraint firstItem="aDF-NL-U77" firstAttribute="top" secondItem="EgR-gx-Qfi" secondAttribute="bottom" constant="11" id="bzO-6i-kHX"/>
                             <constraint firstItem="bdm-H4-G69" firstAttribute="bottom" secondItem="djs-rm-gFW" secondAttribute="bottom" id="cp7-46-83F"/>
                             <constraint firstItem="bdm-H4-G69" firstAttribute="trailing" secondItem="djs-rm-gFW" secondAttribute="trailing" id="fth-wb-v4K"/>
                             <constraint firstItem="aDF-NL-U77" firstAttribute="centerX" secondItem="bdm-H4-G69" secondAttribute="centerX" id="jG2-sy-eXt"/>
@@ -94,6 +95,10 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="khU-ZP-YHu"/>
+                    <connections>
+                        <outlet property="galleryCollectionView" destination="djs-rm-gFW" id="1rr-1m-pAv"/>
+                        <outlet property="gallerySegmentControl" destination="aDF-NL-U77" id="NJN-rW-2rb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lo9-SQ-w0y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -102,7 +107,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="hvb-Af-iFh">
             <objects>
-                <tabBarController id="h9K-Aa-ZBb" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainGalleryTabBarController" id="h9K-Aa-ZBb" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BvX-zh-vuL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

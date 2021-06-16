@@ -29,6 +29,9 @@
                 <constraint firstAttribute="bottom" secondItem="kal-5l-xWP" secondAttribute="bottom" id="rBN-LR-pru"/>
             </constraints>
             <size key="customSize" width="149" height="128"/>
+            <connections>
+                <outlet property="imageOfCollectionViewCell" destination="kal-5l-xWP" id="fTG-ar-kKU"/>
+            </connections>
             <point key="canvasLocation" x="106.5217391304348" y="87.053571428571431"/>
         </collectionViewCell>
     </objects>
