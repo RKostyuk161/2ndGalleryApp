@@ -38,7 +38,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="blh-Ts-rYU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-707" y="-392"/>
+            <point key="canvasLocation" x="-1513" y="406"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="IY3-oJ-bGI">
@@ -49,9 +49,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="djs-rm-gFW">
-                                <rect key="frame" x="0.0" y="159" width="414" height="654"/>
+                                <rect key="frame" x="0.0" y="119" width="414" height="694"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NuR-aS-2ag">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NuR-aS-2ag">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -60,49 +60,52 @@
                                 <cells/>
                             </collectionView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="aDF-NL-U77">
-                                <rect key="frame" x="2" y="97" width="410" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="410" id="PGU-yk-BDv"/>
-                                    <constraint firstAttribute="height" constant="31" id="YA3-TW-sCc"/>
-                                </constraints>
+                                <rect key="frame" x="2" y="88" width="410" height="32"/>
                                 <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
+                                    <segment title="New"/>
+                                    <segment title="Popular"/>
                                 </segments>
+                                <connections>
+                                    <action selector="galleryActionSegmentControl:" destination="8Zn-cA-3zy" eventType="valueChanged" id="B4p-7W-okr"/>
+                                </connections>
                             </segmentedControl>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="EgR-gx-Qfi">
-                                <rect key="frame" x="0.0" y="42" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="414" id="1qt-z3-gUI"/>
-                                    <constraint firstAttribute="height" constant="44" id="5cY-NJ-e0J"/>
+                                    <constraint firstAttribute="height" constant="44" id="1EI-ac-o0W"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CustomLoadActivityIndicator" translatesAutoresizingMaskIntoConstraints="NO" id="JVd-9L-Dcl">
+                                <rect key="frame" x="182" y="445.5" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bdm-H4-G69"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="EgR-gx-Qfi" firstAttribute="width" secondItem="bdm-H4-G69" secondAttribute="width" id="6PT-rX-TJz"/>
-                            <constraint firstItem="EgR-gx-Qfi" firstAttribute="top" secondItem="bdm-H4-G69" secondAttribute="top" constant="-2" id="Ff6-nq-MDz"/>
-                            <constraint firstItem="EgR-gx-Qfi" firstAttribute="centerX" secondItem="bdm-H4-G69" secondAttribute="centerX" id="K9T-eG-tpp"/>
-                            <constraint firstItem="djs-rm-gFW" firstAttribute="top" secondItem="aDF-NL-U77" secondAttribute="bottom" constant="31" id="VZf-tq-Smq"/>
-                            <constraint firstItem="djs-rm-gFW" firstAttribute="centerX" secondItem="bdm-H4-G69" secondAttribute="centerX" id="Yew-tT-stJ"/>
-                            <constraint firstItem="aDF-NL-U77" firstAttribute="top" secondItem="EgR-gx-Qfi" secondAttribute="bottom" constant="11" id="bzO-6i-kHX"/>
-                            <constraint firstItem="bdm-H4-G69" firstAttribute="bottom" secondItem="djs-rm-gFW" secondAttribute="bottom" id="cp7-46-83F"/>
-                            <constraint firstItem="bdm-H4-G69" firstAttribute="trailing" secondItem="djs-rm-gFW" secondAttribute="trailing" id="fth-wb-v4K"/>
-                            <constraint firstItem="aDF-NL-U77" firstAttribute="centerX" secondItem="bdm-H4-G69" secondAttribute="centerX" id="jG2-sy-eXt"/>
-                            <constraint firstItem="djs-rm-gFW" firstAttribute="leading" secondItem="bdm-H4-G69" secondAttribute="leading" id="zY1-dF-Bh1"/>
+                            <constraint firstItem="djs-rm-gFW" firstAttribute="width" secondItem="bdm-H4-G69" secondAttribute="width" id="2mL-uo-Ugv"/>
+                            <constraint firstItem="djs-rm-gFW" firstAttribute="bottom" secondItem="bdm-H4-G69" secondAttribute="bottom" id="3dW-Jg-hKa"/>
+                            <constraint firstItem="aDF-NL-U77" firstAttribute="centerX" secondItem="bdm-H4-G69" secondAttribute="centerX" id="7Ez-eC-0f2"/>
+                            <constraint firstItem="djs-rm-gFW" firstAttribute="top" secondItem="aDF-NL-U77" secondAttribute="bottom" id="9zm-EJ-BWv"/>
+                            <constraint firstItem="aDF-NL-U77" firstAttribute="top" secondItem="EgR-gx-Qfi" secondAttribute="bottom" id="Kom-O3-ZF4"/>
+                            <constraint firstItem="EgR-gx-Qfi" firstAttribute="centerX" secondItem="bdm-H4-G69" secondAttribute="centerX" id="aYg-zV-I6a"/>
+                            <constraint firstItem="EgR-gx-Qfi" firstAttribute="width" secondItem="bdm-H4-G69" secondAttribute="width" id="bOM-XW-gcN"/>
+                            <constraint firstItem="aDF-NL-U77" firstAttribute="width" secondItem="bdm-H4-G69" secondAttribute="width" multiplier="0.990338" id="wMM-au-iKF"/>
+                            <constraint firstItem="EgR-gx-Qfi" firstAttribute="top" secondItem="bdm-H4-G69" secondAttribute="top" id="x1n-Wi-bxN"/>
+                            <constraint firstItem="djs-rm-gFW" firstAttribute="centerX" secondItem="bdm-H4-G69" secondAttribute="centerX" id="xGn-V3-lfO"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="khU-ZP-YHu"/>
                     <connections>
                         <outlet property="galleryCollectionView" destination="djs-rm-gFW" id="1rr-1m-pAv"/>
-                        <outlet property="gallerySegmentControl" destination="aDF-NL-U77" id="NJN-rW-2rb"/>
+                        <outlet property="galleryLoadActivityIndicator" destination="JVd-9L-Dcl" id="AN9-ul-sVP"/>
+                        <outlet property="gallerySegmentControl" destination="aDF-NL-U77" id="GIg-Pr-RzO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lo9-SQ-w0y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2284" y="-392"/>
+            <point key="canvasLocation" x="-1513.0434782608697" y="-1079.4642857142856"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="hvb-Af-iFh">
@@ -125,6 +128,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CustomLoadActivityIndicator" width="40" height="40"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

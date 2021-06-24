@@ -1,31 +1,37 @@
 PODS:
-  - Alamofire (5.4.2)
   - Kingfisher (6.2.1)
-  - RxAlamofire (6.1.1):
-    - RxAlamofire/Core (= 6.1.1)
-  - RxAlamofire/Core (6.1.1):
-    - Alamofire (~> 5.4)
-    - RxSwift (~> 6.0)
-  - RxSwift (6.1.0)
+  - R.swift (5.4.0):
+    - R.swift.Library (~> 5.3.0)
+  - R.swift.Library (5.3.0)
+  - RxNetworkApiClient (0.1.4):
+    - RxSwift
+    - SwiftyJSON
+  - RxSwift (5.0.1)
+  - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
-  - Alamofire (~> 5.2)
-  - Kingfisher (~> 6.0)
-  - RxAlamofire
+  - Kingfisher
+  - R.swift
+  - RxNetworkApiClient
+  - RxSwift (~> 5.0.1)
 
 SPEC REPOS:
   trunk:
-    - Alamofire
     - Kingfisher
-    - RxAlamofire
+    - R.swift
+    - R.swift.Library
+    - RxNetworkApiClient
     - RxSwift
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: bfbc4c2fe5909b1d94fb4ef2277c6b3727ef5dae
   Kingfisher: e71c6fac2aebb1262888cabc2cb13d313362a48f
-  RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
-  RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
+  R.swift: c533450b0f7dc494e0993f5f1a1db925d84c3006
+  R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
+  RxNetworkApiClient: f45056395be3d62388b8344441331aad5ff60a68
+  RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 894e7874fd7964021e2bc1ac08d49956f6aea12e
+PODFILE CHECKSUM: 70d56e4d6fb0affe216e250e87b2b74dce4b3035
 
 COCOAPODS: 1.10.1

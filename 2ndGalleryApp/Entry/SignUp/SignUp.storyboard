@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Ec9-Yc-xDA">
-                                        <rect key="frame" x="0.5" y="152.5" width="413" height="547"/>
+                                        <rect key="frame" x="0.5" y="67.5" width="413" height="547"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E9m-Wg-2MF">
                                                 <rect key="frame" x="0.0" y="0.0" width="413" height="150"/>
@@ -143,7 +143,7 @@
                                 <constraints>
                                     <constraint firstItem="Ec9-Yc-xDA" firstAttribute="centerX" secondItem="uRi-XD-OvM" secondAttribute="centerX" id="C1i-iD-4cb"/>
                                     <constraint firstAttribute="bottom" secondItem="Ec9-Yc-xDA" secondAttribute="bottom" constant="20" symbolic="YES" id="DQD-l3-iRV"/>
-                                    <constraint firstItem="Ec9-Yc-xDA" firstAttribute="centerY" secondItem="uRi-XD-OvM" secondAttribute="centerY" id="Rzs-Qs-iKg"/>
+                                    <constraint firstItem="Ec9-Yc-xDA" firstAttribute="centerY" secondItem="uRi-XD-OvM" secondAttribute="centerY" multiplier="0.8" id="Rzs-Qs-iKg"/>
                                     <constraint firstItem="Ec9-Yc-xDA" firstAttribute="leading" secondItem="uRi-XD-OvM" secondAttribute="leading" constant="0.5" id="hlB-bv-Al1"/>
                                     <constraint firstAttribute="trailing" secondItem="Ec9-Yc-xDA" secondAttribute="trailing" constant="0.5" id="sKK-ka-jNd"/>
                                 </constraints>

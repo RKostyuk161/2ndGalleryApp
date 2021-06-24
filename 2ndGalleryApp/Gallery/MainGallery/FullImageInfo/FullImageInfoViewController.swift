@@ -8,6 +8,8 @@
 import UIKit
 
 class FullImageInfoViewController: UIViewController {
+    
+    var presenter: FullImageInfoPresenter!
 
     override func viewDidLoad() {
         super.viewDidLoad()

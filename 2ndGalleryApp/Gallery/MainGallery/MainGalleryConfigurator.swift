@@ -10,7 +10,7 @@ import Foundation
 class MainGalleryConfigurator {
     func config(view: MainGalleryViewController, currentCollection: Int)  {
         guard let collectionType = CollectionType(rawValue: currentCollection) else { return }
-        let router = 1
+        let router = MainGalleryRouter(view)
         let presenter = MainGalleryPresenter(view: view,
                                              router: router,
                                              collectionType: collectionType)

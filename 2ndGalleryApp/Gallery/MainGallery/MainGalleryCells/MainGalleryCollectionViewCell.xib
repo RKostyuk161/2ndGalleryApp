@@ -16,7 +16,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kal-5l-xWP">
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="eSL-eM-EG0">
+                        <rect key="frame" x="65" y="87" width="20" height="20"/>
+                    </activityIndicatorView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="MainGalleryCollectionViewCell" translatesAutoresizingMaskIntoConstraints="NO" id="kal-5l-xWP">
                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                     </imageView>
                 </subviews>
@@ -27,12 +30,15 @@
                 <constraint firstItem="kal-5l-xWP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="3jm-4j-023"/>
                 <constraint firstItem="kal-5l-xWP" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="fsy-0U-8Bb"/>
                 <constraint firstAttribute="bottom" secondItem="kal-5l-xWP" secondAttribute="bottom" id="rBN-LR-pru"/>
+                <constraint firstItem="eSL-eM-EG0" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="sJz-Ti-Lrb"/>
+                <constraint firstItem="eSL-eM-EG0" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="zBs-Lr-p6V"/>
             </constraints>
             <size key="customSize" width="149" height="128"/>
             <connections>
+                <outlet property="activityIndicatorOfCollectionViewCell" destination="eSL-eM-EG0" id="wdb-AX-VaM"/>
                 <outlet property="imageOfCollectionViewCell" destination="kal-5l-xWP" id="fTG-ar-kKU"/>
             </connections>
-            <point key="canvasLocation" x="106.5217391304348" y="87.053571428571431"/>
+            <point key="canvasLocation" x="105.79710144927537" y="87.053571428571431"/>
         </collectionViewCell>
     </objects>
 </document>

@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EntryLaunchScreenLogo" translatesAutoresizingMaskIntoConstraints="NO" id="pfp-Md-30b">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EntryFirstScreenLogo" translatesAutoresizingMaskIntoConstraints="NO" id="pfp-Md-30b">
                                 <rect key="frame" x="139" y="383.5" width="136" height="139"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="139" id="YMW-zR-ShP"/>
@@ -38,7 +38,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="EntryLaunchScreenLogo" width="136" height="139"/>
+        <image name="EntryFirstScreenLogo" width="136" height="139"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -14,6 +14,7 @@ class StartViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
+    
     @IBAction func signUpButton(_ sender: UIButton) {
         let vc = UIStoryboard(name: "SignUp", bundle: nil).instantiateViewController(identifier: "SignUpViewController") as! SignUpViewController
         self.navigationController?.pushViewController(vc, animated: true)

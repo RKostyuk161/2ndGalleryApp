@@ -12,27 +12,84 @@ class MainGalleryViewController: UIViewController {
     var presenter: MainGalleryPresenter!
     var setNumberOfCellsInRow: Int {
         UIDevice.current.orientation.isLandscape ? 4 : 2
+        
     }
     
 
     @IBOutlet weak var galleryCollectionView: UICollectionView!
     @IBOutlet weak var gallerySegmentControl: UISegmentedControl!
     
+    @IBOutlet weak var galleryLoadActivityIndicator: UIImageView!
+    @IBAction func galleryActionSegmentControl(_ sender: UISegmentedControl) {
+        if gallerySegmentControl.selectedSegmentIndex == 0 {
+            gallerySegmentControl.changeUnderlinePosition()
+            presenter.currentCollection = .new
+            galleryCollectionView.reloadData()
+            galleryCollectionView.scrollToItem(at: presenter.indexPathToScrollNewCollection, at: .centeredHorizontally, animated: false)
+        } else {
+            gallerySegmentControl.changeUnderlinePosition()
+            presenter.currentCollection = .popular
+            if presenter.paginationNumberOfPageOfPopularImages == 1 {
+                presenter.getFullGalleryRequest(isNewCollection: presenter.currentCollection)
+            }
+            galleryCollectionView.reloadData()
+            galleryCollectionView.scrollToItem(at: presenter.indexPathToScrollPopularCollection, at: .centeredHorizontally, animated: false)
+        }
+    }
+    
+    var timer: Timer?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setSegmentControl()
         setupViewIfNeed()
-        presenter.getFullGalleryRequest()
+        presenter.getFullGalleryRequest(isNewCollection: presenter.currentCollection)
+        gallerySegmentControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: UIControl.State.selected)
+    }
+    override func viewDidAppear(_ animated: Bool) {
         
+        galleryLoadActivityIndicator.isHidden = true
+        stopTimer()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        galleryLoadActivityIndicator.isHidden = false
+        startTimer()
+    }
+    
+    @objc func animateView() {
+            UIView.animate(withDuration: 0.8,
+                           delay: 0.0,
+                           options: .curveLinear, animations: {
+                self.galleryLoadActivityIndicator.transform = self.galleryLoadActivityIndicator.transform.rotated(by: CGFloat(Double.pi))
+            }, completion: { (finished) in
+                if self.timer != nil {
+                    self.timer = Timer.scheduledTimer(timeInterval:0.0, target: self, selector: #selector(self.animateView), userInfo: nil, repeats: false)
+                }
+            })
+        }
+    
+    func startTimer() {
+        self.galleryLoadActivityIndicator.isHidden = false
+        if timer == nil {
+            timer = Timer.scheduledTimer(timeInterval:0.0, target: self, selector: #selector(self.animateView), userInfo: nil, repeats: false)
+        }
+    }
+    
+    func stopTimer() {
+            timer?.invalidate()
+            timer = nil
+        }
+   
     func setupViewIfNeed() {
         guard self.presenter == nil else { return }
         let currentCollection = self.gallerySegmentControl.selectedSegmentIndex
         MainGalleryConfigurator().config(view: self, currentCollection: currentCollection)
         self.galleryCollectionView.register(UINib(nibName: "MainGalleryCollectionViewCell",
-                                                bundle: nil),
-                                          forCellWithReuseIdentifier: "MainGalleryCollectionViewCell")
+                                                  bundle: nil),
+                                            forCellWithReuseIdentifier: "MainGalleryCollectionViewCell")
         self.galleryCollectionView.dataSource = self
         self.galleryCollectionView.delegate = self
         
@@ -43,80 +100,4 @@ class MainGalleryViewController: UIViewController {
         gallerySegmentControl.addUnderlineForSelectedSegment()
     }
     
-}
-
-extension MainGalleryViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        presenter.prepeareForRoute()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
-    }
-}
-
-extension MainGalleryViewController: UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return presenter.model.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        presenter.createCellForMainGalleryCollectionView(indexPath: indexPath)
-    }
-}
-
-extension MainGalleryViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        presenter.setupSizeForCell(itemsPerLine: setNumberOfCellsInRow)
-    }
-}
-
-extension UISegmentedControl {
-    func removeBorder(){
-        let backgroundImage = UIImage.getColoredRectImageWith(color: UIColor.white.cgColor, andSize: self.bounds.size)
-        self.setBackgroundImage(backgroundImage, for: .normal, barMetrics: .default)
-        self.setBackgroundImage(backgroundImage, for: .selected, barMetrics: .default)
-        self.setBackgroundImage(backgroundImage, for: .highlighted, barMetrics: .default)
-
-        let deviderImage = UIImage.getColoredRectImageWith(color: UIColor.white.cgColor, andSize: CGSize(width: 1.0, height: self.bounds.size.height))
-        self.setDividerImage(deviderImage, forLeftSegmentState: .selected, rightSegmentState: .normal, barMetrics: .default)
-        self.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.gray], for: .normal)
-        self.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(red: 67/255, green: 129/255, blue: 244/255, alpha: 1.0)], for: .selected)
-    }
-
-    func addUnderlineForSelectedSegment(){
-        removeBorder()
-        let underlineWidth: CGFloat = self.bounds.size.width / CGFloat(self.numberOfSegments)
-        let underlineHeight: CGFloat = 2.0
-        let underlineXPosition = CGFloat(selectedSegmentIndex * Int(underlineWidth))
-        let underLineYPosition = self.bounds.size.height - 1.0
-        let underlineFrame = CGRect(x: underlineXPosition, y: underLineYPosition, width: underlineWidth, height: underlineHeight)
-        let underline = UIView(frame: underlineFrame)
-        underline.backgroundColor = UIColor(red: 67/255, green: 129/255, blue: 244/255, alpha: 1.0)
-        underline.tag = 1
-        self.addSubview(underline)
-    }
-
-    func changeUnderlinePosition(){
-        guard let underline = self.viewWithTag(1) else {return}
-        let underlineFinalXPosition = (self.bounds.width / CGFloat(self.numberOfSegments)) * CGFloat(selectedSegmentIndex)
-        UIView.animate(withDuration: 0.1, animations: {
-            underline.frame.origin.x = underlineFinalXPosition
-        })
-    }
-}
-
-extension UIImage {
-
-    class func getColoredRectImageWith(color: CGColor, andSize size: CGSize) -> UIImage{
-        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
-        let graphicsContext = UIGraphicsGetCurrentContext()
-        graphicsContext?.setFillColor(color)
-        let rectangle = CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height)
-        graphicsContext?.fill(rectangle)
-        let rectangleImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return rectangleImage!
-    }
 }

@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="10f-A0-34K">
-                                        <rect key="frame" x="0.5" y="240.5" width="413" height="371"/>
+                                        <rect key="frame" x="0.5" y="155.5" width="413" height="371"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uv8-mq-usd">
                                                 <rect key="frame" x="0.0" y="0.0" width="413" height="90"/>
@@ -140,7 +140,7 @@
                                     <constraint firstAttribute="trailing" secondItem="10f-A0-34K" secondAttribute="trailing" constant="0.5" id="Vqn-ze-j4l"/>
                                     <constraint firstItem="10f-A0-34K" firstAttribute="leading" secondItem="ik1-d2-oUj" secondAttribute="leading" constant="0.5" id="fOS-du-Nh8"/>
                                     <constraint firstItem="10f-A0-34K" firstAttribute="centerX" secondItem="ik1-d2-oUj" secondAttribute="centerX" id="jBh-WW-Cg2"/>
-                                    <constraint firstItem="10f-A0-34K" firstAttribute="centerY" secondItem="ik1-d2-oUj" secondAttribute="centerY" id="k6A-vZ-cZ8"/>
+                                    <constraint firstItem="10f-A0-34K" firstAttribute="centerY" secondItem="ik1-d2-oUj" secondAttribute="centerY" multiplier="0.8" id="k6A-vZ-cZ8"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
