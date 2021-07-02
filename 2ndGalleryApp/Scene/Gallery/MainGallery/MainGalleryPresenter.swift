@@ -12,7 +12,7 @@ class MainGalleryPresenter {
     
     var view: MainGalleryViewController!
     var router: MainGalleryRouter!
-    var gateway = GalleryGateway()
+//    var gateway = GalleryGateway()
     var currentCollection: CollectionType
     var newImageEntityArray = [ImageEntity]()
     var paginationNumberOfPageOfNewImages = 1

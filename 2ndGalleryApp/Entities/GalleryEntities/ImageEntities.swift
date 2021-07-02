@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ImageEntities: Decodable {
+struct ImageEntities: Decodable, Encodable {
     var countOfPages: Int?
     var data: [ImageEntity]?
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ImageInfo: Decodable {
+struct ImageInfo: Decodable, Encodable {
     var name: String?
     var id: Int?
 }

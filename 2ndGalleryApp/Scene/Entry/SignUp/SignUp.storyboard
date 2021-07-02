@@ -114,6 +114,9 @@
                                                             <constraint firstAttribute="height" constant="36" id="ABi-Tx-CBL"/>
                                                         </constraints>
                                                         <state key="normal" title="Button" image="EntrySignUpSignUpButton"/>
+                                                        <connections>
+                                                            <action selector="signUpButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="dPM-uT-DeD"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLd-Ue-Vwq">
                                                         <rect key="frame" x="146.5" y="66" width="120" height="36"/>
@@ -122,6 +125,9 @@
                                                             <constraint firstAttribute="width" constant="120" id="p3v-IV-Vf0"/>
                                                         </constraints>
                                                         <state key="normal" title="Button" image="EntrySignUpSingInButton"/>
+                                                        <connections>
+                                                            <action selector="signInButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="EFI-by-Dqs"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -158,6 +164,13 @@
                             <constraint firstAttribute="bottom" secondItem="uRi-XD-OvM" secondAttribute="bottom" id="fZS-Tb-hMm"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="birthdayTextField" destination="Slu-VK-aS4" id="LbP-L8-rSk"/>
+                        <outlet property="confirmPassTextField" destination="kLo-Xy-X10" id="xSg-Qd-0uT"/>
+                        <outlet property="emailTextField" destination="bSC-Lm-39e" id="5db-bc-IhN"/>
+                        <outlet property="oldPasswordTextField" destination="gsG-H8-fgf" id="AIk-f4-YLi"/>
+                        <outlet property="usernameTextField" destination="htY-oF-eYO" id="ZLy-XK-AKW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

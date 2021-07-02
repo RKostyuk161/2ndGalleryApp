@@ -9,6 +9,13 @@ import UIKit
 
 class SignInViewController: UIViewController {
     
+    @IBOutlet weak var emailTextField: UITextField!
+    
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    @IBAction func forgotButton(_ sender: UIButton) {
+        
+    }
     
     @IBAction func singInButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "MainGallery", bundle: nil)

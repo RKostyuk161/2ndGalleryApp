@@ -10,7 +10,6 @@
 		3995B35BD97C6E0CE08D3768 /* Pods_2ndGalleryApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCD156A0326881F7F1C2AB21 /* Pods_2ndGalleryApp.framework */; };
 		8E038F962673A32D000E56AC /* AddPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E038F952673A32D000E56AC /* AddPhotoViewController.swift */; };
 		8E038F9A2673A37F000E56AC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E038F992673A37F000E56AC /* ProfileViewController.swift */; };
-		8E038F9F2678EE6E000E56AC /* GalleryGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E038F9E2678EE6E000E56AC /* GalleryGateway.swift */; };
 		8E038FA12678F709000E56AC /* Statesments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E038FA02678F709000E56AC /* Statesments.swift */; };
 		8E038FA3267A1645000E56AC /* MainGalleryConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E038FA2267A1645000E56AC /* MainGalleryConfigurator.swift */; };
 		8E038FA6267A2019000E56AC /* FullImageInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E038FA5267A2019000E56AC /* FullImageInfoViewController.swift */; };
@@ -33,8 +32,32 @@
 		8E0729B226725D630071FF46 /* MainGalleryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E0729B026725D630071FF46 /* MainGalleryCollectionViewCell.xib */; };
 		8E0729B426725DD90071FF46 /* ImageEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0729B326725DD90071FF46 /* ImageEntities.swift */; };
 		8EAF7C49268477470048A936 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EAF7C48268477470048A936 /* Assets.xcassets */; };
+		8EAF7C4B26849BFB0048A936 /* TokenEntitiy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C4A26849BFB0048A936 /* TokenEntitiy.swift */; };
+		8EAF7C4D26849C9B0048A936 /* PaginationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C4C26849C9B0048A936 /* PaginationEntity.swift */; };
+		8EAF7C4F26849DCE0048A936 /* CheckUserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C4E26849DCE0048A936 /* CheckUserEntity.swift */; };
+		8EAF7C5126849FC50048A936 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C5026849FC50048A936 /* UserEntity.swift */; };
+		8EAF7C532684BCCF0048A936 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C522684BCCF0048A936 /* Settings.swift */; };
+		8EAF7C562684BE900048A936 /* AuthUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C552684BE900048A936 /* AuthUseCase.swift */; };
+		8EAF7C582684BEB40048A936 /* AuthUseCaseImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C572684BEB40048A936 /* AuthUseCaseImp.swift */; };
+		8EAF7C5A2684BED20048A936 /* AuthUseCaseEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C592684BED20048A936 /* AuthUseCaseEnum.swift */; };
+		8EAF7C5F2684C90C0048A936 /* UserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C5E2684C90C0048A936 /* UserUseCase.swift */; };
+		8EAF7C612684C9310048A936 /* UserUseCaseImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C602684C9310048A936 /* UserUseCaseImp.swift */; };
+		8EAF7C632684CBBD0048A936 /* UserGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C622684CBBD0048A936 /* UserGateway.swift */; };
+		8EAF7C67268613DB0048A936 /* AuthGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C66268613DB0048A936 /* AuthGateway.swift */; };
+		8EAF7C6A2689C23E0048A936 /* SignUpEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C692689C23E0048A936 /* SignUpEntity.swift */; };
+		8EAF7C6D268B16DD0048A936 /* RegistrationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C6C268B16DD0048A936 /* RegistrationUseCase.swift */; };
+		8EAF7C6F268B18710048A936 /* RegistrationApiUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C6E268B18710048A936 /* RegistrationApiUseCase.swift */; };
+		8EAF7C71268B18DD0048A936 /* RegistrationGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C70268B18DD0048A936 /* RegistrationGateway.swift */; };
+		8EAF7C73268B1B840048A936 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C72268B1B840048A936 /* SignUpPresenter.swift */; };
+		8EAF7C76268B1BA40048A936 /* SignUpPresenterImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C75268B1BA40048A936 /* SignUpPresenterImp.swift */; };
+		8EAF7C78268CAEF50048A936 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C77268CAEF50048A936 /* Requests.swift */; };
+		8EAF7C7A268CAF1B0048A936 /* ExtendedApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C79268CAF1B0048A936 /* ExtendedApiRequest.swift */; };
+		8EAF7C7C268DBF670048A936 /* ApiEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C7B268DBF670048A936 /* ApiEndPoint.swift */; };
+		8EAF7C7E268DBFF20048A936 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C7D268DBFF20048A936 /* Config.swift */; };
+		8EAF7C81268F25040048A936 /* PaginationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C80268F25040048A936 /* PaginationUseCase.swift */; };
+		8EAF7C83268F26ED0048A936 /* PaginationUseCaseImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C82268F26ED0048A936 /* PaginationUseCaseImp.swift */; };
+		8EAF7C87268F561E0048A936 /* GalleryPaginationGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C86268F561E0048A936 /* GalleryPaginationGateway.swift */; };
 		8EBA5C74267A3F6F00941513 /* MainGalleryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBA5C73267A3F6F00941513 /* MainGalleryRouter.swift */; };
-		8EBA5C77267B4FB400941513 /* ActivityIndicatorUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBA5C76267B4FB400941513 /* ActivityIndicatorUseCase.swift */; };
 		8EBA5C79267B9E3700941513 /* FullImageInfoConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBA5C78267B9E3700941513 /* FullImageInfoConfigurator.swift */; };
 		8EBA5C7B267B9E7D00941513 /* MainGalleryViewControllersExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBA5C7A267B9E7D00941513 /* MainGalleryViewControllersExtensions.swift */; };
 		8EBA5C7D267B9F5A00941513 /* FullImageInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EBA5C7C267B9F5A00941513 /* FullImageInfo.storyboard */; };
@@ -45,7 +68,6 @@
 /* Begin PBXFileReference section */
 		8E038F952673A32D000E56AC /* AddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
 		8E038F992673A37F000E56AC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		8E038F9E2678EE6E000E56AC /* GalleryGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryGateway.swift; sourceTree = "<group>"; };
 		8E038FA02678F709000E56AC /* Statesments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statesments.swift; sourceTree = "<group>"; };
 		8E038FA2267A1645000E56AC /* MainGalleryConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGalleryConfigurator.swift; sourceTree = "<group>"; };
 		8E038FA5267A2019000E56AC /* FullImageInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullImageInfoViewController.swift; sourceTree = "<group>"; };
@@ -70,8 +92,32 @@
 		8E0729B026725D630071FF46 /* MainGalleryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainGalleryCollectionViewCell.xib; sourceTree = "<group>"; };
 		8E0729B326725DD90071FF46 /* ImageEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEntities.swift; sourceTree = "<group>"; };
 		8EAF7C48268477470048A936 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
+		8EAF7C4A26849BFB0048A936 /* TokenEntitiy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenEntitiy.swift; sourceTree = "<group>"; };
+		8EAF7C4C26849C9B0048A936 /* PaginationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationEntity.swift; sourceTree = "<group>"; };
+		8EAF7C4E26849DCE0048A936 /* CheckUserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUserEntity.swift; sourceTree = "<group>"; };
+		8EAF7C5026849FC50048A936 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
+		8EAF7C522684BCCF0048A936 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		8EAF7C552684BE900048A936 /* AuthUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUseCase.swift; sourceTree = "<group>"; };
+		8EAF7C572684BEB40048A936 /* AuthUseCaseImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUseCaseImp.swift; sourceTree = "<group>"; };
+		8EAF7C592684BED20048A936 /* AuthUseCaseEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUseCaseEnum.swift; sourceTree = "<group>"; };
+		8EAF7C5E2684C90C0048A936 /* UserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUseCase.swift; sourceTree = "<group>"; };
+		8EAF7C602684C9310048A936 /* UserUseCaseImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUseCaseImp.swift; sourceTree = "<group>"; };
+		8EAF7C622684CBBD0048A936 /* UserGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGateway.swift; sourceTree = "<group>"; };
+		8EAF7C66268613DB0048A936 /* AuthGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthGateway.swift; sourceTree = "<group>"; };
+		8EAF7C692689C23E0048A936 /* SignUpEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpEntity.swift; sourceTree = "<group>"; };
+		8EAF7C6C268B16DD0048A936 /* RegistrationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationUseCase.swift; sourceTree = "<group>"; };
+		8EAF7C6E268B18710048A936 /* RegistrationApiUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationApiUseCase.swift; sourceTree = "<group>"; };
+		8EAF7C70268B18DD0048A936 /* RegistrationGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationGateway.swift; sourceTree = "<group>"; };
+		8EAF7C72268B1B840048A936 /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
+		8EAF7C75268B1BA40048A936 /* SignUpPresenterImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenterImp.swift; sourceTree = "<group>"; };
+		8EAF7C77268CAEF50048A936 /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
+		8EAF7C79268CAF1B0048A936 /* ExtendedApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedApiRequest.swift; sourceTree = "<group>"; };
+		8EAF7C7B268DBF670048A936 /* ApiEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndPoint.swift; sourceTree = "<group>"; };
+		8EAF7C7D268DBFF20048A936 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		8EAF7C80268F25040048A936 /* PaginationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationUseCase.swift; sourceTree = "<group>"; };
+		8EAF7C82268F26ED0048A936 /* PaginationUseCaseImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationUseCaseImp.swift; sourceTree = "<group>"; };
+		8EAF7C86268F561E0048A936 /* GalleryPaginationGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryPaginationGateway.swift; sourceTree = "<group>"; };
 		8EBA5C73267A3F6F00941513 /* MainGalleryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGalleryRouter.swift; sourceTree = "<group>"; };
-		8EBA5C76267B4FB400941513 /* ActivityIndicatorUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorUseCase.swift; sourceTree = "<group>"; };
 		8EBA5C78267B9E3700941513 /* FullImageInfoConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullImageInfoConfigurator.swift; sourceTree = "<group>"; };
 		8EBA5C7A267B9E7D00941513 /* MainGalleryViewControllersExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGalleryViewControllersExtensions.swift; sourceTree = "<group>"; };
 		8EBA5C7C267B9F5A00941513 /* FullImageInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullImageInfo.storyboard; sourceTree = "<group>"; };
@@ -114,7 +160,8 @@
 		8E038F9D2678EE32000E56AC /* Gateway */ = {
 			isa = PBXGroup;
 			children = (
-				8E038F9E2678EE6E000E56AC /* GalleryGateway.swift */,
+				8EAF7C522684BCCF0048A936 /* Settings.swift */,
+				8EAF7C86268F561E0048A936 /* GalleryPaginationGateway.swift */,
 			);
 			path = Gateway;
 			sourceTree = "<group>";
@@ -154,8 +201,8 @@
 				8EBA5C75267B4F9D00941513 /* UseCases */,
 				8E038F9D2678EE32000E56AC /* Gateway */,
 				8E07299326721D430071FF46 /* Entities */,
-				8E072989267207020071FF46 /* Entry */,
-				8E07299E2672577B0071FF46 /* Gallery */,
+				8EAF7C6826861E200048A936 /* Scene */,
+				8EAF7C7D268DBFF20048A936 /* Config.swift */,
 				8E072982267205AA0071FF46 /* Info.plist */,
 				8EAF7C48268477470048A936 /* Assets.xcassets */,
 				8E072988267205BA0071FF46 /* SupportFiles */,
@@ -198,6 +245,8 @@
 			children = (
 				8E07299426721D9A0071FF46 /* SignUp.storyboard */,
 				8E07299C267255CC0071FF46 /* SignUpViewController.swift */,
+				8EAF7C72268B1B840048A936 /* SignUpPresenter.swift */,
+				8EAF7C75268B1BA40048A936 /* SignUpPresenterImp.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -215,9 +264,9 @@
 		8E07299326721D430071FF46 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				8E0729B326725DD90071FF46 /* ImageEntities.swift */,
-				8EBA5C7E267BA15E00941513 /* ImageEntity.swift */,
-				8EBA5C80267BA18C00941513 /* ImageInfo.swift */,
+				8EAF7C642684D5F10048A936 /* EntityGateway */,
+				8EAF7C5B2684C1970048A936 /* GalleryEntities */,
+				8EAF7C5C2684C1B10048A936 /* UserEntities */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -273,10 +322,102 @@
 			path = MainGalleryCells;
 			sourceTree = "<group>";
 		};
+		8EAF7C542684BE6A0048A936 /* AuthUseCase */ = {
+			isa = PBXGroup;
+			children = (
+				8EAF7C552684BE900048A936 /* AuthUseCase.swift */,
+				8EAF7C572684BEB40048A936 /* AuthUseCaseImp.swift */,
+				8EAF7C592684BED20048A936 /* AuthUseCaseEnum.swift */,
+			);
+			path = AuthUseCase;
+			sourceTree = "<group>";
+		};
+		8EAF7C5B2684C1970048A936 /* GalleryEntities */ = {
+			isa = PBXGroup;
+			children = (
+				8E0729B326725DD90071FF46 /* ImageEntities.swift */,
+				8EBA5C7E267BA15E00941513 /* ImageEntity.swift */,
+				8EBA5C80267BA18C00941513 /* ImageInfo.swift */,
+				8EAF7C4C26849C9B0048A936 /* PaginationEntity.swift */,
+			);
+			path = GalleryEntities;
+			sourceTree = "<group>";
+		};
+		8EAF7C5C2684C1B10048A936 /* UserEntities */ = {
+			isa = PBXGroup;
+			children = (
+				8EAF7C4A26849BFB0048A936 /* TokenEntitiy.swift */,
+				8EAF7C5026849FC50048A936 /* UserEntity.swift */,
+				8EAF7C692689C23E0048A936 /* SignUpEntity.swift */,
+				8EAF7C4E26849DCE0048A936 /* CheckUserEntity.swift */,
+			);
+			path = UserEntities;
+			sourceTree = "<group>";
+		};
+		8EAF7C5D2684C89D0048A936 /* UserUseCase */ = {
+			isa = PBXGroup;
+			children = (
+				8EAF7C5E2684C90C0048A936 /* UserUseCase.swift */,
+				8EAF7C602684C9310048A936 /* UserUseCaseImp.swift */,
+			);
+			path = UserUseCase;
+			sourceTree = "<group>";
+		};
+		8EAF7C642684D5F10048A936 /* EntityGateway */ = {
+			isa = PBXGroup;
+			children = (
+				8EAF7C65268613C00048A936 /* Api */,
+				8EAF7C7B268DBF670048A936 /* ApiEndPoint.swift */,
+				8EAF7C77268CAEF50048A936 /* Requests.swift */,
+				8EAF7C79268CAF1B0048A936 /* ExtendedApiRequest.swift */,
+			);
+			path = EntityGateway;
+			sourceTree = "<group>";
+		};
+		8EAF7C65268613C00048A936 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				8EAF7C66268613DB0048A936 /* AuthGateway.swift */,
+				8EAF7C622684CBBD0048A936 /* UserGateway.swift */,
+				8EAF7C70268B18DD0048A936 /* RegistrationGateway.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		8EAF7C6826861E200048A936 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				8E072989267207020071FF46 /* Entry */,
+				8E07299E2672577B0071FF46 /* Gallery */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		8EAF7C6B268B16B80048A936 /* RegistrationUseeCase */ = {
+			isa = PBXGroup;
+			children = (
+				8EAF7C6C268B16DD0048A936 /* RegistrationUseCase.swift */,
+				8EAF7C6E268B18710048A936 /* RegistrationApiUseCase.swift */,
+			);
+			path = RegistrationUseeCase;
+			sourceTree = "<group>";
+		};
+		8EAF7C7F268F24E50048A936 /* PaginationUseCase */ = {
+			isa = PBXGroup;
+			children = (
+				8EAF7C80268F25040048A936 /* PaginationUseCase.swift */,
+				8EAF7C82268F26ED0048A936 /* PaginationUseCaseImp.swift */,
+			);
+			path = PaginationUseCase;
+			sourceTree = "<group>";
+		};
 		8EBA5C75267B4F9D00941513 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				8EBA5C76267B4FB400941513 /* ActivityIndicatorUseCase.swift */,
+				8EAF7C5D2684C89D0048A936 /* UserUseCase */,
+				8EAF7C542684BE6A0048A936 /* AuthUseCase */,
+				8EAF7C6B268B16B80048A936 /* RegistrationUseeCase */,
+				8EAF7C7F268F24E50048A936 /* PaginationUseCase */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -400,29 +541,52 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EAF7C5A2684BED20048A936 /* AuthUseCaseEnum.swift in Sources */,
 				8E038FA3267A1645000E56AC /* MainGalleryConfigurator.swift in Sources */,
+				8EAF7C7E268DBFF20048A936 /* Config.swift in Sources */,
 				8E038FA8267A2034000E56AC /* FullImageInfoPresenter.swift in Sources */,
+				8EAF7C6F268B18710048A936 /* RegistrationApiUseCase.swift in Sources */,
 				8E038F962673A32D000E56AC /* AddPhotoViewController.swift in Sources */,
+				8EAF7C4B26849BFB0048A936 /* TokenEntitiy.swift in Sources */,
 				8E07297C267205A90071FF46 /* _ndGalleryApp.xcdatamodeld in Sources */,
-				8E038F9F2678EE6E000E56AC /* GalleryGateway.swift in Sources */,
+				8EAF7C532684BCCF0048A936 /* Settings.swift in Sources */,
 				8E0729A626725BD20071FF46 /* MainGalleryViewController.swift in Sources */,
+				8EAF7C612684C9310048A936 /* UserUseCaseImp.swift in Sources */,
+				8EAF7C87268F561E0048A936 /* GalleryPaginationGateway.swift in Sources */,
 				8E0729AB26725C7F0071FF46 /* MainGalleryPresenter.swift in Sources */,
 				8E038FA12678F709000E56AC /* Statesments.swift in Sources */,
+				8EAF7C632684CBBD0048A936 /* UserGateway.swift in Sources */,
 				8E038F9A2673A37F000E56AC /* ProfileViewController.swift in Sources */,
+				8EAF7C83268F26ED0048A936 /* PaginationUseCaseImp.swift in Sources */,
 				8EBA5C81267BA18C00941513 /* ImageInfo.swift in Sources */,
+				8EAF7C5126849FC50048A936 /* UserEntity.swift in Sources */,
+				8EAF7C562684BE900048A936 /* AuthUseCase.swift in Sources */,
 				8E07299D267255CC0071FF46 /* SignUpViewController.swift in Sources */,
+				8EAF7C67268613DB0048A936 /* AuthGateway.swift in Sources */,
 				8EBA5C79267B9E3700941513 /* FullImageInfoConfigurator.swift in Sources */,
 				8E0729992672424C0071FF46 /* SignInViewController.swift in Sources */,
+				8EAF7C76268B1BA40048A936 /* SignUpPresenterImp.swift in Sources */,
+				8EAF7C7C268DBF670048A936 /* ApiEndPoint.swift in Sources */,
+				8EAF7C4F26849DCE0048A936 /* CheckUserEntity.swift in Sources */,
+				8EAF7C7A268CAF1B0048A936 /* ExtendedApiRequest.swift in Sources */,
 				8EBA5C7B267B9E7D00941513 /* MainGalleryViewControllersExtensions.swift in Sources */,
+				8EAF7C78268CAEF50048A936 /* Requests.swift in Sources */,
 				8E038FA6267A2019000E56AC /* FullImageInfoViewController.swift in Sources */,
 				8EBA5C7F267BA15E00941513 /* ImageEntity.swift in Sources */,
-				8EBA5C77267B4FB400941513 /* ActivityIndicatorUseCase.swift in Sources */,
 				8E0729B426725DD90071FF46 /* ImageEntities.swift in Sources */,
 				8E072976267205A90071FF46 /* StartViewController.swift in Sources */,
 				8E07299B2672511A0071FF46 /* SignInPresenter.swift in Sources */,
+				8EAF7C6A2689C23E0048A936 /* SignUpEntity.swift in Sources */,
 				8E072972267205A90071FF46 /* AppDelegate.swift in Sources */,
 				8E0729B126725D630071FF46 /* MainGalleryCollectionViewCell.swift in Sources */,
 				8EBA5C74267A3F6F00941513 /* MainGalleryRouter.swift in Sources */,
+				8EAF7C5F2684C90C0048A936 /* UserUseCase.swift in Sources */,
+				8EAF7C81268F25040048A936 /* PaginationUseCase.swift in Sources */,
+				8EAF7C71268B18DD0048A936 /* RegistrationGateway.swift in Sources */,
+				8EAF7C6D268B16DD0048A936 /* RegistrationUseCase.swift in Sources */,
+				8EAF7C582684BEB40048A936 /* AuthUseCaseImp.swift in Sources */,
+				8EAF7C4D26849C9B0048A936 /* PaginationEntity.swift in Sources */,
+				8EAF7C73268B1B840048A936 /* SignUpPresenter.swift in Sources */,
 				8E072974267205A90071FF46 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

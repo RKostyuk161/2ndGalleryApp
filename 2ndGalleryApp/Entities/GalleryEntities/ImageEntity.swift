@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ImageEntity: Decodable {
+struct ImageEntity: Decodable, Encodable {
     var id: Int?
     var new: Bool?
     var popylar: Bool?

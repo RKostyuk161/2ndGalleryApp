@@ -68,6 +68,9 @@
                                                                 <state key="normal" title="Forgot login or password?">
                                                                     <color key="titleColor" systemColor="systemGray4Color"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="forgotButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="xmC-Xb-rmK"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -153,6 +156,10 @@
                             <constraint firstItem="ik1-d2-oUj" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="bok-aL-S1C"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="9pc-R2-wSX" id="7zg-Vs-L2C"/>
+                        <outlet property="passwordTextField" destination="qal-m3-rqc" id="W19-RU-eEV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
