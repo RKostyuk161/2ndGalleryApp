@@ -8,6 +8,7 @@
 import Foundation
 
 protocol SignUpPresenter {
+        
     func signUp(user: SignUpEntity)
     
     func getUser() -> UserEntity?

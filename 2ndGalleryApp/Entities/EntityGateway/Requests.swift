@@ -21,6 +21,17 @@ extension ExtendedApiRequest {
                                ("password", pass))
     }
     
+    static func getAccRequest() -> ExtendedApiRequest {
+        return extendedRequest(path: "users/current", method: .get )
+    }
+    
+    static func updateUserUnfo(userId: Int, user: UserApiEntity) -> ExtendedApiRequest {
+        return extendedRequest(path: "users/\(userId)",
+                               method: .put,
+                               headers: [Header.contentJson],
+                               body: user)
+    }
+    
     static func tokenRefreshRequest(refreshToken: String) -> ExtendedApiRequest {
         return extendedRequest(path: "oauth/v2/token",
                                method: .post,

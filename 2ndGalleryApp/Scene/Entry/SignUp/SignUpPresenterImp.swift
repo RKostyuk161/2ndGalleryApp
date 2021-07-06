@@ -11,12 +11,13 @@ import RxSwift
 class SignUpPresenterImp: SignUpPresenter {
     
     weak var view: SignUpViewController!
+    var user = SignUpEntity()
     let registrationUseCase: RegistrationUseCase
-    let userUsecase: userUseCase
+    let userUsecase: UserUseCase
     let settings: Settings
     var disposeBag = DisposeBag()
     
-    init(view: SignUpViewController, registrationUseCase: RegistrationUseCase, userUseCase: userUseCase, settings: Settings) {
+    init(view: SignUpViewController, registrationUseCase: RegistrationUseCase, userUseCase: UserUseCase, settings: Settings) {
         self.view = view
         self.registrationUseCase = registrationUseCase
         self.userUsecase = userUseCase
@@ -32,11 +33,17 @@ class SignUpPresenterImp: SignUpPresenter {
             }, onDispose: {
 // TODO: activityIndicator off
             })
-            .subscribe(onCompleted: {
+            .subscribe(onCompleted: { [weak self] in
+                guard let self = self,
+                      let user = self.settings.account else {
+                    return
+                }
+                
+                print("\(user) useruseruser")
                 
             },
             onError: { [weak self] error in
-            
+                print("error is \(error.localizedDescription)")
             })
             .disposed(by: disposeBag)
     }

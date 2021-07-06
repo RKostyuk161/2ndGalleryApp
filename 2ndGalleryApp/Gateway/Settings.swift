@@ -10,7 +10,7 @@ import Foundation
 protocol Settings: AnyObject {
     var token: TokenEntity? { get set }
     var account: UserEntity? { get set }
-    var pagination: ImageEntities? { get set }
+    var accountUserName: String? { get set }
     
     func clearUserData()
 }

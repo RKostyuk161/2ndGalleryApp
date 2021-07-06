@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-class RegistrationApiUseCase: RegistrationUseCase {
+class RegistrationUseCaseImp: RegistrationUseCase {
     
     let registrationGateway: RegistrationGateway
     

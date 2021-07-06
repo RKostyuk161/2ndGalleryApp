@@ -11,10 +11,17 @@ import CoreData
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var window: UIWindow?
+    var settings: Settings?
+//    TODO: ubrat vot eto sverhu
 
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        DI.initDependencies(appDelegate: self)
+        self.settings = DI.resolve()
+        
         return true
     }
 

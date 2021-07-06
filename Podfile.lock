@@ -1,4 +1,6 @@
 PODS:
+  - DITranquillity (4.3.2):
+    - SwiftLazy (>= 1.1.6)
   - Kingfisher (6.2.1)
   - R.swift (5.4.0):
     - R.swift.Library (~> 5.3.0)
@@ -7,9 +9,11 @@ PODS:
     - RxSwift
     - SwiftyJSON
   - RxSwift (5.0.1)
+  - SwiftLazy (1.1.9)
   - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
+  - DITranquillity
   - Kingfisher
   - R.swift
   - RxNetworkApiClient
@@ -17,21 +21,25 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - DITranquillity
     - Kingfisher
     - R.swift
     - R.swift.Library
     - RxNetworkApiClient
     - RxSwift
+    - SwiftLazy
     - SwiftyJSON
 
 SPEC CHECKSUMS:
+  DITranquillity: e922e61bf09840a57cdd5215bc3ddb725ca0413e
   Kingfisher: e71c6fac2aebb1262888cabc2cb13d313362a48f
   R.swift: c533450b0f7dc494e0993f5f1a1db925d84c3006
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
   RxNetworkApiClient: f45056395be3d62388b8344441331aad5ff60a68
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
+  SwiftLazy: 1657354f43dbd6a0a79e00ad67558d655c77bdc9
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 70d56e4d6fb0affe216e250e87b2b74dce4b3035
+PODFILE CHECKSUM: 03c82f6ac0dbf3d8a14a13a82cbbf9a8ac213674
 
 COCOAPODS: 1.10.1

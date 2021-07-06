@@ -10,7 +10,7 @@ import Foundation
 struct ImageEntity: Decodable, Encodable {
     var id: Int?
     var new: Bool?
-    var popylar: Bool?
+    var popular: Bool?
     var name: String?
     var description: String?
     var image: ImageInfo?

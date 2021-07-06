@@ -6,13 +6,13 @@
 //
 
 import Foundation
-import UIKit
+import RxSwift
 
 class MainGalleryPresenter {
     
     var view: MainGalleryViewController!
     var router: MainGalleryRouter!
-//    var gateway = GalleryGateway()
+    var paginationUseCase: PaginationUseCase
     var currentCollection: CollectionType
     var newImageEntityArray = [ImageEntity]()
     var paginationNumberOfPageOfNewImages = 1
@@ -22,10 +22,14 @@ class MainGalleryPresenter {
     var indexPathToScrollPopularCollection = IndexPath()
 
     
-    init(view: MainGalleryViewController, router: MainGalleryRouter, collectionType: CollectionType) {
+    init(view: MainGalleryViewController,
+         router: MainGalleryRouter,
+         collectionType: CollectionType,
+         paginationUseCase: PaginationUseCase) {
         self.view = view
         self.router = router
         self.currentCollection = collectionType
+        self.paginationUseCase = paginationUseCase
     }
     
     
@@ -59,6 +63,8 @@ class MainGalleryPresenter {
         if isNewCollection.rawValue == 1 {
             currentPagination = paginationNumberOfPageOfPopularImages
         }
+        self.paginationUseCase.getMoreImages()
+        
 //        gateway.getRequest(currentUrl: GalleryGateway.getUrl, numberOfPage: currentPagination, currentCollection: currentCollection) { getInfo, message in
 //            switch message {
 //            

@@ -13,7 +13,7 @@ class MainGalleryConfigurator {
         let router = MainGalleryRouter(view)
         let presenter = MainGalleryPresenter(view: view,
                                              router: router,
-                                             collectionType: collectionType)
+                                             collectionType: collectionType, paginationUseCase: DI.resolve())
         view.presenter = presenter
     }
 }

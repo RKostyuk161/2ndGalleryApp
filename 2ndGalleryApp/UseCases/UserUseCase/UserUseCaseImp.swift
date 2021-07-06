@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-class UserUseCaseImp: userUseCase {
+class UserUseCaseImp: UserUseCase {
     
     var settings: Settings
     let userGateway: UserGateway
@@ -18,7 +18,7 @@ class UserUseCaseImp: userUseCase {
         self.userGateway = userGateway
     }
     
-    func synchronizeUserInfo() -> Single<UserEntity> {
+    func getUserInfo() -> Single<UserEntity> {
         return userGateway.getAcc()
             .observeOn(MainScheduler.instance)
             .do(onSuccess: { [weak self] user in

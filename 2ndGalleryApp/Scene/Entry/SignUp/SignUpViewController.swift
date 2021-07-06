@@ -8,6 +8,9 @@
 import UIKit
 
 class SignUpViewController: UIViewController {
+    
+    var presenter: SignUpPresenter!
+    
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var birthdayTextField: UITextField!
@@ -17,7 +20,7 @@ class SignUpViewController: UIViewController {
     
     
     @IBAction func signUpButton(_ sender: UIButton) {
-        
+        presenter.signUp(user: SignUpEntity(username: "roma", dateOfBirth: "05041998", email: "roma@web.ru", pass: "qwe"))
     }
     
     @IBAction func signInButton(_ sender: UIButton) {
@@ -27,19 +30,10 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        SignUpConfigurator().config(view: self)
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func makeSignUp() {
+        
     }
-    */
-
 }

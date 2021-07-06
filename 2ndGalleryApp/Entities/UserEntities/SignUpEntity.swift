@@ -12,5 +12,6 @@ public struct SignUpEntity: Codable, JsonBodyConvertible {
     var username: String?
     var dateOfBirth: String?
     var email: String?
+    var pass: String?
     
 }

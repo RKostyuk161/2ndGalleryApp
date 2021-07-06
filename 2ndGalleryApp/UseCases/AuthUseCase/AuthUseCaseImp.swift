@@ -10,11 +10,11 @@ import RxSwift
 
 class AuthUseCaseImp: AuthUseCase {
     var settings: Settings
-    let userUseCase: userUseCase
+    let userUseCase: UserUseCase
     var authApi: AuthGateway
     var tokenState: TokenState
     
-    init(settings: Settings, userUseCase: userUseCase, authApi: AuthGateway) {
+    init(settings: Settings, userUseCase: UserUseCase, authApi: AuthGateway) {
         self.settings = settings
         self.userUseCase = userUseCase
         self.authApi = authApi
@@ -58,7 +58,7 @@ class AuthUseCaseImp: AuthUseCase {
                 self.tokenState = .none
             })
             .asCompletable()
-            .andThen(self.userUseCase.synchronizeUserInfo())
+            .andThen(self.userUseCase.getUserInfo())
             .asCompletable()
         
     }

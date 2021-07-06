@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="qlw-ql-rc6">
-                                <rect key="frame" x="0.0" y="203" width="414" height="319"/>
+                                <rect key="frame" x="0.0" y="225.5" width="414" height="319"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4IF-Ng-Fq2">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="208"/>
@@ -82,7 +82,7 @@
                         <constraints>
                             <constraint firstItem="qlw-ql-rc6" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="7fe-48-OGg"/>
                             <constraint firstItem="qlw-ql-rc6" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" id="xdO-2v-I1x"/>
-                            <constraint firstItem="qlw-ql-rc6" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="0.8" id="y8Z-am-61i"/>
+                            <constraint firstItem="qlw-ql-rc6" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="0.85" id="y8Z-am-61i"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IUt-kE-B0y"/>
