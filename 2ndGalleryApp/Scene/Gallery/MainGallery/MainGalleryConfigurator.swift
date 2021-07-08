@@ -11,7 +11,7 @@ class MainGalleryConfigurator {
     func config(view: MainGalleryViewController, currentCollection: Int)  {
         guard let collectionType = CollectionType(rawValue: currentCollection) else { return }
         let router = MainGalleryRouter(view)
-        let presenter = MainGalleryPresenter(view: view,
+        let presenter = MainGalleryPresenterImp(view: view,
                                              router: router,
                                              collectionType: collectionType, paginationUseCase: DI.resolve())
         view.presenter = presenter

@@ -28,12 +28,12 @@ class LocalSettings: Settings {
         }
     }
     
-    var accountUserName: String? {
+    var defaultSuitName: String? {
         get {
-            return self.userDefaults.read(UserDefaultsKey.accountsUsername)
+            return self.userDefaults.read(UserDefaultsKey.defautSiutname)
         }
         set(value) {
-            return self.userDefaults.saveData(UserDefaultsKey.accountsUsername, value)
+            return self.userDefaults.saveData(UserDefaultsKey.defautSiutname, value)
         }
     }
     

@@ -7,6 +7,7 @@
 
 import Foundation
 
-class SignInPresenter {
-    
+protocol SignInPresenter {
+    func signIn(username: String, password: String)
+    func openForgotPasswordScene()
 }

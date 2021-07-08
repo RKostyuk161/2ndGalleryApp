@@ -9,6 +9,8 @@ import UIKit
 
 class SignInViewController: UIViewController {
     
+    var presenter: SignInPresenter!
+    
     @IBOutlet weak var emailTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
@@ -18,9 +20,10 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func singInButton(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "MainGallery", bundle: nil)
-        let mainTabBarController = storyboard.instantiateViewController(identifier: "MainGalleryTabBarController") as! UITabBarController
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
+        presenter.signIn(username: "qwertyqwertyqwerty@mail.ru", password: "qqqqqq")
+//        let storyboard = UIStoryboard(name: "MainGallery", bundle: nil)
+//        let mainTabBarController = storyboard.instantiateViewController(identifier: "MainGalleryTabBarController") as! UITabBarController
+//        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
         
         
     }
@@ -33,6 +36,7 @@ class SignInViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        SignInConfigurator().config(view: self)
 
     }
 }

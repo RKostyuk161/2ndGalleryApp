@@ -11,8 +11,8 @@ import RxNetworkApiClient
 
 class ApiRegistrationGateway: ApiBaseGateway, RegistrationGateway {
     
-    func signUp(entity: SignUpEntity, locale: String) -> Single<UserEntity> {
-        let request: ExtendedApiRequest<UserEntity> = ExtendedApiRequest.signUp(entity: entity, locale: locale)
+    func signUp(entity: SignUpEntity) -> Single<UserEntity> {
+        let request: ExtendedApiRequest<UserEntity> = ExtendedApiRequest.signUp(entity: entity)
         return apiClient.execute(request: request)
     }
     

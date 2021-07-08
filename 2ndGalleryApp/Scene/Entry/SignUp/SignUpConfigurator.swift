@@ -14,7 +14,8 @@ class SignUpConfigurator {
         let presenter = SignUpPresenterImp(view: view,
                                            registrationUseCase: DI.resolve(),
                                            userUseCase: DI.resolve(),
-                                           settings: DI.resolve())
+                                           settings: DI.resolve(),
+                                           router: router)
         view.presenter = presenter
     }
 }

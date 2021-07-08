@@ -17,6 +17,7 @@ class PaginationUseCaseImp: PaginationUseCase {
     
     let gateway: GalleryPaginationGateway
     let settings: Settings
+    
     var collectionType: CollectionType
     var items = [ImageEntity]()
     let limit = 10
@@ -46,7 +47,8 @@ class PaginationUseCaseImp: PaginationUseCase {
             .do(onSuccess: { [unowned self] result in
                 self.currentPage += 1
                 self.totalItems = result.totalItems
-                self.items.append(contentsOf: self.items)
+                self.items.append(contentsOf: result.data)
+                print(self.items)
                 self.source.onNext(self.items)
                 self.isLoadingInProcess = false
             },

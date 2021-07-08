@@ -16,7 +16,7 @@ enum UserDefaultsKey: String, CaseIterable ,UserDefaultsKeyType {
     
     case token,
          account,
-         accountsUsername
+         defautSiutname
     
     static var clearable: [UserDefaultsKey] {
         return UserDefaultsKey.allCases

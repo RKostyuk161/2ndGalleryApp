@@ -9,7 +9,7 @@ import UIKit
 
 class MainGalleryViewController: UIViewController {
 
-    var presenter: MainGalleryPresenter!
+    var presenter: MainGalleryPresenterImp!
     var setNumberOfCellsInRow: Int {
         UIDevice.current.orientation.isLandscape ? 4 : 2
         
@@ -44,7 +44,9 @@ class MainGalleryViewController: UIViewController {
         super.viewDidLoad()
         setSegmentControl()
         setupViewIfNeed()
+        presenter.subscribeOnGalleryRequestResult()
         presenter.getFullGalleryRequest(isNewCollection: presenter.currentCollection)
+
         gallerySegmentControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: UIControl.State.selected)
     }
     override func viewDidAppear(_ animated: Bool) {

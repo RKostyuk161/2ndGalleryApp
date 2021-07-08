@@ -27,6 +27,7 @@ class MainGalleryCollectionViewCell: UICollectionViewCell {
         imageOfCollectionViewCell.kf.indicatorType = .activity
         let url = URL(string: "http://gallery.dev.webant.ru/media/" + url)
         imageOfCollectionViewCell.kf.setImage(with: url)
+        imageOfCollectionViewCell.backgroundColor = .black
         imageOfCollectionViewCell.layer.cornerRadius = 10
         imageOfCollectionViewCell.layer.borderWidth = 0.7
         imageOfCollectionViewCell.layer.borderColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)

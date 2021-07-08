@@ -10,12 +10,12 @@ import Foundation
 class PaginationEntity<T: Codable>: Codable {
     var totalItems: Int
     var countOfPages: Int
-    var items: [T]
+    var data: T
     
-    init(totalItems: Int, countOfPages: Int, items: [T]) {
+    init(totalItems: Int, countOfPages: Int, items: T) {
         self .totalItems = totalItems
         self.countOfPages = countOfPages
-        self.items = items
+        self.data = items
     }
     
 }

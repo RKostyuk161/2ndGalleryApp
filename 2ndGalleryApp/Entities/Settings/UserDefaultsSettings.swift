@@ -11,10 +11,10 @@ class UserDefaultsSettings {
     let decoder = JSONDecoder()
     let encoder = JSONEncoder()
     var userDefaults: UserDefaults
-    static let globalUserName = "userName"
+    static let siutName = "siutName"
     
-    init(globalUserName: String? = nil) {
-        self.userDefaults = UserDefaults(suiteName: globalUserName ?? UserDefaultsSettings.globalUserName)!
+    init(siutName: String? = nil) {
+        self.userDefaults = UserDefaults(suiteName: siutName ?? UserDefaultsSettings.siutName)!
     }
     
     func read<T: Codable>(_ key: UserDefaultsKeyType) -> T? {

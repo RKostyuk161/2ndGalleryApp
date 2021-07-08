@@ -10,6 +10,6 @@ import RxSwift
 
 protocol RegistrationGateway {
     
-    func signUp(entity: SignUpEntity, locale: String) -> Single<UserEntity>
+    func signUp(entity: SignUpEntity) -> Single<UserEntity>
     
 }

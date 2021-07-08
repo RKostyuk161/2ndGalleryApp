@@ -20,11 +20,15 @@ class SignUpViewController: UIViewController {
     
     
     @IBAction func signUpButton(_ sender: UIButton) {
-        presenter.signUp(user: SignUpEntity(username: "roma", dateOfBirth: "05041998", email: "roma@web.ru", pass: "qwe"))
+        presenter.signUp(user: SignUpEntity(username: "Roma", birthday: nil, email: "nfojnewnf@qwe.rqwe", password: "qwert"))
+        
+        
     }
     
     @IBAction func signInButton(_ sender: UIButton) {
-        
+        let vc = UIStoryboard(name: "SignIn", bundle: nil).instantiateViewController(identifier: "SignInViewController") as! SignInViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     

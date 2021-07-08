@@ -9,9 +9,9 @@ import Foundation
 
 class Config {
     
-    static var apiEndpoint = "http://gallery.dev.webant.ru/api/"
+    static var apiEndpoint = "http://gallery.dev.webant.ru/"
     
     
-    static let clientId = "1_123"
-    static let clientSecret = "123"
+    static let clientId = "3_1v7ugoq694tcow0s0w8csw0k8koo0s44swgg0w8s0kkkosgw8w"
+    static let clientSecret = "5efb9az2d1sss48sgkowsow0gowck0k0ko4kswccog440gcw8o"
 }

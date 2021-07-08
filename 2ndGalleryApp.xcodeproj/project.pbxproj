@@ -27,10 +27,13 @@
 		8E07299D267255CC0071FF46 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E07299C267255CC0071FF46 /* SignUpViewController.swift */; };
 		8E0729A0267257D90071FF46 /* MainGallery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E07299F267257D90071FF46 /* MainGallery.storyboard */; };
 		8E0729A626725BD20071FF46 /* MainGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0729A526725BD20071FF46 /* MainGalleryViewController.swift */; };
-		8E0729AB26725C7F0071FF46 /* MainGalleryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0729AA26725C7F0071FF46 /* MainGalleryPresenter.swift */; };
+		8E0729AB26725C7F0071FF46 /* MainGalleryPresenterImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0729AA26725C7F0071FF46 /* MainGalleryPresenterImp.swift */; };
 		8E0729B126725D630071FF46 /* MainGalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0729AF26725D630071FF46 /* MainGalleryCollectionViewCell.swift */; };
 		8E0729B226725D630071FF46 /* MainGalleryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E0729B026725D630071FF46 /* MainGalleryCollectionViewCell.xib */; };
 		8E0729B426725DD90071FF46 /* ImageEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0729B326725DD90071FF46 /* ImageEntities.swift */; };
+		8E26E681269733620002F82A /* SignInPresenterImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E26E680269733620002F82A /* SignInPresenterImp.swift */; };
+		8E26E683269733D90002F82A /* SIgnInConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E26E682269733D90002F82A /* SIgnInConfigurator.swift */; };
+		8E26E6852697341A0002F82A /* SignInRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E26E6842697341A0002F82A /* SignInRouter.swift */; };
 		8E41344D2692FBE700C69ECE /* DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E41344C2692FBE700C69ECE /* DI.swift */; };
 		8E41344F269302B500C69ECE /* ApiBaseGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E41344E269302B500C69ECE /* ApiBaseGateway.swift */; };
 		8E413451269303E200C69ECE /* ApiAuthGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E413450269303E200C69ECE /* ApiAuthGateway.swift */; };
@@ -44,6 +47,8 @@
 		8E4134662694493300C69ECE /* LocalSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4134652694493300C69ECE /* LocalSettings.swift */; };
 		8E4134682694498400C69ECE /* UserDefaultsSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4134672694498400C69ECE /* UserDefaultsSettings.swift */; };
 		8E41346A269465DE00C69ECE /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E413469269465DE00C69ECE /* UserDefaultsKey.swift */; };
+		8E41347F2695A24600C69ECE /* ExtendedResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E41347E2695A24600C69ECE /* ExtendedResponseHandler.swift */; };
+		8E4134812695DC6200C69ECE /* MainGalleryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4134802695DC6200C69ECE /* MainGalleryPresenter.swift */; };
 		8EAF7C49268477470048A936 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EAF7C48268477470048A936 /* Assets.xcassets */; };
 		8EAF7C4B26849BFB0048A936 /* TokenEntitiy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C4A26849BFB0048A936 /* TokenEntitiy.swift */; };
 		8EAF7C4D26849C9B0048A936 /* PaginationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C4C26849C9B0048A936 /* PaginationEntity.swift */; };
@@ -100,10 +105,13 @@
 		8E07299C267255CC0071FF46 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		8E07299F267257D90071FF46 /* MainGallery.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainGallery.storyboard; sourceTree = "<group>"; };
 		8E0729A526725BD20071FF46 /* MainGalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGalleryViewController.swift; sourceTree = "<group>"; };
-		8E0729AA26725C7F0071FF46 /* MainGalleryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGalleryPresenter.swift; sourceTree = "<group>"; };
+		8E0729AA26725C7F0071FF46 /* MainGalleryPresenterImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGalleryPresenterImp.swift; sourceTree = "<group>"; };
 		8E0729AF26725D630071FF46 /* MainGalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		8E0729B026725D630071FF46 /* MainGalleryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainGalleryCollectionViewCell.xib; sourceTree = "<group>"; };
 		8E0729B326725DD90071FF46 /* ImageEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEntities.swift; sourceTree = "<group>"; };
+		8E26E680269733620002F82A /* SignInPresenterImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPresenterImp.swift; sourceTree = "<group>"; };
+		8E26E682269733D90002F82A /* SIgnInConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIgnInConfigurator.swift; sourceTree = "<group>"; };
+		8E26E6842697341A0002F82A /* SignInRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRouter.swift; sourceTree = "<group>"; };
 		8E41344C2692FBE700C69ECE /* DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DI.swift; sourceTree = "<group>"; };
 		8E41344E269302B500C69ECE /* ApiBaseGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiBaseGateway.swift; sourceTree = "<group>"; };
 		8E413450269303E200C69ECE /* ApiAuthGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiAuthGateway.swift; sourceTree = "<group>"; };
@@ -117,6 +125,8 @@
 		8E4134652694493300C69ECE /* LocalSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSettings.swift; sourceTree = "<group>"; };
 		8E4134672694498400C69ECE /* UserDefaultsSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsSettings.swift; sourceTree = "<group>"; };
 		8E413469269465DE00C69ECE /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
+		8E41347E2695A24600C69ECE /* ExtendedResponseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedResponseHandler.swift; sourceTree = "<group>"; };
+		8E4134802695DC6200C69ECE /* MainGalleryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGalleryPresenter.swift; sourceTree = "<group>"; };
 		8EAF7C48268477470048A936 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		8EAF7C4A26849BFB0048A936 /* TokenEntitiy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenEntitiy.swift; sourceTree = "<group>"; };
 		8EAF7C4C26849C9B0048A936 /* PaginationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationEntity.swift; sourceTree = "<group>"; };
@@ -188,9 +198,9 @@
 			children = (
 				8EAF7C522684BCCF0048A936 /* Settings.swift */,
 				8EAF7C86268F561E0048A936 /* GalleryPaginationGateway.swift */,
+				8EAF7C70268B18DD0048A936 /* RegistrationGateway.swift */,
 				8EAF7C66268613DB0048A936 /* AuthGateway.swift */,
 				8EAF7C622684CBBD0048A936 /* UserGateway.swift */,
-				8EAF7C70268B18DD0048A936 /* RegistrationGateway.swift */,
 			);
 			path = Gateway;
 			sourceTree = "<group>";
@@ -277,10 +287,10 @@
 			children = (
 				8E07299426721D9A0071FF46 /* SignUp.storyboard */,
 				8E07299C267255CC0071FF46 /* SignUpViewController.swift */,
-				8E41345C2693520200C69ECE /* SignUpRouter.swift */,
-				8E4134622693650800C69ECE /* SignUpConfigurator.swift */,
 				8EAF7C72268B1B840048A936 /* SignUpPresenter.swift */,
 				8EAF7C75268B1BA40048A936 /* SignUpPresenterImp.swift */,
+				8E4134622693650800C69ECE /* SignUpConfigurator.swift */,
+				8E41345C2693520200C69ECE /* SignUpRouter.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -291,6 +301,9 @@
 				8E07299626721DB10071FF46 /* SignIn.storyboard */,
 				8E0729982672424C0071FF46 /* SignInViewController.swift */,
 				8E07299A2672511A0071FF46 /* SignInPresenter.swift */,
+				8E26E680269733620002F82A /* SignInPresenterImp.swift */,
+				8E26E682269733D90002F82A /* SIgnInConfigurator.swift */,
+				8E26E6842697341A0002F82A /* SignInRouter.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -323,7 +336,8 @@
 				8E038FA02678F709000E56AC /* Statesments.swift */,
 				8E0729A526725BD20071FF46 /* MainGalleryViewController.swift */,
 				8EBA5C7A267B9E7D00941513 /* MainGalleryViewControllersExtensions.swift */,
-				8E0729AA26725C7F0071FF46 /* MainGalleryPresenter.swift */,
+				8E4134802695DC6200C69ECE /* MainGalleryPresenter.swift */,
+				8E0729AA26725C7F0071FF46 /* MainGalleryPresenterImp.swift */,
 				8E038FA2267A1645000E56AC /* MainGalleryConfigurator.swift */,
 				8EBA5C73267A3F6F00941513 /* MainGalleryRouter.swift */,
 				8E038FA4267A1FF2000E56AC /* FullImageInfo */,
@@ -370,6 +384,7 @@
 		8E41346B2694A9C500C69ECE /* ResponseHandler */ = {
 			isa = PBXGroup;
 			children = (
+				8E41347E2695A24600C69ECE /* ExtendedResponseHandler.swift */,
 			);
 			path = ResponseHandler;
 			sourceTree = "<group>";
@@ -607,14 +622,16 @@
 				8E413451269303E200C69ECE /* ApiAuthGateway.swift in Sources */,
 				8E038FA8267A2034000E56AC /* FullImageInfoPresenter.swift in Sources */,
 				8EAF7C6F268B18710048A936 /* RegistrationUseCaseImp.swift in Sources */,
+				8E41347F2695A24600C69ECE /* ExtendedResponseHandler.swift in Sources */,
 				8E038F962673A32D000E56AC /* AddPhotoViewController.swift in Sources */,
 				8EAF7C4B26849BFB0048A936 /* TokenEntitiy.swift in Sources */,
+				8E26E683269733D90002F82A /* SIgnInConfigurator.swift in Sources */,
 				8E07297C267205A90071FF46 /* _ndGalleryApp.xcdatamodeld in Sources */,
 				8EAF7C532684BCCF0048A936 /* Settings.swift in Sources */,
 				8E0729A626725BD20071FF46 /* MainGalleryViewController.swift in Sources */,
 				8EAF7C612684C9310048A936 /* UserUseCaseImp.swift in Sources */,
 				8EAF7C87268F561E0048A936 /* GalleryPaginationGateway.swift in Sources */,
-				8E0729AB26725C7F0071FF46 /* MainGalleryPresenter.swift in Sources */,
+				8E0729AB26725C7F0071FF46 /* MainGalleryPresenterImp.swift in Sources */,
 				8E038FA12678F709000E56AC /* Statesments.swift in Sources */,
 				8EAF7C632684CBBD0048A936 /* UserGateway.swift in Sources */,
 				8E4134632693650800C69ECE /* SignUpConfigurator.swift in Sources */,
@@ -625,6 +642,7 @@
 				8EAF7C5126849FC50048A936 /* UserEntity.swift in Sources */,
 				8EAF7C562684BE900048A936 /* AuthUseCase.swift in Sources */,
 				8E07299D267255CC0071FF46 /* SignUpViewController.swift in Sources */,
+				8E26E6852697341A0002F82A /* SignInRouter.swift in Sources */,
 				8EAF7C67268613DB0048A936 /* AuthGateway.swift in Sources */,
 				8EBA5C79267B9E3700941513 /* FullImageInfoConfigurator.swift in Sources */,
 				8E0729992672424C0071FF46 /* SignInViewController.swift in Sources */,
@@ -632,11 +650,13 @@
 				8EAF7C76268B1BA40048A936 /* SignUpPresenterImp.swift in Sources */,
 				8E4134532693076600C69ECE /* ApiUserGateway.swift in Sources */,
 				8EAF7C7C268DBF670048A936 /* ApiEndPoint.swift in Sources */,
+				8E26E681269733620002F82A /* SignInPresenterImp.swift in Sources */,
 				8E4134682694498400C69ECE /* UserDefaultsSettings.swift in Sources */,
 				8EAF7C4F26849DCE0048A936 /* CheckUserEntity.swift in Sources */,
 				8EAF7C7A268CAF1B0048A936 /* ExtendedApiRequest.swift in Sources */,
 				8EBA5C7B267B9E7D00941513 /* MainGalleryViewControllersExtensions.swift in Sources */,
 				8EAF7C78268CAEF50048A936 /* Requests.swift in Sources */,
+				8E4134812695DC6200C69ECE /* MainGalleryPresenter.swift in Sources */,
 				8E038FA6267A2019000E56AC /* FullImageInfoViewController.swift in Sources */,
 				8EBA5C7F267BA15E00941513 /* ImageEntity.swift in Sources */,
 				8E41344D2692FBE700C69ECE /* DI.swift in Sources */,

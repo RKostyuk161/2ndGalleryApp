@@ -13,6 +13,7 @@ protocol PaginationUseCase {
     var isLoadingInProcess: Bool { get }
     var currentPage: Int { get }
     var totalItems: Int? { get }
+    var items: [ImageEntity] { get }
     
     func hasMorePages() -> Bool
     func getMoreImages() -> Completable

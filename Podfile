@@ -9,6 +9,7 @@ target '2ndGalleryApp' do
   pod 'R.swift'
   pod 'RxSwift', '~> 5.0.1', :inhibit_warnings => true
   pod 'DITranquillity', :inhibit_warnings => true
+  pod "DBDebugToolkit", :inhibit_warnings => true
 
 end
 

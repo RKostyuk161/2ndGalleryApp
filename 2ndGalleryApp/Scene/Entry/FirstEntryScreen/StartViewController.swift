@@ -26,6 +26,7 @@ class StartViewController: UIViewController {
         StartConfigurator().config(view: self)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.navigationController?.navigationBar.backgroundColor = nil
+        self.navigationController?.setToolbarHidden(true, animated: false)
     }
 
 }

@@ -17,8 +17,7 @@ class RegistrationUseCaseImp: RegistrationUseCase {
     }
     
     func signUp(entity: SignUpEntity) -> Single<UserEntity> {
-        let locale = Locale.current.identifier
-        return registrationGateway.signUp(entity: entity, locale: locale )
+        return registrationGateway.signUp(entity: entity)
     }
     
 

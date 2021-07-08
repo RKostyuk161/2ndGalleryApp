@@ -9,19 +9,21 @@ import Foundation
 import RxSwift
 
 class SignUpPresenterImp: SignUpPresenter {
-    
+
     weak var view: SignUpViewController!
     var user = SignUpEntity()
     let registrationUseCase: RegistrationUseCase
     let userUsecase: UserUseCase
     let settings: Settings
+    let router: SignUpRouter
     var disposeBag = DisposeBag()
     
-    init(view: SignUpViewController, registrationUseCase: RegistrationUseCase, userUseCase: UserUseCase, settings: Settings) {
+    init(view: SignUpViewController, registrationUseCase: RegistrationUseCase, userUseCase: UserUseCase, settings: Settings, router: SignUpRouter) {
         self.view = view
         self.registrationUseCase = registrationUseCase
         self.userUsecase = userUseCase
         self.settings = settings
+        self.router = router
     }
     
     func signUp(user: SignUpEntity) {

@@ -8,6 +8,6 @@
 import Foundation
 
 struct ImageEntities: Decodable, Encodable {
-    var countOfPages: Int?
+    var itemsPerPage: Int?
     var data: [ImageEntity]?
 }

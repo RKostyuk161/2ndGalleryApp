@@ -38,16 +38,6 @@ class UserUseCaseImp: UserUseCase {
             })
             .asCompletable()
     }
-    
-    func updateInfoWithoutPhoto(user: UserEntity) -> Completable {
-        let updateApiUser = UserApiEntity(user: user)
-        return self.userGateway.updateUserInfo(userId: user.id!, user: updateApiUser)
-            .observeOn(MainScheduler.instance)
-            .do(onSuccess: { [weak self] newUserInfo in
-                self?.settings.account = newUserInfo
-            })
-            .asCompletable()
-    }
 }
 
 enum UserUseCaseError: LocalizedError {

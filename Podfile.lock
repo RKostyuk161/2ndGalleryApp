@@ -1,4 +1,5 @@
 PODS:
+  - DBDebugToolkit (0.6.0)
   - DITranquillity (4.3.2):
     - SwiftLazy (>= 1.1.6)
   - Kingfisher (6.2.1)
@@ -13,6 +14,7 @@ PODS:
   - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
+  - DBDebugToolkit
   - DITranquillity
   - Kingfisher
   - R.swift
@@ -21,6 +23,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - DBDebugToolkit
     - DITranquillity
     - Kingfisher
     - R.swift
@@ -31,6 +34,7 @@ SPEC REPOS:
     - SwiftyJSON
 
 SPEC CHECKSUMS:
+  DBDebugToolkit: 03eb3483da4daf03b853b83ade5a8da9c8b7aff4
   DITranquillity: e922e61bf09840a57cdd5215bc3ddb725ca0413e
   Kingfisher: e71c6fac2aebb1262888cabc2cb13d313362a48f
   R.swift: c533450b0f7dc494e0993f5f1a1db925d84c3006
@@ -40,6 +44,6 @@ SPEC CHECKSUMS:
   SwiftLazy: 1657354f43dbd6a0a79e00ad67558d655c77bdc9
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 03c82f6ac0dbf3d8a14a13a82cbbf9a8ac213674
+PODFILE CHECKSUM: f58d49e708f369dbb3003b11b60ee5f855f031e3
 
 COCOAPODS: 1.10.1

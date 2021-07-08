@@ -11,5 +11,5 @@ import RxSwift
 protocol GalleryPaginationGateway {
     func getImages(page: Int,
                    limit: Int,
-                   currentCollection: CollectionType) -> Single<PaginationEntity<ImageEntities>>
+                   currentCollection: CollectionType) -> Single<PaginationEntity<[ImageEntity]>>
 }

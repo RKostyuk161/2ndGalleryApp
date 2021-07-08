@@ -30,6 +30,7 @@ class DI {
             config.shouldUseExtendedBackgroundIdleMode = true
             config.urlCache?.removeAllCachedResponses()
             let client = ApiClientImp(urlSessionConfiguration: config, completionHandlerQueue: .main)
+            client.responseHandlersQueue.append(JsonResponseHandler())
             return client
         }
         .as(ApiClient.self)
