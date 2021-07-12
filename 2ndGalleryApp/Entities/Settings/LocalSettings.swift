@@ -28,15 +28,6 @@ class LocalSettings: Settings {
         }
     }
     
-    var defaultSuitName: String? {
-        get {
-            return self.userDefaults.read(UserDefaultsKey.defautSiutname)
-        }
-        set(value) {
-            return self.userDefaults.saveData(UserDefaultsKey.defautSiutname, value)
-        }
-    }
-    
     let userDefaults: UserDefaultsSettings
     
     init(userDefaults: UserDefaultsSettings) {

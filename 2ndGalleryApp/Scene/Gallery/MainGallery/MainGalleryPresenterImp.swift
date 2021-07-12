@@ -8,18 +8,21 @@
 import Foundation
 import RxSwift
 
-class MainGalleryPresenterImp {
-   
+class MainGalleryPresenterImp: MainGalleryPresenter {
+
     var view: MainGalleryViewController!
     var router: MainGalleryRouter!
     var paginationUseCase: PaginationUseCase
     var currentCollection: CollectionType
+    
     var newImageEntityArray = [ImageEntity]()
     var paginationNumberOfPageOfNewImages = 1
     var indexPathToScrollNewCollection = IndexPath()
+    
     var popularImageEntitiyArray = [ImageEntity]()
     var paginationNumberOfPageOfPopularImages = 1
     var indexPathToScrollPopularCollection = IndexPath()
+    
     var responseDisposeBag = DisposeBag()
     var paginationDisposeBag = DisposeBag()
 
@@ -43,7 +46,7 @@ class MainGalleryPresenterImp {
         } else {
                 imageUrl = popularImageEntitiyArray[indexPath.item]
 
-            }
+        }
         
         cell.setupCell(url: (imageUrl.image?.name)!)
         return cell
@@ -51,7 +54,6 @@ class MainGalleryPresenterImp {
 
     func setupNumberOfCellsForMainGalleryCollectionView(collectionType: CollectionType) -> Int {
         if collectionType.rawValue == 0 {
-            print(collectionType.rawValue)
             return newImageEntityArray.count
         } else {
             return popularImageEntitiyArray.count
@@ -62,18 +64,8 @@ class MainGalleryPresenterImp {
         return CGSize(width: view.view.frame.width / CGFloat(itemsPerLine)-15, height: view.view.frame.width / CGFloat(itemsPerLine)-15)
     }
     
-    func pushFullImageInfo(indexPath: IndexPath) {
-        switch currentCollection {
-        case .new:
-            if indexPath.item == newImageEntityArray.count - 1 {
-                self.getFullGalleryRequest(isNewCollection: currentCollection)
-            }
-        case .popular:
-            if indexPath.item == popularImageEntitiyArray.count - 1 {
-                self.getFullGalleryRequest(isNewCollection: currentCollection)
-            }
-        }
-    }
+
+
     
     func subscribeOnGalleryRequestResult() {
         paginationUseCase.source
@@ -84,7 +76,6 @@ class MainGalleryPresenterImp {
                 if self.currentCollection.rawValue == 0 {
                     self.newImageEntityArray.append(contentsOf: reult)
                     self.view.galleryCollectionView.reloadData()
-                    print(" WE START HEREREERERERE\(self.newImageEntityArray) ")
                 } else {
                     self.popularImageEntitiyArray.append(contentsOf: reult)
                     self.view.galleryCollectionView.reloadData()
@@ -98,49 +89,20 @@ class MainGalleryPresenterImp {
         if isNewCollection.rawValue == 1 {
             currentPagination = paginationNumberOfPageOfPopularImages
         }
-        self.paginationUseCase.getMoreImages()
+        self.paginationUseCase.getMoreImages(collectionType: isNewCollection)
             .observeOn(MainScheduler.instance)
             .do(onDispose: {
-//                self.paginationUseCase.currentPage
-//                print("\(self.paginationUseCase.currentPage)")
-//                print("\(self.paginationUseCase.totalItems)")
-//                print("\(self.paginationUseCase.source)")
                 self.view.galleryCollectionView.reloadData()
-
+                
             })
             .subscribe(onError: { [weak self] error in
                         guard let self = self else { return }
                 
             })
             .disposed(by: self.responseDisposeBag)
-        
-        
     }
-        
-//        gateway.getRequest(currentUrl: GalleryGateway.getUrl, numberOfPage: currentPagination, currentCollection: currentCollection) { getInfo, message in
-//            switch message {
-//            
-//            case "200":
-//                guard let allGettingInfo = getInfo,
-//                      let images = allGettingInfo.data,
-//                      let pages = allGettingInfo.countOfPages else {return }
-//
-//                if isNewCollection.rawValue == 0 {
-//                    self.newImageEntityArray.append(contentsOf: images)
-//                } else {
-//                    self.popularImageEntitiyArray.append(contentsOf: images)
-//                }
-//
-//                self.view.galleryCollectionView.reloadData()
-//            case "no connection":
-//                return
-//                
-//            default:
-//                return
-//            }
-//        }
     
-    func getNewPaginationRequest(indexPath: IndexPath)  {
+    func getMoreImages(collectionType: CollectionType, indexPath: IndexPath) {
         switch currentCollection {
         case .new:
             if indexPath.item == newImageEntityArray.count - 1 {
@@ -151,10 +113,10 @@ class MainGalleryPresenterImp {
                 self.getFullGalleryRequest(isNewCollection: currentCollection)
             }
         }
-
     }
     
-    func prepeareForRoute() {
-
+    func prepeareForRoute(indexPath: IndexPath) {
+        
     }
+    
 }

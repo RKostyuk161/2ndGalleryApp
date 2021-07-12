@@ -11,11 +11,14 @@ import RxSwift
 protocol PaginationUseCase {
     var source: PublishSubject<[ImageEntity]> { get }
     var isLoadingInProcess: Bool { get }
-    var currentPage: Int { get }
-    var totalItems: Int? { get }
-    var items: [ImageEntity] { get }
+    var newCurrentPage: Int { get }
+    var popularCurrentPage: Int { get }
+    var newTotalItems: Int? { get }
+    var popularTotalItems: Int? { get }
+    var newItems: [ImageEntity] { get }
+    var popularItems: [ImageEntity] { get }
     
-    func hasMorePages() -> Bool
-    func getMoreImages() -> Completable
-    func reset()
+    func hasMorePages(items: [ImageEntity], totalItems: Int?) -> Bool
+    func getMoreImages(collectionType: CollectionType) -> Completable
+    func reset(collectionType: CollectionType)
 }

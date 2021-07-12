@@ -8,9 +8,9 @@
 import Foundation
 
 protocol Settings: AnyObject {
+    
     var token: TokenEntity? { get set }
     var account: UserEntity? { get set }
-    var defaultSuitName: String? { get set }
     
     func clearUserData()
 }

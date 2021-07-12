@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 class SignUpViewController: UIViewController {
     
@@ -20,9 +21,8 @@ class SignUpViewController: UIViewController {
     
     
     @IBAction func signUpButton(_ sender: UIButton) {
-        presenter.signUp(user: SignUpEntity(username: "Roma", birthday: nil, email: "nfojnewnf@qwe.rqwe", password: "qwert"))
         
-        
+        checkFieldsAndReg()
     }
     
     @IBAction func signInButton(_ sender: UIButton) {
@@ -39,5 +39,31 @@ class SignUpViewController: UIViewController {
 
     func makeSignUp() {
         
+    }
+    
+    func checkFieldsAndReg() {
+        
+        guard let userNameText = usernameTextField.text,
+              let emailText = emailTextField.text,
+              let oldPasswordText = oldPasswordTextField.text,
+              let confirmPasswordText = confirmPassTextField.text,
+              let birthPasswordText = birthdayTextField.text else { return }
+        
+        if userNameText.isEmpty,
+           emailText.isEmpty,
+           oldPasswordText.isEmpty,
+           confirmPasswordText.isEmpty {
+            return
+        }
+        
+        if oldPasswordText != confirmPasswordText {
+            return
+        }
+        let query: String? = (birthPasswordText.isEmpty) ? nil : birthPasswordText
+        let user = SignUpEntity(username: userNameText,
+                                birthday: query,
+                                email: emailText,
+                                password: confirmPasswordText)
+        presenter.signUp(user: user)
     }
 }

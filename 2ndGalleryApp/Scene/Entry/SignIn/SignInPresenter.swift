@@ -9,5 +9,5 @@ import Foundation
 
 protocol SignInPresenter {
     func signIn(username: String, password: String)
-    func openForgotPasswordScene()
+    func moveToSignUp()
 }

@@ -9,6 +9,7 @@ import Foundation
 import RxSwift
 
 protocol UserGateway {
+    
     func getAcc() -> Single<UserEntity>
 
     func updateUserInfo(userId: Int, user: UserApiEntity) -> Single<UserEntity>

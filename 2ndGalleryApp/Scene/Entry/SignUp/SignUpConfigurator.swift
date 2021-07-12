@@ -15,7 +15,8 @@ class SignUpConfigurator {
                                            registrationUseCase: DI.resolve(),
                                            userUseCase: DI.resolve(),
                                            settings: DI.resolve(),
-                                           router: router)
+                                           router: router,
+                                           loginUseCase: DI.resolve())
         view.presenter = presenter
     }
 }

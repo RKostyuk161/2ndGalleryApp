@@ -9,6 +9,7 @@ import Foundation
 import RxSwift
 
 protocol AuthUseCase {
+    
     var tokenState: TokenState { get }
     
     func sighIn(login: String, password: String) -> Completable
@@ -16,4 +17,5 @@ protocol AuthUseCase {
     func refreshToken() -> Completable
     
     func logout()
+    
 }

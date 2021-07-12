@@ -87,7 +87,7 @@ public class ApiClientImp: ApiClient {
                 .subscribeOn(dispatchQueue)
                 .observeOn(dispatchQueue)
                 .timeout(request.responseTimeout, scheduler: timeoutScheduler)
-                .do(onError: { error in print("network error:", error) })
+        .do(onError: { error in print("network error:", error.localizedDescription.description) })
     }
 
     /// Вызывается перед тем, как обработается ответ от сервера.

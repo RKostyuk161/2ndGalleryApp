@@ -9,17 +9,20 @@ import Foundation
 import RxSwift
 
 class PaginationUseCaseImp: PaginationUseCase {
-    
+   
     var source = PublishSubject<[ImageEntity]>()
     var isLoadingInProcess: Bool = false
-    var currentPage: Int = 1
-    var totalItems: Int?
+    var newCurrentPage: Int = 1
+    var popularCurrentPage: Int = 1
+    var newTotalItems: Int?
+    var popularTotalItems: Int?
     
     let gateway: GalleryPaginationGateway
     let settings: Settings
     
     var collectionType: CollectionType
-    var items = [ImageEntity]()
+    var newItems = [ImageEntity]()
+    var popularItems = [ImageEntity]()
     let limit = 10
     var disposeBag = DisposeBag()
     
@@ -29,42 +32,69 @@ class PaginationUseCaseImp: PaginationUseCase {
         self.collectionType = collectionType
     }
     
-    func hasMorePages() -> Bool {
+    func hasMorePages(items: [ImageEntity], totalItems: Int?) -> Bool {
         
-        guard let totalItems = self.totalItems else { return true }
+        guard let totalItems = totalItems else { return true }
         
-        return self.items.count < totalItems
+        return items.count < totalItems
         
     }
     
-    func getMoreImages() -> Completable {
+    func getMoreImages(collectionType: CollectionType) -> Completable {
         self.cancelLoading()
         self.isLoadingInProcess = true
+        var page = 1
+        if collectionType == .new {
+            page = newCurrentPage
+        } else {
+            page = popularCurrentPage
+        }
+        
         return .empty()
-            .andThen(self.gateway.getImages(page: self.currentPage,
+            .andThen(self.gateway.getImages(page: page,
                                             limit: self.limit,
                                             currentCollection: collectionType))
             .do(onSuccess: { [unowned self] result in
-                self.currentPage += 1
-                self.totalItems = result.totalItems
-                self.items.append(contentsOf: result.data)
-                print(self.items)
-                self.source.onNext(self.items)
-                self.isLoadingInProcess = false
+                
+                switch collectionType {
+                case .new: do {
+                    self.newCurrentPage += 1
+                    self.newTotalItems = result.totalItems
+                    self.newItems.append(contentsOf: result.data)
+                    self.source.onNext(self.newItems)
+                    self.isLoadingInProcess = false
+                }
+                case .popular: do {
+                    self.popularCurrentPage += 1
+                    self.popularTotalItems = result.totalItems
+                    self.popularItems.append(contentsOf: result.data)
+                    self.source.onNext(self.popularItems)
+                    self.isLoadingInProcess = false
+                }
+                }
+                
+                
             },
             onError: { error in
                 self.isLoadingInProcess = false
                 print(error.localizedDescription)
             })
             .asCompletable()
-
-                
     }
     
-    func reset() {
-        self.items.removeAll()
-        self.totalItems = nil
-        self.currentPage = 1
+    
+    func reset(collectionType: CollectionType) {
+        switch collectionType {
+        case .new:
+            self.newItems.removeAll()
+            self.newTotalItems = nil
+            self.newCurrentPage = 1
+        case .popular:
+            self.popularItems.removeAll()
+            self.popularTotalItems = nil
+            self.popularCurrentPage = 1
+        }
+
     }
     
     func cancelLoading() {

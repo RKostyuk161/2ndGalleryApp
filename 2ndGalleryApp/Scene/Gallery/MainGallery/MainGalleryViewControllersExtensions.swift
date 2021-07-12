@@ -10,17 +10,11 @@ import UIKit
 
 extension MainGalleryViewController: UICollectionViewDelegate {
         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            presenter.prepeareForRoute()
+            presenter.prepeareForRoute(indexPath: indexPath)
         }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        presenter.getNewPaginationRequest(indexPath: indexPath)
-        switch presenter.currentCollection {
-        case .new:
-            presenter.indexPathToScrollNewCollection = indexPath
-        case .popular:
-            presenter.indexPathToScrollPopularCollection = indexPath
-        }
+        
     }
 }
 
@@ -49,7 +43,7 @@ extension MainGalleryViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension UISegmentedControl {
-    func removeBorder(){
+    func removeBorder() {
         let backgroundImage = UIImage.getColoredRectImageWith(color: UIColor.white.cgColor, andSize: self.bounds.size)
         self.setBackgroundImage(backgroundImage, for: .normal, barMetrics: .default)
         self.setBackgroundImage(backgroundImage, for: .selected, barMetrics: .default)

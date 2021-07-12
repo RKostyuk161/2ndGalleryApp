@@ -12,31 +12,34 @@ class SignInViewController: UIViewController {
     var presenter: SignInPresenter!
     
     @IBOutlet weak var emailTextField: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
-    
     @IBAction func forgotButton(_ sender: UIButton) {
         
     }
-    
     @IBAction func singInButton(_ sender: UIButton) {
-        presenter.signIn(username: "qwertyqwertyqwerty@mail.ru", password: "qqqqqq")
-//        let storyboard = UIStoryboard(name: "MainGallery", bundle: nil)
-//        let mainTabBarController = storyboard.instantiateViewController(identifier: "MainGalleryTabBarController") as! UITabBarController
-//        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
-        
-        
+        checkFieldsAndAuth()
     }
-    
     @IBAction func signUpButton(_ sender: UIButton) {
-        let vc = UIStoryboard(name: "SignUp", bundle: nil).instantiateViewController(identifier: "SignUpViewController") as! SignUpViewController
-        self.navigationController?.pushViewController(vc, animated: true)
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-        
+        presenter.moveToSignUp()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         SignInConfigurator().config(view: self)
 
+    }
+    
+    func checkFieldsAndAuth() {
+        
+        guard let emailText = emailTextField.text,
+              let oldPasswordText = passwordTextField.text else { return }
+
+        if emailText.isEmpty,
+           oldPasswordText.isEmpty {
+            Alerts.addAlert(hasErrors: true, alertType: .auth, alertTitle: "field are clear", message: nil, view: self)
+            
+        } else {
+            
+            presenter.signIn(username: emailText, password: oldPasswordText)
+        }
     }
 }

@@ -22,7 +22,7 @@ extension ExtendedApiRequest {
     }
     
     static func getAccRequest() -> ExtendedApiRequest {
-        return extendedRequest(path: "api/users/current", method: .get )
+        return extendedRequest(path: "api/users/current", method: .get)
     }
     
     static func updateUserUnfo(userId: Int, user: UserApiEntity) -> ExtendedApiRequest {

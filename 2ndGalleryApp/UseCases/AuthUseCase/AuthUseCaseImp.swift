@@ -14,6 +14,20 @@ class AuthUseCaseImp: AuthUseCase {
     var authApi: AuthGateway
     var tokenState: TokenState
     
+    var tokenCondition: TokenState {
+        return tokenState
+    }
+    
+    var account: UserEntity? {
+        get {
+            return settings.account
+        }
+        set(acc) {
+            settings.account = acc
+        }
+    }
+    
+    
     init(settings: Settings, userUseCase: UserUseCase, authApi: AuthGateway) {
         self.settings = settings
         self.userUseCase = userUseCase
@@ -33,6 +47,7 @@ class AuthUseCaseImp: AuthUseCase {
                 self.settings.token = tokenEntity
             }, onError: { _ in
                 self.tokenState = .failedToRefresh
+                
             }, onSubscribed: {
                 self.tokenState = .refreshing
             }, onDispose: {
@@ -60,6 +75,13 @@ class AuthUseCaseImp: AuthUseCase {
             .asCompletable()
             .andThen(self.userUseCase.getUserInfo())
             .asCompletable()
-        
+            .do(onCompleted: {
+                NotificationCenter.default.post(name: .onUserSignedIn, object: nil)
+            })
     }
+}
+
+extension Notification.Name {
+
+    static let onUserSignedIn = Notification.Name("onUserSignedIn")
 }

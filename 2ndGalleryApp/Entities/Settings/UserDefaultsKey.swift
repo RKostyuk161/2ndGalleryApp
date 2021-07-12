@@ -15,8 +15,7 @@ protocol UserDefaultsKeyType {
 enum UserDefaultsKey: String, CaseIterable ,UserDefaultsKeyType {
     
     case token,
-         account,
-         defautSiutname
+         account
     
     static var clearable: [UserDefaultsKey] {
         return UserDefaultsKey.allCases

@@ -9,13 +9,12 @@ import UIKit
 
 class MainGalleryViewController: UIViewController {
 
-    var presenter: MainGalleryPresenterImp!
+    var presenter: MainGalleryPresenter!
     var setNumberOfCellsInRow: Int {
         UIDevice.current.orientation.isLandscape ? 4 : 2
         
     }
     
-
     @IBOutlet weak var galleryCollectionView: UICollectionView!
     @IBOutlet weak var gallerySegmentControl: UISegmentedControl!
     
@@ -25,15 +24,15 @@ class MainGalleryViewController: UIViewController {
             gallerySegmentControl.changeUnderlinePosition()
             presenter.currentCollection = .new
             galleryCollectionView.reloadData()
-            galleryCollectionView.scrollToItem(at: presenter.indexPathToScrollNewCollection, at: .centeredHorizontally, animated: false)
+//            galleryCollectionView.scrollToItem(at: presenter.indexPathToScrollNewCollection, at: .centeredHorizontally, animated: false)
         } else {
             gallerySegmentControl.changeUnderlinePosition()
             presenter.currentCollection = .popular
-            if presenter.paginationNumberOfPageOfPopularImages == 1 {
-                presenter.getFullGalleryRequest(isNewCollection: presenter.currentCollection)
-            }
+//            if presenter.paginationNumberOfPageOfPopularImages == 1 {
+//                presenter.getFullGalleryRequest(isNewCollection: presenter.currentCollection)
+//            }
             galleryCollectionView.reloadData()
-            galleryCollectionView.scrollToItem(at: presenter.indexPathToScrollPopularCollection, at: .centeredHorizontally, animated: false)
+//            galleryCollectionView.scrollToItem(at: presenter.indexPathToScrollPopularCollection, at: .centeredHorizontally, animated: false)
         }
     }
     
@@ -42,13 +41,10 @@ class MainGalleryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setSegmentControl()
         setupViewIfNeed()
         presenter.subscribeOnGalleryRequestResult()
-        presenter.getFullGalleryRequest(isNewCollection: presenter.currentCollection)
-
-        gallerySegmentControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: UIControl.State.selected)
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         
         galleryLoadActivityIndicator.isHidden = true
@@ -86,12 +82,15 @@ class MainGalleryViewController: UIViewController {
         }
    
     func setupViewIfNeed() {
+        setSegmentControl()
+        gallerySegmentControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: UIControl.State.selected)
         guard self.presenter == nil else { return }
         let currentCollection = self.gallerySegmentControl.selectedSegmentIndex
         MainGalleryConfigurator().config(view: self, currentCollection: currentCollection)
-        self.galleryCollectionView.register(UINib(nibName: "MainGalleryCollectionViewCell",
+        let galleryCellName = R.nib.mainGalleryCollectionViewCell.name
+        self.galleryCollectionView.register(UINib(nibName: galleryCellName,
                                                   bundle: nil),
-                                            forCellWithReuseIdentifier: "MainGalleryCollectionViewCell")
+                                            forCellWithReuseIdentifier: galleryCellName)
         self.galleryCollectionView.dataSource = self
         self.galleryCollectionView.delegate = self
         

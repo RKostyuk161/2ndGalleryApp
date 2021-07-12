@@ -14,4 +14,6 @@ protocol SignUpPresenter {
     func getUser() -> UserEntity?
     
     func proceed(user: SignUpEntity)
+    
+    
 }

@@ -17,7 +17,8 @@ class StartRouter {
     
     func openSignUpScene() {
         if self.view.navigationController != nil {
-            let vc = UIStoryboard(name: "SignUp", bundle: nil).instantiateViewController(identifier: "SignUpViewController") as! SignUpViewController
+            let identifier = R.storyboard.signUp.signUpViewController.identifier
+            let vc = R.storyboard.signUp().instantiateViewController(withIdentifier: identifier)
             view.navigationController?.pushViewController(vc, animated: true)
             view.navigationController?.setNavigationBarHidden(false, animated: true)
         }
@@ -25,7 +26,8 @@ class StartRouter {
     
     func openSingInScene() {
         if self.view.navigationController != nil {
-            let vc = UIStoryboard(name: "SignIn", bundle: nil).instantiateViewController(identifier: "SignInViewController") as! SignInViewController
+            let identifier = R.storyboard.signIn.signInViewController.identifier
+            let vc = R.storyboard.signIn().instantiateViewController(withIdentifier: identifier)
             view.navigationController?.pushViewController(vc, animated: true)
             view.navigationController?.setNavigationBarHidden(false, animated: true)
         }

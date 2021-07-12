@@ -22,6 +22,10 @@ class DI {
         
         ApiEndpoint.baseEndpoint = ApiEndpoint.webAntApi
         
+        self.container.register(AuthInterceptor.init)
+            .as(AuthInterceptor.self)
+            .lifetime(.single)
+        
         self.container.register { () -> ApiClientImp in
             let config = URLSessionConfiguration.default
             config.timeoutIntervalForRequest = 60 * 20
@@ -35,6 +39,9 @@ class DI {
         }
         .as(ApiClient.self)
         .lifetime(.single)
+        .injection(cycle: true) {
+            $0.interceptors.insert($1 as AuthInterceptor, at: 0)
+        }
         
         
         self.container.register(UserDefaultsSettings.init)

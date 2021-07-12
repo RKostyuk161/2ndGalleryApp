@@ -6,11 +6,21 @@
 //
 
 import Foundation
+import UIKit
 
 protocol MainGalleryPresenter {
     
-    func getMoreImages(collectionType: CollectionType, page: Int)
+    var currentCollection: CollectionType { get set }
     
-    func pushFullImageInfo(indexPath: IndexPath)
+    func getMoreImages(collectionType: CollectionType, indexPath: IndexPath)
     
+    func subscribeOnGalleryRequestResult()
+    
+    func prepeareForRoute(indexPath: IndexPath)
+    
+    func setupNumberOfCellsForMainGalleryCollectionView(collectionType: CollectionType) -> Int
+    
+    func createCellForMainGalleryCollectionView(indexPath: IndexPath) -> UICollectionViewCell
+    
+    func setupSizeForCell(itemsPerLine: Int) -> CGSize
 }

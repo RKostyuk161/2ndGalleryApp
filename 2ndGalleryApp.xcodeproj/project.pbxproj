@@ -31,9 +31,25 @@
 		8E0729B126725D630071FF46 /* MainGalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0729AF26725D630071FF46 /* MainGalleryCollectionViewCell.swift */; };
 		8E0729B226725D630071FF46 /* MainGalleryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E0729B026725D630071FF46 /* MainGalleryCollectionViewCell.xib */; };
 		8E0729B426725DD90071FF46 /* ImageEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0729B326725DD90071FF46 /* ImageEntities.swift */; };
+		8E18C74826986045004EFC69 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18C74726986045004EFC69 /* R.generated.swift */; };
+		8E18C74A2698644B004EFC69 /* AppDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18C7492698644B004EFC69 /* AppDelegateExtension.swift */; };
+		8E18C74D269C3EED004EFC69 /* ALerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18C74C269C3EED004EFC69 /* ALerts.swift */; };
+		8E18C74F269C4AEE004EFC69 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18C74E269C4AEE004EFC69 /* Errors.swift */; };
+		8E18C751269C5683004EFC69 /* ProfileViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18C750269C5683004EFC69 /* ProfileViewControllerExtensions.swift */; };
+		8E18C753269C568F004EFC69 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18C752269C568F004EFC69 /* ProfilePresenter.swift */; };
+		8E18C755269C5697004EFC69 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18C754269C5697004EFC69 /* ProfileRouter.swift */; };
+		8E18C757269C56A2004EFC69 /* ProfileConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18C756269C56A2004EFC69 /* ProfileConfigurator.swift */; };
+		8E18C759269C56E1004EFC69 /* ProfilePresenterImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18C758269C56E1004EFC69 /* ProfilePresenterImp.swift */; };
+		8E18C75C269C7EEB004EFC69 /* ProfileSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18C75B269C7EEB004EFC69 /* ProfileSettingsViewController.swift */; };
+		8E18C75E269C7EFB004EFC69 /* ProfileSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E18C75D269C7EFB004EFC69 /* ProfileSettings.storyboard */; };
+		8E18C760269C7F15004EFC69 /* ProfileSettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18C75F269C7F15004EFC69 /* ProfileSettingsRouter.swift */; };
+		8E18C762269C7F22004EFC69 /* ProfileSettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18C761269C7F22004EFC69 /* ProfileSettingsPresenter.swift */; };
+		8E18C764269C7F2D004EFC69 /* ProfileSettingPresenterImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18C763269C7F2D004EFC69 /* ProfileSettingPresenterImp.swift */; };
+		8E18C766269C7F3A004EFC69 /* ProfileSettingsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18C765269C7F3A004EFC69 /* ProfileSettingsConfigurator.swift */; };
 		8E26E681269733620002F82A /* SignInPresenterImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E26E680269733620002F82A /* SignInPresenterImp.swift */; };
 		8E26E683269733D90002F82A /* SIgnInConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E26E682269733D90002F82A /* SIgnInConfigurator.swift */; };
 		8E26E6852697341A0002F82A /* SignInRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E26E6842697341A0002F82A /* SignInRouter.swift */; };
+		8E2DCF5526983CD2009FBC67 /* AuthInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2DCF5426983CD2009FBC67 /* AuthInterceptor.swift */; };
 		8E41344D2692FBE700C69ECE /* DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E41344C2692FBE700C69ECE /* DI.swift */; };
 		8E41344F269302B500C69ECE /* ApiBaseGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E41344E269302B500C69ECE /* ApiBaseGateway.swift */; };
 		8E413451269303E200C69ECE /* ApiAuthGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E413450269303E200C69ECE /* ApiAuthGateway.swift */; };
@@ -109,9 +125,25 @@
 		8E0729AF26725D630071FF46 /* MainGalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		8E0729B026725D630071FF46 /* MainGalleryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainGalleryCollectionViewCell.xib; sourceTree = "<group>"; };
 		8E0729B326725DD90071FF46 /* ImageEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEntities.swift; sourceTree = "<group>"; };
+		8E18C74726986045004EFC69 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = 2ndGalleryApp/R.generated.swift; sourceTree = SOURCE_ROOT; };
+		8E18C7492698644B004EFC69 /* AppDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateExtension.swift; sourceTree = "<group>"; };
+		8E18C74C269C3EED004EFC69 /* ALerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALerts.swift; sourceTree = "<group>"; };
+		8E18C74E269C4AEE004EFC69 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		8E18C750269C5683004EFC69 /* ProfileViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewControllerExtensions.swift; sourceTree = "<group>"; };
+		8E18C752269C568F004EFC69 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		8E18C754269C5697004EFC69 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
+		8E18C756269C56A2004EFC69 /* ProfileConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileConfigurator.swift; sourceTree = "<group>"; };
+		8E18C758269C56E1004EFC69 /* ProfilePresenterImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenterImp.swift; sourceTree = "<group>"; };
+		8E18C75B269C7EEB004EFC69 /* ProfileSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewController.swift; sourceTree = "<group>"; };
+		8E18C75D269C7EFB004EFC69 /* ProfileSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileSettings.storyboard; sourceTree = "<group>"; };
+		8E18C75F269C7F15004EFC69 /* ProfileSettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsRouter.swift; sourceTree = "<group>"; };
+		8E18C761269C7F22004EFC69 /* ProfileSettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsPresenter.swift; sourceTree = "<group>"; };
+		8E18C763269C7F2D004EFC69 /* ProfileSettingPresenterImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingPresenterImp.swift; sourceTree = "<group>"; };
+		8E18C765269C7F3A004EFC69 /* ProfileSettingsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsConfigurator.swift; sourceTree = "<group>"; };
 		8E26E680269733620002F82A /* SignInPresenterImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPresenterImp.swift; sourceTree = "<group>"; };
 		8E26E682269733D90002F82A /* SIgnInConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIgnInConfigurator.swift; sourceTree = "<group>"; };
 		8E26E6842697341A0002F82A /* SignInRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRouter.swift; sourceTree = "<group>"; };
+		8E2DCF5426983CD2009FBC67 /* AuthInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInterceptor.swift; sourceTree = "<group>"; };
 		8E41344C2692FBE700C69ECE /* DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DI.swift; sourceTree = "<group>"; };
 		8E41344E269302B500C69ECE /* ApiBaseGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiBaseGateway.swift; sourceTree = "<group>"; };
 		8E413450269303E200C69ECE /* ApiAuthGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiAuthGateway.swift; sourceTree = "<group>"; };
@@ -244,6 +276,7 @@
 				8EAF7C7D268DBFF20048A936 /* Config.swift */,
 				8E41344C2692FBE700C69ECE /* DI.swift */,
 				8E072982267205AA0071FF46 /* Info.plist */,
+				8E18C74726986045004EFC69 /* R.generated.swift */,
 				8EAF7C48268477470048A936 /* Assets.xcassets */,
 				8E072988267205BA0071FF46 /* SupportFiles */,
 			);
@@ -256,6 +289,7 @@
 				8E07297A267205A90071FF46 /* _ndGalleryApp.xcdatamodeld */,
 				8E072973267205A90071FF46 /* SceneDelegate.swift */,
 				8E072971267205A90071FF46 /* AppDelegate.swift */,
+				8E18C7492698644B004EFC69 /* AppDelegateExtension.swift */,
 			);
 			path = SupportFiles;
 			sourceTree = "<group>";
@@ -263,6 +297,7 @@
 		8E072989267207020071FF46 /* Entry */ = {
 			isa = PBXGroup;
 			children = (
+				8E18C74B269C3E92004EFC69 /* Alerts */,
 				8E07299026721C620071FF46 /* FirstEntryScreen */,
 				8E07299226721CD50071FF46 /* SignIn */,
 				8E07299126721CC30071FF46 /* SignUp */,
@@ -274,8 +309,8 @@
 			isa = PBXGroup;
 			children = (
 				8E072975267205A90071FF46 /* StartViewController.swift */,
-				8E41345E26935F8B00C69ECE /* StartRouter.swift */,
 				8E41346026935FD200C69ECE /* StartConfigurator.swift */,
+				8E41345E26935F8B00C69ECE /* StartRouter.swift */,
 				8E072977267205A90071FF46 /* Main.storyboard */,
 				8E07297F267205AA0071FF46 /* LaunchScreen.storyboard */,
 			);
@@ -358,6 +393,12 @@
 			isa = PBXGroup;
 			children = (
 				8E038F992673A37F000E56AC /* ProfileViewController.swift */,
+				8E18C750269C5683004EFC69 /* ProfileViewControllerExtensions.swift */,
+				8E18C758269C56E1004EFC69 /* ProfilePresenterImp.swift */,
+				8E18C752269C568F004EFC69 /* ProfilePresenter.swift */,
+				8E18C756269C56A2004EFC69 /* ProfileConfigurator.swift */,
+				8E18C754269C5697004EFC69 /* ProfileRouter.swift */,
+				8E18C75A269C7EC9004EFC69 /* ProfileSettings */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -369,6 +410,35 @@
 				8E0729B026725D630071FF46 /* MainGalleryCollectionViewCell.xib */,
 			);
 			path = MainGalleryCells;
+			sourceTree = "<group>";
+		};
+		8E18C74B269C3E92004EFC69 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				8E18C74C269C3EED004EFC69 /* ALerts.swift */,
+			);
+			path = Alerts;
+			sourceTree = "<group>";
+		};
+		8E18C75A269C7EC9004EFC69 /* ProfileSettings */ = {
+			isa = PBXGroup;
+			children = (
+				8E18C75D269C7EFB004EFC69 /* ProfileSettings.storyboard */,
+				8E18C75B269C7EEB004EFC69 /* ProfileSettingsViewController.swift */,
+				8E18C761269C7F22004EFC69 /* ProfileSettingsPresenter.swift */,
+				8E18C763269C7F2D004EFC69 /* ProfileSettingPresenterImp.swift */,
+				8E18C765269C7F3A004EFC69 /* ProfileSettingsConfigurator.swift */,
+				8E18C75F269C7F15004EFC69 /* ProfileSettingsRouter.swift */,
+			);
+			path = ProfileSettings;
+			sourceTree = "<group>";
+		};
+		8E2DCF5326983CB6009FBC67 /* Interceptor */ = {
+			isa = PBXGroup;
+			children = (
+				8E2DCF5426983CD2009FBC67 /* AuthInterceptor.swift */,
+			);
+			path = Interceptor;
 			sourceTree = "<group>";
 		};
 		8E4134642694491D00C69ECE /* Settings */ = {
@@ -433,10 +503,12 @@
 		8EAF7C642684D5F10048A936 /* EntityGateway */ = {
 			isa = PBXGroup;
 			children = (
+				8E2DCF5326983CB6009FBC67 /* Interceptor */,
 				8E41346B2694A9C500C69ECE /* ResponseHandler */,
 				8EAF7C65268613C00048A936 /* Api */,
 				8EAF7C7B268DBF670048A936 /* ApiEndPoint.swift */,
 				8EAF7C77268CAEF50048A936 /* Requests.swift */,
+				8E18C74E269C4AEE004EFC69 /* Errors.swift */,
 				8EAF7C79268CAF1B0048A936 /* ExtendedApiRequest.swift */,
 			);
 			path = EntityGateway;
@@ -500,6 +572,7 @@
 			buildConfigurationList = 8E072985267205AA0071FF46 /* Build configuration list for PBXNativeTarget "2ndGalleryApp" */;
 			buildPhases = (
 				FB3ECAA18E646EF681921693 /* [CP] Check Pods Manifest.lock */,
+				8E18C74626985B10004EFC69 /* Run Script */,
 				8E07296A267205A90071FF46 /* Sources */,
 				8E07296B267205A90071FF46 /* Frameworks */,
 				8E07296C267205A90071FF46 /* Resources */,
@@ -557,6 +630,7 @@
 				8E0729A0267257D90071FF46 /* MainGallery.storyboard in Resources */,
 				8E07299526721D9A0071FF46 /* SignUp.storyboard in Resources */,
 				8E072979267205A90071FF46 /* Main.storyboard in Resources */,
+				8E18C75E269C7EFB004EFC69 /* ProfileSettings.storyboard in Resources */,
 				8EAF7C49268477470048A936 /* Assets.xcassets in Resources */,
 				8E0729B226725D630071FF46 /* MainGalleryCollectionViewCell.xib in Resources */,
 			);
@@ -581,6 +655,26 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-2ndGalleryApp/Pods-2ndGalleryApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		8E18C74626985B10004EFC69 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/2ndGalleryApp/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/2ndGalleryApp/R.generated.swift\"\n\n";
 		};
 		FB3ECAA18E646EF681921693 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -617,9 +711,11 @@
 				8E41346126935FD200C69ECE /* StartConfigurator.swift in Sources */,
 				8E038FA3267A1645000E56AC /* MainGalleryConfigurator.swift in Sources */,
 				8E4134572693182E00C69ECE /* ApiRegistrationGateway.swift in Sources */,
+				8E18C74F269C4AEE004EFC69 /* Errors.swift in Sources */,
 				8E4134662694493300C69ECE /* LocalSettings.swift in Sources */,
 				8EAF7C7E268DBFF20048A936 /* Config.swift in Sources */,
 				8E413451269303E200C69ECE /* ApiAuthGateway.swift in Sources */,
+				8E2DCF5526983CD2009FBC67 /* AuthInterceptor.swift in Sources */,
 				8E038FA8267A2034000E56AC /* FullImageInfoPresenter.swift in Sources */,
 				8EAF7C6F268B18710048A936 /* RegistrationUseCaseImp.swift in Sources */,
 				8E41347F2695A24600C69ECE /* ExtendedResponseHandler.swift in Sources */,
@@ -630,8 +726,10 @@
 				8EAF7C532684BCCF0048A936 /* Settings.swift in Sources */,
 				8E0729A626725BD20071FF46 /* MainGalleryViewController.swift in Sources */,
 				8EAF7C612684C9310048A936 /* UserUseCaseImp.swift in Sources */,
+				8E18C751269C5683004EFC69 /* ProfileViewControllerExtensions.swift in Sources */,
 				8EAF7C87268F561E0048A936 /* GalleryPaginationGateway.swift in Sources */,
 				8E0729AB26725C7F0071FF46 /* MainGalleryPresenterImp.swift in Sources */,
+				8E18C764269C7F2D004EFC69 /* ProfileSettingPresenterImp.swift in Sources */,
 				8E038FA12678F709000E56AC /* Statesments.swift in Sources */,
 				8EAF7C632684CBBD0048A936 /* UserGateway.swift in Sources */,
 				8E4134632693650800C69ECE /* SignUpConfigurator.swift in Sources */,
@@ -639,7 +737,9 @@
 				8EAF7C83268F26ED0048A936 /* PaginationUseCaseImp.swift in Sources */,
 				8E41346A269465DE00C69ECE /* UserDefaultsKey.swift in Sources */,
 				8EBA5C81267BA18C00941513 /* ImageInfo.swift in Sources */,
+				8E18C760269C7F15004EFC69 /* ProfileSettingsRouter.swift in Sources */,
 				8EAF7C5126849FC50048A936 /* UserEntity.swift in Sources */,
+				8E18C755269C5697004EFC69 /* ProfileRouter.swift in Sources */,
 				8EAF7C562684BE900048A936 /* AuthUseCase.swift in Sources */,
 				8E07299D267255CC0071FF46 /* SignUpViewController.swift in Sources */,
 				8E26E6852697341A0002F82A /* SignInRouter.swift in Sources */,
@@ -658,20 +758,29 @@
 				8EAF7C78268CAEF50048A936 /* Requests.swift in Sources */,
 				8E4134812695DC6200C69ECE /* MainGalleryPresenter.swift in Sources */,
 				8E038FA6267A2019000E56AC /* FullImageInfoViewController.swift in Sources */,
+				8E18C753269C568F004EFC69 /* ProfilePresenter.swift in Sources */,
 				8EBA5C7F267BA15E00941513 /* ImageEntity.swift in Sources */,
 				8E41344D2692FBE700C69ECE /* DI.swift in Sources */,
 				8E0729B426725DD90071FF46 /* ImageEntities.swift in Sources */,
+				8E18C75C269C7EEB004EFC69 /* ProfileSettingsViewController.swift in Sources */,
 				8E072976267205A90071FF46 /* StartViewController.swift in Sources */,
 				8E07299B2672511A0071FF46 /* SignInPresenter.swift in Sources */,
 				8EAF7C6A2689C23E0048A936 /* SignUpEntity.swift in Sources */,
 				8E072972267205A90071FF46 /* AppDelegate.swift in Sources */,
 				8E0729B126725D630071FF46 /* MainGalleryCollectionViewCell.swift in Sources */,
 				8EBA5C74267A3F6F00941513 /* MainGalleryRouter.swift in Sources */,
+				8E18C762269C7F22004EFC69 /* ProfileSettingsPresenter.swift in Sources */,
 				8EAF7C5F2684C90C0048A936 /* UserUseCase.swift in Sources */,
 				8EAF7C81268F25040048A936 /* PaginationUseCase.swift in Sources */,
+				8E18C766269C7F3A004EFC69 /* ProfileSettingsConfigurator.swift in Sources */,
 				8EAF7C71268B18DD0048A936 /* RegistrationGateway.swift in Sources */,
+				8E18C74D269C3EED004EFC69 /* ALerts.swift in Sources */,
 				8EAF7C6D268B16DD0048A936 /* RegistrationUseCase.swift in Sources */,
 				8EAF7C582684BEB40048A936 /* AuthUseCaseImp.swift in Sources */,
+				8E18C74A2698644B004EFC69 /* AppDelegateExtension.swift in Sources */,
+				8E18C757269C56A2004EFC69 /* ProfileConfigurator.swift in Sources */,
+				8E18C759269C56E1004EFC69 /* ProfilePresenterImp.swift in Sources */,
+				8E18C74826986045004EFC69 /* R.generated.swift in Sources */,
 				8E41344F269302B500C69ECE /* ApiBaseGateway.swift in Sources */,
 				8EAF7C4D26849C9B0048A936 /* PaginationEntity.swift in Sources */,
 				8EAF7C73268B1B840048A936 /* SignUpPresenter.swift in Sources */,

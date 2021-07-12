@@ -9,6 +9,7 @@ import Foundation
 import RxSwift
 
 protocol AuthGateway {
+    
     func auth(username: String, password: String) -> Single<TokenEntity>
     
     func refreshToken(refreshToken: String) -> Single<TokenEntity>
