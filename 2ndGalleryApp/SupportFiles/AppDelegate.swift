@@ -27,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DI.initDependencies(appDelegate: self)
         self.settings = DI.resolve()
         
+        checkAuth(window: self.window)
+        
         return true
     }
 

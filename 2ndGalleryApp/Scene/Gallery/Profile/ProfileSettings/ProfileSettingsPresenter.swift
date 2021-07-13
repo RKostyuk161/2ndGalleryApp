@@ -6,7 +6,13 @@
 //
 
 import Foundation
+import UIKit
 
 protocol ProfileSettingsPresenter {
+    
+    var settings: Settings { get }
+    
     func saveSettings()
+    func updatePhoto(image: UIImage)
+    
 }

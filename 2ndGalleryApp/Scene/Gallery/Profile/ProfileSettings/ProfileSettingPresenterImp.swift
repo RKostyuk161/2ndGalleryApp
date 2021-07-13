@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class ProfileSettingsPresenterImp: ProfileSettingsPresenter {
     
@@ -22,7 +23,11 @@ class ProfileSettingsPresenterImp: ProfileSettingsPresenter {
     }
     
     func saveSettings() {
+        
     }
     
+    func updatePhoto(image: UIImage) {
+        
+    }
     
 }

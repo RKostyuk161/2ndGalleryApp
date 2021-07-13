@@ -28,6 +28,7 @@ class UserEntity: Codable, JsonBodyConvertible {
     }
     
     init(user: SignUpEntity) {
+        self.id = user.id
         self.name = user.username
         self.email = user.email
         self.birthday = user.birthday

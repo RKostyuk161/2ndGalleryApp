@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import UIKit
 
 class ProfileConfigurator {
-    static func config(view: ProfileViewController) {
+    func config(view: ProfileViewController) {
         let router = ProfileRouter(view: view)
         let presenter = ProfilePresenterImp(view: view, router: router, settings: DI.resolve())
         

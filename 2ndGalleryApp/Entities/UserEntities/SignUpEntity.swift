@@ -9,6 +9,7 @@ import Foundation
 import RxNetworkApiClient
 
 public struct SignUpEntity: Codable, JsonBodyConvertible {
+    var id: Int?
     var username: String?
     var birthday: String?
     var email: String?

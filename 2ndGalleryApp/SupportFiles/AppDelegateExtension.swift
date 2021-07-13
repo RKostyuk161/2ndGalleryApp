@@ -15,7 +15,7 @@ extension AppDelegate {
         }
         guard let window = self.window else {
             self.window = UIWindow(frame: UIScreen.main.bounds)
-            return openStartScreen(window: nil)
+            return openStartScreen(window: window)
         }
         DispatchQueue.main.async {
             let navController = UINavigationController()
@@ -25,16 +25,28 @@ extension AppDelegate {
         }
     }
     
-    func openStartGalleryScreen() {
+    func openStartGalleryScreen(window: UIWindow?) {
+        if let window = window {
+            self.window = window
+        }
         guard let window = self.window else {
             self.window = UIWindow(frame: UIScreen.main.bounds)
-            return openStartGalleryScreen()
+            return openStartGalleryScreen(window: window)
         }
         DispatchQueue.main.async {
             let rootView = R.storyboard.mainGallery.instantiateInitialViewController()
-            window.makeKeyAndVisible()
+
             window.rootViewController = rootView
+            window.makeKeyAndVisible()
         }
+    }
+    
+    func checkAuth(window: UIWindow?) {
+        guard let check = settings?.token else {
+            openStartScreen(window: window)
+            return
+        }
+        openStartGalleryScreen(window: window)
     }
 }
 

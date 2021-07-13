@@ -14,73 +14,185 @@
             filePath = "2ndGalleryApp/SupportFiles/SceneDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "SceneDelegate"
-            landmarkType = "3">
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "sceneDidEnterBackground(_:)"
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E83D5289-23F3-41AE-BAF0-CAE454832826"
-            shouldBeEnabled = "Yes"
+            uuid = "31141AFE-81EF-4A18-94FB-1F71DB0C3884"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "2ndGalleryApp/Scene/Entry/FirstEntryScreen/StartConfigurator.swift"
+            filePath = "2ndGalleryApp/SupportFiles/AppDelegateExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "open(navigationController:)"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "openStartGalleryScreen(window:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FA96BD15-1E5C-40B6-9E61-EA51690E849A"
-            shouldBeEnabled = "Yes"
+            uuid = "1EEA1E8A-C094-44A3-AB34-E6A37A1B2A60"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "2ndGalleryApp/Scene/Entry/FirstEntryScreen/StartConfigurator.swift"
+            filePath = "2ndGalleryApp/SupportFiles/AppDelegateExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "open(navigationController:)"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "openStartGalleryScreen(window:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1EEA1E8A-C094-44A3-AB34-E6A37A1B2A60 - d726aad77cb1dfcc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "_ndGalleryApp.AppDelegate.openStartGalleryScreen() -&gt; ()"
+                  moduleName = "2ndGalleryApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/romankostuk/developer/2ndGalleryApp/2ndGalleryApp/SupportFiles/AppDelegateExtension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "220">
+               </Location>
+               <Location
+                  uuid = "1EEA1E8A-C094-44A3-AB34-E6A37A1B2A60 - 6043ea858871af3b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in _ndGalleryApp.AppDelegate.openStartGalleryScreen() -&gt; ()"
+                  moduleName = "2ndGalleryApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/romankostuk/developer/2ndGalleryApp/2ndGalleryApp/SupportFiles/AppDelegateExtension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7AA6AA21-2410-4878-8C1C-D62177BB7541"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "2ndGalleryApp/SupportFiles/AppDelegateExtension.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "openStartScreen(window:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1D5B4FDC-BEA8-4D90-85F1-C4DAC7DBF6FD"
-            shouldBeEnabled = "Yes"
+            uuid = "634D3C0D-3474-4627-87AC-3887A0C3AB8D"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "2ndGalleryApp/Scene/Entry/FirstEntryScreen/StartConfigurator.swift"
+            filePath = "2ndGalleryApp/SupportFiles/AppDelegateExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "open(navigationController:)"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "openStartScreen(window:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6F89B18E-D6DC-4E8D-A4A9-E3151A71C1F7"
-            shouldBeEnabled = "Yes"
+            uuid = "910DC45F-8A74-4445-8E0E-53A66A6B5A58"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "2ndGalleryApp/Scene/Entry/FirstEntryScreen/StartConfigurator.swift"
+            filePath = "2ndGalleryApp/SupportFiles/AppDelegateExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
             endingLineNumber = "20"
-            landmarkName = "open(navigationController:)"
+            landmarkName = "openStartScreen(window:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "910DC45F-8A74-4445-8E0E-53A66A6B5A58 - 164af8207464d98"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "_ndGalleryApp.AppDelegate.openStartScreen(window: Swift.Optional&lt;__C.UIWindow&gt;) -&gt; ()"
+                  moduleName = "2ndGalleryApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/romankostuk/developer/2ndGalleryApp/2ndGalleryApp/SupportFiles/AppDelegateExtension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "352">
+               </Location>
+               <Location
+                  uuid = "910DC45F-8A74-4445-8E0E-53A66A6B5A58 - bab9ed543a7ad6fa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in _ndGalleryApp.AppDelegate.openStartScreen(window: Swift.Optional&lt;__C.UIWindow&gt;) -&gt; ()"
+                  moduleName = "2ndGalleryApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/romankostuk/developer/2ndGalleryApp/2ndGalleryApp/SupportFiles/AppDelegateExtension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2168E405-7623-4A71-9CDD-7949B4C4A6BA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "2ndGalleryApp/SupportFiles/AppDelegateExtension.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "openStartScreen(window:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "487080B8-9C00-41A3-A73A-1B1869E382CC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "2ndGalleryApp/SupportFiles/AppDelegateExtension.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "openStartGalleryScreen(window:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

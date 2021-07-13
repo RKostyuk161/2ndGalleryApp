@@ -9,6 +9,9 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
+    
+    
+    @IBOutlet weak var usersPostsCollectionView: UICollectionView!
     @IBAction func SettingsButton(_ sender: UIBarButtonItem) {
         presenter.routeToSettings()
     }
@@ -17,6 +20,8 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        ProfileConfigurator.config(view: self)
+//        usersPostsCollectionView.dataSource = self
+        usersPostsCollectionView.delegate = self
+        ProfileConfigurator().config(view: self)
     }
 }
