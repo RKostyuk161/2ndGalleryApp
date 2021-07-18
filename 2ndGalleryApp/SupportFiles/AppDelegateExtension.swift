@@ -48,12 +48,9 @@ extension AppDelegate {
         }
         openStartGalleryScreen(window: window)
     }
-}
-
-extension AppDelegate {
     
-    func doLogout() {
-        self.settings?.clearUserData()
-    }
+//    func doLogout() {
+//        self.settings?.clearUserData()
+//    }
 }
 

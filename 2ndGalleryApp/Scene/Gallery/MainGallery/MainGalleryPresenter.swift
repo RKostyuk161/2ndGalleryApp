@@ -11,10 +11,13 @@ import UIKit
 protocol MainGalleryPresenter {
     
     var currentCollection: CollectionType { get set }
+    var isfistPopularImageRequest: Bool { get set }
     
     func getMoreImages(collectionType: CollectionType, indexPath: IndexPath)
     
     func subscribeOnGalleryRequestResult()
+    
+    func getFullGalleryRequest(isNewCollection: CollectionType)
     
     func prepeareForRoute(indexPath: IndexPath)
     

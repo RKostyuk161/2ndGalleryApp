@@ -13,4 +13,6 @@ protocol UserGateway {
     func getAcc() -> Single<UserEntity>
 
     func updateUserInfo(userId: Int, user: UserApiEntity) -> Single<UserEntity>
+    
+    func deleteUser(id: Int) -> Single<UserEntity>
 }

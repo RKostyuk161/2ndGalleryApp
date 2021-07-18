@@ -14,7 +14,8 @@ class ProfileSettingsConfigurator {
         let router = ProfileSettingsRouter()
         let presenter = ProfileSettingsPresenterImp(view: view,
                                                     router: router,
-                                                    settings: DI.resolve())
+                                                    settings: DI.resolve(),
+                                                    userUseCase: DI.resolve())
         view.presenter = presenter
     }
     

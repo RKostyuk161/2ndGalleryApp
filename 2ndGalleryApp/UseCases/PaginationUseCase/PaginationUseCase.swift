@@ -11,10 +11,13 @@ import RxSwift
 protocol PaginationUseCase {
     var source: PublishSubject<[ImageEntity]> { get }
     var isLoadingInProcess: Bool { get }
+    
     var newCurrentPage: Int { get }
     var popularCurrentPage: Int { get }
-    var newTotalItems: Int? { get }
-    var popularTotalItems: Int? { get }
+    
+    var newTotalItems: Int { get }
+    var popularTotalItems: Int { get }
+    
     var newItems: [ImageEntity] { get }
     var popularItems: [ImageEntity] { get }
     

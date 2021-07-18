@@ -14,5 +14,5 @@ protocol ProfileSettingsPresenter {
     
     func saveSettings()
     func updatePhoto(image: UIImage)
-    
+    func deleteAcc()
 }

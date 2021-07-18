@@ -11,12 +11,12 @@ import RxNetworkApiClient
 
 class ApiGalleryPaginationGateway: ApiBaseGateway, GalleryPaginationGateway {
     
+    
     func getImages(page: Int,
                    limit: Int,
-                   currentCollection: CollectionType) -> Single<PaginationEntity<[ImageEntity]>> {
+                   currentCollection: CollectionType) -> Single<ImageEntities> {
         return apiClient.execute(request: ExtendedApiRequest.getGalleryRequest(page: page,
                                                                                limit: limit,
                                                                                currentCollection: currentCollection))
     }
-    
 }

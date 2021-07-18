@@ -14,7 +14,8 @@ extension MainGalleryViewController: UICollectionViewDelegate {
         }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
+        self.saveIndexPathToScroll(indexPath: indexPath)
+        presenter.getMoreImages(collectionType: presenter.currentCollection, indexPath: indexPath)
     }
 }
 

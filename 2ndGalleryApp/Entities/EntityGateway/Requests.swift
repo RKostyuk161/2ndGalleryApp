@@ -59,4 +59,14 @@ extension ExtendedApiRequest {
                                headers: [Header.contentJson],
                                queryArray: galleryStateParametrs)
     }
+    
+    static func deleteUserRequest(id: Int) -> ExtendedApiRequest {
+        return extendedRequest(path: "api/users/\(id)",
+                               method: .delete)
+    }
+    
+    static func getFullImageRequest(imageName: String) -> ExtendedApiRequest {
+        return extendedRequest(path: "/media/\(imageName)",
+                               method: .get)
+    }
 }

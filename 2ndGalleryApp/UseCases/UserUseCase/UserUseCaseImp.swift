@@ -38,6 +38,18 @@ class UserUseCaseImp: UserUseCase {
             })
             .asCompletable()
     }
+    func deleteUser() -> Completable {
+        guard let userId = settings.account?.id else {
+            return .error(UserUseCaseError.localUserIdIsNil)
+        }
+        return self.userGateway.deleteUser(id: userId)
+            .observeOn(MainScheduler.instance)
+            .do(onSuccess: { [weak self] user in
+                self?.settings.account = nil
+                self?.settings.token = nil
+            })
+            .asCompletable()
+    }
 }
 
 enum UserUseCaseError: LocalizedError {

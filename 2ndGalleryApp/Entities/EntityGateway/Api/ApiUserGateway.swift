@@ -11,6 +11,12 @@ import RxNetworkApiClient
 
 class ApiUserGateway: ApiBaseGateway, UserGateway {
     
+    
+    func deleteUser(id: Int) -> Single<UserEntity> {
+        return apiClient.execute(request: ExtendedApiRequest.deleteUserRequest(id: id))
+    }
+    
+    
     func getAcc() -> Single<UserEntity> {
         return apiClient.execute(request: ExtendedApiRequest.getAccRequest())
     }

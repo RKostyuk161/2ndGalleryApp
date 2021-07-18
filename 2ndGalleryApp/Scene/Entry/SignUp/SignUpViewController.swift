@@ -8,7 +8,7 @@
 import UIKit
 import Foundation
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     var presenter: SignUpPresenter!
     
@@ -35,10 +35,7 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         SignUpConfigurator().config(view: self)
-    }
-
-    func makeSignUp() {
-        
+        setupTextFieldsDelegate()
     }
     
     func checkFieldsAndReg() {
@@ -53,11 +50,12 @@ class SignUpViewController: UIViewController {
            emailText.isEmpty,
            oldPasswordText.isEmpty,
            confirmPasswordText.isEmpty {
+            Alerts().addAlert(alertTitle: "Error", alertMessage: "* fields is empty", buttonMessage: "Ok", view: self)
             return
         }
         
         if oldPasswordText != confirmPasswordText {
-            return
+            Alerts().addAlert(alertTitle: "Error", alertMessage: "passwords not match", buttonMessage: "Ok", view: self)
         }
         let query: String? = (birthPasswordText.isEmpty) ? nil : birthPasswordText
         let user = SignUpEntity(username: userNameText,
@@ -65,5 +63,17 @@ class SignUpViewController: UIViewController {
                                 email: emailText,
                                 password: confirmPasswordText)
         presenter.signUp(user: user)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+                return false
+    }
+    
+    func setupTextFieldsDelegate() {
+        emailTextField.delegate = self
+        usernameTextField.delegate = self
+        oldPasswordTextField.delegate = self
+        confirmPassTextField.delegate = self
     }
 }

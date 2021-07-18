@@ -34,6 +34,7 @@ class DI {
             config.shouldUseExtendedBackgroundIdleMode = true
             config.urlCache?.removeAllCachedResponses()
             let client = ApiClientImp(urlSessionConfiguration: config, completionHandlerQueue: .main)
+            client.responseHandlersQueue.append(ErrorResponseHandler())
             client.responseHandlersQueue.append(JsonResponseHandler())
             return client
         }
@@ -42,7 +43,6 @@ class DI {
         .injection(cycle: true) {
             $0.interceptors.insert($1 as AuthInterceptor, at: 0)
         }
-        
         
         self.container.register(UserDefaultsSettings.init)
             .as(UserDefaultsSettings.self)
@@ -79,8 +79,7 @@ class DI {
             .as(UserUseCase.self)
         
         self.container.register { PaginationUseCaseImp(gateway: $0,
-                                                     settings: $1,
-                                                     collectionType: .new) }
+                                                     settings: $1) }
             .as(PaginationUseCase.self)
     }
     

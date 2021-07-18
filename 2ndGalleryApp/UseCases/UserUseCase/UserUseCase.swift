@@ -12,4 +12,6 @@ protocol UserUseCase {
     func getUserInfo() -> Single<UserEntity>
     
     func updateUserInfo(user: UserEntity, jpgData: Data?) -> Completable
+    
+    func deleteUser() -> Completable
 }

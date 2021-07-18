@@ -10,15 +10,16 @@ import UIKit
 
 class FullImageInfoConfigurator {
     
-    func configure(view: FullImageInfoViewController, model: ImageEntity, image: UIImage) {
-        let presenter = FullImageInfoPresenter(view: view, model: model, image: image)
+    func configure(view: FullImageInfoViewController, model: ImageEntity) {
+        let presenter = FullImageInfoPresenterImp(view: view, model: model)
         view.presenter = presenter
     }
     
-    static func open(navigationController: UINavigationController, model: ImageEntity, image: UIImage) {
-        guard let view = UIStoryboard(name: "FullImageInfo", bundle: nil)
-                .instantiateViewController(identifier: "FullImageInfoViewController") as? FullImageInfoViewController else { return }
-        FullImageInfoConfigurator().configure(view: view, model: model, image: image)
+    static func open(navigationController: UINavigationController, model: ImageEntity) {
+        guard let view = R.storyboard.fullImageInfo().instantiateViewController(identifier: R.storyboard.fullImageInfo.name) as? FullImageInfoViewController else { return }
+//        guard let view = UIStoryboard(name: "FullImageInfo", bundle: nil)
+//                .instantiateViewController(identifier: "FullImageInfoViewController") as? FullImageInfoViewController else { return }
+        FullImageInfoConfigurator().configure(view: view, model: model)
         navigationController.pushViewController(view, animated: true)
         
     }

@@ -89,8 +89,12 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 7 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 9 storyboards.
   struct storyboard {
+    /// Storyboard `AddChosenPhoto`.
+    static let addChosenPhoto = _R.storyboard.addChosenPhoto()
+    /// Storyboard `CustomActivityIndicatorStoryBoard`.
+    static let customActivityIndicatorStoryBoard = _R.storyboard.customActivityIndicatorStoryBoard()
     /// Storyboard `FullImageInfo`.
     static let fullImageInfo = _R.storyboard.fullImageInfo()
     /// Storyboard `LaunchScreen`.
@@ -105,6 +109,20 @@ struct R: Rswift.Validatable {
     static let signIn = _R.storyboard.signIn()
     /// Storyboard `SignUp`.
     static let signUp = _R.storyboard.signUp()
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "AddChosenPhoto", bundle: ...)`
+    static func addChosenPhoto(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.addChosenPhoto)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "CustomActivityIndicatorStoryBoard", bundle: ...)`
+    static func customActivityIndicatorStoryBoard(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.customActivityIndicatorStoryBoard)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "FullImageInfo", bundle: ...)`
@@ -159,7 +177,7 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.image` struct is generated, and contains static references to 15 images.
+  /// This `R.image` struct is generated, and contains static references to 16 images.
   struct image {
     /// Image `CustomLoadActivityIndicator`.
     static let customLoadActivityIndicator = Rswift.ImageResource(bundle: R.hostingBundle, name: "CustomLoadActivityIndicator")
@@ -181,6 +199,8 @@ struct R: Rswift.Validatable {
     static let entrySignUpSignUpButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "EntrySignUpSignUpButton")
     /// Image `EntrySignUpSingInButton`.
     static let entrySignUpSingInButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "EntrySignUpSingInButton")
+    /// Image `LoadingImage`.
+    static let loadingImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "LoadingImage")
     /// Image `Logo`.
     static let logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "Logo")
     /// Image `ProfileSettingsButton`.
@@ -259,6 +279,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "EntrySignUpSingInButton", bundle: ..., traitCollection: ...)`
     static func entrySignUpSingInButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.entrySignUpSingInButton, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "LoadingImage", bundle: ..., traitCollection: ...)`
+    static func loadingImage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.loadingImage, compatibleWith: traitCollection)
     }
     #endif
 
@@ -392,6 +419,12 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       #if os(iOS) || os(tvOS)
+      try addChosenPhoto.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
+      try customActivityIndicatorStoryBoard.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
       try fullImageInfo.validate()
       #endif
       #if os(iOS) || os(tvOS)
@@ -415,13 +448,49 @@ struct _R: Rswift.Validatable {
     }
 
     #if os(iOS) || os(tvOS)
-    struct fullImageInfo: Rswift.StoryboardResourceType, Rswift.Validatable {
+    struct addChosenPhoto: Rswift.StoryboardResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
-      let name = "FullImageInfo"
+      let name = "AddChosenPhoto"
 
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    struct customActivityIndicatorStoryBoard: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "CustomActivityIndicatorStoryBoard"
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "CustomLoadActivityIndicator", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'CustomLoadActivityIndicator' is used in storyboard 'CustomActivityIndicatorStoryBoard', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "LoadingImage", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'LoadingImage' is used in storyboard 'CustomActivityIndicatorStoryBoard', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    struct fullImageInfo: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let fullImageInfo = StoryboardViewControllerResource<FullImageInfoViewController>(identifier: "FullImageInfo")
+      let name = "FullImageInfo"
+
+      func fullImageInfo(_: Void = ()) -> FullImageInfoViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: fullImageInfo)
+      }
+
+      static func validate() throws {
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+        if _R.storyboard.fullImageInfo().fullImageInfo() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'fullImageInfo' could not be loaded from storyboard 'FullImageInfo' as 'FullImageInfoViewController'.") }
       }
 
       fileprivate init() {}
@@ -535,9 +604,11 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
+        if UIKit.UIImage(named: "CustomLoadActivityIndicator", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'CustomLoadActivityIndicator' is used in storyboard 'SignIn', but couldn't be loaded.") }
         if UIKit.UIImage(named: "EnrtySignInLogo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'EnrtySignInLogo' is used in storyboard 'SignIn', but couldn't be loaded.") }
         if UIKit.UIImage(named: "EntrySignInSignInButton", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'EntrySignInSignInButton' is used in storyboard 'SignIn', but couldn't be loaded.") }
         if UIKit.UIImage(named: "EntrySignInSignUpButton", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'EntrySignInSignUpButton' is used in storyboard 'SignIn', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "LoadingImage", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'LoadingImage' is used in storyboard 'SignIn', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.signIn().signInViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'signInViewController' could not be loaded from storyboard 'SignIn' as 'SignInViewController'.") }

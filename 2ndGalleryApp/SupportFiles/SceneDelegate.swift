@@ -11,20 +11,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-    func changeRootViewController(_ vc: UIViewController, animated: Bool = true) {
+    func changeRootViewController(_ vc: UIViewController, animated: Bool = true, flipFromRight: Bool) {
         guard let window = self.window else {
             return
         }
         
         // change the root view controller to your specific view controller
         window.rootViewController = vc
-        
-        UIView.transition(with: window,
-                          duration: 0.5,
-                          options: [.transitionFlipFromRight],
-                          animations: nil,
-                          completion: nil)
+        if flipFromRight {
+            UIView.transition(with: window,
+                              duration: 0.5,
+                              options: [.transitionFlipFromRight],
+                              animations: nil,
+                              completion: nil)
+        } else {
+            UIView.transition(with: window,
+                              duration: 0.5,
+                              options: [.transitionFlipFromLeft],
+                              animations: nil,
+                              completion: nil)
+        }
+       
     }
+    
     
     
     

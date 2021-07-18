@@ -7,32 +7,36 @@
 
 import UIKit
 
-class MainGalleryViewController: UIViewController {
+class MainGalleryViewController: UIViewController, UISearchBarDelegate {
 
+    var positionOfNewGallery: IndexPath? = nil
+    var positionOfPopularGallery: IndexPath? = nil
     var presenter: MainGalleryPresenter!
-    var setNumberOfCellsInRow: Int {
-        UIDevice.current.orientation.isLandscape ? 4 : 2
-        
-    }
+    var setNumberOfCellsInRow: Int = 2
     
     @IBOutlet weak var galleryCollectionView: UICollectionView!
     @IBOutlet weak var gallerySegmentControl: UISegmentedControl!
-    
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var galleryLoadActivityIndicator: UIImageView!
+    
     @IBAction func galleryActionSegmentControl(_ sender: UISegmentedControl) {
         if gallerySegmentControl.selectedSegmentIndex == 0 {
             gallerySegmentControl.changeUnderlinePosition()
             presenter.currentCollection = .new
             galleryCollectionView.reloadData()
-//            galleryCollectionView.scrollToItem(at: presenter.indexPathToScrollNewCollection, at: .centeredHorizontally, animated: false)
+            if let currentpos = positionOfNewGallery {
+                galleryCollectionView.scrollToItem(at: currentpos, at: .bottom, animated: false)
+            }
         } else {
             gallerySegmentControl.changeUnderlinePosition()
             presenter.currentCollection = .popular
-//            if presenter.paginationNumberOfPageOfPopularImages == 1 {
-//                presenter.getFullGalleryRequest(isNewCollection: presenter.currentCollection)
-//            }
+            if presenter.isfistPopularImageRequest {
+                presenter.getFullGalleryRequest(isNewCollection: presenter.currentCollection)
+            }
             galleryCollectionView.reloadData()
-//            galleryCollectionView.scrollToItem(at: presenter.indexPathToScrollPopularCollection, at: .centeredHorizontally, animated: false)
+            if let currentpos = positionOfPopularGallery {
+                galleryCollectionView.scrollToItem(at: currentpos, at: .centeredHorizontally, animated: false)
+            }
         }
     }
     
@@ -42,7 +46,18 @@ class MainGalleryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewIfNeed()
+        searchBar.delegate = self
         presenter.subscribeOnGalleryRequestResult()
+        presenter.getFullGalleryRequest(isNewCollection: presenter.currentCollection)
+        
+    }
+    
+    override func viewLayoutMarginsDidChange() {
+        self.view.viewWithTag(1)?.removeFromSuperview()
+
+        self.setSegmentControl()
+        setNumberOfCellsInRow = UIDevice.current.orientation.isLandscape ? 4 : 2
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -56,6 +71,7 @@ class MainGalleryViewController: UIViewController {
         galleryLoadActivityIndicator.isHidden = false
         startTimer()
     }
+    
     
     @objc func animateView() {
             UIView.animate(withDuration: 0.8,
@@ -97,8 +113,20 @@ class MainGalleryViewController: UIViewController {
     }
     
     
+    func saveIndexPathToScroll(indexPath: IndexPath){
+        switch presenter.currentCollection {
+        case .new:
+            positionOfNewGallery = indexPath
+        default:
+            positionOfPopularGallery = indexPath
+        }
+    }
+        
     func setSegmentControl() {
         gallerySegmentControl.addUnderlineForSelectedSegment()
     }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
 }

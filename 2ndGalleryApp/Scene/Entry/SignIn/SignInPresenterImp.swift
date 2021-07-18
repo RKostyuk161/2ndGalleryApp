@@ -15,8 +15,12 @@ class SignInPresenterImp: SignInPresenter {
     var settings: Settings
     var disposeBag = DisposeBag()
     var router: SignInRouter
+    var activityIndicator = CustomActivityIndicatorImp()
     
-    init(view: SignInViewController, loginUseCase: AuthUseCase, settings: Settings, router: SignInRouter) {
+    init(view: SignInViewController,
+         loginUseCase: AuthUseCase,
+         settings: Settings,
+         router: SignInRouter) {
         self.view = view
         self.loginUseCase = loginUseCase
         self.settings = settings
@@ -27,25 +31,30 @@ class SignInPresenterImp: SignInPresenter {
         self.loginUseCase.sighIn(login: username, password: password)
             .observeOn(MainScheduler.instance)
             .do(onSubscribe: {
-                
+                self.view.startTimer()
             },
             onDispose: {
-
+                self.view.stopTimer()
+                
             })
             .subscribe(onCompleted: { [weak self] in
                 guard let self = self,
                       let user = self.settings.account else {
                     return
                 }
-                Alerts.addAlert(hasErrors: false, alertType: .auth, alertTitle: "Auth is ok", message: "OK", view: self.view)
-                self.changeRootView()
+                Alerts().addAlert(alertTitle: "Auth is ok",
+                                  alertMessage: nil,
+                                  buttonMessage: "Go to gallery",
+                                  view: self.view,
+                                  function: { [weak self] in
+                                    self!.changeRootView()
+                                  })
             },
             onError: { error in
-                Alerts.addAlert(hasErrors: true,
-                                alertType: .auth,
-                                alertTitle: "error",
-                                message: error.localizedDescription.debugDescription,
-                                view: self.view)
+                Alerts().addAlert(alertTitle: "Error",
+                                  alertMessage: error.localizedDescription,
+                                  buttonMessage: "Ok",
+                                  view: self.view)
             })
             .disposed(by: disposeBag)
     }
@@ -59,7 +68,7 @@ class SignInPresenterImp: SignInPresenter {
     
     func changeRootView() {
         let mainTabBar = R.storyboard.mainGallery.instantiateInitialViewController()!
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBar)
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBar, flipFromRight: true)
     }
     
 }

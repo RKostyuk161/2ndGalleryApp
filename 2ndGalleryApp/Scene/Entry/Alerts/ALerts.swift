@@ -8,58 +8,36 @@
 import Foundation
 import UIKit
 
-enum AlertType {
-    case auth
-    case reg
-    case gallery
-}
-
 class Alerts {
-   static func addAlert(hasErrors: Bool, alertType: AlertType, alertTitle: String, message: String?, view: UIViewController) {
+    
+    var selfFunc: (() -> Void)?
+    
+    func makeFunc(action: (() -> Void)? = nil)  {
+        self.selfFunc = action
+    }
+    
+    func addAlert(alertTitle: String,
+                         alertMessage: String?,
+                         buttonMessage: String,
+                         view: UIViewController,
+                         function: (() -> Void)? = nil) {
+        
         let alert = UIAlertController(title: alertTitle,
-                                      message: message,
-                                      preferredStyle: UIAlertController.Style.alert)
-        switch alertType {
-        case .auth:
-            if !hasErrors {
-                let moveToGallery = UIAlertAction(title: alertTitle,
-                                         style: UIAlertAction.Style.default) {
-                    (moveToGallery) -> Void in
-                    alert.addAction(moveToGallery)
-                }
-                alert.addAction(moveToGallery)
-                view.present(alert, animated: true, completion: nil)
-            } else {
-                let showError = UIAlertAction(title: alertTitle,
-                                         style: UIAlertAction.Style.default) {
-                    (moveToGallery) -> Void in
-                    alert.addAction(moveToGallery)
-                }
-                alert.addAction(showError)
-                view.present(alert, animated: true, completion: nil)
-            }
-        case .reg:
-            if !hasErrors {
-                let moveToGallery = UIAlertAction(title: alertTitle,
-                                         style: UIAlertAction.Style.default) {
-                    (moveToGallery) -> Void in
-                    alert.addAction(moveToGallery)
-                }
-                alert.addAction(moveToGallery)
-                view.present(alert, animated: true, completion: nil)
-            } else {
-                let showError = UIAlertAction(title: alertTitle,
-                                         style: UIAlertAction.Style.default) {
-                    (moveToGallery) -> Void in
-                    alert.addAction(moveToGallery)
-                }
-                alert.addAction(showError)
-                view.present(alert, animated: true, completion: nil)
-            }
-        case .gallery:
-            if !hasErrors {
-                
+                                      message: alertMessage,
+                                      preferredStyle: .alert)
+        var button = UIAlertAction(title: buttonMessage,
+                                   style: .cancel,
+                                   handler: nil)
+        if function != nil {
+            button =  UIAlertAction(title: buttonMessage,
+                                    style: .cancel) {
+                (action) -> Void in
+                self.makeFunc(action: function)
+                self.selfFunc!()
             }
         }
+        
+        alert.addAction(button)
+        view.present(alert, animated: true, completion: nil)
     }
 }

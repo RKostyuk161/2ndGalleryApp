@@ -20,14 +20,23 @@ class ProfileSettingsViewController: UIViewController {
     @IBOutlet weak var confirmPassTextField: UITextField!
     
     @IBAction func uploadProfilePhotoButton(_ sender: UIButton) {
-        
+        print("\(presenter.settings.account)")
+
+        if let acc = presenter.settings.account{
+            print("\(String(describing: acc.id))")
+            print("\(String(describing: acc))")
+
+
+        }
     }
     @IBAction func deleteAccButton(_ sender: UIButton) {
-        
+        presenter.deleteAcc()
     }
     
     @IBAction func signOutButton(_ sender: UIButton) {
         presenter.settings.clearUserData()
+        let mainTabBar = R.storyboard.main.instantiateInitialViewController()!
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBar, flipFromRight: true)
     }
     
     override func viewDidLoad() {
@@ -71,11 +80,11 @@ class ProfileSettingsViewController: UIViewController {
               let email = emailTextField.text  else { return }
         
         if username == "" {
-            Alerts.addAlert(hasErrors: true, alertType: .auth, alertTitle: "username field is empty", message: nil, view: self)
+//            Alerts.addAlert(hasErrors: true, alertType: .auth, alertTitle: "username field is empty", message: nil, view: self, func: nil)
         }
         
         if email == "" {
-            Alerts.addAlert(hasErrors: true, alertType: .auth, alertTitle: "email field is empty", message: nil, view: self)
+//            Alerts.addAlert(hasErrors: true, alertType: .auth, alertTitle: "email field is empty", message: nil, view: self, func: nil)
         }
         
         if let newPass = newPassTextField.text,
@@ -83,14 +92,14 @@ class ProfileSettingsViewController: UIViewController {
             
             if confirmPass != "" &&
                 newPass != confirmPass {
-                Alerts.addAlert(hasErrors: true, alertType: .auth, alertTitle: "new and confirm fields are not match", message: nil, view: self)
+//                Alerts.addAlert(hasErrors: true, alertType: .auth, alertTitle: "new and confirm fields are not match", message: nil, view: self, func: nil)
                 return
             }
             
             if let oldPass = oldPassTextField.text {
                 if oldPass == "" &&
                    newPass != "" {
-                    Alerts.addAlert(hasErrors: true, alertType: .auth, alertTitle: "old pass field is empty", message: nil, view: self)
+//                    Alerts.addAlert(hasErrors: true, alertType: .auth, alertTitle: "old pass field is empty", message: nil, view: self, func: nil)
                     return
                 }
             }
@@ -99,7 +108,7 @@ class ProfileSettingsViewController: UIViewController {
                 if oldPass != "" &&
                     newPass != "" &&
                     confirmPass != newPass {
-                    Alerts.addAlert(hasErrors: true, alertType: .auth, alertTitle: "new and confirm fields are not match", message: nil, view: self)
+//                    Alerts.addAlert(hasErrors: true, alertType: .auth, alertTitle: "new and confirm fields are not match", message: nil, view: self, func: nil)
                     return
                 }
             }
@@ -108,7 +117,7 @@ class ProfileSettingsViewController: UIViewController {
                 if oldPass != "" &&
                     newPass == confirmPass &&
                     newPass == "" {
-                    Alerts.addAlert(hasErrors: true, alertType: .auth, alertTitle: "fill all pass fields", message: nil, view: self)
+//                    Alerts.addAlert(hasErrors: true, alertType: .auth, alertTitle: "fill all pass fields", message: nil, view: self, func: nil)
                     return
                 }
             }
