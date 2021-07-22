@@ -12,7 +12,8 @@ protocol ProfileSettingsPresenter {
     
     var settings: Settings { get }
     
-    func saveSettings()
+    func setTextFields()
+    func saveSettings(image: UIImage?)
     func updatePhoto(image: UIImage)
     func deleteAcc()
 }

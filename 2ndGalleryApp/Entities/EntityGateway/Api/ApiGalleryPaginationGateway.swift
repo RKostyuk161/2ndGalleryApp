@@ -19,4 +19,9 @@ class ApiGalleryPaginationGateway: ApiBaseGateway, GalleryPaginationGateway {
                                                                                limit: limit,
                                                                                currentCollection: currentCollection))
     }
+    
+    func searchImages(imageName: String,
+                      currentCollection: CollectionType) -> Single<ImageEntities> {
+        return apiClient.execute(request: ExtendedApiRequest.searchPhotosRequest(imageName: imageName, currentCollection: currentCollection))
+    }
 }

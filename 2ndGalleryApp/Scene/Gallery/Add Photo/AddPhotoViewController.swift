@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class AddPhotoViewController: UIViewController,
                               UIImagePickerControllerDelegate,
@@ -15,6 +16,14 @@ class AddPhotoViewController: UIViewController,
     var router: AddPhotoRouter!
 
     @IBAction func nextButton(_ sender: Any) {
+        guard let image = imagePerview.image else {
+            Alerts().addAlert(alertTitle: "No image",
+                              alertMessage: nil,
+                              buttonMessage: "Ok",
+                              view: self)
+            return
+        }
+        router.onpen(image: image)
     }
     @IBOutlet weak var imagePerview: UIImageView!
     @IBAction func addPhotoButton(_ sender: UIButton) {
@@ -53,7 +62,7 @@ class AddPhotoViewController: UIViewController,
                     self.addFromCamera()
                 }
 
-                let libAction = UIAlertAction(title: "Take from Gaslley", style: .default) {
+                let libAction = UIAlertAction(title: "Take from Gallery", style: .default) {
                     (action) in
                     self.addFromLib()
                 }
@@ -71,7 +80,8 @@ class AddPhotoViewController: UIViewController,
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let chosenImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        let chosenImage = info[.originalImage] as? UIImage
+        imagePicker.dismiss(animated: true, completion: nil)
         imagePerview.image = chosenImage
     }
 }

@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxNetworkApiClient
 
-class ApiUserGateway: ApiBaseGateway, UserGateway {
+class ApiUserGateway: ApiBaseGateway, UserGateway {   
     
     
     func deleteUser(id: Int) -> Single<UserEntity> {
@@ -26,5 +26,13 @@ class ApiUserGateway: ApiBaseGateway, UserGateway {
         return apiClient.execute(request: request)
     }
     
+    func uploadPhoto(addPhoto: AddPhoto) -> Single<AddPhoto> {
+        let request: ApiRequest<AddPhoto> = ExtendedApiRequest.UploadPhotoRequest(addPhoto: addPhoto)
+        return apiClient.execute(request: request)
+     }
     
+    func addPhotoDetails(photoDetails: Photo) -> Single<Photo> {
+        let request: ApiRequest<Photo> = ExtendedApiRequest.addPhotoDetailsRequest(photoDetails: photoDetails)
+        return apiClient.execute(request: request)
+    }
 }

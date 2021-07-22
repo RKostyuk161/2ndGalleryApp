@@ -15,13 +15,27 @@ class ProfileViewController: UIViewController {
     @IBAction func SettingsButton(_ sender: UIBarButtonItem) {
         presenter.routeToSettings()
     }
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var birthdayLabel: UILabel!
     var presenter: ProfilePresenter!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.reloadInputViews()
 //        usersPostsCollectionView.dataSource = self
         usersPostsCollectionView.delegate = self
         ProfileConfigurator().config(view: self)
+        textToLabels()
+    }
+    
+    func textToLabels() {
+        guard let user = self.getUser() else { return }
+        nameLabel.text = user.name ?? "no data"
+        birthdayLabel.text = user.birthday ?? ""
+    }
+    
+    func getUser() -> UserEntity? {
+        return self.presenter.settings.account
     }
 }

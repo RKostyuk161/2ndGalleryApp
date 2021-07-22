@@ -9,17 +9,18 @@ import Foundation
 import UIKit
 
 class AddChosenPhotoConfigurator {
-    func configure(view: AddChosenPhotoViewController)  {
+    func configure(view: AddChosenPhotoViewController, image: UIImage)  {
         let router = AddChosenPhotoRouter(view: view)
         let prenseter = AddChosenPhotoPresenterImp(view: view,
                                                    router: router,
+                                                   image: image,
                                                    settings: DI.resolve(),
                                                    usecase: DI.resolve())
         view.presenter = prenseter
     }
     static func open(navigationController: UINavigationController, image: UIImage) {
         guard let vc = R.storyboard.addChosenPhoto().instantiateViewController(identifier: R.storyboard.addChosenPhoto.name) as? AddChosenPhotoViewController else { return }
-        AddChosenPhotoConfigurator().configure(view: vc)
+        AddChosenPhotoConfigurator().configure(view: vc, image: image)
         navigationController.pushViewController(vc, animated: true)
     }
 }

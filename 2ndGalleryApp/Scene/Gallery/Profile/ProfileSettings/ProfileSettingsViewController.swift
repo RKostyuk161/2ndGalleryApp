@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileSettingsViewController: UIViewController {
+class ProfileSettingsViewController: UIViewController, UITextFieldDelegate {
     
     var presenter: ProfileSettingsPresenter!
     
@@ -20,15 +20,8 @@ class ProfileSettingsViewController: UIViewController {
     @IBOutlet weak var confirmPassTextField: UITextField!
     
     @IBAction func uploadProfilePhotoButton(_ sender: UIButton) {
-        print("\(presenter.settings.account)")
-
-        if let acc = presenter.settings.account{
-            print("\(String(describing: acc.id))")
-            print("\(String(describing: acc))")
-
-
-        }
     }
+    
     @IBAction func deleteAccButton(_ sender: UIButton) {
         presenter.deleteAcc()
     }
@@ -43,6 +36,7 @@ class ProfileSettingsViewController: UIViewController {
         super.viewDidLoad()
         ProfileSettingsConfigurator().config(view: self)
         self.navigationController?.navigationBar.isHidden = false
+        setupTextFields()
         let saveButton = UIBarButtonItem.init(
               title: "Save",
               style: .done,
@@ -56,7 +50,8 @@ class ProfileSettingsViewController: UIViewController {
               target: self,
             action: #selector(backToProfile)
         )
-        
+        saveButton.tintColor = #colorLiteral(red: 0.8443242908, green: 0.3406359553, blue: 0.6639499068, alpha: 1)
+        cancelButton.tintColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
         self.navigationItem.leftBarButtonItem = cancelButton
         self.navigationItem.rightBarButtonItem = saveButton
         
@@ -67,24 +62,27 @@ class ProfileSettingsViewController: UIViewController {
     }
     
     @objc func saveChanges() {
-        print("hehreqwehqwheqwhe")
         validateFieldsAndUpdateUserData()
     }
-    
-    
-    
-    
     
     func validateFieldsAndUpdateUserData() {
         guard let username = usernameTextField.text,
               let email = emailTextField.text  else { return }
         
         if username == "" {
-//            Alerts.addAlert(hasErrors: true, alertType: .auth, alertTitle: "username field is empty", message: nil, view: self, func: nil)
+            Alerts().addAlert(alertTitle: "Error",
+                              alertMessage: "username field is empty",
+                              buttonMessage: "Ok",
+                              view: self)
+            return
         }
         
         if email == "" {
-//            Alerts.addAlert(hasErrors: true, alertType: .auth, alertTitle: "email field is empty", message: nil, view: self, func: nil)
+            Alerts().addAlert(alertTitle: "Error",
+                              alertMessage: "email field is empty",
+                              buttonMessage: "Ok",
+                              view: self)
+            return
         }
         
         if let newPass = newPassTextField.text,
@@ -92,14 +90,19 @@ class ProfileSettingsViewController: UIViewController {
             
             if confirmPass != "" &&
                 newPass != confirmPass {
-//                Alerts.addAlert(hasErrors: true, alertType: .auth, alertTitle: "new and confirm fields are not match", message: nil, view: self, func: nil)
+                Alerts().addAlert(alertTitle: "Error",
+                                  alertMessage: "new and confirm fields are not match",
+                                  buttonMessage: "Ok", view: self)
                 return
             }
             
             if let oldPass = oldPassTextField.text {
                 if oldPass == "" &&
                    newPass != "" {
-//                    Alerts.addAlert(hasErrors: true, alertType: .auth, alertTitle: "old pass field is empty", message: nil, view: self, func: nil)
+                    Alerts().addAlert(alertTitle: "Error",
+                                      alertMessage: "old pass field is empty",
+                                      buttonMessage: "Ok",
+                                      view: self)
                     return
                 }
             }
@@ -108,7 +111,11 @@ class ProfileSettingsViewController: UIViewController {
                 if oldPass != "" &&
                     newPass != "" &&
                     confirmPass != newPass {
-//                    Alerts.addAlert(hasErrors: true, alertType: .auth, alertTitle: "new and confirm fields are not match", message: nil, view: self, func: nil)
+                    Alerts()
+                        .addAlert(alertTitle: "Error",
+                                  alertMessage: "new and confirm fields are not match",
+                                  buttonMessage: "Ok",
+                                  view: self)
                     return
                 }
             }
@@ -117,13 +124,31 @@ class ProfileSettingsViewController: UIViewController {
                 if oldPass != "" &&
                     newPass == confirmPass &&
                     newPass == "" {
-//                    Alerts.addAlert(hasErrors: true, alertType: .auth, alertTitle: "fill all pass fields", message: nil, view: self, func: nil)
+                    Alerts().addAlert(alertTitle: "Error",
+                                      alertMessage: "fill all pass fields",
+                                      buttonMessage: "Ok",
+                                      view: self)
                     return
                 }
             }
-            
-            self.navigationController?.popViewController(animated: true)
+            presenter.saveSettings(image: profilePhoto.image ?? nil)
+            self.navigationController?.reloadInputViews()
 
         }
+    }
+    func setupTextFields() {
+        usernameTextField.delegate = self
+        birthTextField.delegate = self
+        emailTextField.delegate = self
+        oldPassTextField.delegate = self
+        newPassTextField.delegate = self
+        confirmPassTextField.delegate = self
+        
+        presenter.setTextFields()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+                return false
     }
 }

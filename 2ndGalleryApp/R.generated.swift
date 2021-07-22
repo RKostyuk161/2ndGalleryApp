@@ -177,8 +177,10 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.image` struct is generated, and contains static references to 16 images.
+  /// This `R.image` struct is generated, and contains static references to 20 images.
   struct image {
+    /// Image `BackButton`.
+    static let backButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "BackButton")
     /// Image `CustomLoadActivityIndicator`.
     static let customLoadActivityIndicator = Rswift.ImageResource(bundle: R.hostingBundle, name: "CustomLoadActivityIndicator")
     /// Image `EnrtySignInLogo`.
@@ -199,6 +201,8 @@ struct R: Rswift.Validatable {
     static let entrySignUpSignUpButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "EntrySignUpSignUpButton")
     /// Image `EntrySignUpSingInButton`.
     static let entrySignUpSingInButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "EntrySignUpSingInButton")
+    /// Image `FirstBarImage`.
+    static let firstBarImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "FirstBarImage")
     /// Image `LoadingImage`.
     static let loadingImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "LoadingImage")
     /// Image `Logo`.
@@ -207,10 +211,21 @@ struct R: Rswift.Validatable {
     static let profileSettingsButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "ProfileSettingsButton")
     /// Image `ProfileUserPhoto`.
     static let profileUserPhoto = Rswift.ImageResource(bundle: R.hostingBundle, name: "ProfileUserPhoto")
+    /// Image `SecondBarImage`.
+    static let secondBarImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "SecondBarImage")
+    /// Image `ThirdBarImage`.
+    static let thirdBarImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "ThirdBarImage")
     /// Image `Welcome!`.
     static let welcome = Rswift.ImageResource(bundle: R.hostingBundle, name: "Welcome!")
     /// Image `profileLine`.
     static let profileLine = Rswift.ImageResource(bundle: R.hostingBundle, name: "profileLine")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "BackButton", bundle: ..., traitCollection: ...)`
+    static func backButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.backButton, compatibleWith: traitCollection)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "CustomLoadActivityIndicator", bundle: ..., traitCollection: ...)`
@@ -283,6 +298,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "FirstBarImage", bundle: ..., traitCollection: ...)`
+    static func firstBarImage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.firstBarImage, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "LoadingImage", bundle: ..., traitCollection: ...)`
     static func loadingImage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.loadingImage, compatibleWith: traitCollection)
@@ -307,6 +329,20 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "ProfileUserPhoto", bundle: ..., traitCollection: ...)`
     static func profileUserPhoto(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.profileUserPhoto, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "SecondBarImage", bundle: ..., traitCollection: ...)`
+    static func secondBarImage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.secondBarImage, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "ThirdBarImage", bundle: ..., traitCollection: ...)`
+    static func thirdBarImage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.thirdBarImage, compatibleWith: traitCollection)
     }
     #endif
 
@@ -449,12 +485,18 @@ struct _R: Rswift.Validatable {
 
     #if os(iOS) || os(tvOS)
     struct addChosenPhoto: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let addChosenPhoto = StoryboardViewControllerResource<AddChosenPhotoViewController>(identifier: "AddChosenPhoto")
       let bundle = R.hostingBundle
       let name = "AddChosenPhoto"
+
+      func addChosenPhoto(_: Void = ()) -> AddChosenPhotoViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: addChosenPhoto)
+      }
 
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+        if _R.storyboard.addChosenPhoto().addChosenPhoto() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'addChosenPhoto' could not be loaded from storyboard 'AddChosenPhoto' as 'AddChosenPhotoViewController'.") }
       }
 
       fileprivate init() {}
@@ -559,8 +601,11 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if UIKit.UIImage(named: "CustomLoadActivityIndicator", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'CustomLoadActivityIndicator' is used in storyboard 'MainGallery', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "FirstBarImage", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'FirstBarImage' is used in storyboard 'MainGallery', but couldn't be loaded.") }
         if UIKit.UIImage(named: "ProfileSettingsButton", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ProfileSettingsButton' is used in storyboard 'MainGallery', but couldn't be loaded.") }
         if UIKit.UIImage(named: "ProfileUserPhoto", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ProfileUserPhoto' is used in storyboard 'MainGallery', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "SecondBarImage", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'SecondBarImage' is used in storyboard 'MainGallery', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ThirdBarImage", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ThirdBarImage' is used in storyboard 'MainGallery', but couldn't be loaded.") }
         if UIKit.UIImage(named: "profileLine", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'profileLine' is used in storyboard 'MainGallery', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }

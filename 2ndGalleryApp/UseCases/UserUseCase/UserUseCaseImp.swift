@@ -50,6 +50,17 @@ class UserUseCaseImp: UserUseCase {
             })
             .asCompletable()
     }
+    
+    func addPhoto(image: UIImage, name: String, description: String) -> Completable {
+        let photo = AddPhoto(image: image)
+        let photoDetails = (Photo(name: name,
+                               description: description,
+                               image: PhotoDetails(name: String(describing: photo.image))))
+        return self.userGateway.uploadPhoto(addPhoto: photo)
+            .asCompletable()
+            .andThen(userGateway.addPhotoDetails(photoDetails: photoDetails))
+            .asCompletable()
+    }
 }
 
 enum UserUseCaseError: LocalizedError {

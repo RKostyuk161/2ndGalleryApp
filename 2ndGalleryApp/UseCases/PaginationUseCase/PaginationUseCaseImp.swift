@@ -11,11 +11,13 @@ import RxSwift
 class PaginationUseCaseImp: PaginationUseCase {
    
     var source = PublishSubject<[ImageEntity]>()
+    var search = PublishSubject<[ImageEntity]>()
     var isLoadingInProcess: Bool = false
     var newCurrentPage: Int = 1
     var popularCurrentPage: Int = 1
     var newTotalItems = 0
     var popularTotalItems = 0
+    var searchItems = [ImageEntity]()
     
     let gateway: GalleryPaginationGateway
     let settings: Settings
@@ -83,6 +85,21 @@ class PaginationUseCaseImp: PaginationUseCase {
             .asCompletable()
     }
     
+    func searchImages(imageName: String, currentCollection: CollectionType) -> Completable {
+        cancelLoading()
+        self.searchItems.removeAll()
+        return self.gateway.searchImages(imageName: imageName, currentCollection: currentCollection)
+            .do(onSuccess: { [weak self] result in
+                guard let self = self,
+                      let data = result.data else { return }
+                self.searchItems = data
+                self.search.onNext(self.searchItems)
+            },
+            onError: { error in
+                print(error.localizedDescription)
+            })
+            .asCompletable()
+    }
     
     func reset(collectionType: CollectionType) {
         switch collectionType {

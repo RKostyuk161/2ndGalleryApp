@@ -16,38 +16,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="07E-9U-qDi">
-                                <rect key="frame" x="0.0" y="88" width="414" height="375"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KYv-8Y-rxY">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K20-Yr-VoK">
-                                        <rect key="frame" x="0.0" y="62" width="414" height="251"/>
-                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZCP-UN-cya">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="405"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="07E-9U-qDi">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="375"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K20-Yr-VoK">
+                                                        <rect key="frame" x="0.0" y="62" width="414" height="251"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="414" id="oi6-B0-pwq"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="K20-Yr-VoK" secondAttribute="bottom" constant="62" id="ECB-Cn-19n"/>
+                                                    <constraint firstItem="K20-Yr-VoK" firstAttribute="centerX" secondItem="07E-9U-qDi" secondAttribute="centerX" id="Ml3-PE-BuH"/>
+                                                    <constraint firstAttribute="height" constant="375" id="NsR-9m-GLh"/>
+                                                    <constraint firstItem="K20-Yr-VoK" firstAttribute="top" secondItem="07E-9U-qDi" secondAttribute="top" constant="62" id="dBa-jl-fYH"/>
+                                                    <constraint firstItem="K20-Yr-VoK" firstAttribute="width" secondItem="07E-9U-qDi" secondAttribute="width" id="pKP-BA-1d0"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQQ-dt-RPe">
+                                                <rect key="frame" x="171" y="375" width="72" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="SLI-jy-jgW"/>
+                                                </constraints>
+                                                <state key="normal" title="Add Photo"/>
+                                                <connections>
+                                                    <action selector="addPhotoButton:" destination="kwX-UX-BfS" eventType="touchUpInside" id="Gpf-LB-ACO"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="xQQ-dt-RPe" firstAttribute="width" secondItem="ZCP-UN-cya" secondAttribute="width" multiplier="0.173913" id="0fD-wF-55d"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="K20-Yr-VoK" firstAttribute="leading" secondItem="07E-9U-qDi" secondAttribute="leading" id="6c3-7m-Hp7"/>
-                                    <constraint firstAttribute="trailing" secondItem="K20-Yr-VoK" secondAttribute="trailing" id="PaV-MC-Kfl"/>
-                                    <constraint firstAttribute="bottom" secondItem="K20-Yr-VoK" secondAttribute="bottom" constant="62" id="YLI-UJ-qf7"/>
-                                    <constraint firstItem="K20-Yr-VoK" firstAttribute="top" secondItem="07E-9U-qDi" secondAttribute="top" constant="62" id="hCj-EB-6Nk"/>
-                                    <constraint firstAttribute="height" constant="375" id="x1C-kh-jD9"/>
+                                    <constraint firstItem="07E-9U-qDi" firstAttribute="centerX" secondItem="KYv-8Y-rxY" secondAttribute="centerX" id="2nm-Ko-naz"/>
+                                    <constraint firstItem="ZCP-UN-cya" firstAttribute="width" secondItem="KYv-8Y-rxY" secondAttribute="width" id="GoY-S1-fss"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZCP-UN-cya" secondAttribute="bottom" constant="320" id="al5-bc-K6y"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZCP-UN-cya" secondAttribute="trailing" id="dES-u7-KZA"/>
+                                    <constraint firstItem="ZCP-UN-cya" firstAttribute="top" secondItem="KYv-8Y-rxY" secondAttribute="top" id="r4h-er-Giw"/>
                                 </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQQ-dt-RPe">
-                                <rect key="frame" x="171" y="463" width="72" height="30"/>
-                                <state key="normal" title="Add Photo"/>
-                                <connections>
-                                    <action selector="addPhotoButton:" destination="kwX-UX-BfS" eventType="touchUpInside" id="Gpf-LB-ACO"/>
-                                </connections>
-                            </button>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ucg-8g-1op"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="07E-9U-qDi" firstAttribute="top" secondItem="Ucg-8g-1op" secondAttribute="top" id="2Wd-Vh-UQ3"/>
-                            <constraint firstItem="Ucg-8g-1op" firstAttribute="trailing" secondItem="07E-9U-qDi" secondAttribute="trailing" id="TLi-e0-aur"/>
-                            <constraint firstItem="07E-9U-qDi" firstAttribute="leading" secondItem="Ucg-8g-1op" secondAttribute="leading" id="lHh-Ja-mez"/>
-                            <constraint firstItem="xQQ-dt-RPe" firstAttribute="top" secondItem="07E-9U-qDi" secondAttribute="bottom" id="tcn-rm-KFR"/>
-                            <constraint firstItem="xQQ-dt-RPe" firstAttribute="centerX" secondItem="Ucg-8g-1op" secondAttribute="centerX" id="yOg-Bp-ROx"/>
+                            <constraint firstItem="KYv-8Y-rxY" firstAttribute="top" secondItem="Ucg-8g-1op" secondAttribute="top" id="SgT-mD-rjK"/>
+                            <constraint firstItem="KYv-8Y-rxY" firstAttribute="leading" secondItem="Ucg-8g-1op" secondAttribute="leading" id="ZqO-J9-ybT"/>
+                            <constraint firstItem="Ucg-8g-1op" firstAttribute="bottom" secondItem="KYv-8Y-rxY" secondAttribute="bottom" id="mjQ-uu-2Ol"/>
+                            <constraint firstItem="Ucg-8g-1op" firstAttribute="trailing" secondItem="KYv-8Y-rxY" secondAttribute="trailing" id="px1-ws-gbF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Em0-Ke-zqD">
@@ -59,7 +84,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addImageImage" destination="K20-Yr-VoK" id="NIR-0I-41W"/>
+                        <outlet property="imagePerview" destination="K20-Yr-VoK" id="eqc-iG-fak"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IdR-SK-GPl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -193,6 +218,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="birthdayLabel" destination="V3a-JB-Swv" id="F7H-hV-NyZ"/>
+                        <outlet property="nameLabel" destination="Cum-sH-Ws8" id="mwo-jq-UYb"/>
                         <outlet property="usersPostsCollectionView" destination="E8j-vY-1Vh" id="gvx-Xt-1BG"/>
                     </connections>
                 </viewController>
@@ -287,11 +314,17 @@
             </objects>
             <point key="canvasLocation" x="-3234" y="-392"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="WUX-Em-8el">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="69v-04-UtX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Qrt-5O-udv"/>
+                    <tabBarItem key="tabBarItem" title="" image="ThirdBarImage" id="Qrt-5O-udv">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.75724871130000004" green="0.1351442226" blue="0.4534067141" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hYV-28-qdl">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -306,11 +339,17 @@
             </objects>
             <point key="canvasLocation" x="-2165" y="350"/>
         </scene>
-        <!--Item 1-->
+        <!--Navigation Controller-->
         <scene sceneID="KFA-kM-Vkp">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NL7-Fd-w5B" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="khU-ZP-YHu"/>
+                    <tabBarItem key="tabBarItem" title="" image="FirstBarImage" id="khU-ZP-YHu">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.75724871130000004" green="0.1351442226" blue="0.4534067141" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cdU-zM-P8X">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -325,11 +364,17 @@
             </objects>
             <point key="canvasLocation" x="-4346.376811594203" y="349.55357142857139"/>
         </scene>
-        <!--Item 2-->
+        <!--Navigation Controller-->
         <scene sceneID="had-3d-ceR">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bhG-gH-laD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="wIE-vc-KyX"/>
+                    <tabBarItem key="tabBarItem" title="" image="SecondBarImage" id="wIE-vc-KyX">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.75724871130000004" green="0.1351442226" blue="0.4534067141" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bNl-1e-gg2">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -347,8 +392,11 @@
     </scenes>
     <resources>
         <image name="CustomLoadActivityIndicator" width="40" height="40"/>
+        <image name="FirstBarImage" width="24" height="23"/>
         <image name="ProfileSettingsButton" width="22" height="22"/>
         <image name="ProfileUserPhoto" width="100" height="100"/>
+        <image name="SecondBarImage" width="28" height="28"/>
+        <image name="ThirdBarImage" width="28" height="28"/>
         <image name="profileLine" width="375" height="1"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

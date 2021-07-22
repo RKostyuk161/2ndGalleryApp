@@ -10,6 +10,7 @@ import RxSwift
 
 protocol PaginationUseCase {
     var source: PublishSubject<[ImageEntity]> { get }
+    var search: PublishSubject<[ImageEntity]> { get }
     var isLoadingInProcess: Bool { get }
     
     var newCurrentPage: Int { get }
@@ -20,8 +21,10 @@ protocol PaginationUseCase {
     
     var newItems: [ImageEntity] { get }
     var popularItems: [ImageEntity] { get }
+    var searchItems: [ImageEntity] { get }
     
     func hasMorePages(items: [ImageEntity], totalItems: Int?) -> Bool
     func getMoreImages(collectionType: CollectionType) -> Completable
+    func searchImages(imageName: String, currentCollection: CollectionType) -> Completable
     func reset(collectionType: CollectionType)
 }

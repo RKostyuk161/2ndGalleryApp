@@ -63,7 +63,7 @@
 		8E26FFB326A4B04F00A82B66 /* AddChosenPhotoPresenterImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E26FFB226A4B04F00A82B66 /* AddChosenPhotoPresenterImp.swift */; };
 		8E26FFB526A4B05C00A82B66 /* AddChosenPhotoCofigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E26FFB426A4B05C00A82B66 /* AddChosenPhotoCofigurator.swift */; };
 		8E26FFB726A4B06C00A82B66 /* AddChosenPhotoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E26FFB626A4B06C00A82B66 /* AddChosenPhotoRouter.swift */; };
-		8E26FFBA26A4B13200A82B66 /* AddPhotoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E26FFB926A4B13200A82B66 /* AddPhotoUseCase.swift */; };
+		8E26FFBF26A4CB1100A82B66 /* AddPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E26FFBE26A4CB1100A82B66 /* AddPhoto.swift */; };
 		8E2DCF5526983CD2009FBC67 /* AuthInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2DCF5426983CD2009FBC67 /* AuthInterceptor.swift */; };
 		8E41344D2692FBE700C69ECE /* DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E41344C2692FBE700C69ECE /* DI.swift */; };
 		8E41344F269302B500C69ECE /* ApiBaseGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E41344E269302B500C69ECE /* ApiBaseGateway.swift */; };
@@ -172,7 +172,7 @@
 		8E26FFB226A4B04F00A82B66 /* AddChosenPhotoPresenterImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChosenPhotoPresenterImp.swift; sourceTree = "<group>"; };
 		8E26FFB426A4B05C00A82B66 /* AddChosenPhotoCofigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChosenPhotoCofigurator.swift; sourceTree = "<group>"; };
 		8E26FFB626A4B06C00A82B66 /* AddChosenPhotoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChosenPhotoRouter.swift; sourceTree = "<group>"; };
-		8E26FFB926A4B13200A82B66 /* AddPhotoUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoUseCase.swift; sourceTree = "<group>"; };
+		8E26FFBE26A4CB1100A82B66 /* AddPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhoto.swift; sourceTree = "<group>"; };
 		8E2DCF5426983CD2009FBC67 /* AuthInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInterceptor.swift; sourceTree = "<group>"; };
 		8E41344C2692FBE700C69ECE /* DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DI.swift; sourceTree = "<group>"; };
 		8E41344E269302B500C69ECE /* ApiBaseGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiBaseGateway.swift; sourceTree = "<group>"; };
@@ -491,14 +491,6 @@
 			path = AddChosenPhoto;
 			sourceTree = "<group>";
 		};
-		8E26FFB826A4B11200A82B66 /* AddPhotoUseCase */ = {
-			isa = PBXGroup;
-			children = (
-				8E26FFB926A4B13200A82B66 /* AddPhotoUseCase.swift */,
-			);
-			path = AddPhotoUseCase;
-			sourceTree = "<group>";
-		};
 		8E2DCF5326983CB6009FBC67 /* Interceptor */ = {
 			isa = PBXGroup;
 			children = (
@@ -553,6 +545,7 @@
 			children = (
 				8EAF7C4A26849BFB0048A936 /* TokenEntitiy.swift */,
 				8EAF7C5026849FC50048A936 /* UserEntity.swift */,
+				8E26FFBE26A4CB1100A82B66 /* AddPhoto.swift */,
 				8EAF7C692689C23E0048A936 /* SignUpEntity.swift */,
 				8EAF7C4E26849DCE0048A936 /* CheckUserEntity.swift */,
 			);
@@ -624,7 +617,6 @@
 		8EBA5C75267B4F9D00941513 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				8E26FFB826A4B11200A82B66 /* AddPhotoUseCase */,
 				8EAF7C5D2684C89D0048A936 /* UserUseCase */,
 				8EAF7C542684BE6A0048A936 /* AuthUseCase */,
 				8EAF7C6B268B16B80048A936 /* RegistrationUseCase */,
@@ -825,6 +817,7 @@
 				8E26E6852697341A0002F82A /* SignInRouter.swift in Sources */,
 				8E26FFAF26A4B02C00A82B66 /* AddChosenPhotoViewController.swift in Sources */,
 				8EAF7C67268613DB0048A936 /* AuthGateway.swift in Sources */,
+				8E26FFBF26A4CB1100A82B66 /* AddPhoto.swift in Sources */,
 				8EBA5C79267B9E3700941513 /* FullImageInfoConfigurator.swift in Sources */,
 				8E0729992672424C0071FF46 /* SignInViewController.swift in Sources */,
 				8E41345926931A8100C69ECE /* ApiGalleryPaginationGateway.swift in Sources */,
@@ -832,7 +825,6 @@
 				8E4134532693076600C69ECE /* ApiUserGateway.swift in Sources */,
 				8EAF7C7C268DBF670048A936 /* ApiEndPoint.swift in Sources */,
 				8E26E681269733620002F82A /* SignInPresenterImp.swift in Sources */,
-				8E26FFBA26A4B13200A82B66 /* AddPhotoUseCase.swift in Sources */,
 				8E4134682694498400C69ECE /* UserDefaultsSettings.swift in Sources */,
 				8EAF7C4F26849DCE0048A936 /* CheckUserEntity.swift in Sources */,
 				8EAF7C7A268CAF1B0048A936 /* ExtendedApiRequest.swift in Sources */,

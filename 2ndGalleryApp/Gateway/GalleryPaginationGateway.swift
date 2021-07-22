@@ -13,4 +13,7 @@ protocol GalleryPaginationGateway {
     func getImages(page: Int,
                    limit: Int,
                    currentCollection: CollectionType) -> Single<ImageEntities>
+    
+    func searchImages(imageName: String,
+                      currentCollection: CollectionType) -> Single<ImageEntities> 
 }

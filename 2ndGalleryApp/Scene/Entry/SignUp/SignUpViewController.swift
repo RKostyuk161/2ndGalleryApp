@@ -38,6 +38,23 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         setupTextFieldsDelegate()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let cancelButton = UIBarButtonItem.init(
+              title: "",
+              style: .done,
+              target: self,
+            action: #selector(back)
+        )
+        cancelButton.image = R.image.backButton()
+        cancelButton.tintColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+        self.navigationItem.leftBarButtonItem = cancelButton
+    }
+    
+    @objc func back() {
+        navigationController?.popViewController(animated: true)
+    }
+    
     func checkFieldsAndReg() {
         
         guard let userNameText = usernameTextField.text,

@@ -25,13 +25,27 @@ class FullImageInfoViewController: UIViewController {
         presenter.setView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let cancelButton = UIBarButtonItem.init(
+              title: "",
+              style: .done,
+              target: self,
+            action: #selector(back)
+        )
+        cancelButton.image = R.image.backButton()
+        cancelButton.tintColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+        self.navigationItem.leftBarButtonItem = cancelButton
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    @objc func back() {
+        navigationController?.popViewController(animated: true)
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.navigationController?.reloadInputViews()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     override func viewDidDisappear(_ animated: Bool) {

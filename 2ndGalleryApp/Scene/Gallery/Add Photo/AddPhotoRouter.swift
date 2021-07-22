@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class AddPhotoRouter {
     var view: AddPhotoViewController!
@@ -14,9 +15,8 @@ class AddPhotoRouter {
         self.view = view
     }
     
-    func onpen() {
-        guard let nc = view.navigationController,
-              let image = view.imagePerview.image else { return }
+    func onpen(image: UIImage) {
+        guard let nc = view.navigationController else { return }
     
         AddChosenPhotoConfigurator.open(navigationController: nc, image: image)
     }

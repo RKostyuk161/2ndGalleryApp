@@ -22,3 +22,19 @@ enum CollectionType: Int {
         }
     }
 }
+
+enum GalleryType: Int {
+    case gallery = 0
+    case search = 1
+    
+    init?(rawValue: Int) {
+        switch rawValue {
+        case 0:
+            self = .gallery
+        case 1:
+            self = .search
+        default:
+            return nil
+        }
+    }
+}

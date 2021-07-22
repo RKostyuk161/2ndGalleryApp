@@ -5,8 +5,11 @@
 //  Created by Роман on 18.07.2021.
 //
 
-import Foundation
+import UIKit
+import RxSwift
 
 protocol AddChosenPhotoPresenter {
-    func addPhoto()
+    var image: UIImage { get }
+    
+    func addPhoto(image: UIImage, name: String, description: String)
 }

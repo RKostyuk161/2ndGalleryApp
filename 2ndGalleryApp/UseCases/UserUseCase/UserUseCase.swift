@@ -13,5 +13,6 @@ protocol UserUseCase {
     
     func updateUserInfo(user: UserEntity, jpgData: Data?) -> Completable
     
+    func addPhoto(image: UIImage, name: String, description: String) -> Completable
     func deleteUser() -> Completable
 }

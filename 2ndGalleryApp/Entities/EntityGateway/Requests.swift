@@ -66,7 +66,31 @@ extension ExtendedApiRequest {
     }
     
     static func getFullImageRequest(imageName: String) -> ExtendedApiRequest {
-        return extendedRequest(path: "/media/\(imageName)",
+        return extendedRequest(path: "media/\(imageName)",
                                method: .get)
+    }
+    
+    static func UploadPhotoRequest(addPhoto: AddPhoto) -> ExtendedApiRequest {
+        return extendedRequest(path: "api/media_objects",
+                               method: .post,
+                               headers: [Header.contentJson],
+                               body: addPhoto)
+    }
+    
+    static func addPhotoDetailsRequest(photoDetails: Photo) -> ExtendedApiRequest {
+        return extendedRequest(path: "api/photos",
+                               method: .post,
+                               headers: [Header.contentJson],
+                               body: photoDetails)
+    }
+    
+    static func searchPhotosRequest(imageName: String,
+                                    currentCollection: CollectionType) -> ExtendedApiRequest {
+        var searchStateParametrs: [(String, String?)] = (currentCollection == .new) ? [("new", "true")] : [("new", "false"),("popular", "true")]
+        searchStateParametrs.append(contentsOf: [("name", imageName)])
+        return extendedRequest(path: "api/photos",
+                               method: .get,
+                               headers: [Header.contentJson],
+                               queryArray: searchStateParametrs)
     }
 }

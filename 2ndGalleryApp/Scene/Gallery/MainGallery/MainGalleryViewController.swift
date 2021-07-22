@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainGalleryViewController: UIViewController, UISearchBarDelegate {
+class MainGalleryViewController: UIViewController {
 
     var positionOfNewGallery: IndexPath? = nil
     var positionOfPopularGallery: IndexPath? = nil
@@ -48,6 +48,7 @@ class MainGalleryViewController: UIViewController, UISearchBarDelegate {
         setupViewIfNeed()
         searchBar.delegate = self
         presenter.subscribeOnGalleryRequestResult()
+        presenter.subscribeOnSearch()
         presenter.getFullGalleryRequest(isNewCollection: presenter.currentCollection)
         
     }
@@ -102,7 +103,7 @@ class MainGalleryViewController: UIViewController, UISearchBarDelegate {
         gallerySegmentControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: UIControl.State.selected)
         guard self.presenter == nil else { return }
         let currentCollection = self.gallerySegmentControl.selectedSegmentIndex
-        MainGalleryConfigurator().config(view: self, currentCollection: currentCollection)
+        MainGalleryConfigurator().config(view: self, currentCollection: currentCollection, currentGalleryState: 0)
         let galleryCellName = R.nib.mainGalleryCollectionViewCell.name
         self.galleryCollectionView.register(UINib(nibName: galleryCellName,
                                                   bundle: nil),
@@ -124,9 +125,5 @@ class MainGalleryViewController: UIViewController, UISearchBarDelegate {
         
     func setSegmentControl() {
         gallerySegmentControl.addUnderlineForSelectedSegment()
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
     }
 }

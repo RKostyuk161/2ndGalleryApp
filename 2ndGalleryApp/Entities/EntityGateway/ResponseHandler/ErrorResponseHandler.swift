@@ -18,6 +18,13 @@ open class ErrorResponseHandler: ResponseHandler {
     public func handle<T: Codable>(observer: @escaping SingleObserver<T>,
                                    request: ApiRequest<T>,
                                    response: NetworkResponse) -> Bool {
+        guard let data = response.data  else {
+            return false
+        }
+        
+        if data.count == 0 {
+            return true
+        }
         guard let urlResponse = response.urlResponse,
             let nsHttpUrlResponse = urlResponse as? HTTPURLResponse else {
                 return false
@@ -29,7 +36,7 @@ open class ErrorResponseHandler: ResponseHandler {
             switch nsHttpUrlResponse.statusCode {
             case 204:
                 print("WE CATCH IT HEREREREREREREREREE")
-                return false
+                return true
             case 408:
 
                 return true

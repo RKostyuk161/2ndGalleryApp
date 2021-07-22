@@ -30,6 +30,31 @@ extension MainGalleryViewController: UICollectionViewDataSource {
     }
 }
 
+extension MainGalleryViewController: UISearchBarDelegate {
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+            presenter.currentGalleryState = .search
+        print(".search = \(presenter.currentGalleryState)")
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0)  {
+            self.presenter.getSearchImagesRequest(imageName: searchText, currentCollection: self.presenter.currentCollection)
+            print("get smth")
+        }
+    }
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        if searchBar.text == "" {
+            presenter.currentGalleryState = .gallery
+            print(".gallery = \(presenter.currentGalleryState)")
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+}
+
 extension MainGalleryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         presenter.setupSizeForCell(itemsPerLine: setNumberOfCellsInRow)

@@ -9,14 +9,16 @@ import Foundation
 
 class ProfilePresenterImp: ProfilePresenter {
     
+    var useCase: UserUseCase
     var view: ProfileViewController
     var router: ProfileRouter
     var settings: Settings
     
-    init(view: ProfileViewController, router: ProfileRouter, settings: Settings) {
+    init(view: ProfileViewController, router: ProfileRouter, settings: Settings, useCase: UserUseCase) {
         self.view = view
         self.router = router
         self.settings = settings
+        self.useCase = useCase
     }
     
     func routeToSettings() {
