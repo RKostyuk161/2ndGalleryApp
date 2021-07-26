@@ -9,7 +9,7 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    
+    var currentUser: UserEntity?
     
     @IBOutlet weak var usersPostsCollectionView: UICollectionView!
     @IBAction func SettingsButton(_ sender: UIBarButtonItem) {
@@ -20,18 +20,25 @@ class ProfileViewController: UIViewController {
     var presenter: ProfilePresenter!
     
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationController?.reloadInputViews()
-//        usersPostsCollectionView.dataSource = self
-        usersPostsCollectionView.delegate = self
-        ProfileConfigurator().config(view: self)
-        textToLabels()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        currentUser = getUser()
+        textToLabels(currentUser: currentUser)
     }
     
-    func textToLabels() {
-        guard let user = self.getUser() else { return }
-        nameLabel.text = user.name ?? "no data"
+    override func viewDidLoad() {
+        ProfileConfigurator.config(view: self, currentUser: nil)
+        super.viewDidLoad()
+        navigationController?.reloadInputViews()
+        currentUser = getUser()
+//        usersPostsCollectionView.dataSource = self
+        usersPostsCollectionView.delegate = self
+        textToLabels(currentUser: currentUser)
+    }
+    
+    func textToLabels(currentUser: UserEntity?) {
+        guard let user = currentUser else { return }
+        nameLabel.text = user.username ?? "no data"
         birthdayLabel.text = user.birthday ?? ""
     }
     

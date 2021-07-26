@@ -26,13 +26,18 @@ class ApiUserGateway: ApiBaseGateway, UserGateway {
         return apiClient.execute(request: request)
     }
     
-    func uploadPhoto(addPhoto: AddPhoto) -> Single<AddPhoto> {
-        let request: ApiRequest<AddPhoto> = ExtendedApiRequest.UploadPhotoRequest(addPhoto: addPhoto)
+    func updateUserPass(userId: Int, user: UpdatePasswordEntity) -> Single<UpdatePasswordEntity> {
+        let request: ApiRequest<UpdatePasswordEntity> = ExtendedApiRequest.updateUserPass(userId: userId, user: user)
+        return apiClient.execute(request: request)
+    }
+    
+    func addPhoto(addPhoto: AddPhoto) -> Single<AddPhoto> {
+        let request: ApiRequest<AddPhoto> = ExtendedApiRequest.addPhotoRequest(addPhoto: addPhoto)
         return apiClient.execute(request: request)
      }
     
-    func addPhotoDetails(photoDetails: Photo) -> Single<Photo> {
-        let request: ApiRequest<Photo> = ExtendedApiRequest.addPhotoDetailsRequest(photoDetails: photoDetails)
+    func uploadPhotoDetails(photoDetails: AddPhoto) -> Single<AddPhoto> {
+        let request: ApiRequest<AddPhoto> = ExtendedApiRequest.uploadPhotoDetailsRequest(photoDetails: photoDetails)
         return apiClient.execute(request: request)
     }
 }

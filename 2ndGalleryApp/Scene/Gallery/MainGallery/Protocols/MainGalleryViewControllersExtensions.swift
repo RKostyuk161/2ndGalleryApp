@@ -9,6 +9,23 @@ import Foundation
 import UIKit
 
 extension MainGalleryViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionView.elementKindSectionFooter:
+
+            if let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: R.reuseIdentifier.mainGalleryFooterCollectionReusableView, for: indexPath) as? MainGalleryFooterCollectionReusableView {
+                if self.lastElement == true {
+                    footerView.isHidden = true
+                    return footerView
+                }
+                return footerView
+            }
+        default:
+            return UICollectionReusableView()
+        }
+        return UICollectionReusableView()
+    }
         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             presenter.prepeareForRoute(indexPath: indexPath)
         }
@@ -35,23 +52,30 @@ extension MainGalleryViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
             presenter.currentGalleryState = .search
         print(".search = \(presenter.currentGalleryState)")
+        self.galleryCollectionView.reloadData()
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0)  {
             self.presenter.getSearchImagesRequest(imageName: searchText, currentCollection: self.presenter.currentCollection)
             print("get smth")
+            self.galleryCollectionView.reloadData()
+
         }
     }
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         if searchBar.text == "" {
             presenter.currentGalleryState = .gallery
             print(".gallery = \(presenter.currentGalleryState)")
+            self.galleryCollectionView.reloadData()
+
         }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+        self.galleryCollectionView.reloadData()
+
     }
 }
 
@@ -64,7 +88,7 @@ extension MainGalleryViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 10)
+        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
 }
 

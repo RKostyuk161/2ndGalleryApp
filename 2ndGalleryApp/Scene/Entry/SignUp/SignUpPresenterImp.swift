@@ -40,27 +40,25 @@ class SignUpPresenterImp: SignUpPresenter {
             .observeOn(MainScheduler.instance)
             .andThen(self.logingUseCase.sighIn(login: self.view.emailTextField.text!, password: self.view.oldPasswordTextField.text!))
             .do(onSubscribe: {
-// TODO: activityIndicator on
+                CustomActivityIndicatorConfigurator.open()
             }, onDispose: {
-// TODO: activityIndicator off
-
+                self.view.dismiss(animated: true, completion: nil)
             })
             .subscribe(onCompleted: { [weak self] in
-                guard let self = self,
-                      let user = self.settings.account else {
-                    return
-                }
-                Alerts().addAlert(alertTitle: "Auth is ok",
-                                  alertMessage: nil,
-                                  buttonMessage: "Go to gallery",
-                                  view: self.view,
-                                  function: { [weak self] in
-                                    self!.changeRootView()
-                                  })
+                guard let self = self else { return }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    Alerts().addAlert(alertTitle: "Auth is ok",
+                                      alertMessage: nil,
+                                      buttonMessage: "Go to gallery",
+                                      view: self.view,
+                                      function: { [weak self] in
+                                        self!.changeRootView()
+                                      })                }
+
             },
 
             onError: { [weak self] error in
-                Alerts().addAlert(alertTitle: "Error", alertMessage: error.localizedDescription, buttonMessage: "Ok", view: self!.view)
+                Alerts().addAlert(alertTitle: "Error", alertMessage: error.localizedDescription.description, buttonMessage: "Ok", view: self!.view)
             })
             
             

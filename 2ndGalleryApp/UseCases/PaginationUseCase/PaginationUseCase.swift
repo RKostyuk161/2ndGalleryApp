@@ -23,8 +23,8 @@ protocol PaginationUseCase {
     var popularItems: [ImageEntity] { get }
     var searchItems: [ImageEntity] { get }
     
-    func hasMorePages(items: [ImageEntity], totalItems: Int?) -> Bool
     func getMoreImages(collectionType: CollectionType) -> Completable
     func searchImages(imageName: String, currentCollection: CollectionType) -> Completable
+    func hasMorePages(collectionType: CollectionType) -> Bool
     func reset(collectionType: CollectionType)
 }

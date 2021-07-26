@@ -18,6 +18,7 @@ class ProfileSettingsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var oldPassTextField: UITextField!
     @IBOutlet weak var newPassTextField: UITextField!
     @IBOutlet weak var confirmPassTextField: UITextField!
+    let datePicker = UIDatePicker()
     
     @IBAction func uploadProfilePhotoButton(_ sender: UIButton) {
     }
@@ -34,7 +35,6 @@ class ProfileSettingsViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ProfileSettingsConfigurator().config(view: self)
         self.navigationController?.navigationBar.isHidden = false
         setupTextFields()
         let saveButton = UIBarButtonItem.init(
@@ -54,7 +54,7 @@ class ProfileSettingsViewController: UIViewController, UITextFieldDelegate {
         cancelButton.tintColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
         self.navigationItem.leftBarButtonItem = cancelButton
         self.navigationItem.rightBarButtonItem = saveButton
-        
+        setDatePicker()
     }
     
     @objc func backToProfile() {
@@ -65,7 +65,37 @@ class ProfileSettingsViewController: UIViewController, UITextFieldDelegate {
         validateFieldsAndUpdateUserData()
     }
     
+    @objc func closeDataPicker() {
+        view.endEditing(true)
+    }
+    
+    @objc func dateChanged() {
+        getDateFromPicker()
+    }
+    
+    func setDatePicker() {
+        datePicker.preferredDatePickerStyle = .wheels
+        birthTextField.inputView = datePicker
+        datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
+        let tapped = UITapGestureRecognizer(target: self, action: #selector(closeDataPicker))
+        self.view.addGestureRecognizer(tapped)
+        let maxData = Calendar.current.date(byAdding: .day, value: 0, to: Date())
+        datePicker.maximumDate = maxData
+    }
+    
+    func getDateFromPicker() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        birthTextField.text = formatter.string(from: datePicker.date)
+    }
+    
+    
     func validateFieldsAndUpdateUserData() {
+        checkUserSettings()
+        checkPasswordFiels()
+    }
+    
+    func checkUserSettings() {
         guard let username = usernameTextField.text,
               let email = emailTextField.text  else { return }
         
@@ -131,11 +161,26 @@ class ProfileSettingsViewController: UIViewController, UITextFieldDelegate {
                     return
                 }
             }
-            presenter.saveSettings(image: profilePhoto.image ?? nil)
+            presenter.saveSettings()
             self.navigationController?.reloadInputViews()
 
         }
     }
+    
+    func checkPasswordFiels() {
+        if newPassTextField.text == confirmPassTextField.text {
+            if oldPassTextField.text != "" {
+                guard let oldPass = oldPassTextField.text,
+                      let newPass = newPassTextField.text else { return }
+                presenter.updatePass(oldPass: oldPass, newPass: newPass)
+            } else {
+                return
+            }
+        } else {
+            return
+        }
+    }
+    
     func setupTextFields() {
         usernameTextField.delegate = self
         birthTextField.delegate = self

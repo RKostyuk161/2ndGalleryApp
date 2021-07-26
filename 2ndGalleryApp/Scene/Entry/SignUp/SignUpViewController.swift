@@ -18,7 +18,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var oldPasswordTextField: UITextField!
     @IBOutlet weak var confirmPassTextField: UITextField!
-    
+    let datePicker = UIDatePicker()
     
     @IBAction func signUpButton(_ sender: UIButton) {
         
@@ -36,6 +36,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         SignUpConfigurator().config(view: self)
         setupTextFieldsDelegate()
+        setDatePicker()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,6 +54,30 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     @objc func back() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func closeDataPicker() {
+        view.endEditing(true)
+    }
+    
+    @objc func dateChanged() {
+        getDateFromPicker()
+    }
+    
+    func setDatePicker() {
+        datePicker.preferredDatePickerStyle = .wheels
+        birthdayTextField.inputView = datePicker
+        datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
+        let tapped = UITapGestureRecognizer(target: self, action: #selector(closeDataPicker))
+        self.view.addGestureRecognizer(tapped)
+        let maxData = Calendar.current.date(byAdding: .day, value: 0, to: Date())
+        datePicker.maximumDate = maxData
+    }
+    
+    func getDateFromPicker() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        birthdayTextField.text = formatter.string(from: datePicker.date)
     }
     
     func checkFieldsAndReg() {

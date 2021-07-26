@@ -30,4 +30,6 @@ protocol MainGalleryPresenter {
     func createCellForMainGalleryCollectionView(indexPath: IndexPath) -> UICollectionViewCell
     
     func setupSizeForCell(itemsPerLine: Int) -> CGSize
+    
+    func refresh()
 }

@@ -26,8 +26,7 @@ class UserUseCaseImp: UserUseCase {
             })
     }
     
-    func updateUserInfo(user: UserEntity, jpgData: Data?) -> Completable {
-//        TODO: update with photo
+    func updateUserInfo(user: UserEntity) -> Completable {
         guard let userId = settings.account?.id else {
             return .error(UserUseCaseError.localUserIdIsNil)
         }
@@ -38,6 +37,16 @@ class UserUseCaseImp: UserUseCase {
             })
             .asCompletable()
     }
+    
+    func updateUserPass(user: UpdatePasswordEntity) -> Completable {
+        guard let userId = settings.account?.id else {
+            return .error(UserUseCaseError.localUserIdIsNil)
+        }
+        return self.userGateway.updateUserPass(userId: userId, user: user)
+            .observeOn(MainScheduler.instance)
+            .asCompletable()
+    }
+    
     func deleteUser() -> Completable {
         guard let userId = settings.account?.id else {
             return .error(UserUseCaseError.localUserIdIsNil)
@@ -52,14 +61,17 @@ class UserUseCaseImp: UserUseCase {
     }
     
     func addPhoto(image: UIImage, name: String, description: String) -> Completable {
-        let photo = AddPhoto(image: image)
-        let photoDetails = (Photo(name: name,
-                               description: description,
-                               image: PhotoDetails(name: String(describing: photo.image))))
-        return self.userGateway.uploadPhoto(addPhoto: photo)
+        let photo = Photo(name: name, description: description, id: name)
+        let imageData: Data? = image.jpegData(compressionQuality: 0.4)
+        let imageStr = imageData?.base64EncodedString(options: .lineLength64Characters)
+        guard let imageToString: String = image.pngData()?.description else { return .empty()}
+        let photoDetails = AddPhoto(image: imageStr!, name: name)
+        return self.userGateway.addPhoto(addPhoto: photoDetails)
             .asCompletable()
-            .andThen(userGateway.addPhotoDetails(photoDetails: photoDetails))
+            .andThen(userGateway.uploadPhotoDetails(photoDetails: photoDetails))
             .asCompletable()
+        
+
     }
 }
 

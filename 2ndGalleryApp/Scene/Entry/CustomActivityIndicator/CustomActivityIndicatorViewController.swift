@@ -7,36 +7,54 @@
 
 import UIKit
 
-protocol CustomActivityIndicator {
-    func startTimer(view: UIView, loader: UIImageView)
+class CustomActivityIndicatorViewController: UIViewController {
     
-    func stopTimer(view: UIView, loader: UIImageView)
-}
-
-class CustomActivityIndicatorImp: CustomActivityIndicator {
-    
+    var config: CustomActivityIndicatorConfigurator!
+        
     var timer: Timer?
     
-    func startTimer(view: UIView, loader: UIImageView) {
-        view.isHidden = false
+    @IBOutlet weak var customActiviyIndicatorImage: UIImageView!
+    @IBOutlet weak var customActivityIndicatorView: UIView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.config = CustomActivityIndicatorConfigurator(view: self)
+        startTimer()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopTimer()
+    }
+    
+    @objc func animateView() {
+        UIView.animate(withDuration: 0.8,
+                       delay: 0.0,
+                       options: .curveLinear, animations: {
+                        self.customActiviyIndicatorImage.transform = self.customActiviyIndicatorImage.transform.rotated(by: CGFloat(Double.pi))
+                       }, completion: { (finished) in
+                        if self.timer != nil {
+                            self.timer = Timer.scheduledTimer(timeInterval:0.0, target: self, selector: #selector(self.animateView), userInfo: nil, repeats: false)
+                        }
+                       })
+    }
+    
+    func startTimer() {
+        self.customActivityIndicatorView.isHidden = false
         if timer == nil {
-//            timer = Timer.scheduledTimer(timeInterval:0.0, target: self, selector: #selector(self.animateView(loader: loader)), userInfo: nil, repeats: false)
+            timer = Timer.scheduledTimer(timeInterval:0.0, target: self, selector: #selector(self.animateView), userInfo: nil, repeats: false)
         }
     }
     
-    func stopTimer(view: UIView, loader: UIImageView) {
-        view.isHidden = true
+    func stopTimer() {
         timer?.invalidate()
         timer = nil
+        self.customActivityIndicatorView.isHidden = true
+        
     }
     
-    @objc func animateView(loader: UIImageView) {
-        UIKit.UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveLinear, animations: {
-            loader.transform = loader.transform.rotated(by: CGFloat(Double.pi))
-        }, completion: { (finished) in
-            if self.timer != nil {
-                self.timer = Timer.scheduledTimer(timeInterval:0.0, target: self, selector: #selector(self.animateView), userInfo: nil, repeats: false)
-            }
-        })
+    func dismiss() {
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
+    
 }

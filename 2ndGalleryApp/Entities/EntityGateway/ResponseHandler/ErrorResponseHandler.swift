@@ -116,3 +116,46 @@ open class ErrorResponseHandler: ResponseHandler {
     // swiftlint:enable function_body_length
 }
 
+public class ResponseErrorEntity: LocalizedError {
+
+    public var errors = [String]()
+    public let urlResponse: URLResponse?
+    public let urlRequest: URLRequest?
+    public var statusCode: Int? {
+        return (urlResponse as? HTTPURLResponse)?.statusCode
+    }
+
+
+    public init(_ urlResponse: URLResponse? = nil, _ urlRequest: URLRequest? = nil) {
+        self.urlResponse = urlResponse
+        self.urlRequest = urlRequest
+    }
+
+    public var errorDescription: String? {
+        return errors.joined()
+    }
+}
+
+class NSErrorResponseHandler: ResponseHandler {
+
+    public init() {
+    }
+
+    public func handle<T: Codable>(observer: @escaping SingleObserver<T>,
+                                   request: ApiRequest<T>,
+                                   response: NetworkResponse) -> Bool {
+        if let error = (response.error as NSError?) {
+            let errorResponseEntity = ResponseErrorEntity(response.urlResponse)
+            let errorDesc = error.code == -1001 ? error.localizedDescription + "\n" /*+ R.string.localizable.tryAgain() LOCALIZABLE */ : error.localizedDescription
+            errorResponseEntity.errors.append(errorDesc)
+            observer(.error(errorResponseEntity))
+            return true
+        }
+        return false
+    }
+}
+
+struct ApiDefaultAnswerEntity: Codable, JsonBodyConvertible {
+    var message: String?
+}
+

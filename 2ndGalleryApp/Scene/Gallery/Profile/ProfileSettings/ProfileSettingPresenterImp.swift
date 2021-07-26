@@ -16,42 +16,37 @@ class ProfileSettingsPresenterImp: ProfileSettingsPresenter {
     var router: ProfileSettingsRouter
     var settings: Settings
     var disposeBag = DisposeBag()
+    var currentUser: UserEntity
     
     init(view: ProfileSettingsViewController,
          router: ProfileSettingsRouter,
          settings: Settings,
-         userUseCase: UserUseCase) {
+         userUseCase: UserUseCase,
+         currentUser: UserEntity) {
         self.view = view
         self.router = router
         self.settings = settings
         self.userUseCase = userUseCase
+        self.currentUser = currentUser
     }
     
     func setTextFields() {
-        guard let userEntity = settings.account else { return }
-        view.usernameTextField.text = userEntity.name ?? "no data"
-        view.birthTextField.text = userEntity.birthday ?? "no data"
-        view.emailTextField.text = userEntity.email ?? "no data"
+        view.usernameTextField.text = currentUser.username ?? "no data"
+        view.birthTextField.text = currentUser.birthday ?? "no data"
+        view.emailTextField.text = currentUser.email ?? "no data"
         
     }
     
-    func saveSettings(image: UIImage?) {
-        guard let image = image else { return }
+    func saveSettings() {
         guard let settings = settings.account,
               let id = settings.id else { return }
         let user = UserEntity(id: id,
-                              name: view.usernameTextField.text,
+                              username: view.usernameTextField.text,
                               email: view.emailTextField.text,
                               pass: view.oldPassTextField.text,
                               dateOfBirth: view.birthTextField.text)
-        userUseCase.updateUserInfo(user: user, jpgData: AddPhoto(image: image).image)
+        userUseCase.updateUserInfo(user: user)
             .observeOn(MainScheduler.instance)
-            .do(onSubscribe: {
-                
-            },
-            onDispose: {
-                
-            })
             .subscribe(onCompleted: { [weak self] in
                 guard let view = self?.view else { return }
                 Alerts().addAlert(alertTitle: "Success",
@@ -71,34 +66,55 @@ class ProfileSettingsPresenterImp: ProfileSettingsPresenter {
             })
     }
     
-    func updatePhoto(image: UIImage) {
-        
+    func updatePass(oldPass: String, newPass: String)  {
+        let user = UpdatePasswordEntity(oldPass: oldPass, newPass: newPass)
+        userUseCase.updateUserPass(user: user)
+            .observeOn(MainScheduler.instance)
+            .subscribe(onCompleted: { [ weak self ] in
+                guard let view = self?.view else { return }
+                Alerts().addAlert(alertTitle: "Success",
+                                  alertMessage: nil,
+                                  buttonMessage: "Ok",
+                                  view: view,
+                                  function: { [weak self] in
+                                    self?.moveBack()
+                                  })
+            }, onError: { error in
+                Alerts().addAlert(alertTitle: "Error",
+                                  alertMessage: error.localizedDescription,
+                                  buttonMessage: "Ok",
+                                  view: self.view)
+            })
     }
+
     func deleteAcc() {
         userUseCase.deleteUser()
             .do(onSubscribe: {
-                self.prnt()
+                CustomActivityIndicatorConfigurator.open()
             },
             onDispose: {
-                self.prnt()
+                self.view.dismiss(animated: true, completion: nil)
             })
             .observeOn(MainScheduler.instance)
             .subscribe(onCompleted: {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 Alerts().addAlert(alertTitle: "Acc is deleted", alertMessage: nil, buttonMessage: "ok", view: self.view, function: {
                         [weak self] in
                         self!.changeRootView()
                     })
                     return
+                }
             }, onError: { [weak self] error in
+                guard let networkError = error as? ResponseErrorEntity else { return }
                 guard let self = self else { return }
-                Alerts().addAlert(alertTitle: "Error", alertMessage: error.localizedDescription, buttonMessage: "Ok", view: self.view)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                Alerts().addAlert(alertTitle: "Error", alertMessage: networkError.localizedDescription, buttonMessage: "Ok", view: self.view)
+                }
             })
             .disposed(by: disposeBag)
         
     }
-    func prnt() {
-        print("kkkk")
-    }
+
     func changeRootView()  {
         settings.clearUserData()
         let mainTabBar = R.storyboard.main.instantiateInitialViewController()!
@@ -107,5 +123,6 @@ class ProfileSettingsPresenterImp: ProfileSettingsPresenter {
     
     func moveBack() {
         self.view.navigationController?.popViewController(animated: true)
+        ProfileConfigurator.config(view: ProfileViewController(), currentUser: currentUser)
     }
 }

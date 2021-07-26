@@ -11,7 +11,8 @@ import RxSwift
 protocol UserUseCase {
     func getUserInfo() -> Single<UserEntity>
     
-    func updateUserInfo(user: UserEntity, jpgData: Data?) -> Completable
+    func updateUserInfo(user: UserEntity) -> Completable
+    func updateUserPass(user: UpdatePasswordEntity) -> Completable
     
     func addPhoto(image: UIImage, name: String, description: String) -> Completable
     func deleteUser() -> Completable

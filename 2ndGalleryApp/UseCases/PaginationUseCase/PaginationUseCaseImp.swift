@@ -32,12 +32,14 @@ class PaginationUseCaseImp: PaginationUseCase {
         self.settings = settings
     }
     
-    func hasMorePages(items: [ImageEntity], totalItems: Int?) -> Bool {
+    func hasMorePages(collectionType: CollectionType) -> Bool {
         
-        guard let totalItems = totalItems else { return true }
-        
-        return items.count < totalItems
-        
+        switch collectionType {
+        case .new:
+            return newItems.count < newTotalItems
+        default:
+            return popularItems.count < popularTotalItems
+        }        
     }
     
     func getMoreImages(collectionType: CollectionType) -> Completable {
@@ -107,12 +109,12 @@ class PaginationUseCaseImp: PaginationUseCase {
             self.newItems.removeAll()
             self.newTotalItems = 0
             self.newCurrentPage = 1
+    
         case .popular:
             self.popularItems.removeAll()
             self.popularTotalItems = 0
             self.popularCurrentPage = 1
         }
-
     }
     
     func cancelLoading() {

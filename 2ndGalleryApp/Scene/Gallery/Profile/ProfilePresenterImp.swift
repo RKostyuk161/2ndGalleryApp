@@ -22,7 +22,7 @@ class ProfilePresenterImp: ProfilePresenter {
     }
     
     func routeToSettings() {
-        router.openProfileSettingsViewCOntroller()
+        router.openProfileSettingsViewCOntroller(currentUser: view.currentUser)
     }
     
     

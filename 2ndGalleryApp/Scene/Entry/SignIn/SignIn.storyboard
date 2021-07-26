@@ -146,49 +146,17 @@
                                     <constraint firstItem="10f-A0-34K" firstAttribute="centerY" secondItem="ik1-d2-oUj" secondAttribute="centerY" multiplier="0.85" id="k6A-vZ-cZ8"/>
                                 </constraints>
                             </scrollView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CkL-QS-DXC">
-                                <rect key="frame" x="107" y="353" width="200" height="200"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CustomLoadActivityIndicator" translatesAutoresizingMaskIntoConstraints="NO" id="7jM-Tk-bM4">
-                                        <rect key="frame" x="80" y="60" width="40" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="Bng-Gj-Hb6"/>
-                                            <constraint firstAttribute="width" constant="40" id="PTU-JC-H1b"/>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoadingImage" translatesAutoresizingMaskIntoConstraints="NO" id="oFP-aZ-CuZ">
-                                        <rect key="frame" x="62.5" y="130" width="75" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="75" id="4PR-oq-AeJ"/>
-                                            <constraint firstAttribute="height" constant="20" id="KLM-fH-aiH"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="7jM-Tk-bM4" firstAttribute="centerX" secondItem="CkL-QS-DXC" secondAttribute="centerX" id="8ja-WJ-npf"/>
-                                    <constraint firstAttribute="height" constant="200" id="Axe-DI-fyZ"/>
-                                    <constraint firstItem="7jM-Tk-bM4" firstAttribute="centerY" secondItem="CkL-QS-DXC" secondAttribute="centerY" multiplier="0.8" id="eCY-na-8nG"/>
-                                    <constraint firstItem="oFP-aZ-CuZ" firstAttribute="centerX" secondItem="CkL-QS-DXC" secondAttribute="centerX" id="mNZ-d9-1Os"/>
-                                    <constraint firstAttribute="width" constant="200" id="tvj-Fx-Nsn"/>
-                                    <constraint firstAttribute="bottom" secondItem="oFP-aZ-CuZ" secondAttribute="bottom" constant="50" id="wks-lI-tT0"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ik1-d2-oUj" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="5Iy-bH-pTP"/>
                             <constraint firstItem="ik1-d2-oUj" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="5y1-ES-9pD"/>
-                            <constraint firstItem="CkL-QS-DXC" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="EB0-d7-Bk0"/>
                             <constraint firstAttribute="bottom" secondItem="ik1-d2-oUj" secondAttribute="bottom" id="W6r-gH-NFC"/>
                             <constraint firstItem="ik1-d2-oUj" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="bok-aL-S1C"/>
-                            <constraint firstItem="CkL-QS-DXC" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="tX9-VT-UgN"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="activityIndicatorView" destination="CkL-QS-DXC" id="sFX-yV-ThK"/>
-                        <outlet property="customActiviyIndicator" destination="7jM-Tk-bM4" id="idj-Uk-rW8"/>
                         <outlet property="emailTextField" destination="9pc-R2-wSX" id="7zg-Vs-L2C"/>
                         <outlet property="passwordTextField" destination="qal-m3-rqc" id="W19-RU-eEV"/>
                     </connections>
@@ -199,11 +167,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CustomLoadActivityIndicator" width="40" height="40"/>
         <image name="EnrtySignInLogo" width="94" height="37"/>
         <image name="EntrySignInSignInButton" width="120" height="36"/>
         <image name="EntrySignInSignUpButton" width="120" height="36"/>
-        <image name="LoadingImage" width="72" height="17"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

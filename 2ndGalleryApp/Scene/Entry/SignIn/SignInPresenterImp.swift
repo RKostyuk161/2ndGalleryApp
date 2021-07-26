@@ -15,7 +15,7 @@ class SignInPresenterImp: SignInPresenter {
     var settings: Settings
     var disposeBag = DisposeBag()
     var router: SignInRouter
-    var activityIndicator = CustomActivityIndicatorImp()
+//    var activityIndicator = CustomActivityIndicatorImp()
     
     init(view: SignInViewController,
          loginUseCase: AuthUseCase,
@@ -31,17 +31,17 @@ class SignInPresenterImp: SignInPresenter {
         self.loginUseCase.sighIn(login: username, password: password)
             .observeOn(MainScheduler.instance)
             .do(onSubscribe: {
-                self.view.startTimer()
+                CustomActivityIndicatorConfigurator.open()
             },
             onDispose: {
-                self.view.stopTimer()
-                
+                self.view.dismiss(animated: true, completion: nil)
             })
             .subscribe(onCompleted: { [weak self] in
                 guard let self = self,
                       let user = self.settings.account else {
                     return
                 }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 Alerts().addAlert(alertTitle: "Auth is ok",
                                   alertMessage: nil,
                                   buttonMessage: "Go to gallery",
@@ -49,6 +49,7 @@ class SignInPresenterImp: SignInPresenter {
                                   function: { [weak self] in
                                     self!.changeRootView()
                                   })
+                }
             },
             onError: { error in
                 Alerts().addAlert(alertTitle: "Error",

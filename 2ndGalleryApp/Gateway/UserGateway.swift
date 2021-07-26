@@ -14,9 +14,11 @@ protocol UserGateway {
 
     func updateUserInfo(userId: Int, user: UserApiEntity) -> Single<UserEntity>
     
-    func uploadPhoto(addPhoto: AddPhoto) -> Single<AddPhoto>
+    func updateUserPass(userId: Int, user: UpdatePasswordEntity) -> Single<UpdatePasswordEntity>
     
-    func addPhotoDetails(photoDetails: Photo) -> Single<Photo>
+    func addPhoto(addPhoto: AddPhoto) -> Single<AddPhoto>
+    
+    func uploadPhotoDetails(photoDetails: AddPhoto) -> Single<AddPhoto>
     
     func deleteUser(id: Int) -> Single<UserEntity>
 }

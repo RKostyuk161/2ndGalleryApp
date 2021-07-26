@@ -32,6 +32,13 @@ extension ExtendedApiRequest {
                                body: user)
     }
     
+    static func updateUserPass(userId: Int, user: UpdatePasswordEntity) -> ExtendedApiRequest {
+        return extendedRequest(path: "api/users/update_password/\(userId)",
+                               method: .put,
+                               headers: [Header.contentJson],
+                               body: user)
+    }
+    
     static func tokenRefreshRequest(refreshToken: String) -> ExtendedApiRequest {
         return extendedRequest(path: "oauth/v2/token",
                                method: .post,
@@ -70,14 +77,14 @@ extension ExtendedApiRequest {
                                method: .get)
     }
     
-    static func UploadPhotoRequest(addPhoto: AddPhoto) -> ExtendedApiRequest {
+    static func addPhotoRequest(addPhoto: AddPhoto) -> ExtendedApiRequest {
         return extendedRequest(path: "api/media_objects",
                                method: .post,
                                headers: [Header.contentJson],
                                body: addPhoto)
     }
     
-    static func addPhotoDetailsRequest(photoDetails: Photo) -> ExtendedApiRequest {
+    static func uploadPhotoDetailsRequest(photoDetails: AddPhoto) -> ExtendedApiRequest {
         return extendedRequest(path: "api/photos",
                                method: .post,
                                headers: [Header.contentJson],

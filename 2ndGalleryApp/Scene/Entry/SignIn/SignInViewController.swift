@@ -44,13 +44,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, UISearchBarDe
     
     @objc func back() {
         navigationController?.popViewController(animated: true)
-    }
-    
-    @IBOutlet weak var activityIndicatorView: UIView!
-    
-    @IBOutlet weak var customActiviyIndicator: UIImageView!
-    
-    
+    }    
     
     func checkFieldsAndAuth() {
         
@@ -77,31 +71,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate, UISearchBarDe
     func setupTextFieldsDelegate() {
         emailTextField.delegate = self
         passwordTextField.delegate = self
-    }
-}
-
-extension SignInViewController {
-    
-    func startTimer() {
-        self.activityIndicatorView.isHidden = false
-        if timer == nil {
-            timer = Timer.scheduledTimer(timeInterval:0.0, target: self, selector: #selector(self.animateView), userInfo: nil, repeats: false)
-        }
-    }
-    func stopTimer() {
-        self.activityIndicatorView.isHidden = true
-        timer?.invalidate()
-        timer = nil
-    }
-    
-    @objc func animateView() {
-        UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveLinear, animations: {
-            self.customActiviyIndicator.transform = self.customActiviyIndicator.transform.rotated(by: CGFloat(Double.pi))
-        }, completion: { (finished) in
-            if self.timer != nil {
-                self.timer = Timer.scheduledTimer(timeInterval:0.0, target: self, selector: #selector(self.animateView), userInfo: nil, repeats: false)
-            }
-        })
     }
 }
 

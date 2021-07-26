@@ -14,9 +14,9 @@ class ProfileRouter {
         self.view = view
     }
     
-    func openProfileSettingsViewCOntroller() {
+    func openProfileSettingsViewCOntroller(currentUser: UserEntity?) {
         if let navController = self.view.navigationController {
-            ProfileSettingsConfigurator.open(navigationController: navController)
+            ProfileSettingsConfigurator.open(navigationController: navController, currentUser: currentUser)
         }
     }
 }

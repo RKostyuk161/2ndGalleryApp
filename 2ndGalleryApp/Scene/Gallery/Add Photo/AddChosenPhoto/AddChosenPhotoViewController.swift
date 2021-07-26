@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddChosenPhotoViewController: UIViewController {
+class AddChosenPhotoViewController: UIViewController, UITextFieldDelegate {
     
     var presenter: AddChosenPhotoPresenter!
 
@@ -46,5 +46,10 @@ class AddChosenPhotoViewController: UIViewController {
     
     @objc func saveImage() {
         presenter.addPhoto(image: presenter.image, name: nameTextField.text!, description: descriptionTextField.text!)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 }

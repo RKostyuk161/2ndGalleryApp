@@ -414,6 +414,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  struct reuseIdentifier {
+    /// Reuse identifier `MainGalleryFooterCollectionReusableView`.
+    static let mainGalleryFooterCollectionReusableView: Rswift.ReuseIdentifier<MainGalleryFooterCollectionReusableView> = Rswift.ReuseIdentifier(identifier: "MainGalleryFooterCollectionReusableView")
+
+    fileprivate init() {}
+  }
+
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
       try _R.validate()
@@ -506,13 +514,19 @@ struct _R: Rswift.Validatable {
     #if os(iOS) || os(tvOS)
     struct customActivityIndicatorStoryBoard: Rswift.StoryboardResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
+      let customActivity = StoryboardViewControllerResource<CustomActivityIndicatorViewController>(identifier: "CustomActivity")
       let name = "CustomActivityIndicatorStoryBoard"
+
+      func customActivity(_: Void = ()) -> CustomActivityIndicatorViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: customActivity)
+      }
 
       static func validate() throws {
         if UIKit.UIImage(named: "CustomLoadActivityIndicator", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'CustomLoadActivityIndicator' is used in storyboard 'CustomActivityIndicatorStoryBoard', but couldn't be loaded.") }
         if UIKit.UIImage(named: "LoadingImage", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'LoadingImage' is used in storyboard 'CustomActivityIndicatorStoryBoard', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+        if _R.storyboard.customActivityIndicatorStoryBoard().customActivity() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'customActivity' could not be loaded from storyboard 'CustomActivityIndicatorStoryBoard' as 'CustomActivityIndicatorViewController'.") }
       }
 
       fileprivate init() {}
@@ -649,11 +663,9 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
-        if UIKit.UIImage(named: "CustomLoadActivityIndicator", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'CustomLoadActivityIndicator' is used in storyboard 'SignIn', but couldn't be loaded.") }
         if UIKit.UIImage(named: "EnrtySignInLogo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'EnrtySignInLogo' is used in storyboard 'SignIn', but couldn't be loaded.") }
         if UIKit.UIImage(named: "EntrySignInSignInButton", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'EntrySignInSignInButton' is used in storyboard 'SignIn', but couldn't be loaded.") }
         if UIKit.UIImage(named: "EntrySignInSignUpButton", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'EntrySignInSignUpButton' is used in storyboard 'SignIn', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "LoadingImage", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'LoadingImage' is used in storyboard 'SignIn', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.signIn().signInViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'signInViewController' could not be loaded from storyboard 'SignIn' as 'SignInViewController'.") }

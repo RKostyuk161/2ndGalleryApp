@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class ProfileConfigurator {
-    func config(view: ProfileViewController) {
+    static func config(view: ProfileViewController, currentUser: UserEntity?) {
         let router = ProfileRouter(view: view)
         let presenter = ProfilePresenterImp(view: view, router: router, settings: DI.resolve(), useCase: DI.resolve())
         

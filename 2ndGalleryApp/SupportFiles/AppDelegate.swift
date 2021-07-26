@@ -15,6 +15,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var settings: Settings?
     
+    static var shared: AppDelegate {
+        if Thread.isMainThread {
+            return UIApplication.shared.delegate as! AppDelegate
+        }
+        let dispatchGroup = DispatchGroup()
+        var realDelegate: AppDelegate?
+        dispatchGroup.enter()
+        DispatchQueue.main.async {
+            realDelegate = UIApplication.shared.delegate as? AppDelegate
+            dispatchGroup.leave()
+        }
+        dispatchGroup.wait()
+        return realDelegate!
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         UITabBar.appearance().tintColor = #colorLiteral(red: 0.8117647059, green: 0.2862745098, blue: 0.4941176471, alpha: 1)

@@ -10,18 +10,18 @@ import RxNetworkApiClient
 
 class UserEntity: Codable, JsonBodyConvertible {
     var id: Int?
-    var name: String?
+    var username: String?
     var email: String?
     var password: String?
     var birthday: String?
     
     init(id: Int,
-         name: String?,
+         username: String?,
          email: String?,
          pass: String?,
          dateOfBirth: String?) {
         self.id = id
-        self.name = name
+        self.username = username
         self.email = email
         self.password = pass
         self.birthday = dateOfBirth
@@ -29,7 +29,7 @@ class UserEntity: Codable, JsonBodyConvertible {
     
     init(user: SignUpEntity) {
         self.id = user.id
-        self.name = user.username
+        self.username = user.username
         self.email = user.email
         self.birthday = user.birthday
         self.password = user.password
@@ -57,9 +57,19 @@ class UserApiEntity: JsonBodyConvertible {
     
     init(user: UserEntity) {
         self.id = user.id
-        self.name = user.name
+        self.name = user.username
         self.email = user.email
         self.birthday = user.birthday
         self.password = user.password
+    }
+}
+
+class UpdatePasswordEntity: JsonBodyConvertible {
+    var oldPassword: String
+    var newPassword: String
+    
+    init(oldPass: String, newPass: String) {
+        self.oldPassword = oldPass
+        self.newPassword = newPass
     }
 }

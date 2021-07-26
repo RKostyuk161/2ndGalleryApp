@@ -80,6 +80,8 @@
 		8E41346A269465DE00C69ECE /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E413469269465DE00C69ECE /* UserDefaultsKey.swift */; };
 		8E41347F2695A24600C69ECE /* ExtendedResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E41347E2695A24600C69ECE /* ExtendedResponseHandler.swift */; };
 		8E4134812695DC6200C69ECE /* MainGalleryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4134802695DC6200C69ECE /* MainGalleryPresenter.swift */; };
+		8EAAE9D826A996CA0073C65A /* CustomActivityIndicatorConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAAE9D726A996CA0073C65A /* CustomActivityIndicatorConfigurator.swift */; };
+		8EAAE9DF26AEB7480073C65A /* MainGalleryFooterCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAAE9DE26AEB7480073C65A /* MainGalleryFooterCollectionReusableView.swift */; };
 		8EAF7C49268477470048A936 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EAF7C48268477470048A936 /* Assets.xcassets */; };
 		8EAF7C4B26849BFB0048A936 /* TokenEntitiy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C4A26849BFB0048A936 /* TokenEntitiy.swift */; };
 		8EAF7C4D26849C9B0048A936 /* PaginationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C4C26849C9B0048A936 /* PaginationEntity.swift */; };
@@ -189,6 +191,8 @@
 		8E413469269465DE00C69ECE /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		8E41347E2695A24600C69ECE /* ExtendedResponseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedResponseHandler.swift; sourceTree = "<group>"; };
 		8E4134802695DC6200C69ECE /* MainGalleryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGalleryPresenter.swift; sourceTree = "<group>"; };
+		8EAAE9D726A996CA0073C65A /* CustomActivityIndicatorConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicatorConfigurator.swift; sourceTree = "<group>"; };
+		8EAAE9DE26AEB7480073C65A /* MainGalleryFooterCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGalleryFooterCollectionReusableView.swift; sourceTree = "<group>"; };
 		8EAF7C48268477470048A936 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		8EAF7C4A26849BFB0048A936 /* TokenEntitiy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenEntitiy.swift; sourceTree = "<group>"; };
 		8EAF7C4C26849C9B0048A936 /* PaginationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationEntity.swift; sourceTree = "<group>"; };
@@ -270,10 +274,10 @@
 		8E038FA4267A1FF2000E56AC /* FullImageInfo */ = {
 			isa = PBXGroup;
 			children = (
+				8EAAE9DA26AAE4D00073C65A /* Protocols */,
 				8EBA5C7C267B9F5A00941513 /* FullImageInfo.storyboard */,
 				8E038FA5267A2019000E56AC /* FullImageInfoViewController.swift */,
 				8E26FFA126A1BC7400A82B66 /* FullImageViewControllerExtensions.swift */,
-				8E038FA7267A2034000E56AC /* FullImageInfoPresenter.swift */,
 				8E26FF9F26A18F0000A82B66 /* FullImageInfoPresenterImp.swift */,
 				8EBA5C78267B9E3700941513 /* FullImageInfoConfigurator.swift */,
 			);
@@ -401,10 +405,8 @@
 		8E0729A726725C010071FF46 /* MainGallery */ = {
 			isa = PBXGroup;
 			children = (
-				8E038FA02678F709000E56AC /* Statesments.swift */,
+				8EAAE9D926AAE4B40073C65A /* Protocols */,
 				8E0729A526725BD20071FF46 /* MainGalleryViewController.swift */,
-				8EBA5C7A267B9E7D00941513 /* MainGalleryViewControllersExtensions.swift */,
-				8E4134802695DC6200C69ECE /* MainGalleryPresenter.swift */,
 				8E0729AA26725C7F0071FF46 /* MainGalleryPresenterImp.swift */,
 				8E038FA2267A1645000E56AC /* MainGalleryConfigurator.swift */,
 				8EBA5C73267A3F6F00941513 /* MainGalleryRouter.swift */,
@@ -428,10 +430,10 @@
 		8E0729A926725C450071FF46 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				8EAAE9DC26AAE4F60073C65A /* Protocols */,
 				8E038F992673A37F000E56AC /* ProfileViewController.swift */,
 				8E18C750269C5683004EFC69 /* ProfileViewControllerExtensions.swift */,
 				8E18C758269C56E1004EFC69 /* ProfilePresenterImp.swift */,
-				8E18C752269C568F004EFC69 /* ProfilePresenter.swift */,
 				8E18C756269C56A2004EFC69 /* ProfileConfigurator.swift */,
 				8E18C754269C5697004EFC69 /* ProfileRouter.swift */,
 				8E18C75A269C7EC9004EFC69 /* ProfileSettings */,
@@ -459,9 +461,9 @@
 		8E18C75A269C7EC9004EFC69 /* ProfileSettings */ = {
 			isa = PBXGroup;
 			children = (
+				8EAAE9DD26AAE5040073C65A /* Protocols */,
 				8E18C75D269C7EFB004EFC69 /* ProfileSettings.storyboard */,
 				8E18C75B269C7EEB004EFC69 /* ProfileSettingsViewController.swift */,
-				8E18C761269C7F22004EFC69 /* ProfileSettingsPresenter.swift */,
 				8E18C763269C7F2D004EFC69 /* ProfileSettingPresenterImp.swift */,
 				8E18C765269C7F3A004EFC69 /* ProfileSettingsConfigurator.swift */,
 				8E18C75F269C7F15004EFC69 /* ProfileSettingsRouter.swift */,
@@ -473,6 +475,7 @@
 			isa = PBXGroup;
 			children = (
 				8E26FF8E269EF6BD00A82B66 /* CustomActivityIndicatorViewController.swift */,
+				8EAAE9D726A996CA0073C65A /* CustomActivityIndicatorConfigurator.swift */,
 				8E26FF92269F052D00A82B66 /* CustomActivityIndicatorStoryBoard.storyboard */,
 			);
 			path = CustomActivityIndicator;
@@ -481,9 +484,9 @@
 		8E26FFAB26A4AFF500A82B66 /* AddChosenPhoto */ = {
 			isa = PBXGroup;
 			children = (
+				8EAAE9DB26AAE4E50073C65A /* Protocols */,
 				8E26FFAC26A4B01700A82B66 /* AddChosenPhoto.storyboard */,
 				8E26FFAE26A4B02C00A82B66 /* AddChosenPhotoViewController.swift */,
-				8E26FFB026A4B04000A82B66 /* AddChosenPhotoPresenter.swift */,
 				8E26FFB226A4B04F00A82B66 /* AddChosenPhotoPresenterImp.swift */,
 				8E26FFB426A4B05C00A82B66 /* AddChosenPhotoCofigurator.swift */,
 				8E26FFB626A4B06C00A82B66 /* AddChosenPhotoRouter.swift */,
@@ -517,6 +520,49 @@
 				8E41347E2695A24600C69ECE /* ExtendedResponseHandler.swift */,
 			);
 			path = ResponseHandler;
+			sourceTree = "<group>";
+		};
+		8EAAE9D926AAE4B40073C65A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8E038FA02678F709000E56AC /* Statesments.swift */,
+				8E4134802695DC6200C69ECE /* MainGalleryPresenter.swift */,
+				8EAAE9DE26AEB7480073C65A /* MainGalleryFooterCollectionReusableView.swift */,
+				8EBA5C7A267B9E7D00941513 /* MainGalleryViewControllersExtensions.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		8EAAE9DA26AAE4D00073C65A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8E038FA7267A2034000E56AC /* FullImageInfoPresenter.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		8EAAE9DB26AAE4E50073C65A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8E26FFB026A4B04000A82B66 /* AddChosenPhotoPresenter.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		8EAAE9DC26AAE4F60073C65A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8E18C752269C568F004EFC69 /* ProfilePresenter.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		8EAAE9DD26AAE5040073C65A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8E18C761269C7F22004EFC69 /* ProfileSettingsPresenter.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		8EAF7C542684BE6A0048A936 /* AuthUseCase */ = {
@@ -780,6 +826,7 @@
 				8E26FFA226A1BC7400A82B66 /* FullImageViewControllerExtensions.swift in Sources */,
 				8EAF7C7E268DBFF20048A936 /* Config.swift in Sources */,
 				8E413451269303E200C69ECE /* ApiAuthGateway.swift in Sources */,
+				8EAAE9D826A996CA0073C65A /* CustomActivityIndicatorConfigurator.swift in Sources */,
 				8E26FFB126A4B04000A82B66 /* AddChosenPhotoPresenter.swift in Sources */,
 				8E2DCF5526983CD2009FBC67 /* AuthInterceptor.swift in Sources */,
 				8E038FA8267A2034000E56AC /* FullImageInfoPresenter.swift in Sources */,
@@ -834,6 +881,7 @@
 				8E038FA6267A2019000E56AC /* FullImageInfoViewController.swift in Sources */,
 				8E18C753269C568F004EFC69 /* ProfilePresenter.swift in Sources */,
 				8EBA5C7F267BA15E00941513 /* ImageEntity.swift in Sources */,
+				8EAAE9DF26AEB7480073C65A /* MainGalleryFooterCollectionReusableView.swift in Sources */,
 				8E41344D2692FBE700C69ECE /* DI.swift in Sources */,
 				8E0729B426725DD90071FF46 /* ImageEntities.swift in Sources */,
 				8E18C75C269C7EEB004EFC69 /* ProfileSettingsViewController.swift in Sources */,

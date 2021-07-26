@@ -82,7 +82,7 @@ class MainGalleryPresenterImp: MainGalleryPresenter {
     }
     
     func setupSizeForCell(itemsPerLine: Int) -> CGSize {
-        return CGSize(width: view.view.frame.width / CGFloat(itemsPerLine)-15, height: view.view.frame.width / CGFloat(itemsPerLine)-15)
+        return CGSize(width: view.view.frame.width / CGFloat(itemsPerLine)-20, height: view.view.frame.width / CGFloat(itemsPerLine)-20)
     }
     
 
@@ -96,12 +96,10 @@ class MainGalleryPresenterImp: MainGalleryPresenter {
                 
                 switch self.currentCollection {
                 case .new: do {
-//                    guard let data = reult else { return }
                     self.newImageEntityArray = reult
                     self.view.galleryCollectionView.reloadData()
                 }
                 case .popular: do {
-//                    guard let data = reult.data else { return }
                     self.popularImageEntityArray = reult
                     self.view.galleryCollectionView.reloadData()
                 }
@@ -119,6 +117,7 @@ class MainGalleryPresenterImp: MainGalleryPresenter {
             self.paginationUseCase.getMoreImages(collectionType: isNewCollection)
                 .observeOn(MainScheduler.instance)
                 .do(onDispose: {
+                    self.view.collectionViewRefreshControl.endRefreshing()
                     self.view.galleryCollectionView.reloadData()
                     self.isLoadingInProgress = false
                 })
@@ -136,15 +135,21 @@ class MainGalleryPresenterImp: MainGalleryPresenter {
     }
     
     func getMoreImages(collectionType: CollectionType, indexPath: IndexPath) {
-        switch currentCollection {
-        case .new:
-            if indexPath.item == newImageEntityArray.count - 1 {
-                self.getFullGalleryRequest(isNewCollection: currentCollection)
+        if paginationUseCase.hasMorePages(collectionType: collectionType) {
+            view.lastElement = false
+            switch currentCollection {
+            case .new:
+                if indexPath.item == newImageEntityArray.count - 1 {
+                    self.getFullGalleryRequest(isNewCollection: currentCollection)
+                }
+            case .popular:
+                if indexPath.item == popularImageEntityArray.count - 1 {
+                    self.getFullGalleryRequest(isNewCollection: currentCollection)
+                }
             }
-        case .popular:
-            if indexPath.item == popularImageEntityArray.count - 1 {
-                self.getFullGalleryRequest(isNewCollection: currentCollection)
-            }
+        } else {
+            view.lastElement = true
+            return
         }
     }
     
@@ -164,9 +169,9 @@ class MainGalleryPresenterImp: MainGalleryPresenter {
                                        currentCollection: currentCollection)
             .observeOn(MainScheduler.instance)
             .do(onSubscribe: {
-                
+                CustomActivityIndicatorConfigurator.open()
             }, onDispose: {
-                
+                self.view.dismiss(animated: true, completion: nil)
             })
             .subscribe(onError: {
                 [weak self] error in
@@ -195,5 +200,8 @@ class MainGalleryPresenterImp: MainGalleryPresenter {
         guard let nav = view.navigationController else { return }
         router.openFuillImageController(navigationController: nav, model: model)
     }
-    
+    func refresh() {
+        paginationUseCase.reset(collectionType: self.currentCollection)
+        
+    }
 }

@@ -13,11 +13,17 @@ class MainGalleryViewController: UIViewController {
     var positionOfPopularGallery: IndexPath? = nil
     var presenter: MainGalleryPresenter!
     var setNumberOfCellsInRow: Int = 2
+    let collectionViewRefreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
+        return refreshControl
+    } ()
+    var lastElement = false
+    
     
     @IBOutlet weak var galleryCollectionView: UICollectionView!
     @IBOutlet weak var gallerySegmentControl: UISegmentedControl!
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var galleryLoadActivityIndicator: UIImageView!
     
     @IBAction func galleryActionSegmentControl(_ sender: UISegmentedControl) {
         if gallerySegmentControl.selectedSegmentIndex == 0 {
@@ -53,51 +59,29 @@ class MainGalleryViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     override func viewLayoutMarginsDidChange() {
         self.view.viewWithTag(1)?.removeFromSuperview()
 
         self.setSegmentControl()
         setNumberOfCellsInRow = UIDevice.current.orientation.isLandscape ? 4 : 2
 
+    }    
+
+    @objc func refresh(sender: UIRefreshControl) {
+        presenter.refresh()
+        presenter.getFullGalleryRequest(isNewCollection: presenter.currentCollection)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        
-        galleryLoadActivityIndicator.isHidden = true
-        stopTimer()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        galleryLoadActivityIndicator.isHidden = false
-        startTimer()
-    }
-    
-    
-    @objc func animateView() {
-            UIView.animate(withDuration: 0.8,
-                           delay: 0.0,
-                           options: .curveLinear, animations: {
-                self.galleryLoadActivityIndicator.transform = self.galleryLoadActivityIndicator.transform.rotated(by: CGFloat(Double.pi))
-            }, completion: { (finished) in
-                if self.timer != nil {
-                    self.timer = Timer.scheduledTimer(timeInterval:0.0, target: self, selector: #selector(self.animateView), userInfo: nil, repeats: false)
-                }
-            })
-        }
-    
-    func startTimer() {
-        self.galleryLoadActivityIndicator.isHidden = false
-        if timer == nil {
-            timer = Timer.scheduledTimer(timeInterval:0.0, target: self, selector: #selector(self.animateView), userInfo: nil, repeats: false)
-        }
-    }
-    
-    func stopTimer() {
-            timer?.invalidate()
-            timer = nil
-        }
-   
     func setupViewIfNeed() {
         setSegmentControl()
         gallerySegmentControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: UIControl.State.selected)
@@ -110,6 +94,7 @@ class MainGalleryViewController: UIViewController {
                                             forCellWithReuseIdentifier: galleryCellName)
         self.galleryCollectionView.dataSource = self
         self.galleryCollectionView.delegate = self
+        self.galleryCollectionView.refreshControl = collectionViewRefreshControl
         
     }
     
@@ -126,4 +111,6 @@ class MainGalleryViewController: UIViewController {
     func setSegmentControl() {
         gallerySegmentControl.addUnderlineForSelectedSegment()
     }
+    
+    
 }

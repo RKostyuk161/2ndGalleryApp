@@ -10,20 +10,18 @@ import UIKit
 import RxNetworkApiClient
 
 struct AddPhoto: Codable, JsonBodyConvertible {
-    var image: Data
+    var file: String
+    var name: String
+    var id: String?
     
-    
-    public init(image: UIImage) {
-        self.image = image.pngData()!
+    public init(image: String, name: String) {
+        self.file = image
+        self.name = name
     }
 }
 
 struct Photo: Codable, JsonBodyConvertible {
     var name: String
     var description: String
-    var image: PhotoDetails
-}
-
-struct PhotoDetails: Codable {
-    var name: String
+    var id: String
 }

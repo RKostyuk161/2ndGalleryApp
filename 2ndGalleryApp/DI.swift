@@ -36,6 +36,8 @@ class DI {
             let client = ApiClientImp(urlSessionConfiguration: config, completionHandlerQueue: .main)
             client.responseHandlersQueue.append(ErrorResponseHandler())
             client.responseHandlersQueue.append(JsonResponseHandler())
+            client.responseHandlersQueue.append(NSErrorResponseHandler())
+
             return client
         }
         .as(ApiClient.self)
