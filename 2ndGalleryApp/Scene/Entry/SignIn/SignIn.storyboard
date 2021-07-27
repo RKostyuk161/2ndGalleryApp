@@ -68,9 +68,6 @@
                                                                 <state key="normal" title="Forgot login or password?">
                                                                     <color key="titleColor" systemColor="systemGray4Color"/>
                                                                 </state>
-                                                                <connections>
-                                                                    <action selector="forgotButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="xmC-Xb-rmK"/>
-                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

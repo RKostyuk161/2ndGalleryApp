@@ -19,6 +19,8 @@ protocol MainGalleryPresenter {
     func subscribeOnGalleryRequestResult()
     func subscribeOnSearch()
     
+    func gallerySegmentControlAction()
+    
     func getFullGalleryRequest(isNewCollection: CollectionType)
     
     func getSearchImagesRequest(imageName: String, currentCollection: CollectionType)

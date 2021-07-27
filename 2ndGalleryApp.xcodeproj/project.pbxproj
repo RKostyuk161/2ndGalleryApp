@@ -82,6 +82,7 @@
 		8E4134812695DC6200C69ECE /* MainGalleryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4134802695DC6200C69ECE /* MainGalleryPresenter.swift */; };
 		8EAAE9D826A996CA0073C65A /* CustomActivityIndicatorConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAAE9D726A996CA0073C65A /* CustomActivityIndicatorConfigurator.swift */; };
 		8EAAE9DF26AEB7480073C65A /* MainGalleryFooterCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAAE9DE26AEB7480073C65A /* MainGalleryFooterCollectionReusableView.swift */; };
+		8EAAE9E326B01CB30073C65A /* FileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAAE9E226B01CB30073C65A /* FileEntity.swift */; };
 		8EAF7C49268477470048A936 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EAF7C48268477470048A936 /* Assets.xcassets */; };
 		8EAF7C4B26849BFB0048A936 /* TokenEntitiy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C4A26849BFB0048A936 /* TokenEntitiy.swift */; };
 		8EAF7C4D26849C9B0048A936 /* PaginationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C4C26849C9B0048A936 /* PaginationEntity.swift */; };
@@ -193,6 +194,7 @@
 		8E4134802695DC6200C69ECE /* MainGalleryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGalleryPresenter.swift; sourceTree = "<group>"; };
 		8EAAE9D726A996CA0073C65A /* CustomActivityIndicatorConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicatorConfigurator.swift; sourceTree = "<group>"; };
 		8EAAE9DE26AEB7480073C65A /* MainGalleryFooterCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGalleryFooterCollectionReusableView.swift; sourceTree = "<group>"; };
+		8EAAE9E226B01CB30073C65A /* FileEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileEntity.swift; sourceTree = "<group>"; };
 		8EAF7C48268477470048A936 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		8EAF7C4A26849BFB0048A936 /* TokenEntitiy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenEntitiy.swift; sourceTree = "<group>"; };
 		8EAF7C4C26849C9B0048A936 /* PaginationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationEntity.swift; sourceTree = "<group>"; };
@@ -357,9 +359,9 @@
 		8E07299126721CC30071FF46 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				8EAAE9E126B000E50073C65A /* Protocols */,
 				8E07299426721D9A0071FF46 /* SignUp.storyboard */,
 				8E07299C267255CC0071FF46 /* SignUpViewController.swift */,
-				8EAF7C72268B1B840048A936 /* SignUpPresenter.swift */,
 				8EAF7C75268B1BA40048A936 /* SignUpPresenterImp.swift */,
 				8E4134622693650800C69ECE /* SignUpConfigurator.swift */,
 				8E41345C2693520200C69ECE /* SignUpRouter.swift */,
@@ -370,9 +372,9 @@
 		8E07299226721CD50071FF46 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
+				8EAAE9E026AFFFEA0073C65A /* Protocols */,
 				8E07299626721DB10071FF46 /* SignIn.storyboard */,
 				8E0729982672424C0071FF46 /* SignInViewController.swift */,
-				8E07299A2672511A0071FF46 /* SignInPresenter.swift */,
 				8E26E680269733620002F82A /* SignInPresenterImp.swift */,
 				8E26E682269733D90002F82A /* SIgnInConfigurator.swift */,
 				8E26E6842697341A0002F82A /* SignInRouter.swift */,
@@ -432,7 +434,6 @@
 			children = (
 				8EAAE9DC26AAE4F60073C65A /* Protocols */,
 				8E038F992673A37F000E56AC /* ProfileViewController.swift */,
-				8E18C750269C5683004EFC69 /* ProfileViewControllerExtensions.swift */,
 				8E18C758269C56E1004EFC69 /* ProfilePresenterImp.swift */,
 				8E18C756269C56A2004EFC69 /* ProfileConfigurator.swift */,
 				8E18C754269C5697004EFC69 /* ProfileRouter.swift */,
@@ -552,6 +553,7 @@
 		8EAAE9DC26AAE4F60073C65A /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				8E18C750269C5683004EFC69 /* ProfileViewControllerExtensions.swift */,
 				8E18C752269C568F004EFC69 /* ProfilePresenter.swift */,
 			);
 			path = Protocols;
@@ -561,6 +563,22 @@
 			isa = PBXGroup;
 			children = (
 				8E18C761269C7F22004EFC69 /* ProfileSettingsPresenter.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		8EAAE9E026AFFFEA0073C65A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8E07299A2672511A0071FF46 /* SignInPresenter.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		8EAAE9E126B000E50073C65A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8EAF7C72268B1B840048A936 /* SignUpPresenter.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -592,6 +610,7 @@
 				8EAF7C4A26849BFB0048A936 /* TokenEntitiy.swift */,
 				8EAF7C5026849FC50048A936 /* UserEntity.swift */,
 				8E26FFBE26A4CB1100A82B66 /* AddPhoto.swift */,
+				8EAAE9E226B01CB30073C65A /* FileEntity.swift */,
 				8EAF7C692689C23E0048A936 /* SignUpEntity.swift */,
 				8EAF7C4E26849DCE0048A936 /* CheckUserEntity.swift */,
 			);
@@ -854,6 +873,7 @@
 				8E038F9A2673A37F000E56AC /* ProfileViewController.swift in Sources */,
 				8EAF7C83268F26ED0048A936 /* PaginationUseCaseImp.swift in Sources */,
 				8E41346A269465DE00C69ECE /* UserDefaultsKey.swift in Sources */,
+				8EAAE9E326B01CB30073C65A /* FileEntity.swift in Sources */,
 				8EBA5C81267BA18C00941513 /* ImageInfo.swift in Sources */,
 				8E18C760269C7F15004EFC69 /* ProfileSettingsRouter.swift in Sources */,
 				8EAF7C5126849FC50048A936 /* UserEntity.swift in Sources */,

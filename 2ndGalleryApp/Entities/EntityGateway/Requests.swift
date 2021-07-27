@@ -77,18 +77,17 @@ extension ExtendedApiRequest {
                                method: .get)
     }
     
-    static func addPhotoRequest(addPhoto: AddPhoto) -> ExtendedApiRequest {
+    static func addPhotoRequest(addPhoto: UploadFile) -> ExtendedApiRequest {
         return extendedRequest(path: "api/media_objects",
                                method: .post,
-                               headers: [Header.contentJson],
-                               body: addPhoto)
+                               files: [addPhoto])
     }
     
-    static func uploadPhotoDetailsRequest(photoDetails: AddPhoto) -> ExtendedApiRequest {
+    static func uploadPhotoRequest(photo: UploadPhoto) -> ExtendedApiRequest {
         return extendedRequest(path: "api/photos",
                                method: .post,
                                headers: [Header.contentJson],
-                               body: photoDetails)
+                               body: photo)
     }
     
     static func searchPhotosRequest(imageName: String,

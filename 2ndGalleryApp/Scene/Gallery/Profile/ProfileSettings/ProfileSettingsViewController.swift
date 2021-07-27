@@ -35,25 +35,8 @@ class ProfileSettingsViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isHidden = false
         setupTextFields()
-        let saveButton = UIBarButtonItem.init(
-              title: "Save",
-              style: .done,
-              target: self,
-            action: #selector(saveChanges)
-        )
-        
-        let cancelButton = UIBarButtonItem.init(
-              title: "Cancel",
-              style: .done,
-              target: self,
-            action: #selector(backToProfile)
-        )
-        saveButton.tintColor = #colorLiteral(red: 0.8443242908, green: 0.3406359553, blue: 0.6639499068, alpha: 1)
-        cancelButton.tintColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
-        self.navigationItem.leftBarButtonItem = cancelButton
-        self.navigationItem.rightBarButtonItem = saveButton
+        setNavBarButtons()
         setDatePicker()
     }
     
@@ -71,6 +54,27 @@ class ProfileSettingsViewController: UIViewController, UITextFieldDelegate {
     
     @objc func dateChanged() {
         getDateFromPicker()
+    }
+    
+    func setNavBarButtons() {
+        self.navigationController?.navigationBar.isHidden = false
+        let saveButton = UIBarButtonItem.init(
+              title: "Save",
+              style: .done,
+              target: self,
+            action: #selector(saveChanges)
+        )
+        
+        let cancelButton = UIBarButtonItem.init(
+              title: "Cancel",
+              style: .done,
+              target: self,
+            action: #selector(backToProfile)
+        )
+        saveButton.tintColor = #colorLiteral(red: 0.8443242908, green: 0.3406359553, blue: 0.6639499068, alpha: 1)
+        cancelButton.tintColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+        self.navigationItem.leftBarButtonItem = cancelButton
+        self.navigationItem.rightBarButtonItem = saveButton
     }
     
     func setDatePicker() {

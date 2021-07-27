@@ -89,13 +89,19 @@ class PaginationUseCaseImp: PaginationUseCase {
     
     func searchImages(imageName: String, currentCollection: CollectionType) -> Completable {
         cancelLoading()
-        self.searchItems.removeAll()
         return self.gateway.searchImages(imageName: imageName, currentCollection: currentCollection)
             .do(onSuccess: { [weak self] result in
                 guard let self = self,
-                      let data = result.data else { return }
-                self.searchItems = data
-                self.search.onNext(self.searchItems)
+                      let data = result.data,
+                      let items = result.totalItems else { return }
+                if items == 0 {
+                    self.searchItems.removeAll()
+                    self.search.onNext(self.searchItems)
+
+                } else {
+                    self.searchItems = data
+                    self.search.onNext(self.searchItems)
+                }
             },
             onError: { error in
                 print(error.localizedDescription)
@@ -103,18 +109,24 @@ class PaginationUseCaseImp: PaginationUseCase {
             .asCompletable()
     }
     
-    func reset(collectionType: CollectionType) {
-        switch collectionType {
-        case .new:
-            self.newItems.removeAll()
-            self.newTotalItems = 0
-            self.newCurrentPage = 1
-    
-        case .popular:
-            self.popularItems.removeAll()
-            self.popularTotalItems = 0
-            self.popularCurrentPage = 1
+    func reset(currentGalleryState: GalleryType, collectionType: CollectionType) {
+        switch currentGalleryState {
+        case .search:
+            self.searchItems.removeAll()
+        default:
+            switch collectionType {
+            case .new:
+                self.newItems.removeAll()
+                self.newTotalItems = 0
+                self.newCurrentPage = 1
+        
+            case .popular:
+                self.popularItems.removeAll()
+                self.popularTotalItems = 0
+                self.popularCurrentPage = 1
+            }
         }
+
     }
     
     func cancelLoading() {

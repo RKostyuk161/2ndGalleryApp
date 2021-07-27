@@ -5,7 +5,7 @@
 //  Created by Роман on 08.07.2021.
 //
 
-import Foundation
+import UIKit
 
 class SignInConfigurator {
     func config(view: SignInViewController)  {
@@ -16,5 +16,11 @@ class SignInConfigurator {
                                            router: router)
         
         view.presenter = presenter
+    }
+    static func open(navCon: UINavigationController) {
+        let identifier = R.storyboard.signIn.signInViewController.identifier
+        let vc = R.storyboard.signIn().instantiateViewController(withIdentifier: identifier)
+        navCon.pushViewController(vc, animated: true)
+        navCon.navigationController?.setNavigationBarHidden(false, animated: true)
     }
 }

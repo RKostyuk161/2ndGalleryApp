@@ -33,26 +33,30 @@ class AddChosenPhotoPresenterImp: AddChosenPhotoPresenter {
     func addPhoto(image: UIImage, name: String, description: String) {
         return usecase.addPhoto(image: image, name: name, description: description)
             .do(onSubscribe: {
-                print("activity on")
+                CustomActivityIndicatorConfigurator.open()
             },
             onDispose: {
-                print("activity off")
-
+                self.view.presentedViewController?.dismiss(animated: true, completion: nil)
             })
-            .subscribe(onCompleted: {
-//                Alerts().addAlert(alertTitle: "Succsess",
-//                                  alertMessage: nil,
-//                                  buttonMessage: "Ok",
-//                                  view: self.view,
-//                                  function: { [weak self] in
-//                                    self!.route()
-//                                  })
+            .subscribe(onCompleted: { [weak self] in
+                guard let self = self else { return }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    Alerts().addAlert(alertTitle: "Succsess",
+                                      alertMessage: nil,
+                                      buttonMessage: "Ok",
+                                      view: self.view,
+                                      function: { [weak self] in
+                                        self!.route()
+                                      })
+                }
             },
             onError: { error in
-//                Alerts().addAlert(alertTitle: "Error",
-//                                  alertMessage: error.localizedDescription,
-//                                  buttonMessage: "Ok",
-//                                  view: self.view)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                Alerts().addAlert(alertTitle: "Error",
+                                  alertMessage: error.localizedDescription,
+                                  buttonMessage: "Ok",
+                                  view: self.view)
+                }
             })
             .disposed(by: disposeBag)
     }

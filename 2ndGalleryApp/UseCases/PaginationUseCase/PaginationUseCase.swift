@@ -26,5 +26,5 @@ protocol PaginationUseCase {
     func getMoreImages(collectionType: CollectionType) -> Completable
     func searchImages(imageName: String, currentCollection: CollectionType) -> Completable
     func hasMorePages(collectionType: CollectionType) -> Bool
-    func reset(collectionType: CollectionType)
+    func reset(currentGalleryState: GalleryType, collectionType: CollectionType)
 }

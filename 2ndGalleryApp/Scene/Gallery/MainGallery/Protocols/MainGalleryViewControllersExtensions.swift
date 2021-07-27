@@ -13,11 +13,12 @@ extension MainGalleryViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionFooter:
-
-            if let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: R.reuseIdentifier.mainGalleryFooterCollectionReusableView, for: indexPath) as? MainGalleryFooterCollectionReusableView {
-                if self.lastElement == true {
+            
+            if let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: R.reuseIdentifier.mainGalleryFooterCollectionReusableView, for: indexPath) {
+                if self.isLastPaginationPage == true {
                     footerView.isHidden = true
-                    return footerView
+                } else {
+                    footerView.isHidden = false
                 }
                 return footerView
             }
@@ -26,13 +27,18 @@ extension MainGalleryViewController: UICollectionViewDelegate {
         }
         return UICollectionReusableView()
     }
-        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            presenter.prepeareForRoute(indexPath: indexPath)
-        }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presenter.prepeareForRoute(indexPath: indexPath)
+    }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        self.saveIndexPathToScroll(indexPath: indexPath)
-        presenter.getMoreImages(collectionType: presenter.currentCollection, indexPath: indexPath)
+        switch presenter.currentGalleryState {
+        case .gallery:
+            self.saveIndexPathToScroll(indexPath: indexPath)
+          presenter.getMoreImages(collectionType: presenter.currentCollection, indexPath: indexPath)
+        default:
+            return
+        }
     }
 }
 
@@ -50,30 +56,34 @@ extension MainGalleryViewController: UICollectionViewDataSource {
 extension MainGalleryViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-            presenter.currentGalleryState = .search
-        print(".search = \(presenter.currentGalleryState)")
-        self.galleryCollectionView.reloadData()
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        isLastPaginationPage = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0)  {
-            self.presenter.getSearchImagesRequest(imageName: searchText, currentCollection: self.presenter.currentCollection)
-            print("get smth")
+            self.presenter.currentGalleryState = .search
+            print(".search = \(self.presenter.currentGalleryState)")
             self.galleryCollectionView.reloadData()
-
         }
     }
+    
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0)  {
+//
+//        }
+//    }
+    
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        if searchBar.text == "" {
-            presenter.currentGalleryState = .gallery
-            print(".gallery = \(presenter.currentGalleryState)")
-            self.galleryCollectionView.reloadData()
-
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0)  {
+            
+            if searchBar.text == "" {
+                self.presenter.currentGalleryState = .gallery
+                self.galleryCollectionView.reloadData()
+            }
         }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+        self.presenter.getSearchImagesRequest(imageName: searchBar.text!, currentCollection: self.presenter.currentCollection)
+        self.galleryCollectionView.reloadData()
         self.galleryCollectionView.reloadData()
 
     }
@@ -138,5 +148,53 @@ extension UIImage {
         let rectangleImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return rectangleImage!
+    }
+}
+
+extension MainGalleryPresenterImp {
+    func createCellForMainGalleryCollectionView(indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = view.galleryCollectionView.dequeueReusableCell(withReuseIdentifier: "MainGalleryCollectionViewCell", for: indexPath) as! MainGalleryCollectionViewCell
+        var imageUrl = ImageEntity()
+        
+        switch currentGalleryState {
+        case .gallery:
+            switch currentCollection {
+            case .new:
+                imageUrl = newImageEntityArray[indexPath.item]
+            case .popular:
+                imageUrl = popularImageEntityArray[indexPath.item]
+            }
+        case .search:
+            view.isLastPaginationPage = true
+            switch currentCollection {
+            case .new:
+                newImageEntityArray = searchItemsEntityArray
+                imageUrl = newImageEntityArray[indexPath.item]
+            case .popular:
+                popularImageEntityArray = searchItemsEntityArray
+                imageUrl = popularImageEntityArray[indexPath.item]
+            }
+        }
+        cell.setupCell(url: (imageUrl.image?.name)!)
+        return cell
+    }
+    
+    func setupNumberOfCellsForMainGalleryCollectionView(collectionType: CollectionType) -> Int {
+        
+        switch currentGalleryState {
+        case .gallery:
+            switch currentCollection {
+            case .new:
+                return newImageEntityArray.count
+            case .popular:
+                return popularImageEntityArray.count
+            }
+        case .search:
+            return searchItemsEntityArray.count
+        }
+    }
+    
+    func setupSizeForCell(itemsPerLine: Int) -> CGSize {
+        return CGSize(width: view.view.frame.width / CGFloat(itemsPerLine)-20, height: view.view.frame.width / CGFloat(itemsPerLine)-20)
     }
 }

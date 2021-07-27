@@ -16,20 +16,12 @@ class StartRouter {
     }
     
     func openSignUpScene() {
-        if self.view.navigationController != nil {
-            let identifier = R.storyboard.signUp.signUpViewController.identifier
-            let vc = R.storyboard.signUp().instantiateViewController(withIdentifier: identifier)
-            view.navigationController?.pushViewController(vc, animated: true)
-            view.navigationController?.setNavigationBarHidden(false, animated: true)
-        }
+        guard let navCon = self.view.navigationController else { return }
+        SignUpConfigurator.open(navigationController: navCon)
     }
     
     func openSingInScene() {
-        if self.view.navigationController != nil {
-            let identifier = R.storyboard.signIn.signInViewController.identifier
-            let vc = R.storyboard.signIn().instantiateViewController(withIdentifier: identifier)
-            view.navigationController?.pushViewController(vc, animated: true)
-            view.navigationController?.setNavigationBarHidden(false, animated: true)
-        }
+        guard let navCon = self.view.navigationController else { return }
+        SignInConfigurator.open(navCon: navCon)
     }
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 import RxSwift
+import RxNetworkApiClient
 
 protocol UserGateway {
     
@@ -16,9 +17,9 @@ protocol UserGateway {
     
     func updateUserPass(userId: Int, user: UpdatePasswordEntity) -> Single<UpdatePasswordEntity>
     
-    func addPhoto(addPhoto: AddPhoto) -> Single<AddPhoto>
+    func addPhoto(addPhoto: UploadFile) -> Single<FileEntity>
     
-    func uploadPhotoDetails(photoDetails: AddPhoto) -> Single<AddPhoto>
+    func uploadPhotoDetails(photo: UploadPhoto) -> Single<UploadPhoto>
     
-    func deleteUser(id: Int) -> Single<UserEntity>
+    func deleteUser(id: Int) -> Single<DeleteUserEntity>
 }

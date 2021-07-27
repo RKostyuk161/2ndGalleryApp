@@ -23,19 +23,20 @@ open class ErrorResponseHandler: ResponseHandler {
         }
         
         if data.count == 0 {
+            observer(.success(DeleteUserEntity() as! T))
             return true
         }
         guard let urlResponse = response.urlResponse,
             let nsHttpUrlResponse = urlResponse as? HTTPURLResponse else {
                 return false
         }
+        
         if let host = nsHttpUrlResponse.url?.host,
             exceptions.first?.contains(host) ?? false {
             let errorEntity = ResponseErrorEntity(response.urlResponse)
             
             switch nsHttpUrlResponse.statusCode {
             case 204:
-                print("WE CATCH IT HEREREREREREREREREE")
                 return true
             case 408:
 
@@ -77,7 +78,7 @@ open class ErrorResponseHandler: ResponseHandler {
 //                    errorEntity.errors.append(error)
 //                }
 
-//                if let responseError = try? jsonDecoder.decode(ErrorResponseEntity.self, from: data) {
+//                if let responseError = try? jsonDecoder.decode(Errors.self, from: data) {
 //                    if let violations = responseError.violations {
 //                        let error = violations.reduce("", { (result, elem) in result +
 //                            (elem.localizePropertyPath) + ": " +

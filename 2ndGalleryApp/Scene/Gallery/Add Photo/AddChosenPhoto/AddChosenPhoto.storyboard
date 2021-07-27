@@ -77,7 +77,7 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Nlg-bd-AzR" secondAttribute="bottom" constant="298" id="DUj-nC-9l4"/>
+                                    <constraint firstAttribute="bottom" secondItem="Nlg-bd-AzR" secondAttribute="bottom" id="DUj-nC-9l4" customClass="KeyboardLayoutConstraint" customModule="_ndGalleryApp" customModuleProvider="target"/>
                                     <constraint firstItem="Nlg-bd-AzR" firstAttribute="width" secondItem="kF7-6l-EDO" secondAttribute="width" multiplier="1.02899" id="Rm9-sg-DeC"/>
                                     <constraint firstItem="Nlg-bd-AzR" firstAttribute="leading" secondItem="kF7-6l-EDO" secondAttribute="leading" id="bCX-sb-Cm1"/>
                                     <constraint firstAttribute="trailing" secondItem="Nlg-bd-AzR" secondAttribute="trailing" constant="-12" id="cCV-kW-z35"/>

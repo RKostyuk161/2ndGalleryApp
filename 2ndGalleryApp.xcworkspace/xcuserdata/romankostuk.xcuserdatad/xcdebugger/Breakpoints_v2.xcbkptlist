@@ -215,54 +215,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FC5C0788-8135-4BA6-80C1-241B9341EC01"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "2ndGalleryApp/Scene/Entry/SignUp/SignUpPresenterImp.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "changeRootView()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2EF6C4F6-3C47-41FE-A4E5-885C104DB043"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "2ndGalleryApp/Scene/Entry/SignUp/SignUpPresenterImp.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "changeRootView()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F420C7F1-ACB6-4A75-9AEA-79A423DBFCAB"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "2ndGalleryApp/Scene/Entry/SignUp/SignUpPresenterImp.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "changeRootView()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "4138EE21-3FBB-4957-8740-CAD21AB16DD8"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -270,8 +222,8 @@
             filePath = "2ndGalleryApp/Scene/Entry/SignUp/SignUpPresenterImp.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "changeRootView()"
             landmarkType = "7">
          </BreakpointContent>
@@ -292,7 +244,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "63E6892F-85D9-4DEF-ADB6-075702E3FC19 - 91eed7b6a2b95124"
+                  uuid = "63E6892F-85D9-4DEF-ADB6-075702E3FC19 - 91eed7b6a2b953d1"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -302,12 +254,12 @@
                   urlString = "file:///Users/romankostuk/developer/2ndGalleryApp/2ndGalleryApp/Scene/Gallery/Profile/ProfileSettings/ProfileSettingPresenterImp.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "86"
-                  endingLineNumber = "86"
-                  offsetFromSymbolStart = "880">
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "812">
                </Location>
                <Location
-                  uuid = "63E6892F-85D9-4DEF-ADB6-075702E3FC19 - ac1a69a4233cd74b"
+                  uuid = "63E6892F-85D9-4DEF-ADB6-075702E3FC19 - ac1a69a4233cd5f8"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -317,9 +269,9 @@
                   urlString = "file:///Users/romankostuk/developer/2ndGalleryApp/2ndGalleryApp/Scene/Gallery/Profile/ProfileSettings/ProfileSettingPresenterImp.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "87"
-                  endingLineNumber = "87"
-                  offsetFromSymbolStart = "52">
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
+                  offsetFromSymbolStart = "308">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -494,8 +446,8 @@
             filePath = "2ndGalleryApp/Scene/Gallery/MainGallery/MainGalleryPresenterImp.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
             landmarkName = "prepeareForRoute(indexPath:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -548,8 +500,8 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "16A919F5-0861-43CF-8A82-02876BF3A069 - 91eed7b6a2b952ee"
-                  shouldBeEnabled = "Yes"
+                  uuid = "16A919F5-0861-43CF-8A82-02876BF3A069 - 91eed7b6a2b954d9"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "_ndGalleryApp.ProfileSettingsPresenterImp.deleteAcc() -&gt; ()"
@@ -558,13 +510,28 @@
                   urlString = "file:///Users/romankostuk/developer/2ndGalleryApp/2ndGalleryApp/Scene/Gallery/Profile/ProfileSettings/ProfileSettingPresenterImp.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "92"
-                  endingLineNumber = "92"
-                  offsetFromSymbolStart = "812">
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
+                  offsetFromSymbolStart = "744">
                </Location>
                <Location
-                  uuid = "16A919F5-0861-43CF-8A82-02876BF3A069 - 4d0f4a1ae8d6b7b1"
-                  shouldBeEnabled = "Yes"
+                  uuid = "16A919F5-0861-43CF-8A82-02876BF3A069 - ac1a69a4233cd2d7"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 () -&gt; () in _ndGalleryApp.ProfileSettingsPresenterImp.deleteAcc() -&gt; ()"
+                  moduleName = "2ndGalleryApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/romankostuk/developer/2ndGalleryApp/2ndGalleryApp/Scene/Gallery/Profile/ProfileSettings/ProfileSettingPresenterImp.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
+                  offsetFromSymbolStart = "588">
+               </Location>
+               <Location
+                  uuid = "16A919F5-0861-43CF-8A82-02876BF3A069 - 4d0f4a1ae8d6b186"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #4 (Swift.Error) -&gt; () in _ndGalleryApp.ProfileSettingsPresenterImp.deleteAcc() -&gt; ()"
@@ -573,8 +540,296 @@
                   urlString = "file:///Users/romankostuk/developer/2ndGalleryApp/2ndGalleryApp/Scene/Gallery/Profile/ProfileSettings/ProfileSettingPresenterImp.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "92"
-                  endingLineNumber = "92"
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
+                  offsetFromSymbolStart = "356">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "29484166-86C2-4755-B0D2-DF0D21605BA9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "2ndGalleryApp/Scene/Gallery/Profile/ProfileSettings/ProfileSettingPresenterImp.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "deleteAcc()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "29484166-86C2-4755-B0D2-DF0D21605BA9 - ac1a69a4233cd5f8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 () -&gt; () in _ndGalleryApp.ProfileSettingsPresenterImp.deleteAcc() -&gt; ()"
+                  moduleName = "2ndGalleryApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/romankostuk/developer/2ndGalleryApp/2ndGalleryApp/Scene/Gallery/Profile/ProfileSettings/ProfileSettingPresenterImp.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
+                  offsetFromSymbolStart = "308">
+               </Location>
+               <Location
+                  uuid = "29484166-86C2-4755-B0D2-DF0D21605BA9 - 9cc7984f5f33be45"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #3 () -&gt; () in _ndGalleryApp.ProfileSettingsPresenterImp.deleteAcc() -&gt; ()"
+                  moduleName = "2ndGalleryApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/romankostuk/developer/2ndGalleryApp/2ndGalleryApp/Scene/Gallery/Profile/ProfileSettings/ProfileSettingPresenterImp.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E6D029F2-D6EF-4242-B3F7-BF8B2860D1DF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "2ndGalleryApp/UseCases/UserUseCase/UserUseCaseImp.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "postPhoto(photo:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8C2A0219-A34F-498A-9F6E-27FEEC0F4813"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "2ndGalleryApp/Scene/Gallery/MainGallery/Protocols/MainGalleryViewControllersExtensions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "MainGalleryViewController"
+            landmarkType = "21">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "483D07E2-0B55-4274-B0E1-638E36ACB4BD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "2ndGalleryApp/Scene/Gallery/MainGallery/Protocols/MainGalleryViewControllersExtensions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "searchBarTextDidEndEditing(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "95B4BF5F-96EB-4D2D-866E-DE780833777C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "2ndGalleryApp/Scene/Gallery/MainGallery/Protocols/MainGalleryViewControllersExtensions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "searchBarSearchButtonClicked(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "24537DBA-3693-4D94-B3E2-AB4D4AC0394C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "2ndGalleryApp/Scene/Gallery/MainGallery/Protocols/MainGalleryViewControllersExtensions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "searchBarTextDidBeginEditing(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3F458781-CCC4-47DB-854E-0C0388B74F61"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "2ndGalleryApp/Scene/Gallery/MainGallery/Protocols/MainGalleryViewControllersExtensions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
+            landmarkName = "createCellForMainGalleryCollectionView(indexPath:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8316E82F-D89F-4C3E-980B-276DF3744CC4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "2ndGalleryApp/Scene/Gallery/MainGallery/Protocols/MainGalleryViewControllersExtensions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "createCellForMainGalleryCollectionView(indexPath:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "36E5C008-1010-4D23-A243-822DFD2D7DE4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "2ndGalleryApp/UseCases/PaginationUseCase/PaginationUseCaseImp.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "searchImages(imageName:currentCollection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DA834779-E7BA-49BE-B5A2-6D6168324C57"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "2ndGalleryApp/UseCases/PaginationUseCase/PaginationUseCaseImp.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "searchImages(imageName:currentCollection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C4096EFE-45DB-40FE-8441-71D23F51874D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "2ndGalleryApp/Scene/Gallery/MainGallery/MainGalleryPresenterImp.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "subscribeOnSearch()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "00AB4153-DB4C-4CAF-95C1-C1B5C2A2A084"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "2ndGalleryApp/Scene/Gallery/MainGallery/MainGalleryPresenterImp.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "subscribeOnSearch()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F354788F-5332-4964-BC39-908FA7B849A5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "2ndGalleryApp/UseCases/UserUseCase/UserUseCaseImp.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "addPhoto(image:name:description:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7544D85C-7111-4DC5-87B6-A568B2877170"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "2ndGalleryApp/UseCases/UserUseCase/UserUseCaseImp.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "addPhoto(image:name:description:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7544D85C-7111-4DC5-87B6-A568B2877170 - 8efe43940d29d169"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "_ndGalleryApp.UserUseCaseImp.addPhoto(image: __C.UIImage, name: Swift.String, description: Swift.String) -&gt; RxSwift.PrimitiveSequence&lt;RxSwift.CompletableTrait, Swift.Never&gt;"
+                  moduleName = "2ndGalleryApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/romankostuk/developer/2ndGalleryApp/2ndGalleryApp/UseCases/UserUseCase/UserUseCaseImp.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "1712">
+               </Location>
+               <Location
+                  uuid = "7544D85C-7111-4DC5-87B6-A568B2877170 - 7ede06f22261f109"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 (_ndGalleryApp.FileEntity) -&gt; RxSwift.PrimitiveSequence&lt;RxSwift.CompletableTrait, Swift.Never&gt; in _ndGalleryApp.UserUseCaseImp.addPhoto(image: __C.UIImage, name: Swift.String, description: Swift.String) -&gt; RxSwift.PrimitiveSequence&lt;RxSwift.CompletableTrait, Swift.Never&gt;"
+                  moduleName = "2ndGalleryApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/romankostuk/developer/2ndGalleryApp/2ndGalleryApp/UseCases/UserUseCase/UserUseCaseImp.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
                   offsetFromSymbolStart = "32">
                </Location>
             </Locations>

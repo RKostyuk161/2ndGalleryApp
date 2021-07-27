@@ -42,52 +42,7 @@ class MainGalleryPresenterImp: MainGalleryPresenter {
         self.currentCollection = collectionType
         self.paginationUseCase = paginationUseCase
     }
-    
-    
-    func createCellForMainGalleryCollectionView(indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = view.galleryCollectionView.dequeueReusableCell(withReuseIdentifier: "MainGalleryCollectionViewCell", for: indexPath) as! MainGalleryCollectionViewCell
-        var imageUrl = ImageEntity()
-        
-        switch currentGalleryState {
-        case .gallery:
-            switch currentCollection {
-            case .new:
-                imageUrl = newImageEntityArray[indexPath.item]
-            case .popular:
-                imageUrl = popularImageEntityArray[indexPath.item]
-            }
-        case .search:
-            imageUrl = searchItemsEntityArray[indexPath.item]
-        }
-        
-        
-        
-        cell.setupCell(url: (imageUrl.image?.name)!)
-        return cell
-    }
-
-    func setupNumberOfCellsForMainGalleryCollectionView(collectionType: CollectionType) -> Int {
-        
-        switch currentGalleryState {
-        case .gallery:
-            switch currentCollection {
-            case .new:
-                return newImageEntityArray.count
-            case .popular:
-                return popularImageEntityArray.count
-            }
-        case .search:
-            return searchItemsEntityArray.count
-        }
-    }
-    
-    func setupSizeForCell(itemsPerLine: Int) -> CGSize {
-        return CGSize(width: view.view.frame.width / CGFloat(itemsPerLine)-20, height: view.view.frame.width / CGFloat(itemsPerLine)-20)
-    }
-    
-
-
-    
+   
     func subscribeOnGalleryRequestResult() {
         paginationUseCase.source
             .observeOn(MainScheduler.instance)
@@ -135,8 +90,8 @@ class MainGalleryPresenterImp: MainGalleryPresenter {
     }
     
     func getMoreImages(collectionType: CollectionType, indexPath: IndexPath) {
+        view.isLastPaginationPage = false
         if paginationUseCase.hasMorePages(collectionType: collectionType) {
-            view.lastElement = false
             switch currentCollection {
             case .new:
                 if indexPath.item == newImageEntityArray.count - 1 {
@@ -148,7 +103,7 @@ class MainGalleryPresenterImp: MainGalleryPresenter {
                 }
             }
         } else {
-            view.lastElement = true
+            view.isLastPaginationPage = true
             return
         }
     }
@@ -158,20 +113,28 @@ class MainGalleryPresenterImp: MainGalleryPresenter {
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] (reult: [ImageEntity]) in
             guard let self = self else { return }
+                self.searchItemsEntityArray.removeAll()
+
                 self.searchItemsEntityArray = reult
+                if self.searchItemsEntityArray.isEmpty {
+                    self.view.showErrorOnGallery(show: true)
+                } else {
+                    self.view.showErrorOnGallery(show: false)
+                }
                 self.view.galleryCollectionView.reloadData()
             })
         .disposed(by: paginationDisposeBag)
     }
     
     func getSearchImagesRequest(imageName: String, currentCollection: CollectionType) {
+        view.isLastPaginationPage = true
         paginationUseCase.searchImages(imageName: imageName,
                                        currentCollection: currentCollection)
             .observeOn(MainScheduler.instance)
             .do(onSubscribe: {
                 CustomActivityIndicatorConfigurator.open()
             }, onDispose: {
-                self.view.dismiss(animated: true, completion: nil)
+                self.view.presentedViewController?.dismiss(animated: true, completion: nil)
             })
             .subscribe(onError: {
                 [weak self] error in
@@ -185,8 +148,28 @@ class MainGalleryPresenterImp: MainGalleryPresenter {
             .disposed(by: responseDisposeBag)
     }
     
+    func gallerySegmentControlAction() {
+        if view.gallerySegmentControl.selectedSegmentIndex == 0 {
+            view.gallerySegmentControl.changeUnderlinePosition()
+            currentCollection = .new
+            view.galleryCollectionView.reloadData()
+            if let currentpos = view.positionOfNewGallery {
+                view.galleryCollectionView.scrollToItem(at: currentpos, at: .bottom, animated: false)
+            }
+        } else {
+            view.gallerySegmentControl.changeUnderlinePosition()
+            currentCollection = .popular
+            if isfistPopularImageRequest {
+                getFullGalleryRequest(isNewCollection: currentCollection)
+            }
+            view.galleryCollectionView.reloadData()
+            if let currentpos = view.positionOfPopularGallery {
+                view.galleryCollectionView.scrollToItem(at: currentpos, at: .centeredHorizontally, animated: false)
+            }
+        }
+    }
+    
     func prepeareForRoute(indexPath: IndexPath) {
-        
         
         let model: ImageEntity
         switch currentCollection {
@@ -194,14 +177,13 @@ class MainGalleryPresenterImp: MainGalleryPresenter {
             model = newImageEntityArray[indexPath.item]
         case .popular:
             model = popularImageEntityArray[indexPath.item]
-
         }
         
         guard let nav = view.navigationController else { return }
         router.openFuillImageController(navigationController: nav, model: model)
     }
+    
     func refresh() {
-        paginationUseCase.reset(collectionType: self.currentCollection)
-        
+        paginationUseCase.reset(currentGalleryState: currentGalleryState, collectionType: self.currentCollection)
     }
 }

@@ -42,7 +42,7 @@ class SignUpPresenterImp: SignUpPresenter {
             .do(onSubscribe: {
                 CustomActivityIndicatorConfigurator.open()
             }, onDispose: {
-                self.view.dismiss(animated: true, completion: nil)
+                self.view.presentedViewController?.dismiss(animated: true, completion: nil)
             })
             .subscribe(onCompleted: { [weak self] in
                 guard let self = self else { return }
@@ -60,8 +60,6 @@ class SignUpPresenterImp: SignUpPresenter {
             onError: { [weak self] error in
                 Alerts().addAlert(alertTitle: "Error", alertMessage: error.localizedDescription.description, buttonMessage: "Ok", view: self!.view)
             })
-            
-            
             .disposed(by: disposeBag)
     }
     
@@ -69,14 +67,12 @@ class SignUpPresenterImp: SignUpPresenter {
         return self.settings.account
     }
     
-    func proceed(user: SignUpEntity) {
-        
-    }
-    
     func changeRootView() {
-        self.logingUseCase.sighIn(login: self.view.emailTextField.text!, password: self.view.confirmPassTextField.text!)
-        let mainTabBar = R.storyboard.mainGallery.instantiateInitialViewController()!
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBar, flipFromRight: true)
+        router.openMainGallery()
     }
     
+    func goToSignInScreen() {
+        guard let navCon = self.view.navigationController else { return }
+        router.openSignInScreen(navigationController: navCon)
+    }
 }

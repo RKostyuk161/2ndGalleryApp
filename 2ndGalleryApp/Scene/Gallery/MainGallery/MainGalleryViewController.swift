@@ -18,41 +18,21 @@ class MainGalleryViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
         return refreshControl
     } ()
-    var lastElement = false
-    
+    var isLastPaginationPage = true
     
     @IBOutlet weak var galleryCollectionView: UICollectionView!
     @IBOutlet weak var gallerySegmentControl: UISegmentedControl!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var errorImage: UIImageView!
+    
     
     @IBAction func galleryActionSegmentControl(_ sender: UISegmentedControl) {
-        if gallerySegmentControl.selectedSegmentIndex == 0 {
-            gallerySegmentControl.changeUnderlinePosition()
-            presenter.currentCollection = .new
-            galleryCollectionView.reloadData()
-            if let currentpos = positionOfNewGallery {
-                galleryCollectionView.scrollToItem(at: currentpos, at: .bottom, animated: false)
-            }
-        } else {
-            gallerySegmentControl.changeUnderlinePosition()
-            presenter.currentCollection = .popular
-            if presenter.isfistPopularImageRequest {
-                presenter.getFullGalleryRequest(isNewCollection: presenter.currentCollection)
-            }
-            galleryCollectionView.reloadData()
-            if let currentpos = positionOfPopularGallery {
-                galleryCollectionView.scrollToItem(at: currentpos, at: .centeredHorizontally, animated: false)
-            }
-        }
+        presenter.gallerySegmentControlAction()
     }
-    
-    var timer: Timer?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewIfNeed()
-        searchBar.delegate = self
         presenter.subscribeOnGalleryRequestResult()
         presenter.subscribeOnSearch()
         presenter.getFullGalleryRequest(isNewCollection: presenter.currentCollection)
@@ -71,7 +51,6 @@ class MainGalleryViewController: UIViewController {
     
     override func viewLayoutMarginsDidChange() {
         self.view.viewWithTag(1)?.removeFromSuperview()
-
         self.setSegmentControl()
         setNumberOfCellsInRow = UIDevice.current.orientation.isLandscape ? 4 : 2
 
@@ -94,6 +73,7 @@ class MainGalleryViewController: UIViewController {
                                             forCellWithReuseIdentifier: galleryCellName)
         self.galleryCollectionView.dataSource = self
         self.galleryCollectionView.delegate = self
+        self.searchBar.delegate = self
         self.galleryCollectionView.refreshControl = collectionViewRefreshControl
         
     }
@@ -112,5 +92,15 @@ class MainGalleryViewController: UIViewController {
         gallerySegmentControl.addUnderlineForSelectedSegment()
     }
     
+    func showErrorOnGallery(show: Bool) {
+        switch show {
+        case true:
+            errorImage.isHidden = false
+
+        default:
+            errorImage.isHidden = true
+
+        }
+    }
     
 }

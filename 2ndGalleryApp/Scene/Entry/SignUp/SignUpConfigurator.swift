@@ -19,4 +19,10 @@ class SignUpConfigurator {
                                            loginUseCase: DI.resolve())
         view.presenter = presenter
     }
+    static func open(navigationController: UINavigationController) {
+        let identifier = R.storyboard.signUp.signUpViewController.identifier
+        let vc = R.storyboard.signUp().instantiateViewController(withIdentifier: identifier)
+        navigationController.pushViewController(vc, animated: true)
+        navigationController.setNavigationBarHidden(false, animated: true)
+    }
 }

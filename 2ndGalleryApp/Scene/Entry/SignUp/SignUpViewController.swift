@@ -21,14 +21,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     let datePicker = UIDatePicker()
     
     @IBAction func signUpButton(_ sender: UIButton) {
-        
         checkFieldsAndReg()
     }
     
     @IBAction func signInButton(_ sender: UIButton) {
-        let vc = UIStoryboard(name: "SignIn", bundle: nil).instantiateViewController(identifier: "SignInViewController") as! SignInViewController
-        self.navigationController?.pushViewController(vc, animated: true)
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        goToSignUp()
     }
     
     
@@ -41,15 +38,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let cancelButton = UIBarButtonItem.init(
-              title: "",
-              style: .done,
-              target: self,
-            action: #selector(back)
-        )
-        cancelButton.image = R.image.backButton()
-        cancelButton.tintColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
-        self.navigationItem.leftBarButtonItem = cancelButton
+        setNavBarItem()
     }
     
     @objc func back() {
@@ -64,20 +53,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         getDateFromPicker()
     }
     
-    func setDatePicker() {
-        datePicker.preferredDatePickerStyle = .wheels
-        birthdayTextField.inputView = datePicker
-        datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
-        let tapped = UITapGestureRecognizer(target: self, action: #selector(closeDataPicker))
-        self.view.addGestureRecognizer(tapped)
-        let maxData = Calendar.current.date(byAdding: .day, value: 0, to: Date())
-        datePicker.maximumDate = maxData
-    }
-    
     func getDateFromPicker() {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         birthdayTextField.text = formatter.string(from: datePicker.date)
+    }
+    
+    func goToSignUp() {
+        presenter.goToSignInScreen()
     }
     
     func checkFieldsAndReg() {
@@ -117,5 +100,28 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         usernameTextField.delegate = self
         oldPasswordTextField.delegate = self
         confirmPassTextField.delegate = self
+    }
+    
+    func setDatePicker() {
+        datePicker.preferredDatePickerStyle = .wheels
+        birthdayTextField.inputView = datePicker
+        datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
+        let tapped = UITapGestureRecognizer(target: self, action: #selector(closeDataPicker))
+        self.view.addGestureRecognizer(tapped)
+        let maxData = Calendar.current.date(byAdding: .day, value: 0, to: Date())
+        datePicker.maximumDate = maxData
+    }
+    
+    func setNavBarItem() {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        let cancelButton = UIBarButtonItem.init(
+              title: "",
+              style: .done,
+              target: self,
+            action: #selector(back)
+        )
+        cancelButton.image = R.image.backButton()
+        cancelButton.tintColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+        self.navigationItem.leftBarButtonItem = cancelButton
     }
 }

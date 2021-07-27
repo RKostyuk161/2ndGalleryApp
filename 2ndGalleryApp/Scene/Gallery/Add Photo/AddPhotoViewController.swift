@@ -15,17 +15,11 @@ class AddPhotoViewController: UIViewController,
     var imagePicker: UIImagePickerController!
     var router: AddPhotoRouter!
 
-    @IBAction func nextButton(_ sender: Any) {
-        guard let image = imagePerview.image else {
-            Alerts().addAlert(alertTitle: "No image",
-                              alertMessage: nil,
-                              buttonMessage: "Ok",
-                              view: self)
-            return
-        }
-        router.onpen(image: image)
-    }
+    
     @IBOutlet weak var imagePerview: UIImageView!
+    @IBAction func nextButton(_ sender: Any) {
+        nextButtonAction()
+    }
     @IBAction func addPhotoButton(_ sender: UIButton) {
         addBottomAction()
     }
@@ -56,7 +50,6 @@ class AddPhotoViewController: UIViewController,
     func addBottomAction() {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 
-                // Create your actions - take a look at different style attributes
                 let cameraAction = UIAlertAction(title: "Use Camera", style: .default) {
                     (action) in
                     self.addFromCamera()
@@ -71,11 +64,9 @@ class AddPhotoViewController: UIViewController,
                     
                 }
 
-                // Add the actions to your actionSheet
                 actionSheet.addAction(cameraAction)
                 actionSheet.addAction(libAction)
                 actionSheet.addAction(cancelAction)
-                // Present the controller
                 self.present(actionSheet, animated: true, completion: nil)
     }
     
@@ -83,5 +74,16 @@ class AddPhotoViewController: UIViewController,
         let chosenImage = info[.originalImage] as? UIImage
         imagePicker.dismiss(animated: true, completion: nil)
         imagePerview.image = chosenImage
+    }
+    
+    func nextButtonAction() {
+        guard let image = imagePerview.image else {
+            Alerts().addAlert(alertTitle: "No image",
+                              alertMessage: nil,
+                              buttonMessage: "Ok",
+                              view: self)
+            return
+        }
+        router.onpen(image: image)
     }
 }

@@ -8,14 +8,12 @@
 import UIKit
 
 class SignInViewController: UIViewController, UITextFieldDelegate, UISearchBarDelegate  {
-    var timer: Timer?
+
     var presenter: SignInPresenter!
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBAction func forgotButton(_ sender: UIButton) {
-        
-    }
+
     @IBAction func singInButton(_ sender: UIButton) {
         checkFieldsAndAuth()
     }
@@ -31,15 +29,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, UISearchBarDe
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let cancelButton = UIBarButtonItem.init(
-              title: "",
-              style: .done,
-              target: self,
-            action: #selector(back)
-        )
-        cancelButton.image = R.image.backButton()
-        cancelButton.tintColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
-        self.navigationItem.leftBarButtonItem = cancelButton
+        setupNavBarItem()
     }
     
     @objc func back() {
@@ -47,7 +37,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate, UISearchBarDe
     }    
     
     func checkFieldsAndAuth() {
-        
         guard let emailText = emailTextField.text,
               let oldPasswordText = passwordTextField.text else { return }
 
@@ -71,6 +60,19 @@ class SignInViewController: UIViewController, UITextFieldDelegate, UISearchBarDe
     func setupTextFieldsDelegate() {
         emailTextField.delegate = self
         passwordTextField.delegate = self
+    }
+    
+    func setupNavBarItem() {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        let cancelButton = UIBarButtonItem.init(
+              title: "",
+              style: .done,
+              target: self,
+            action: #selector(back)
+        )
+        cancelButton.image = R.image.backButton()
+        cancelButton.tintColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+        self.navigationItem.leftBarButtonItem = cancelButton
     }
 }
 

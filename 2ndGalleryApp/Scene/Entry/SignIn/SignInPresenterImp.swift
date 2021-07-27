@@ -15,7 +15,6 @@ class SignInPresenterImp: SignInPresenter {
     var settings: Settings
     var disposeBag = DisposeBag()
     var router: SignInRouter
-//    var activityIndicator = CustomActivityIndicatorImp()
     
     init(view: SignInViewController,
          loginUseCase: AuthUseCase,
@@ -34,13 +33,12 @@ class SignInPresenterImp: SignInPresenter {
                 CustomActivityIndicatorConfigurator.open()
             },
             onDispose: {
-                self.view.dismiss(animated: true, completion: nil)
+                self.view.presentedViewController?.dismiss(animated: true, completion: nil)
             })
             .subscribe(onCompleted: { [weak self] in
                 guard let self = self,
-                      let user = self.settings.account else {
-                    return
-                }
+                      let _ = self.settings.account else { return }
+                
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 Alerts().addAlert(alertTitle: "Auth is ok",
                                   alertMessage: nil,
@@ -61,15 +59,12 @@ class SignInPresenterImp: SignInPresenter {
     }
         
     func moveToSignUp() {
-        let indefier = R.storyboard.signUp.signUpViewController.identifier
-        let vc = R.storyboard.signUp().instantiateViewController(identifier: indefier)
-        self.view.navigationController?.pushViewController(vc, animated: true)
-        self.view.navigationController?.setNavigationBarHidden(false, animated: true)
+        guard let navCon = self.view.navigationController else { return }
+        router.openSignUpScreen(navigationController: navCon)
     }
     
     func changeRootView() {
-        let mainTabBar = R.storyboard.mainGallery.instantiateInitialViewController()!
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBar, flipFromRight: true)
+        router.openMainGallery()
     }
     
 }

@@ -73,3 +73,7 @@ class UpdatePasswordEntity: JsonBodyConvertible {
         self.newPassword = newPass
     }
 }
+
+struct DeleteUserEntity: JsonBodyConvertible {
+    
+}

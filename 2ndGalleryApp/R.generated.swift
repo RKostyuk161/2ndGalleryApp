@@ -177,7 +177,7 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.image` struct is generated, and contains static references to 20 images.
+  /// This `R.image` struct is generated, and contains static references to 21 images.
   struct image {
     /// Image `BackButton`.
     static let backButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "BackButton")
@@ -201,6 +201,8 @@ struct R: Rswift.Validatable {
     static let entrySignUpSignUpButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "EntrySignUpSignUpButton")
     /// Image `EntrySignUpSingInButton`.
     static let entrySignUpSingInButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "EntrySignUpSingInButton")
+    /// Image `ErrorIcon`.
+    static let errorIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "ErrorIcon")
     /// Image `FirstBarImage`.
     static let firstBarImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "FirstBarImage")
     /// Image `LoadingImage`.
@@ -294,6 +296,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "EntrySignUpSingInButton", bundle: ..., traitCollection: ...)`
     static func entrySignUpSingInButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.entrySignUpSingInButton, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "ErrorIcon", bundle: ..., traitCollection: ...)`
+    static func errorIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.errorIcon, compatibleWith: traitCollection)
     }
     #endif
 
@@ -615,6 +624,7 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if UIKit.UIImage(named: "CustomLoadActivityIndicator", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'CustomLoadActivityIndicator' is used in storyboard 'MainGallery', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ErrorIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ErrorIcon' is used in storyboard 'MainGallery', but couldn't be loaded.") }
         if UIKit.UIImage(named: "FirstBarImage", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'FirstBarImage' is used in storyboard 'MainGallery', but couldn't be loaded.") }
         if UIKit.UIImage(named: "ProfileSettingsButton", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ProfileSettingsButton' is used in storyboard 'MainGallery', but couldn't be loaded.") }
         if UIKit.UIImage(named: "ProfileUserPhoto", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ProfileUserPhoto' is used in storyboard 'MainGallery', but couldn't be loaded.") }

@@ -93,7 +93,7 @@ class ProfileSettingsPresenterImp: ProfileSettingsPresenter {
                 CustomActivityIndicatorConfigurator.open()
             },
             onDispose: {
-                self.view.dismiss(animated: true, completion: nil)
+                self.view.presentedViewController?.dismiss(animated: true, completion: nil)
             })
             .observeOn(MainScheduler.instance)
             .subscribe(onCompleted: {

@@ -12,7 +12,7 @@ import RxNetworkApiClient
 class ApiUserGateway: ApiBaseGateway, UserGateway {   
     
     
-    func deleteUser(id: Int) -> Single<UserEntity> {
+    func deleteUser(id: Int) -> Single<DeleteUserEntity> {
         return apiClient.execute(request: ExtendedApiRequest.deleteUserRequest(id: id))
     }
     
@@ -31,13 +31,14 @@ class ApiUserGateway: ApiBaseGateway, UserGateway {
         return apiClient.execute(request: request)
     }
     
-    func addPhoto(addPhoto: AddPhoto) -> Single<AddPhoto> {
-        let request: ApiRequest<AddPhoto> = ExtendedApiRequest.addPhotoRequest(addPhoto: addPhoto)
+    func addPhoto(addPhoto: UploadFile) -> Single<FileEntity> {
+        let request: ApiRequest<FileEntity> = ExtendedApiRequest.addPhotoRequest(addPhoto: addPhoto)
+        request.responseTimeout = 120
         return apiClient.execute(request: request)
      }
     
-    func uploadPhotoDetails(photoDetails: AddPhoto) -> Single<AddPhoto> {
-        let request: ApiRequest<AddPhoto> = ExtendedApiRequest.uploadPhotoDetailsRequest(photoDetails: photoDetails)
+    func uploadPhotoDetails(photo: UploadPhoto) -> Single<UploadPhoto> {
+        let request: ApiRequest<UploadPhoto> = ExtendedApiRequest.uploadPhotoRequest(photo: photo)
         return apiClient.execute(request: request)
     }
 }
