@@ -48,10 +48,12 @@ extension AppDelegate {
         }
         openStartGalleryScreen(window: window)
     }
-    
-//    func doLogout() {
-//        self.settings?.clearUserData()
-//    }
 }
 
+extension AppDelegate: AuthResponseHandlerDelegate {
+
+    func doLogout() {
+        self.settings?.clearUserData()
+    }
+}
 

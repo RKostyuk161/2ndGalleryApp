@@ -11,7 +11,7 @@ import UIKit
 class FullImageInfoConfigurator {
     
     func configure(view: FullImageInfoViewController, model: ImageEntity) {
-        let presenter = FullImageInfoPresenterImp(view: view, model: model)
+        let presenter = FullImageInfoPresenterImp(view: view, model: model, settings: DI.resolve())
         view.presenter = presenter
     }
     

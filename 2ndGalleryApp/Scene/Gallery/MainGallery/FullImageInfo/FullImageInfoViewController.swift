@@ -18,6 +18,8 @@ class FullImageInfoViewController: UIViewController {
     @IBOutlet weak var descriptoinLabel: UILabel!
     @IBOutlet weak var contentStackView: UIStackView!
     @IBOutlet weak var contentScrollView: UIScrollView!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var birthDayUserNameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

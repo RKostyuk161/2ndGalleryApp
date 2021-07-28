@@ -19,5 +19,5 @@ protocol ProfilePresenter {
     func createCellsForUsersItems(indexPath: IndexPath) -> UICollectionViewCell
     func createNumberOfCells() -> Int
     func setupSizeForCell(itemsPerLine: Int) -> CGSize
-    
+    func moveToFullImage(indexPath: IndexPath)
 }

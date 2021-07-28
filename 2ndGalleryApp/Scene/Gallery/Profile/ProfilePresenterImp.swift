@@ -36,7 +36,6 @@ class ProfilePresenterImp: ProfilePresenter {
             .subscribe(onNext: { [weak self] (result: [ImageEntity]) in
                 guard let self = self else { return }
                     self.userPhotoItems = result
-                print("dnejfnwjenfjwenfjnwejfwje", self.userPhotoItems)
                     if self.userPhotoItems.isEmpty {
                         self.view.showErrorOnGallery(show: true)
                     } else {

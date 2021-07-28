@@ -26,6 +26,12 @@ class DI {
             .as(AuthInterceptor.self)
             .lifetime(.single)
         
+        self.container.register {
+            AuthResponseHandler(appDelegate, $0, $1, $2)
+        }
+        .as(AuthResponseHandler.self)
+        .lifetime(.single)
+        
         self.container.register { () -> ApiClientImp in
             let config = URLSessionConfiguration.default
             config.timeoutIntervalForRequest = 60 * 20
@@ -41,10 +47,14 @@ class DI {
             return client
         }
         .as(ApiClient.self)
-        .lifetime(.single)
+        .injection(cycle: true) {
+            $0.responseHandlersQueue.insert($1 as AuthResponseHandler, at: 0)
+        }
         .injection(cycle: true) {
             $0.interceptors.insert($1 as AuthInterceptor, at: 0)
         }
+        .lifetime(.single)
+
         
         self.container.register(UserDefaultsSettings.init)
             .as(UserDefaultsSettings.self)

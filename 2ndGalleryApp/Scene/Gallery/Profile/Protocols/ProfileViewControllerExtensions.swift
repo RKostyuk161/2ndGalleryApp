@@ -9,7 +9,15 @@ import Foundation
 import UIKit
 
 extension ProfileViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presenter.moveToFullImage(indexPath: indexPath)
+    }
+}
+
+extension ProfileViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        presenter.setupSizeForCell(itemsPerLine: 4)
+    }
 }
 
 extension ProfileViewController: UICollectionViewDataSource {
@@ -44,7 +52,13 @@ extension ProfilePresenterImp {
     }
     
     func setupSizeForCell(itemsPerLine: Int) -> CGSize {
-        return CGSize(width: view.view.frame.width / CGFloat(itemsPerLine)-20, height: view.view.frame.width / CGFloat(itemsPerLine)-20)
+        return CGSize(width: view.view.frame.width / CGFloat(itemsPerLine)-10, height: view.view.frame.width / CGFloat(itemsPerLine)-10)
     }
     
+    func moveToFullImage(indexPath: IndexPath) {
+        let model = userPhotoItems[indexPath.item]
+        guard let nc = self.view.navigationController else { return }
+        FullImageInfoConfigurator.open(navigationController: nc,
+                                       model: model)
+    }
 }

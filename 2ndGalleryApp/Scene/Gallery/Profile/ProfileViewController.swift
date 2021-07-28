@@ -25,7 +25,6 @@ class ProfileViewController: UIViewController {
         super.viewWillAppear(animated)
         currentUser = getUser()
         textToLabels(currentUser: currentUser)
-        presenter.subscribeOnUserImages()
         presenter.getCurrentUserImages()
     }
     
@@ -41,6 +40,7 @@ class ProfileViewController: UIViewController {
         usersPostsCollectionView.dataSource = self
         usersPostsCollectionView.delegate = self
         textToLabels(currentUser: currentUser)
+        presenter.subscribeOnUserImages()
     }
     
     func textToLabels(currentUser: UserEntity?) {

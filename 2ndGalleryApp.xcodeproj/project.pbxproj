@@ -80,6 +80,7 @@
 		8E41346A269465DE00C69ECE /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E413469269465DE00C69ECE /* UserDefaultsKey.swift */; };
 		8E41347F2695A24600C69ECE /* ExtendedResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E41347E2695A24600C69ECE /* ExtendedResponseHandler.swift */; };
 		8E4134812695DC6200C69ECE /* MainGalleryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4134802695DC6200C69ECE /* MainGalleryPresenter.swift */; };
+		8E7969EA26B1B20A0028A06D /* AuthResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7969E926B1B20A0028A06D /* AuthResponseHandler.swift */; };
 		8EAAE9D826A996CA0073C65A /* CustomActivityIndicatorConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAAE9D726A996CA0073C65A /* CustomActivityIndicatorConfigurator.swift */; };
 		8EAAE9DF26AEB7480073C65A /* MainGalleryFooterCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAAE9DE26AEB7480073C65A /* MainGalleryFooterCollectionReusableView.swift */; };
 		8EAAE9E326B01CB30073C65A /* FileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAAE9E226B01CB30073C65A /* FileEntity.swift */; };
@@ -192,6 +193,7 @@
 		8E413469269465DE00C69ECE /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		8E41347E2695A24600C69ECE /* ExtendedResponseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedResponseHandler.swift; sourceTree = "<group>"; };
 		8E4134802695DC6200C69ECE /* MainGalleryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGalleryPresenter.swift; sourceTree = "<group>"; };
+		8E7969E926B1B20A0028A06D /* AuthResponseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponseHandler.swift; sourceTree = "<group>"; };
 		8EAAE9D726A996CA0073C65A /* CustomActivityIndicatorConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicatorConfigurator.swift; sourceTree = "<group>"; };
 		8EAAE9DE26AEB7480073C65A /* MainGalleryFooterCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGalleryFooterCollectionReusableView.swift; sourceTree = "<group>"; };
 		8EAAE9E226B01CB30073C65A /* FileEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileEntity.swift; sourceTree = "<group>"; };
@@ -519,6 +521,7 @@
 			children = (
 				8E26FF9826A072DA00A82B66 /* ErrorResponseHandler.swift */,
 				8E41347E2695A24600C69ECE /* ExtendedResponseHandler.swift */,
+				8E7969E926B1B20A0028A06D /* AuthResponseHandler.swift */,
 			);
 			path = ResponseHandler;
 			sourceTree = "<group>";
@@ -907,6 +910,7 @@
 				8E18C75C269C7EEB004EFC69 /* ProfileSettingsViewController.swift in Sources */,
 				8E072976267205A90071FF46 /* StartViewController.swift in Sources */,
 				8E07299B2672511A0071FF46 /* SignInPresenter.swift in Sources */,
+				8E7969EA26B1B20A0028A06D /* AuthResponseHandler.swift in Sources */,
 				8EAF7C6A2689C23E0048A936 /* SignUpEntity.swift in Sources */,
 				8E072972267205A90071FF46 /* AppDelegate.swift in Sources */,
 				8E0729B126725D630071FF46 /* MainGalleryCollectionViewCell.swift in Sources */,
