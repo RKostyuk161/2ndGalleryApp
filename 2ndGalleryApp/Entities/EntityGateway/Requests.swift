@@ -99,4 +99,12 @@ extension ExtendedApiRequest {
                                headers: [Header.contentJson],
                                queryArray: searchStateParametrs)
     }
+    
+    static func searchUsersPhotoRequest(userId: Int) -> ExtendedApiRequest {
+        let searchStateParametrs = [("user.id", "\(userId)")]
+        return extendedRequest(path: "api/photos",
+                               method: .get,
+                               headers: [Header.contentJson],
+                               queryArray: searchStateParametrs)
+    }
 }

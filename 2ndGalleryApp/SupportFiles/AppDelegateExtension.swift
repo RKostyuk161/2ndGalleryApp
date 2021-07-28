@@ -42,7 +42,7 @@ extension AppDelegate {
     }
     
     func checkAuth(window: UIWindow?) {
-        guard let check = settings?.token else {
+        guard (settings?.token) != nil else {
             openStartScreen(window: window)
             return
         }

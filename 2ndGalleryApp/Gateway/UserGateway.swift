@@ -19,7 +19,9 @@ protocol UserGateway {
     
     func addPhoto(addPhoto: UploadFile) -> Single<FileEntity>
     
-    func uploadPhotoDetails(photo: UploadPhoto) -> Single<UploadPhoto>
+    func uploadPhotoDetails(photo: UploadPhoto) -> Single<ImageEntity>
+    
+    func getUserImages(userId: Int) -> Single<ImageEntities>
     
     func deleteUser(id: Int) -> Single<DeleteUserEntity>
 }

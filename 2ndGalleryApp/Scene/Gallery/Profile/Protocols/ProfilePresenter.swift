@@ -8,10 +8,11 @@
 import Foundation
 
 protocol ProfilePresenter {
-    var useCase: UserUseCase { get }
+    var userUseCase: UserUseCase { get }
     
     var settings: Settings { get }
     
     func routeToSettings()
+    func getCurrentUserImages()
     
 }

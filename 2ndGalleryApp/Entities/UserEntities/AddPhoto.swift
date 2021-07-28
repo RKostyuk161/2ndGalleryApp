@@ -24,8 +24,3 @@ struct AddPhoto: Codable, JsonBodyConvertible {
     }
 }
 
-struct Photo: Codable, JsonBodyConvertible {
-    var name: String
-    var description: String
-    var id: String
-}

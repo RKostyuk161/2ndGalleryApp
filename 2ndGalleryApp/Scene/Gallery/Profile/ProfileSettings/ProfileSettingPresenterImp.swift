@@ -64,6 +64,7 @@ class ProfileSettingsPresenterImp: ProfileSettingsPresenter {
                                   view: self.view)
                 
             })
+            .disposed(by: disposeBag)
     }
     
     func updatePass(oldPass: String, newPass: String)  {
@@ -85,6 +86,7 @@ class ProfileSettingsPresenterImp: ProfileSettingsPresenter {
                                   buttonMessage: "Ok",
                                   view: self.view)
             })
+            .disposed(by: disposeBag)
     }
 
     func deleteAcc() {

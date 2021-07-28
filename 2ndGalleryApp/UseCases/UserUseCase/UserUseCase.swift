@@ -9,6 +9,12 @@ import Foundation
 import RxSwift
 
 protocol UserUseCase {
+    var source: PublishSubject<[ImageEntity]> { get }
+    var isLoadingInProcess: Bool { get }
+    var userTotalItemsOfImages: Int { get }
+    
+    var imageModel: ImageEntity { get }
+    
     func getUserInfo() -> Single<UserEntity>
     
     func updateUserInfo(user: UserEntity) -> Completable
@@ -16,5 +22,6 @@ protocol UserUseCase {
     
     func addPhoto(image: UIImage, name: String, description: String) -> Completable
     func postPhoto(photo: UploadPhoto) -> Completable
+    func getUserImages(userId: Int) -> Completable
     func deleteUser() -> Completable
 }

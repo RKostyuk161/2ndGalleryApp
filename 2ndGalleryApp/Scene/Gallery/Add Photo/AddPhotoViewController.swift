@@ -7,6 +7,9 @@
 
 import UIKit
 import AVFoundation
+import Photos
+import RxSwift
+
 
 class AddPhotoViewController: UIViewController,
                               UIImagePickerControllerDelegate,
@@ -14,6 +17,9 @@ class AddPhotoViewController: UIViewController,
     
     var imagePicker: UIImagePickerController!
     var router: AddPhotoRouter!
+    var isCameraAccessed = false
+    var isLibAccessed = false
+    var disposeBag = DisposeBag()
 
     
     @IBOutlet weak var imagePerview: UIImageView!
@@ -30,21 +36,73 @@ class AddPhotoViewController: UIViewController,
     }
     
     func addFromCamera() {
-        imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .camera
-        imagePicker.allowsEditing = true
-        
-        present(imagePicker, animated: true, completion: nil)
+        cameraAccessRequest()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onCompleted: {
+                if self.isCameraAccessed {
+                    self.imagePicker = UIImagePickerController()
+                    self.imagePicker.delegate = self
+                    self.imagePicker.sourceType = .camera
+                    self.imagePicker.allowsEditing = true
+                    self.present(self.imagePicker, animated: true, completion: nil)
+                } else {
+                    Alerts().addAlert(alertTitle: "Error",
+                                      alertMessage: "Access denied",
+                                      buttonMessage: "Ok",
+                                      view: self,
+                                      function: { return })
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     func addFromLib() {
-        imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.allowsEditing = true
-        
-        present(imagePicker, animated: true, completion: nil)
+        libAccessRequest()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onCompleted: {
+                if self.isLibAccessed {
+                    self.imagePicker = UIImagePickerController()
+                    self.imagePicker.delegate = self
+                    self.imagePicker.sourceType = .photoLibrary
+                    self.imagePicker.allowsEditing = true
+                    self.present(self.imagePicker, animated: true, completion: nil)
+                } else {
+                    Alerts().addAlert(alertTitle: "Error",
+                                      alertMessage: "Access denied",
+                                      buttonMessage: "Ok",
+                                      view: self,
+                                      function: { return })
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func cameraAccessRequest() -> Observable<Bool> {
+        let result = Observable.just(isCameraAccessed)
+        AVCaptureDevice.requestAccess(for: AVMediaType.video) { response in
+            self.isCameraAccessed = (response) ? true : false
+        }
+        return result
+    }
+    
+    func libAccessRequest() -> Observable<Bool> {
+        let result = Observable.just(isLibAccessed)
+        let photos = PHPhotoLibrary.authorizationStatus()
+        if photos == .notDetermined {
+            PHPhotoLibrary.requestAuthorization({status in
+                self.isLibAccessed = (status == .denied) ? false : true
+                return
+            })
+            return result
+        } else if photos == .denied {
+            PHPhotoLibrary.requestAuthorization({status in
+                self.isLibAccessed = (status == .denied) ? false : true
+                return
+            })
+            return result
+        }
+        self.isLibAccessed = true
+        return result
     }
     
     func addBottomAction() {

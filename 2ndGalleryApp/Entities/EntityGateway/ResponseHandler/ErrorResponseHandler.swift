@@ -71,7 +71,7 @@ open class ErrorResponseHandler: ResponseHandler {
         } else if (300..<600).contains(nsHttpUrlResponse.statusCode) {
             let errorEntity = ResponseErrorEntity(response.urlResponse)
 
-            if let data = response.data {
+            if response.data != nil {
 
 //                if let responseAuthError = try? jsonDecoder.decode(AuthErrorResponseEntity.self, from: data) {
 //                    let error = responseAuthError.error_description
@@ -148,6 +148,22 @@ class NSErrorResponseHandler: ResponseHandler {
         if let error = (response.error as NSError?) {
             let errorResponseEntity = ResponseErrorEntity(response.urlResponse)
             let errorDesc = error.code == -1001 ? error.localizedDescription + "\n" /*+ R.string.localizable.tryAgain() LOCALIZABLE */ : error.localizedDescription
+            errorResponseEntity.errors.append(errorDesc)
+            observer(.error(errorResponseEntity))
+            return true
+        }
+        
+        if let nextError = (response.error as NSError?) {
+            let errorResponseEntity = ResponseErrorEntity(response.urlResponse)
+            let errorDesc = nextError.code == -400 ? nextError.localizedDescription + "\n" /*+ R.string.localizable.tryAgain() LOCALIZABLE */ : nextError.localizedDescription
+            errorResponseEntity.errors.append(errorDesc)
+            observer(.error(errorResponseEntity))
+            return true
+        }
+        
+        if let nextNextError = (response.error as NSError?) {
+            let errorResponseEntity = ResponseErrorEntity(response.urlResponse)
+            let errorDesc = nextNextError.code == 400 ? nextNextError.localizedDescription + "\n" /*+ R.string.localizable.tryAgain() LOCALIZABLE */ : nextNextError.localizedDescription
             errorResponseEntity.errors.append(errorDesc)
             observer(.error(errorResponseEntity))
             return true

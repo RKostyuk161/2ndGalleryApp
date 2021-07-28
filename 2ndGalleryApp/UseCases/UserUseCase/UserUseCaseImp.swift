@@ -15,6 +15,7 @@ class UserUseCaseImp: UserUseCase {
     let userGateway: UserGateway
     var photo = FileEntity()
     var uploadPhoto = UploadPhoto(name: nil, description: nil, id: 0, iri: "nil")
+    var imageModel = ImageEntity()
     
     init(settings: Settings, userGateway: UserGateway) {
         self.settings = settings
@@ -93,10 +94,18 @@ class UserUseCaseImp: UserUseCase {
         return self.userGateway.uploadPhotoDetails(photo: photo)
             .observeOn(MainScheduler.instance)
             .do(onSuccess: { [weak self] response in
-                guard self != nil else { return }
+                guard let self = self else { return }
+                self.imageModel = response
             }, onError: { error in
                 print("upload error")
             })
+            .asCompletable()
+    }
+    
+    func getUserImages(userId: Int) -> Completable {
+        return self.userGateway.getUserImages(userId: userId)
+            .observeOn(MainScheduler.instance)
+            .do()
             .asCompletable()
     }
 }
@@ -111,10 +120,12 @@ struct UploadPhoto: JsonBodyConvertible {
     var name: String?
     var description: String?
     var image: String?
+    var popular: Bool
     
     init(name: String?, description: String?, id: Int?, iri: String) {
         self.name = name
         self.description = description
         self.image = "\(iri)\(id ?? 0)"
+        self.popular = true
     }
 }

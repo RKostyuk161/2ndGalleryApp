@@ -48,7 +48,8 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
                     delay: 0,
                     options: options,
                     animations: {
-                        UIApplication.shared.keyWindow?.layoutIfNeeded()
+//                        UIApplication.shared.keyWindow?.layoutIfNeeded()
+                        UIApplication.shared.windows.first?.layoutIfNeeded()
                         return
                     }, completion: { finished in
                 })
@@ -77,7 +78,9 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
                     delay: 0,
                     options: options,
                     animations: {
-                        UIApplication.shared.keyWindow?.layoutIfNeeded()
+//                        UIApplication.shared.keyWindow?.layoutIfNeeded()
+                        UIApplication.shared.windows.first?.layoutIfNeeded()
+
                         return
                     }, completion: { finished in
                 })

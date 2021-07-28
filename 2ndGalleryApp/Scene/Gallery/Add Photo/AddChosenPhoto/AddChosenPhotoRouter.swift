@@ -15,9 +15,8 @@ class AddChosenPhotoRouter {
         self.view = view
     }
     
-    func openUploadImage(model: ImageEntity) {
-        if let nc = view.navigationController {
-            FullImageInfoConfigurator.open(navigationController: nc, model: model)
-        }
+    func openProfileImage() {
+        let mainTabBar = R.storyboard.mainGallery.instantiateInitialViewController()!
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBar, flipFromRight: true)
     }
 }

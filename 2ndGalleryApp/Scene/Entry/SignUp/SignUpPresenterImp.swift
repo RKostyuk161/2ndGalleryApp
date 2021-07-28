@@ -58,7 +58,11 @@ class SignUpPresenterImp: SignUpPresenter {
             },
 
             onError: { [weak self] error in
-                Alerts().addAlert(alertTitle: "Error", alertMessage: error.localizedDescription.description, buttonMessage: "Ok", view: self!.view)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                Alerts().addAlert(alertTitle: "Error", alertMessage: error.localizedDescription.description,
+                    buttonMessage: "Ok",
+                    view: self!.view)
+                }
             })
             .disposed(by: disposeBag)
     }

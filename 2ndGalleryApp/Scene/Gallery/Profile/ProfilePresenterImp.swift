@@ -9,7 +9,7 @@ import Foundation
 
 class ProfilePresenterImp: ProfilePresenter {
     
-    var useCase: UserUseCase
+    var userUseCase: UserUseCase
     var view: ProfileViewController
     var router: ProfileRouter
     var settings: Settings
@@ -18,12 +18,15 @@ class ProfilePresenterImp: ProfilePresenter {
         self.view = view
         self.router = router
         self.settings = settings
-        self.useCase = useCase
+        self.userUseCase = useCase
     }
     
     func routeToSettings() {
         router.openProfileSettingsViewCOntroller(currentUser: view.currentUser)
     }
     
+    func getCurrentUserImages() {
+        
+    }
     
 }
