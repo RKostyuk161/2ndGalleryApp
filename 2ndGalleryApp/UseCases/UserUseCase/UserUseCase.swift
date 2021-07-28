@@ -12,6 +12,8 @@ protocol UserUseCase {
     var source: PublishSubject<[ImageEntity]> { get }
     var isLoadingInProcess: Bool { get }
     var userTotalItemsOfImages: Int { get }
+    var userItems: [ImageEntity] { get }
+
     
     var imageModel: ImageEntity { get }
     

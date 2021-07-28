@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController {
     @IBAction func SettingsButton(_ sender: UIBarButtonItem) {
         presenter.routeToSettings()
     }
+    @IBOutlet weak var errorIcon: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var birthdayLabel: UILabel!
     var presenter: ProfilePresenter!
@@ -24,6 +25,8 @@ class ProfileViewController: UIViewController {
         super.viewWillAppear(animated)
         currentUser = getUser()
         textToLabels(currentUser: currentUser)
+        presenter.subscribeOnUserImages()
+        presenter.getCurrentUserImages()
     }
     
     override func viewDidLoad() {
@@ -31,7 +34,11 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.reloadInputViews()
         currentUser = getUser()
-//        usersPostsCollectionView.dataSource = self
+        let galleryCellName = R.nib.mainGalleryCollectionViewCell.name
+        self.usersPostsCollectionView.register(UINib(nibName: galleryCellName,
+                                                  bundle: nil),
+                                            forCellWithReuseIdentifier: galleryCellName)
+        usersPostsCollectionView.dataSource = self
         usersPostsCollectionView.delegate = self
         textToLabels(currentUser: currentUser)
     }
@@ -45,4 +52,13 @@ class ProfileViewController: UIViewController {
     func getUser() -> UserEntity? {
         return self.presenter.settings.account
     }
+    
+    func showErrorOnGallery(show: Bool) {
+        if show {
+            self.errorIcon.isHidden = false
+        } else {
+            self.errorIcon.isHidden = true
+        }
+    }
+
 }

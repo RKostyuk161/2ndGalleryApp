@@ -11,11 +11,19 @@ import RxNetworkApiClient
 
 class UserUseCaseImp: UserUseCase {
     
+    
+    var source = PublishSubject<[ImageEntity]>()
+    var isLoadingInProcess: Bool = false
+    var userTotalItemsOfImages: Int = 0
+    var userItems = [ImageEntity]()
+
+    
     var settings: Settings
     let userGateway: UserGateway
     var photo = FileEntity()
     var uploadPhoto = UploadPhoto(name: nil, description: nil, id: 0, iri: "nil")
     var imageModel = ImageEntity()
+    var disposeBag = DisposeBag()
     
     init(settings: Settings, userGateway: UserGateway) {
         self.settings = settings
@@ -103,10 +111,27 @@ class UserUseCaseImp: UserUseCase {
     }
     
     func getUserImages(userId: Int) -> Completable {
+        cancelLoading()
+        self.isLoadingInProcess = true
         return self.userGateway.getUserImages(userId: userId)
             .observeOn(MainScheduler.instance)
-            .do()
+            .do(onSuccess: { [weak self] result in
+                guard let self = self else { return }
+                guard let data = result.data else { return }
+                self.userTotalItemsOfImages = result.totalItems!
+                self.userItems = data
+                self.source.onNext(self.userItems)
+                self.isLoadingInProcess = false
+            },
+            onError: { error in
+                self.isLoadingInProcess = false
+                print(error.localizedDescription)
+            })
             .asCompletable()
+    }
+    
+    func cancelLoading() {
+        disposeBag = DisposeBag()
     }
 }
 
@@ -121,11 +146,13 @@ struct UploadPhoto: JsonBodyConvertible {
     var description: String?
     var image: String?
     var popular: Bool
+    var new: Bool
     
     init(name: String?, description: String?, id: Int?, iri: String) {
         self.name = name
         self.description = description
         self.image = "\(iri)\(id ?? 0)"
-        self.popular = true
+        self.popular = false
+        self.new = true
     }
 }

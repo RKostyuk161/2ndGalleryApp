@@ -179,14 +179,23 @@
                                                         </collectionViewFlowLayout>
                                                         <cells/>
                                                     </collectionView>
+                                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ErrorIcon" translatesAutoresizingMaskIntoConstraints="NO" id="w3d-CO-txN">
+                                                        <rect key="frame" x="143.5" y="81.5" width="127" height="137"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="137" id="07W-3J-m98"/>
+                                                            <constraint firstAttribute="width" constant="127" id="noh-jn-3zY"/>
+                                                        </constraints>
+                                                    </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="300" id="3M4-bt-MrY"/>
+                                                    <constraint firstItem="w3d-CO-txN" firstAttribute="centerX" secondItem="E8j-vY-1Vh" secondAttribute="centerX" id="LdR-Z9-iE2"/>
                                                     <constraint firstItem="E8j-vY-1Vh" firstAttribute="top" secondItem="5Xu-UP-KXY" secondAttribute="top" id="RWf-P7-EeT"/>
                                                     <constraint firstItem="E8j-vY-1Vh" firstAttribute="leading" secondItem="5Xu-UP-KXY" secondAttribute="leading" id="WEb-Qa-v27"/>
                                                     <constraint firstAttribute="trailing" secondItem="E8j-vY-1Vh" secondAttribute="trailing" id="hjF-tX-fg1"/>
                                                     <constraint firstAttribute="bottom" secondItem="E8j-vY-1Vh" secondAttribute="bottom" id="s7u-Di-BQi"/>
+                                                    <constraint firstItem="w3d-CO-txN" firstAttribute="centerY" secondItem="E8j-vY-1Vh" secondAttribute="centerY" id="uAI-sw-ggY"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -228,6 +237,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="birthdayLabel" destination="V3a-JB-Swv" id="F7H-hV-NyZ"/>
+                        <outlet property="errorIcon" destination="w3d-CO-txN" id="O6O-Z2-DJj"/>
                         <outlet property="nameLabel" destination="Cum-sH-Ws8" id="mwo-jq-UYb"/>
                         <outlet property="usersPostsCollectionView" destination="E8j-vY-1Vh" id="gvx-Xt-1BG"/>
                     </connections>

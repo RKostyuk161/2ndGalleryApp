@@ -17,6 +17,7 @@ class AddChosenPhotoPresenterImp: AddChosenPhotoPresenter {
     var disposeBag = DisposeBag()
     var image: UIImage
     var model = ImageEntity()
+    var isLoadingInProgress = false
     
     init(view: AddChosenPhotoViewController,
          router: AddChosenPhotoRouter,
@@ -31,11 +32,15 @@ class AddChosenPhotoPresenterImp: AddChosenPhotoPresenter {
     }
     
     func addPhoto(image: UIImage, name: String, description: String) {
+        if !isLoadingInProgress {
+            isLoadingInProgress = true
+    
         return usecase.addPhoto(image: image, name: name, description: description)
             .do(onSubscribe: {
                 CustomActivityIndicatorConfigurator.open()
             },
             onDispose: {
+                self.isLoadingInProgress = false
                 self.view.presentedViewController?.dismiss(animated: true, completion: nil)
             })
             .subscribe(onCompleted: { [weak self] in
@@ -60,6 +65,9 @@ class AddChosenPhotoPresenterImp: AddChosenPhotoPresenter {
                 }
             })
             .disposed(by: disposeBag)
+        } else {
+            return
+        }
     }
     
     func takeFullImageRequest() {
