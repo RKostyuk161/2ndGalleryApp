@@ -21,6 +21,11 @@ class ApiUserGateway: ApiBaseGateway, UserGateway {
         return apiClient.execute(request: ExtendedApiRequest.getAccRequest())
     }
     
+    func getUserModel(id: Int) -> Single<UserEntity> {
+        let request: ApiRequest<UserEntity> = ExtendedApiRequest.getAccModel(id: id)
+        return apiClient.execute(request: request)
+    }
+    
     func updateUserInfo(userId: Int, user: UserApiEntity) -> Single<UserEntity> {
         let request: ApiRequest<UserEntity> = ExtendedApiRequest.updateUserUnfo(userId: userId, user: user)
         return apiClient.execute(request: request)

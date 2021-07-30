@@ -37,6 +37,7 @@ class MainGalleryViewController: UIViewController {
         setupViewIfNeed()
         presenter.subscribeOnGalleryRequestResult()
         presenter.subscribeOnSearch()
+        presenter.subscribeOnUserModel()
         presenter.getFullGalleryRequest(isNewCollection: presenter.currentCollection)
         if MainGalleryViewController.isNeedFlipToProfile {
             MainGalleryViewController.isNeedFlipToProfile = false

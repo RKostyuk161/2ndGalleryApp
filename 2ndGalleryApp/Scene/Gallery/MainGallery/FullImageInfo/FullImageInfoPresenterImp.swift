@@ -11,18 +11,21 @@ import Kingfisher
 class FullImageInfoPresenterImp: FullImageInfoPresenter {
     weak var view: FullImageInfoViewController!
     var settings: Settings
-    let model: ImageEntity
+    let imageModel: ImageEntity
+    let userModel: UserEntity
     
-    init(view: FullImageInfoViewController, model: ImageEntity, settings: Settings) {
+    init(view: FullImageInfoViewController, imageModel: ImageEntity,
+         userModel: UserEntity, settings: Settings) {
         self.view = view
-        self.model = model
+        self.imageModel = imageModel
+        self.userModel = userModel
         self.settings = settings
     }
     
     func setView() {
-        setImage(name: model.image?.name)
-        setImageDescription(description: model.description)
-        setImageName(imageName: model.name)
+        setImage(name: imageModel.image?.name)
+        setImageDescription(description: imageModel.description)
+        setImageName(imageName: imageModel.name)
         setUserFields()
     }
     

@@ -13,6 +13,7 @@ class MainGalleryPresenterImp: MainGalleryPresenter {
     var view: MainGalleryViewController!
     var router: MainGalleryRouter!
     var paginationUseCase: PaginationUseCase
+    var userUseCase: UserUseCase
     var currentCollection: CollectionType
     var currentGalleryState: GalleryType
     
@@ -27,6 +28,7 @@ class MainGalleryPresenterImp: MainGalleryPresenter {
     var responseDisposeBag = DisposeBag()
     var paginationDisposeBag = DisposeBag()
     var searchDisposeBag = DisposeBag()
+    var userModel = UserEntity(user: SignUpEntity())
     
     var isLoadingInProgress = false
     var isfistPopularImageRequest = true
@@ -35,12 +37,14 @@ class MainGalleryPresenterImp: MainGalleryPresenter {
          router: MainGalleryRouter,
          currentGalleryState: GalleryType,
          collectionType: CollectionType,
-         paginationUseCase: PaginationUseCase) {
+         paginationUseCase: PaginationUseCase,
+         userUseCase: UserUseCase) {
         self.view = view
         self.router = router
         self.currentGalleryState = currentGalleryState
         self.currentCollection = collectionType
         self.paginationUseCase = paginationUseCase
+        self.userUseCase = userUseCase
     }
    
     func subscribeOnGalleryRequestResult() {
@@ -169,18 +173,61 @@ class MainGalleryPresenterImp: MainGalleryPresenter {
         }
     }
     
+    func subscribeOnUserModel() {
+        userUseCase.userSource
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] (reult: UserEntity) in
+            guard let self = self else { return }
+                self.userModel = reult
+            })
+        .disposed(by: paginationDisposeBag)
+    }
+    
+    func getUserModel(id: Int) {
+        userUseCase.getUserModel(id: id)
+            .observeOn(MainScheduler.instance)
+            .do(onSubscribe: {
+                CustomActivityIndicatorConfigurator.open()
+            }, onDispose: {
+                self.view.presentedViewController?.dismiss(animated: true, completion: nil)
+            })
+            .subscribe(onError: { [weak self] error in
+                guard let self = self else { return }
+                
+                Alerts().addAlert(alertTitle: "Gallery Error",
+                                  alertMessage: error.localizedDescription,
+                                  buttonMessage: "OK",
+                                  view: self.view)
+            })
+            .disposed(by: responseDisposeBag)
+    }
+    
+    func routeToFullImage(indexPath: IndexPath) {
+
+    }
+    
     func prepeareForRoute(indexPath: IndexPath) {
         
-        let model: ImageEntity
-        switch currentCollection {
-        case .new:
-            model = newImageEntityArray[indexPath.item]
-        case .popular:
-            model = popularImageEntityArray[indexPath.item]
+        switch currentGalleryState {
+        case .search:
+            let imageModel = searchItemsEntityArray[indexPath.item]
+            guard let userId = imageModel.user else { return }
+            getUserModel(id: userId)
+        case .gallery:
+            switch currentCollection {
+            case .new:
+                let imageModel = newImageEntityArray[indexPath.item]
+                guard let userId = imageModel.user else { return }
+                getUserModel(id: userId)
+            case .popular:
+                let imageModel = popularImageEntityArray[indexPath.item]
+                guard let userId = imageModel.user else { return }
+                getUserModel(id: userId)
+            }
         }
         
         guard let nav = view.navigationController else { return }
-        router.openFuillImageController(navigationController: nav, model: model)
+//        router.openFuillImageController(navigationController: nav, image)
     }
     
     func refresh() {

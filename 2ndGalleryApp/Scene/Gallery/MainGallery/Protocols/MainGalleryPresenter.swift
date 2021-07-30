@@ -20,7 +20,7 @@ protocol MainGalleryPresenter {
     func subscribeOnSearch()
     
     func gallerySegmentControlAction()
-    
+        
     func getFullGalleryRequest(isNewCollection: CollectionType)
     
     func getSearchImagesRequest(imageName: String, currentCollection: CollectionType)
@@ -32,6 +32,10 @@ protocol MainGalleryPresenter {
     func createCellForMainGalleryCollectionView(indexPath: IndexPath) -> UICollectionViewCell
     
     func setupSizeForCell(itemsPerLine: Int) -> CGSize
+    
+    func subscribeOnUserModel()
+    
+    func getUserModel(id: Int)
     
     func refresh()
 }

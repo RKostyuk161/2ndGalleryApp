@@ -10,6 +10,8 @@ import RxSwift
 
 protocol UserUseCase {
     var source: PublishSubject<[ImageEntity]> { get }
+    var userSource: PublishSubject<UserEntity> { get }
+
     var isLoadingInProcess: Bool { get }
     var userTotalItemsOfImages: Int { get }
     var userItems: [ImageEntity] { get }
@@ -18,7 +20,7 @@ protocol UserUseCase {
     var imageModel: ImageEntity { get }
     
     func getUserInfo() -> Single<UserEntity>
-    
+    func getUserModel(id: Int) -> Completable
     func updateUserInfo(user: UserEntity) -> Completable
     func updateUserPass(user: UpdatePasswordEntity) -> Completable
     

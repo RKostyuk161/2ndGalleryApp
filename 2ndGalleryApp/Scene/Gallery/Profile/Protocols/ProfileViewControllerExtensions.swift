@@ -57,8 +57,19 @@ extension ProfilePresenterImp {
     
     func moveToFullImage(indexPath: IndexPath) {
         let model = userPhotoItems[indexPath.item]
+        let userModel = getSelfUserModel()
         guard let nc = self.view.navigationController else { return }
         FullImageInfoConfigurator.open(navigationController: nc,
-                                       model: model)
+                                       imageModel: model,
+                                       userModel: userModel)
+    }
+    
+    func getSelfUserModel() -> UserEntity {
+        let model = UserEntity(user: SignUpEntity())
+        guard let name = settings.account?.username,
+              let bitrh = settings.account?.birthday else { return model }
+        model.username = name
+        model.birthday = bitrh
+        return model
     }
 }

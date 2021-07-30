@@ -15,7 +15,9 @@ class MainGalleryConfigurator {
         let presenter = MainGalleryPresenterImp(view: view,
                                              router: router,
                                              currentGalleryState: galleryType,
-                                             collectionType: collectionType, paginationUseCase: DI.resolve())
+                                             collectionType: collectionType,
+                                             paginationUseCase: DI.resolve(),
+                                             userUseCase: DI.resolve())
         view.presenter = presenter
     }
 }

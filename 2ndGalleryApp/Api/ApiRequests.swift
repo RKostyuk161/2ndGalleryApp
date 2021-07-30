@@ -25,6 +25,10 @@ extension ExtendedApiRequest {
         return extendedRequest(path: "api/users/current", method: .get)
     }
     
+    static func getAccModel(id: Int) -> ExtendedApiRequest {
+        return extendedRequest(path: "api/users/\(id)", method: .get)
+    }
+    
     static func updateUserUnfo(userId: Int, user: UserApiEntity) -> ExtendedApiRequest {
         return extendedRequest(path: "api/users/\(userId)",
                                method: .put,

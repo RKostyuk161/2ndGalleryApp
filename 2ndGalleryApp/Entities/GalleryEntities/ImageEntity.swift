@@ -14,5 +14,6 @@ struct ImageEntity: Decodable, Encodable {
     var name: String?
     var description: String?
     var image: ImageInfo?
+    var user: Int?
 }
 

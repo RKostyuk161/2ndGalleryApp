@@ -23,5 +23,7 @@ protocol UserGateway {
     
     func getUserImages(userId: Int) -> Single<ImageEntities>
     
+    func getUserModel(id: Int) -> Single<UserEntity>
+    
     func deleteUser(id: Int) -> Single<DeleteUserEntity>
 }

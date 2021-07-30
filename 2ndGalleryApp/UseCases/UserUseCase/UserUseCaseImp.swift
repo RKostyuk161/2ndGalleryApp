@@ -11,7 +11,7 @@ import RxNetworkApiClient
 
 class UserUseCaseImp: UserUseCase {
     
-    
+    var userSource = PublishSubject<UserEntity>()
     var source = PublishSubject<[ImageEntity]>()
     var isLoadingInProcess: Bool = false
     var userTotalItemsOfImages: Int = 0
@@ -24,6 +24,7 @@ class UserUseCaseImp: UserUseCase {
     var uploadPhoto = UploadPhoto(name: nil, description: nil, id: 0, iri: "nil")
     var imageModel = ImageEntity()
     var disposeBag = DisposeBag()
+    var userModel = UserEntity(user: SignUpEntity())
     
     init(settings: Settings, userGateway: UserGateway) {
         self.settings = settings
@@ -125,6 +126,19 @@ class UserUseCaseImp: UserUseCase {
             },
             onError: { error in
                 self.isLoadingInProcess = false
+                print(error.localizedDescription)
+            })
+            .asCompletable()
+    }
+    
+    func getUserModel(id: Int) -> Completable {
+        return userGateway.getUserModel(id: id)
+            .observeOn(MainScheduler.instance)
+            .do(onSuccess: { [weak self] user in
+                guard let self = self else { return }
+                self.userModel = user
+                self.userSource.onNext(self.userModel)
+            }, onError: { error in
                 print(error.localizedDescription)
             })
             .asCompletable()

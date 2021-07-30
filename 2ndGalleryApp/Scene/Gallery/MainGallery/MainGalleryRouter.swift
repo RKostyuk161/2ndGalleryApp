@@ -16,8 +16,10 @@ class MainGalleryRouter {
     }
     
     func openFuillImageController(navigationController: UINavigationController,
-                                  model: ImageEntity) {
+                                  imageModel: ImageEntity,
+                                  userModel: UserEntity) {
         FullImageInfoConfigurator.open(navigationController: navigationController,
-                                       model: model)
+                                       imageModel: imageModel,
+                                       userModel: userModel)
     }
 }
