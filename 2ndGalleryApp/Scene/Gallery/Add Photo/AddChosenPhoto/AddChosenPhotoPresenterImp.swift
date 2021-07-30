@@ -78,8 +78,6 @@ class AddChosenPhotoPresenterImp: AddChosenPhotoPresenter {
         self.model.name = name
         self.model.description = desc
         self.model.image?.name = imageName
-        print("model id = \(imageData.id)")
-        print("model name = \(imageData.name)")
         route()
     }
     

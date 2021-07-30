@@ -9,12 +9,7 @@ import Foundation
 import RxNetworkApiClient
 
 class AuthInterceptor: Interceptor {
-    
-    func handle<T>(request: ApiRequest<T>, response: NetworkResponse) where T : Decodable, T : Encodable {
-        
-    }
-    
-    
+  
     let settings: Settings
     let exceptions = [String]()
 
@@ -45,5 +40,8 @@ class AuthInterceptor: Interceptor {
                 }
             }
         }
+    }
+    func handle<T>(request: ApiRequest<T>, response: NetworkResponse) where T : Decodable, T : Encodable {
+        
     }
 }

@@ -139,20 +139,3 @@ enum UserUseCaseError: LocalizedError {
     case localUserIdIsNil
     case remoteUserIdIsNil
 }
-
-
-struct UploadPhoto: JsonBodyConvertible {
-    var name: String?
-    var description: String?
-    var image: String?
-    var popular: Bool
-    var new: Bool
-    
-    init(name: String?, description: String?, id: Int?, iri: String) {
-        self.name = name
-        self.description = description
-        self.image = "\(iri)\(id ?? 0)"
-        self.popular = false
-        self.new = true
-    }
-}

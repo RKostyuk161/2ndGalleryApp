@@ -105,8 +105,6 @@ class MainGalleryViewController: UIViewController {
 
         default:
             errorImage.isHidden = true
-
         }
     }
-    
 }

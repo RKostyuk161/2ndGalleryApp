@@ -14,20 +14,6 @@ class AuthUseCaseImp: AuthUseCase {
     var authApi: AuthGateway
     var tokenState: TokenState
     
-    var tokenCondition: TokenState {
-        return tokenState
-    }
-    
-    var account: UserEntity? {
-        get {
-            return settings.account
-        }
-        set(acc) {
-            settings.account = acc
-        }
-    }
-    
-    
     init(settings: Settings, userUseCase: UserUseCase, authApi: AuthGateway) {
         self.settings = settings
         self.userUseCase = userUseCase

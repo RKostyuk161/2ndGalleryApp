@@ -34,7 +34,6 @@
 		8E18C74826986045004EFC69 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18C74726986045004EFC69 /* R.generated.swift */; };
 		8E18C74A2698644B004EFC69 /* AppDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18C7492698644B004EFC69 /* AppDelegateExtension.swift */; };
 		8E18C74D269C3EED004EFC69 /* ALerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18C74C269C3EED004EFC69 /* ALerts.swift */; };
-		8E18C74F269C4AEE004EFC69 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18C74E269C4AEE004EFC69 /* Errors.swift */; };
 		8E18C751269C5683004EFC69 /* ProfileViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18C750269C5683004EFC69 /* ProfileViewControllerExtensions.swift */; };
 		8E18C753269C568F004EFC69 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18C752269C568F004EFC69 /* ProfilePresenter.swift */; };
 		8E18C755269C5697004EFC69 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18C754269C5697004EFC69 /* ProfileRouter.swift */; };
@@ -103,7 +102,7 @@
 		8EAF7C71268B18DD0048A936 /* RegistrationGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C70268B18DD0048A936 /* RegistrationGateway.swift */; };
 		8EAF7C73268B1B840048A936 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C72268B1B840048A936 /* SignUpPresenter.swift */; };
 		8EAF7C76268B1BA40048A936 /* SignUpPresenterImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C75268B1BA40048A936 /* SignUpPresenterImp.swift */; };
-		8EAF7C78268CAEF50048A936 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C77268CAEF50048A936 /* Requests.swift */; };
+		8EAF7C78268CAEF50048A936 /* ApiRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C77268CAEF50048A936 /* ApiRequests.swift */; };
 		8EAF7C7A268CAF1B0048A936 /* ExtendedApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C79268CAF1B0048A936 /* ExtendedApiRequest.swift */; };
 		8EAF7C7C268DBF670048A936 /* ApiEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C7B268DBF670048A936 /* ApiEndPoint.swift */; };
 		8EAF7C7E268DBFF20048A936 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF7C7D268DBFF20048A936 /* Config.swift */; };
@@ -147,7 +146,6 @@
 		8E18C74726986045004EFC69 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = 2ndGalleryApp/R.generated.swift; sourceTree = SOURCE_ROOT; };
 		8E18C7492698644B004EFC69 /* AppDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateExtension.swift; sourceTree = "<group>"; };
 		8E18C74C269C3EED004EFC69 /* ALerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALerts.swift; sourceTree = "<group>"; };
-		8E18C74E269C4AEE004EFC69 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		8E18C750269C5683004EFC69 /* ProfileViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewControllerExtensions.swift; sourceTree = "<group>"; };
 		8E18C752269C568F004EFC69 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		8E18C754269C5697004EFC69 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
@@ -216,7 +214,7 @@
 		8EAF7C70268B18DD0048A936 /* RegistrationGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationGateway.swift; sourceTree = "<group>"; };
 		8EAF7C72268B1B840048A936 /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
 		8EAF7C75268B1BA40048A936 /* SignUpPresenterImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenterImp.swift; sourceTree = "<group>"; };
-		8EAF7C77268CAEF50048A936 /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
+		8EAF7C77268CAEF50048A936 /* ApiRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequests.swift; sourceTree = "<group>"; };
 		8EAF7C79268CAF1B0048A936 /* ExtendedApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedApiRequest.swift; sourceTree = "<group>"; };
 		8EAF7C7B268DBF670048A936 /* ApiEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndPoint.swift; sourceTree = "<group>"; };
 		8EAF7C7D268DBFF20048A936 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -266,11 +264,10 @@
 		8E038F9D2678EE32000E56AC /* Gateway */ = {
 			isa = PBXGroup;
 			children = (
-				8EAF7C522684BCCF0048A936 /* Settings.swift */,
-				8EAF7C86268F561E0048A936 /* GalleryPaginationGateway.swift */,
-				8EAF7C70268B18DD0048A936 /* RegistrationGateway.swift */,
-				8EAF7C66268613DB0048A936 /* AuthGateway.swift */,
-				8EAF7C622684CBBD0048A936 /* UserGateway.swift */,
+				8E7969EB26B2F7D00028A06D /* GalleryPaginationGateway */,
+				8E7969EC26B2F7FA0028A06D /* RegistrationGateway */,
+				8E7969ED26B2F8170028A06D /* AuthGateway */,
+				8E7969EE26B2F8320028A06D /* UserGateway */,
 			);
 			path = Gateway;
 			sourceTree = "<group>";
@@ -311,6 +308,8 @@
 			children = (
 				8EBA5C75267B4F9D00941513 /* UseCases */,
 				8E038F9D2678EE32000E56AC /* Gateway */,
+				8EAF7C65268613C00048A936 /* Api */,
+				8E4134642694491D00C69ECE /* Settings */,
 				8E07299326721D430071FF46 /* Entities */,
 				8EAF7C6826861E200048A936 /* Scene */,
 				8EAF7C7D268DBFF20048A936 /* Config.swift */,
@@ -337,8 +336,6 @@
 		8E072989267207020071FF46 /* Entry */ = {
 			isa = PBXGroup;
 			children = (
-				8E18C74B269C3E92004EFC69 /* Alerts */,
-				8E26FF8D269EF67A00A82B66 /* CustomActivityIndicator */,
 				8E07299026721C620071FF46 /* FirstEntryScreen */,
 				8E07299226721CD50071FF46 /* SignIn */,
 				8E07299126721CC30071FF46 /* SignUp */,
@@ -387,8 +384,6 @@
 		8E07299326721D430071FF46 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				8E4134642694491D00C69ECE /* Settings */,
-				8EAF7C642684D5F10048A936 /* EntityGateway */,
 				8EAF7C5B2684C1970048A936 /* GalleryEntities */,
 				8EAF7C5C2684C1B10048A936 /* UserEntities */,
 			);
@@ -508,6 +503,7 @@
 		8E4134642694491D00C69ECE /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				8EAF7C522684BCCF0048A936 /* Settings.swift */,
 				8E4134652694493300C69ECE /* LocalSettings.swift */,
 				8E413469269465DE00C69ECE /* UserDefaultsKey.swift */,
 				8E4134672694498400C69ECE /* UserDefaultsSettings.swift */,
@@ -524,6 +520,42 @@
 				8E7969E926B1B20A0028A06D /* AuthResponseHandler.swift */,
 			);
 			path = ResponseHandler;
+			sourceTree = "<group>";
+		};
+		8E7969EB26B2F7D00028A06D /* GalleryPaginationGateway */ = {
+			isa = PBXGroup;
+			children = (
+				8EAF7C86268F561E0048A936 /* GalleryPaginationGateway.swift */,
+				8E41345826931A8100C69ECE /* ApiGalleryPaginationGateway.swift */,
+			);
+			path = GalleryPaginationGateway;
+			sourceTree = "<group>";
+		};
+		8E7969EC26B2F7FA0028A06D /* RegistrationGateway */ = {
+			isa = PBXGroup;
+			children = (
+				8EAF7C70268B18DD0048A936 /* RegistrationGateway.swift */,
+				8E4134562693182E00C69ECE /* ApiRegistrationGateway.swift */,
+			);
+			path = RegistrationGateway;
+			sourceTree = "<group>";
+		};
+		8E7969ED26B2F8170028A06D /* AuthGateway */ = {
+			isa = PBXGroup;
+			children = (
+				8EAF7C66268613DB0048A936 /* AuthGateway.swift */,
+				8E413450269303E200C69ECE /* ApiAuthGateway.swift */,
+			);
+			path = AuthGateway;
+			sourceTree = "<group>";
+		};
+		8E7969EE26B2F8320028A06D /* UserGateway */ = {
+			isa = PBXGroup;
+			children = (
+				8E4134522693076600C69ECE /* ApiUserGateway.swift */,
+				8EAF7C622684CBBD0048A936 /* UserGateway.swift */,
+			);
+			path = UserGateway;
 			sourceTree = "<group>";
 		};
 		8EAAE9D926AAE4B40073C65A /* Protocols */ = {
@@ -603,6 +635,8 @@
 				8EBA5C7E267BA15E00941513 /* ImageEntity.swift */,
 				8EBA5C80267BA18C00941513 /* ImageInfo.swift */,
 				8EAF7C4C26849C9B0048A936 /* PaginationEntity.swift */,
+				8E26FFBE26A4CB1100A82B66 /* AddPhoto.swift */,
+				8EAAE9E226B01CB30073C65A /* FileEntity.swift */,
 			);
 			path = GalleryEntities;
 			sourceTree = "<group>";
@@ -612,8 +646,6 @@
 			children = (
 				8EAF7C4A26849BFB0048A936 /* TokenEntitiy.swift */,
 				8EAF7C5026849FC50048A936 /* UserEntity.swift */,
-				8E26FFBE26A4CB1100A82B66 /* AddPhoto.swift */,
-				8EAAE9E226B01CB30073C65A /* FileEntity.swift */,
 				8EAF7C692689C23E0048A936 /* SignUpEntity.swift */,
 				8EAF7C4E26849DCE0048A936 /* CheckUserEntity.swift */,
 			);
@@ -629,28 +661,15 @@
 			path = UserUseCase;
 			sourceTree = "<group>";
 		};
-		8EAF7C642684D5F10048A936 /* EntityGateway */ = {
-			isa = PBXGroup;
-			children = (
-				8E2DCF5326983CB6009FBC67 /* Interceptor */,
-				8E41346B2694A9C500C69ECE /* ResponseHandler */,
-				8EAF7C65268613C00048A936 /* Api */,
-				8EAF7C7B268DBF670048A936 /* ApiEndPoint.swift */,
-				8EAF7C77268CAEF50048A936 /* Requests.swift */,
-				8E18C74E269C4AEE004EFC69 /* Errors.swift */,
-				8EAF7C79268CAF1B0048A936 /* ExtendedApiRequest.swift */,
-			);
-			path = EntityGateway;
-			sourceTree = "<group>";
-		};
 		8EAF7C65268613C00048A936 /* Api */ = {
 			isa = PBXGroup;
 			children = (
 				8E41344E269302B500C69ECE /* ApiBaseGateway.swift */,
-				8E4134522693076600C69ECE /* ApiUserGateway.swift */,
-				8E4134562693182E00C69ECE /* ApiRegistrationGateway.swift */,
-				8E41345826931A8100C69ECE /* ApiGalleryPaginationGateway.swift */,
-				8E413450269303E200C69ECE /* ApiAuthGateway.swift */,
+				8EAF7C7B268DBF670048A936 /* ApiEndPoint.swift */,
+				8EAF7C77268CAEF50048A936 /* ApiRequests.swift */,
+				8EAF7C79268CAF1B0048A936 /* ExtendedApiRequest.swift */,
+				8E41346B2694A9C500C69ECE /* ResponseHandler */,
+				8E2DCF5326983CB6009FBC67 /* Interceptor */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -658,6 +677,8 @@
 		8EAF7C6826861E200048A936 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				8E18C74B269C3E92004EFC69 /* Alerts */,
+				8E26FF8D269EF67A00A82B66 /* CustomActivityIndicator */,
 				8E072989267207020071FF46 /* Entry */,
 				8E07299E2672577B0071FF46 /* Gallery */,
 			);
@@ -843,7 +864,6 @@
 				8E038FA3267A1645000E56AC /* MainGalleryConfigurator.swift in Sources */,
 				8E26FFB526A4B05C00A82B66 /* AddChosenPhotoCofigurator.swift in Sources */,
 				8E4134572693182E00C69ECE /* ApiRegistrationGateway.swift in Sources */,
-				8E18C74F269C4AEE004EFC69 /* Errors.swift in Sources */,
 				8E4134662694493300C69ECE /* LocalSettings.swift in Sources */,
 				8E26FFA226A1BC7400A82B66 /* FullImageViewControllerExtensions.swift in Sources */,
 				8EAF7C7E268DBFF20048A936 /* Config.swift in Sources */,
@@ -899,7 +919,7 @@
 				8EAF7C4F26849DCE0048A936 /* CheckUserEntity.swift in Sources */,
 				8EAF7C7A268CAF1B0048A936 /* ExtendedApiRequest.swift in Sources */,
 				8EBA5C7B267B9E7D00941513 /* MainGalleryViewControllersExtensions.swift in Sources */,
-				8EAF7C78268CAEF50048A936 /* Requests.swift in Sources */,
+				8EAF7C78268CAEF50048A936 /* ApiRequests.swift in Sources */,
 				8E4134812695DC6200C69ECE /* MainGalleryPresenter.swift in Sources */,
 				8E038FA6267A2019000E56AC /* FullImageInfoViewController.swift in Sources */,
 				8E18C753269C568F004EFC69 /* ProfilePresenter.swift in Sources */,

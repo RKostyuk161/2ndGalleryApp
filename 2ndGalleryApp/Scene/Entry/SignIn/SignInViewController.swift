@@ -63,7 +63,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, UISearchBarDe
     }
     
     func setupNavBarItem() {
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
         let cancelButton = UIBarButtonItem.init(
               title: "",
               style: .done,

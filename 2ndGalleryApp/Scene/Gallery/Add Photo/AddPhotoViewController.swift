@@ -46,11 +46,10 @@ class AddPhotoViewController: UIViewController,
                     self.imagePicker.allowsEditing = true
                     self.present(self.imagePicker, animated: true, completion: nil)
                 } else {
-                    Alerts().addAlert(alertTitle: "Error",
-                                      alertMessage: "Access denied",
-                                      buttonMessage: "Ok",
-                                      view: self,
-                                      function: { return })
+                    self.addAlertToAddPhotos(alertTitle: "No access",
+                                        buttonOneMessage: "Ok",
+                                        buttonTwoMessage: "Go to Settings",
+                                        view: self)
                 }
             })
             .disposed(by: disposeBag)
@@ -67,11 +66,10 @@ class AddPhotoViewController: UIViewController,
                     self.imagePicker.allowsEditing = true
                     self.present(self.imagePicker, animated: true, completion: nil)
                 } else {
-                    Alerts().addAlert(alertTitle: "Error",
-                                      alertMessage: "Access denied",
-                                      buttonMessage: "Ok",
-                                      view: self,
-                                      function: { return })
+                    self.addAlertToAddPhotos(alertTitle: "No access",
+                                        buttonOneMessage: "Ok",
+                                        buttonTwoMessage: "Go to Settings",
+                                        view: self)
                 }
             })
             .disposed(by: disposeBag)
@@ -143,5 +141,46 @@ class AddPhotoViewController: UIViewController,
             return
         }
         router.onpen(image: image)
+    }
+}
+
+extension AddPhotoViewController {
+    
+    
+    func addAlertToAddPhotos(alertTitle: String,
+                             buttonOneMessage: String?,
+                             buttonTwoMessage: String,
+                             view: UIViewController) {
+        
+        let alert = UIAlertController(title: alertTitle,
+                                      message: nil,
+                                      preferredStyle: .alert)
+        
+        var buttonOne = UIAlertAction(title: buttonOneMessage,
+                                   style: .cancel,
+                                   handler: nil)
+        var buttonTwo = UIAlertAction(title: buttonTwoMessage,
+                                      style: .default,
+                                   handler: nil)
+        buttonOne = UIAlertAction(title: buttonOneMessage, style: .cancel) {
+            (action) -> Void in
+            return
+        }
+        
+        buttonTwo =  UIAlertAction(title: buttonTwoMessage,
+                                    style: .default) {
+                (action) -> Void in
+                self.goToSettings()
+            }
+        
+        alert.addAction(buttonOne)
+        alert.addAction(buttonTwo)
+        view.present(alert, animated: true, completion: nil)
+    }
+    
+    func goToSettings() {
+        if let appSettings = URL(string: UIApplication.openSettingsURLString) {
+            UIApplication.shared.open(appSettings, options: [:], completionHandler: nil)
+        }
     }
 }

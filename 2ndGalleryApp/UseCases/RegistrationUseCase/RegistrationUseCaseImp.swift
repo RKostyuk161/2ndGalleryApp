@@ -19,7 +19,4 @@ class RegistrationUseCaseImp: RegistrationUseCase {
     func signUp(entity: SignUpEntity) -> Single<UserEntity> {
         return registrationGateway.signUp(entity: entity)
     }
-    
-
-    
 }

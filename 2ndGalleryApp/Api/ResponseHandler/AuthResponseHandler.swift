@@ -157,13 +157,13 @@ open class AuthResponseHandler: ResponseHandler {
     }
     
     private func refreshToken<T: Codable>(request: ApiRequest<T>, observer: @escaping SingleObserver<T>) {
-        //        guard authUseCase.tokenCondition != .refreshing else {
-        //            return
-        //        }
-        //        guard authUseCase.tokenCondition != .none else {
-        //            delegate?.doLogout()
-        //            return
-        //        }
+        guard authUseCase.tokenState != .refreshing else {
+            return
+        }
+        guard authUseCase.tokenState != .none else {
+            delegate?.doLogout()
+            return
+        }
         self.tokenState = .refreshing
         authUseCase.refreshToken()
             .catchError({ (error) -> Completable in
