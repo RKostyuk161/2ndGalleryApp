@@ -1,0 +1,10 @@
+/* 
+  Alerts.strings
+  2ndGalleryApp
+
+  Created by Роман on 02.08.2021.
+  
+*/
+"ErrorMessage" = "Error";
+"OkMessage" = "Ok";
+"GalleryMessage" = "Gallery";

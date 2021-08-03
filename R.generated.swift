@@ -89,25 +89,65 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 6 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 12 storyboards.
   struct storyboard {
+    /// Storyboard `AddChosenPhoto`.
+    static let addChosenPhoto = _R.storyboard.addChosenPhoto()
+    /// Storyboard `AddPhoto`.
+    static let addPhoto = _R.storyboard.addPhoto()
+    /// Storyboard `CustomActivityIndicatorStoryBoard`.
+    static let customActivityIndicatorStoryBoard = _R.storyboard.customActivityIndicatorStoryBoard()
     /// Storyboard `FullImageInfo`.
     static let fullImageInfo = _R.storyboard.fullImageInfo()
+    /// Storyboard `Gallery`.
+    static let gallery = _R.storyboard.gallery()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `MainGallery`.
     static let mainGallery = _R.storyboard.mainGallery()
     /// Storyboard `Main`.
     static let main = _R.storyboard.main()
+    /// Storyboard `ProfileS`.
+    static let profileS = _R.storyboard.profileS()
+    /// Storyboard `ProfileSettings`.
+    static let profileSettings = _R.storyboard.profileSettings()
     /// Storyboard `SignIn`.
     static let signIn = _R.storyboard.signIn()
     /// Storyboard `SignUp`.
     static let signUp = _R.storyboard.signUp()
 
     #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "AddChosenPhoto", bundle: ...)`
+    static func addChosenPhoto(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.addChosenPhoto)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "AddPhoto", bundle: ...)`
+    static func addPhoto(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.addPhoto)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "CustomActivityIndicatorStoryBoard", bundle: ...)`
+    static func customActivityIndicatorStoryBoard(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.customActivityIndicatorStoryBoard)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "FullImageInfo", bundle: ...)`
     static func fullImageInfo(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.fullImageInfo)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "Gallery", bundle: ...)`
+    static func gallery(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.gallery)
     }
     #endif
 
@@ -133,6 +173,20 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "ProfileS", bundle: ...)`
+    static func profileS(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.profileS)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "ProfileSettings", bundle: ...)`
+    static func profileSettings(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.profileSettings)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "SignIn", bundle: ...)`
     static func signIn(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.signIn)
@@ -150,8 +204,10 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.image` struct is generated, and contains static references to 12 images.
+  /// This `R.image` struct is generated, and contains static references to 21 images.
   struct image {
+    /// Image `BackButton`.
+    static let backButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "BackButton")
     /// Image `CustomLoadActivityIndicator`.
     static let customLoadActivityIndicator = Rswift.ImageResource(bundle: R.hostingBundle, name: "CustomLoadActivityIndicator")
     /// Image `EnrtySignInLogo`.
@@ -172,10 +228,33 @@ struct R: Rswift.Validatable {
     static let entrySignUpSignUpButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "EntrySignUpSignUpButton")
     /// Image `EntrySignUpSingInButton`.
     static let entrySignUpSingInButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "EntrySignUpSingInButton")
+    /// Image `ErrorIcon`.
+    static let errorIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "ErrorIcon")
+    /// Image `FirstBarImage`.
+    static let firstBarImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "FirstBarImage")
+    /// Image `LoadingImage`.
+    static let loadingImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "LoadingImage")
     /// Image `Logo`.
     static let logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "Logo")
+    /// Image `ProfileSettingsButton`.
+    static let profileSettingsButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "ProfileSettingsButton")
+    /// Image `ProfileUserPhoto`.
+    static let profileUserPhoto = Rswift.ImageResource(bundle: R.hostingBundle, name: "ProfileUserPhoto")
+    /// Image `SecondBarImage`.
+    static let secondBarImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "SecondBarImage")
+    /// Image `ThirdBarImage`.
+    static let thirdBarImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "ThirdBarImage")
     /// Image `Welcome!`.
     static let welcome = Rswift.ImageResource(bundle: R.hostingBundle, name: "Welcome!")
+    /// Image `profileLine`.
+    static let profileLine = Rswift.ImageResource(bundle: R.hostingBundle, name: "profileLine")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "BackButton", bundle: ..., traitCollection: ...)`
+    static func backButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.backButton, compatibleWith: traitCollection)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "CustomLoadActivityIndicator", bundle: ..., traitCollection: ...)`
@@ -248,6 +327,27 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "ErrorIcon", bundle: ..., traitCollection: ...)`
+    static func errorIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.errorIcon, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "FirstBarImage", bundle: ..., traitCollection: ...)`
+    static func firstBarImage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.firstBarImage, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "LoadingImage", bundle: ..., traitCollection: ...)`
+    static func loadingImage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.loadingImage, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "Logo", bundle: ..., traitCollection: ...)`
     static func logo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.logo, compatibleWith: traitCollection)
@@ -255,9 +355,44 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "ProfileSettingsButton", bundle: ..., traitCollection: ...)`
+    static func profileSettingsButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.profileSettingsButton, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "ProfileUserPhoto", bundle: ..., traitCollection: ...)`
+    static func profileUserPhoto(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.profileUserPhoto, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "SecondBarImage", bundle: ..., traitCollection: ...)`
+    static func secondBarImage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.secondBarImage, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "ThirdBarImage", bundle: ..., traitCollection: ...)`
+    static func thirdBarImage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.thirdBarImage, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "Welcome!", bundle: ..., traitCollection: ...)`
     static func welcome(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.welcome, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "profileLine", bundle: ..., traitCollection: ...)`
+    static func profileLine(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.profileLine, compatibleWith: traitCollection)
     }
     #endif
 
@@ -315,6 +450,131 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  struct reuseIdentifier {
+    /// Reuse identifier `MainGalleryFooterCollectionReusableView`.
+    static let mainGalleryFooterCollectionReusableView: Rswift.ReuseIdentifier<MainGalleryFooterCollectionReusableView> = Rswift.ReuseIdentifier(identifier: "MainGalleryFooterCollectionReusableView")
+
+    fileprivate init() {}
+  }
+
+  /// This `R.string` struct is generated, and contains static references to 3 localization tables.
+  struct string {
+    /// This `R.string.alert` struct is generated, and contains static references to 3 localization keys.
+    struct alert {
+      /// en translation: Error
+      ///
+      /// Locales: en, ru
+      static let errorMessage = Rswift.StringResource(key: "ErrorMessage", tableName: "Alert", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: Gallery
+      ///
+      /// Locales: en, ru
+      static let galleryMessage = Rswift.StringResource(key: "GalleryMessage", tableName: "Alert", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: Ok
+      ///
+      /// Locales: en, ru
+      static let okMessage = Rswift.StringResource(key: "OkMessage", tableName: "Alert", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+
+      /// en translation: Error
+      ///
+      /// Locales: en, ru
+      static func errorMessage(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("ErrorMessage", tableName: "Alert", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Alert", preferredLanguages: preferredLanguages) else {
+          return "ErrorMessage"
+        }
+
+        return NSLocalizedString("ErrorMessage", tableName: "Alert", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Gallery
+      ///
+      /// Locales: en, ru
+      static func galleryMessage(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("GalleryMessage", tableName: "Alert", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Alert", preferredLanguages: preferredLanguages) else {
+          return "GalleryMessage"
+        }
+
+        return NSLocalizedString("GalleryMessage", tableName: "Alert", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Ok
+      ///
+      /// Locales: en, ru
+      static func okMessage(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("OkMessage", tableName: "Alert", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Alert", preferredLanguages: preferredLanguages) else {
+          return "OkMessage"
+        }
+
+        return NSLocalizedString("OkMessage", tableName: "Alert", bundle: bundle, comment: "")
+      }
+
+      fileprivate init() {}
+    }
+
+    /// This `R.string.launchScreen` struct is generated, and contains static references to 0 localization keys.
+    struct launchScreen {
+      fileprivate init() {}
+    }
+
+    /// This `R.string.main` struct is generated, and contains static references to 2 localization keys.
+    struct main {
+      /// ru translation: Button
+      ///
+      /// Locales: ru
+      static let hLqCeV8rNormalTitle = Rswift.StringResource(key: "hLq-ce-V8r.normalTitle", tableName: "Main", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// ru translation: Button
+      ///
+      /// Locales: ru
+      static let vnzDGLTYNormalTitle = Rswift.StringResource(key: "Vnz-dG-LTY.normalTitle", tableName: "Main", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+
+      /// ru translation: Button
+      ///
+      /// Locales: ru
+      static func hLqCeV8rNormalTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("hLq-ce-V8r.normalTitle", tableName: "Main", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Main", preferredLanguages: preferredLanguages) else {
+          return "hLq-ce-V8r.normalTitle"
+        }
+
+        return NSLocalizedString("hLq-ce-V8r.normalTitle", tableName: "Main", bundle: bundle, comment: "")
+      }
+
+      /// ru translation: Button
+      ///
+      /// Locales: ru
+      static func vnzDGLTYNormalTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("Vnz-dG-LTY.normalTitle", tableName: "Main", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Main", preferredLanguages: preferredLanguages) else {
+          return "Vnz-dG-LTY.normalTitle"
+        }
+
+        return NSLocalizedString("Vnz-dG-LTY.normalTitle", tableName: "Main", bundle: bundle, comment: "")
+      }
+
+      fileprivate init() {}
+    }
+
+    fileprivate init() {}
+  }
+
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
       try _R.validate()
@@ -356,7 +616,19 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       #if os(iOS) || os(tvOS)
+      try addChosenPhoto.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
+      try addPhoto.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
+      try customActivityIndicatorStoryBoard.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
       try fullImageInfo.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
+      try gallery.validate()
       #endif
       #if os(iOS) || os(tvOS)
       try launchScreen.validate()
@@ -368,6 +640,12 @@ struct _R: Rswift.Validatable {
       try mainGallery.validate()
       #endif
       #if os(iOS) || os(tvOS)
+      try profileS.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
+      try profileSettings.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
       try signIn.validate()
       #endif
       #if os(iOS) || os(tvOS)
@@ -376,11 +654,94 @@ struct _R: Rswift.Validatable {
     }
 
     #if os(iOS) || os(tvOS)
-    struct fullImageInfo: Rswift.StoryboardResourceType, Rswift.Validatable {
+    struct addChosenPhoto: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let addChosenPhoto = StoryboardViewControllerResource<AddChosenPhotoViewController>(identifier: "AddChosenPhoto")
       let bundle = R.hostingBundle
-      let name = "FullImageInfo"
+      let name = "AddChosenPhoto"
+
+      func addChosenPhoto(_: Void = ()) -> AddChosenPhotoViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: addChosenPhoto)
+      }
 
       static func validate() throws {
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+        if _R.storyboard.addChosenPhoto().addChosenPhoto() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'addChosenPhoto' could not be loaded from storyboard 'AddChosenPhoto' as 'AddChosenPhotoViewController'.") }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    struct addPhoto: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = AddPhotoViewController
+
+      let bundle = R.hostingBundle
+      let name = "AddPhoto"
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "ProfileUserPhoto", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ProfileUserPhoto' is used in storyboard 'AddPhoto', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    struct customActivityIndicatorStoryBoard: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let customActivity = StoryboardViewControllerResource<CustomActivityIndicatorViewController>(identifier: "CustomActivity")
+      let name = "CustomActivityIndicatorStoryBoard"
+
+      func customActivity(_: Void = ()) -> CustomActivityIndicatorViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: customActivity)
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "CustomLoadActivityIndicator", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'CustomLoadActivityIndicator' is used in storyboard 'CustomActivityIndicatorStoryBoard', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "LoadingImage", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'LoadingImage' is used in storyboard 'CustomActivityIndicatorStoryBoard', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+        if _R.storyboard.customActivityIndicatorStoryBoard().customActivity() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'customActivity' could not be loaded from storyboard 'CustomActivityIndicatorStoryBoard' as 'CustomActivityIndicatorViewController'.") }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    struct fullImageInfo: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let fullImageInfo = StoryboardViewControllerResource<FullImageInfoViewController>(identifier: "FullImageInfo")
+      let name = "FullImageInfo"
+
+      func fullImageInfo(_: Void = ()) -> FullImageInfoViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: fullImageInfo)
+      }
+
+      static func validate() throws {
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+        if _R.storyboard.fullImageInfo().fullImageInfo() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'fullImageInfo' could not be loaded from storyboard 'FullImageInfo' as 'FullImageInfoViewController'.") }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    struct gallery: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = MainGalleryViewController
+
+      let bundle = R.hostingBundle
+      let name = "Gallery"
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "CustomLoadActivityIndicator", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'CustomLoadActivityIndicator' is used in storyboard 'Gallery', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ErrorIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ErrorIcon' is used in storyboard 'Gallery', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
@@ -450,10 +811,54 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
-        if UIKit.UIImage(named: "CustomLoadActivityIndicator", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'CustomLoadActivityIndicator' is used in storyboard 'MainGallery', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "FirstBarImage", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'FirstBarImage' is used in storyboard 'MainGallery', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "SecondBarImage", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'SecondBarImage' is used in storyboard 'MainGallery', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ThirdBarImage", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ThirdBarImage' is used in storyboard 'MainGallery', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.mainGallery().mainGalleryTabBarController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'mainGalleryTabBarController' could not be loaded from storyboard 'MainGallery' as 'UIKit.UITabBarController'.") }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    struct profileS: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = ProfileViewController
+
+      let bundle = R.hostingBundle
+      let name = "ProfileS"
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "ErrorIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ErrorIcon' is used in storyboard 'ProfileS', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ProfileSettingsButton", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ProfileSettingsButton' is used in storyboard 'ProfileS', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ProfileUserPhoto", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ProfileUserPhoto' is used in storyboard 'ProfileS', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "profileLine", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'profileLine' is used in storyboard 'ProfileS', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    struct profileSettings: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "ProfileSettings"
+      let profileSettings = StoryboardViewControllerResource<ProfileSettingsViewController>(identifier: "ProfileSettings")
+
+      func profileSettings(_: Void = ()) -> ProfileSettingsViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: profileSettings)
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "ProfileUserPhoto", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ProfileUserPhoto' is used in storyboard 'ProfileSettings', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "profileLine", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'profileLine' is used in storyboard 'ProfileSettings', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+        if _R.storyboard.profileSettings().profileSettings() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'profileSettings' could not be loaded from storyboard 'ProfileSettings' as 'ProfileSettingsViewController'.") }
       }
 
       fileprivate init() {}

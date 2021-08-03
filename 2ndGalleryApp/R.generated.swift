@@ -89,20 +89,26 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 9 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 12 storyboards.
   struct storyboard {
     /// Storyboard `AddChosenPhoto`.
     static let addChosenPhoto = _R.storyboard.addChosenPhoto()
+    /// Storyboard `AddPhoto`.
+    static let addPhoto = _R.storyboard.addPhoto()
     /// Storyboard `CustomActivityIndicatorStoryBoard`.
     static let customActivityIndicatorStoryBoard = _R.storyboard.customActivityIndicatorStoryBoard()
     /// Storyboard `FullImageInfo`.
     static let fullImageInfo = _R.storyboard.fullImageInfo()
+    /// Storyboard `Gallery`.
+    static let gallery = _R.storyboard.gallery()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `MainGallery`.
     static let mainGallery = _R.storyboard.mainGallery()
     /// Storyboard `Main`.
     static let main = _R.storyboard.main()
+    /// Storyboard `ProfileS`.
+    static let profileS = _R.storyboard.profileS()
     /// Storyboard `ProfileSettings`.
     static let profileSettings = _R.storyboard.profileSettings()
     /// Storyboard `SignIn`.
@@ -118,6 +124,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "AddPhoto", bundle: ...)`
+    static func addPhoto(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.addPhoto)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "CustomActivityIndicatorStoryBoard", bundle: ...)`
     static func customActivityIndicatorStoryBoard(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.customActivityIndicatorStoryBoard)
@@ -128,6 +141,13 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "FullImageInfo", bundle: ...)`
     static func fullImageInfo(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.fullImageInfo)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "Gallery", bundle: ...)`
+    static func gallery(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.gallery)
     }
     #endif
 
@@ -149,6 +169,13 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "MainGallery", bundle: ...)`
     static func mainGallery(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.mainGallery)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "ProfileS", bundle: ...)`
+    static func profileS(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.profileS)
     }
     #endif
 
@@ -431,6 +458,332 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
+  /// This `R.string` struct is generated, and contains static references to 3 localization tables.
+  struct string {
+    /// This `R.string.alert` struct is generated, and contains static references to 14 localization keys.
+    struct alert {
+      /// en translation: Auth is ok
+      ///
+      /// Locales: en, ru
+      static let authIsOkMessage = Rswift.StringResource(key: "AuthIsOkMessage", tableName: "Alert", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: Error
+      ///
+      /// Locales: en, ru
+      static let errorMessage = Rswift.StringResource(key: "ErrorMessage", tableName: "Alert", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: Fill all fields
+      ///
+      /// Locales: en, ru
+      static let emptyFieldsMessage = Rswift.StringResource(key: "EmptyFieldsMessage", tableName: "Alert", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: Gallery
+      ///
+      /// Locales: en, ru
+      static let galleryMessage = Rswift.StringResource(key: "GalleryMessage", tableName: "Alert", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: Go to Settings
+      ///
+      /// Locales: en, ru
+      static let settingsMessage = Rswift.StringResource(key: "SettingsMessage", tableName: "Alert", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: No access
+      ///
+      /// Locales: en, ru
+      static let noAccessMessage = Rswift.StringResource(key: "NoAccessMessage", tableName: "Alert", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: No image
+      ///
+      /// Locales: en, ru
+      static let noImageMessage = Rswift.StringResource(key: "NoImageMessage", tableName: "Alert", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: Ok
+      ///
+      /// Locales: en, ru
+      static let okMessage = Rswift.StringResource(key: "OkMessage", tableName: "Alert", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: Passwords not match
+      ///
+      /// Locales: en, ru
+      static let passwordsNotMatch = Rswift.StringResource(key: "PasswordsNotMatch", tableName: "Alert", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: Succsess
+      ///
+      /// Locales: en, ru
+      static let succsessMessage = Rswift.StringResource(key: "SuccsessMessage", tableName: "Alert", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: cancel
+      ///
+      /// Locales: en, ru
+      static let cancelMessage = Rswift.StringResource(key: "CancelMessage", tableName: "Alert", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: no data
+      ///
+      /// Locales: en, ru
+      static let nodataMessage = Rswift.StringResource(key: "NodataMessage", tableName: "Alert", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: use camera
+      ///
+      /// Locales: en, ru
+      static let cameraString = Rswift.StringResource(key: "CameraString", tableName: "Alert", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: use gallery
+      ///
+      /// Locales: en, ru
+      static let galleryString = Rswift.StringResource(key: "GalleryString", tableName: "Alert", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+
+      /// en translation: Auth is ok
+      ///
+      /// Locales: en, ru
+      static func authIsOkMessage(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("AuthIsOkMessage", tableName: "Alert", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Alert", preferredLanguages: preferredLanguages) else {
+          return "AuthIsOkMessage"
+        }
+
+        return NSLocalizedString("AuthIsOkMessage", tableName: "Alert", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Error
+      ///
+      /// Locales: en, ru
+      static func errorMessage(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("ErrorMessage", tableName: "Alert", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Alert", preferredLanguages: preferredLanguages) else {
+          return "ErrorMessage"
+        }
+
+        return NSLocalizedString("ErrorMessage", tableName: "Alert", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Fill all fields
+      ///
+      /// Locales: en, ru
+      static func emptyFieldsMessage(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("EmptyFieldsMessage", tableName: "Alert", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Alert", preferredLanguages: preferredLanguages) else {
+          return "EmptyFieldsMessage"
+        }
+
+        return NSLocalizedString("EmptyFieldsMessage", tableName: "Alert", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Gallery
+      ///
+      /// Locales: en, ru
+      static func galleryMessage(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("GalleryMessage", tableName: "Alert", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Alert", preferredLanguages: preferredLanguages) else {
+          return "GalleryMessage"
+        }
+
+        return NSLocalizedString("GalleryMessage", tableName: "Alert", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Go to Settings
+      ///
+      /// Locales: en, ru
+      static func settingsMessage(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("SettingsMessage", tableName: "Alert", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Alert", preferredLanguages: preferredLanguages) else {
+          return "SettingsMessage"
+        }
+
+        return NSLocalizedString("SettingsMessage", tableName: "Alert", bundle: bundle, comment: "")
+      }
+
+      /// en translation: No access
+      ///
+      /// Locales: en, ru
+      static func noAccessMessage(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("NoAccessMessage", tableName: "Alert", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Alert", preferredLanguages: preferredLanguages) else {
+          return "NoAccessMessage"
+        }
+
+        return NSLocalizedString("NoAccessMessage", tableName: "Alert", bundle: bundle, comment: "")
+      }
+
+      /// en translation: No image
+      ///
+      /// Locales: en, ru
+      static func noImageMessage(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("NoImageMessage", tableName: "Alert", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Alert", preferredLanguages: preferredLanguages) else {
+          return "NoImageMessage"
+        }
+
+        return NSLocalizedString("NoImageMessage", tableName: "Alert", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Ok
+      ///
+      /// Locales: en, ru
+      static func okMessage(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("OkMessage", tableName: "Alert", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Alert", preferredLanguages: preferredLanguages) else {
+          return "OkMessage"
+        }
+
+        return NSLocalizedString("OkMessage", tableName: "Alert", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Passwords not match
+      ///
+      /// Locales: en, ru
+      static func passwordsNotMatch(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("PasswordsNotMatch", tableName: "Alert", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Alert", preferredLanguages: preferredLanguages) else {
+          return "PasswordsNotMatch"
+        }
+
+        return NSLocalizedString("PasswordsNotMatch", tableName: "Alert", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Succsess
+      ///
+      /// Locales: en, ru
+      static func succsessMessage(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("SuccsessMessage", tableName: "Alert", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Alert", preferredLanguages: preferredLanguages) else {
+          return "SuccsessMessage"
+        }
+
+        return NSLocalizedString("SuccsessMessage", tableName: "Alert", bundle: bundle, comment: "")
+      }
+
+      /// en translation: cancel
+      ///
+      /// Locales: en, ru
+      static func cancelMessage(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("CancelMessage", tableName: "Alert", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Alert", preferredLanguages: preferredLanguages) else {
+          return "CancelMessage"
+        }
+
+        return NSLocalizedString("CancelMessage", tableName: "Alert", bundle: bundle, comment: "")
+      }
+
+      /// en translation: no data
+      ///
+      /// Locales: en, ru
+      static func nodataMessage(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("NodataMessage", tableName: "Alert", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Alert", preferredLanguages: preferredLanguages) else {
+          return "NodataMessage"
+        }
+
+        return NSLocalizedString("NodataMessage", tableName: "Alert", bundle: bundle, comment: "")
+      }
+
+      /// en translation: use camera
+      ///
+      /// Locales: en, ru
+      static func cameraString(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("CameraString", tableName: "Alert", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Alert", preferredLanguages: preferredLanguages) else {
+          return "CameraString"
+        }
+
+        return NSLocalizedString("CameraString", tableName: "Alert", bundle: bundle, comment: "")
+      }
+
+      /// en translation: use gallery
+      ///
+      /// Locales: en, ru
+      static func galleryString(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("GalleryString", tableName: "Alert", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Alert", preferredLanguages: preferredLanguages) else {
+          return "GalleryString"
+        }
+
+        return NSLocalizedString("GalleryString", tableName: "Alert", bundle: bundle, comment: "")
+      }
+
+      fileprivate init() {}
+    }
+
+    /// This `R.string.launchScreen` struct is generated, and contains static references to 0 localization keys.
+    struct launchScreen {
+      fileprivate init() {}
+    }
+
+    /// This `R.string.main` struct is generated, and contains static references to 2 localization keys.
+    struct main {
+      /// ru translation: Button
+      ///
+      /// Locales: ru
+      static let hLqCeV8rNormalTitle = Rswift.StringResource(key: "hLq-ce-V8r.normalTitle", tableName: "Main", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// ru translation: Button
+      ///
+      /// Locales: ru
+      static let vnzDGLTYNormalTitle = Rswift.StringResource(key: "Vnz-dG-LTY.normalTitle", tableName: "Main", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+
+      /// ru translation: Button
+      ///
+      /// Locales: ru
+      static func hLqCeV8rNormalTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("hLq-ce-V8r.normalTitle", tableName: "Main", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Main", preferredLanguages: preferredLanguages) else {
+          return "hLq-ce-V8r.normalTitle"
+        }
+
+        return NSLocalizedString("hLq-ce-V8r.normalTitle", tableName: "Main", bundle: bundle, comment: "")
+      }
+
+      /// ru translation: Button
+      ///
+      /// Locales: ru
+      static func vnzDGLTYNormalTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("Vnz-dG-LTY.normalTitle", tableName: "Main", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Main", preferredLanguages: preferredLanguages) else {
+          return "Vnz-dG-LTY.normalTitle"
+        }
+
+        return NSLocalizedString("Vnz-dG-LTY.normalTitle", tableName: "Main", bundle: bundle, comment: "")
+      }
+
+      fileprivate init() {}
+    }
+
+    fileprivate init() {}
+  }
+
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
       try _R.validate()
@@ -475,10 +828,16 @@ struct _R: Rswift.Validatable {
       try addChosenPhoto.validate()
       #endif
       #if os(iOS) || os(tvOS)
+      try addPhoto.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
       try customActivityIndicatorStoryBoard.validate()
       #endif
       #if os(iOS) || os(tvOS)
       try fullImageInfo.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
+      try gallery.validate()
       #endif
       #if os(iOS) || os(tvOS)
       try launchScreen.validate()
@@ -488,6 +847,9 @@ struct _R: Rswift.Validatable {
       #endif
       #if os(iOS) || os(tvOS)
       try mainGallery.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
+      try profileS.validate()
       #endif
       #if os(iOS) || os(tvOS)
       try profileSettings.validate()
@@ -514,6 +876,23 @@ struct _R: Rswift.Validatable {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.addChosenPhoto().addChosenPhoto() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'addChosenPhoto' could not be loaded from storyboard 'AddChosenPhoto' as 'AddChosenPhotoViewController'.") }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    struct addPhoto: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = AddPhotoViewController
+
+      let bundle = R.hostingBundle
+      let name = "AddPhoto"
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "ProfileUserPhoto", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ProfileUserPhoto' is used in storyboard 'AddPhoto', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
       }
 
       fileprivate init() {}
@@ -556,6 +935,24 @@ struct _R: Rswift.Validatable {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.fullImageInfo().fullImageInfo() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'fullImageInfo' could not be loaded from storyboard 'FullImageInfo' as 'FullImageInfoViewController'.") }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    struct gallery: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = MainGalleryViewController
+
+      let bundle = R.hostingBundle
+      let name = "Gallery"
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "CustomLoadActivityIndicator", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'CustomLoadActivityIndicator' is used in storyboard 'Gallery', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ErrorIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ErrorIcon' is used in storyboard 'Gallery', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
       }
 
       fileprivate init() {}
@@ -623,17 +1020,32 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
-        if UIKit.UIImage(named: "CustomLoadActivityIndicator", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'CustomLoadActivityIndicator' is used in storyboard 'MainGallery', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "ErrorIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ErrorIcon' is used in storyboard 'MainGallery', but couldn't be loaded.") }
         if UIKit.UIImage(named: "FirstBarImage", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'FirstBarImage' is used in storyboard 'MainGallery', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "ProfileSettingsButton", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ProfileSettingsButton' is used in storyboard 'MainGallery', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "ProfileUserPhoto", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ProfileUserPhoto' is used in storyboard 'MainGallery', but couldn't be loaded.") }
         if UIKit.UIImage(named: "SecondBarImage", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'SecondBarImage' is used in storyboard 'MainGallery', but couldn't be loaded.") }
         if UIKit.UIImage(named: "ThirdBarImage", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ThirdBarImage' is used in storyboard 'MainGallery', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "profileLine", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'profileLine' is used in storyboard 'MainGallery', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.mainGallery().mainGalleryTabBarController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'mainGalleryTabBarController' could not be loaded from storyboard 'MainGallery' as 'UIKit.UITabBarController'.") }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    struct profileS: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = ProfileViewController
+
+      let bundle = R.hostingBundle
+      let name = "ProfileS"
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "ErrorIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ErrorIcon' is used in storyboard 'ProfileS', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ProfileSettingsButton", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ProfileSettingsButton' is used in storyboard 'ProfileS', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ProfileUserPhoto", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ProfileUserPhoto' is used in storyboard 'ProfileS', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "profileLine", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'profileLine' is used in storyboard 'ProfileS', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
       }
 
       fileprivate init() {}

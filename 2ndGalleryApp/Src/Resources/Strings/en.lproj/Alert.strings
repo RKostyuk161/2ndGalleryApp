@@ -1,0 +1,22 @@
+/* 
+  Alert.strings
+  2ndGalleryApp
+
+  Created by Роман on 02.08.2021.
+  
+*/
+
+"ErrorMessage" = "Error";
+"SuccsessMessage" = "Succsess";
+"OkMessage" = "Ok";
+"CancelMessage" = "cancel";
+"GalleryMessage" = "Gallery";
+"AuthIsOkMessage" = "Auth is ok";
+"EmptyFieldsMessage" = "Fill all fields";
+"PasswordsNotMatch" = "Passwords not match";
+"NoImageMessage" = "No image";
+"NodataMessage" = "no data";
+"CameraString" = "use camera";
+"GalleryString" = "use gallery";
+"SettingsMessage" = "Go to Settings";
+"NoAccessMessage" = "No access";

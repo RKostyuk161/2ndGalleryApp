@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dIu-RX-SkL">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main Gallery View Controller-->
+        <scene sceneID="asx-eE-ord">
+            <objects>
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="dIu-RX-SkL" customClass="MainGalleryViewController" customModule="_ndGalleryApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4NM-fu-8RN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jKO-yG-zp4">
+                                <rect key="frame" x="0.0" y="119" width="414" height="743"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wuH-Pc-exN">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="50" height="60"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="MainGalleryFooterCollectionReusableView" id="elo-Cw-LMf" customClass="MainGalleryFooterCollectionReusableView" customModule="_ndGalleryApp" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CustomLoadActivityIndicator" translatesAutoresizingMaskIntoConstraints="NO" id="k9w-hX-ATZ">
+                                            <rect key="frame" x="182" y="5" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="ejh-aP-Ifi"/>
+                                                <constraint firstAttribute="height" constant="50" id="mZe-lz-QKb"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="k9w-hX-ATZ" firstAttribute="centerY" secondItem="elo-Cw-LMf" secondAttribute="centerY" id="4lb-8z-dPj"/>
+                                        <constraint firstItem="k9w-hX-ATZ" firstAttribute="centerX" secondItem="elo-Cw-LMf" secondAttribute="centerX" id="H2T-DQ-RFa"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="footerActivityIndicator" destination="k9w-hX-ATZ" id="Z4c-Qv-RcG"/>
+                                    </connections>
+                                </collectionReusableView>
+                            </collectionView>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ErrorIcon" translatesAutoresizingMaskIntoConstraints="NO" id="p8u-Gk-TTa">
+                                <rect key="frame" x="143.5" y="422" width="127" height="137"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="127" id="SNu-qc-jzh"/>
+                                    <constraint firstAttribute="height" constant="137" id="uMF-86-36b"/>
+                                </constraints>
+                            </imageView>
+                            <segmentedControl opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="aXm-H3-RTT">
+                                <rect key="frame" x="2" y="88" width="410" height="32"/>
+                                <segments>
+                                    <segment title="New"/>
+                                    <segment title="Popular"/>
+                                </segments>
+                                <connections>
+                                    <action selector="galleryActionSegmentControl:" destination="dIu-RX-SkL" eventType="valueChanged" id="hux-Ac-Obd"/>
+                                </connections>
+                            </segmentedControl>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="FaI-DN-gVh">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="my4-Yg-vzU"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kJ7-St-ffG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="p8u-Gk-TTa" firstAttribute="centerX" secondItem="jKO-yG-zp4" secondAttribute="centerX" id="9yR-cb-Kw4"/>
+                            <constraint firstItem="jKO-yG-zp4" firstAttribute="bottom" secondItem="kJ7-St-ffG" secondAttribute="bottom" id="Bjl-ib-Tvv"/>
+                            <constraint firstItem="aXm-H3-RTT" firstAttribute="top" secondItem="FaI-DN-gVh" secondAttribute="bottom" id="HUy-41-CNo"/>
+                            <constraint firstItem="FaI-DN-gVh" firstAttribute="width" secondItem="kJ7-St-ffG" secondAttribute="width" id="UVJ-y9-V1I"/>
+                            <constraint firstItem="jKO-yG-zp4" firstAttribute="width" secondItem="kJ7-St-ffG" secondAttribute="width" id="WDA-zb-cqc"/>
+                            <constraint firstItem="jKO-yG-zp4" firstAttribute="top" secondItem="aXm-H3-RTT" secondAttribute="bottom" id="b8s-Tl-HBJ"/>
+                            <constraint firstItem="aXm-H3-RTT" firstAttribute="width" secondItem="kJ7-St-ffG" secondAttribute="width" multiplier="0.990338" id="h4g-bO-3hX"/>
+                            <constraint firstItem="jKO-yG-zp4" firstAttribute="centerX" secondItem="kJ7-St-ffG" secondAttribute="centerX" id="ihb-cU-DOa"/>
+                            <constraint firstItem="aXm-H3-RTT" firstAttribute="centerX" secondItem="kJ7-St-ffG" secondAttribute="centerX" id="jAY-gS-bAY"/>
+                            <constraint firstItem="FaI-DN-gVh" firstAttribute="top" secondItem="kJ7-St-ffG" secondAttribute="top" id="jCt-Vn-PeQ"/>
+                            <constraint firstItem="p8u-Gk-TTa" firstAttribute="centerY" secondItem="jKO-yG-zp4" secondAttribute="centerY" id="r9v-F4-Vr8"/>
+                            <constraint firstItem="FaI-DN-gVh" firstAttribute="centerX" secondItem="kJ7-St-ffG" secondAttribute="centerX" id="wCR-21-BFJ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="wbQ-Oy-huQ"/>
+                    <connections>
+                        <outlet property="errorImage" destination="p8u-Gk-TTa" id="Nj9-YW-GVV"/>
+                        <outlet property="galleryCollectionView" destination="jKO-yG-zp4" id="cFg-lw-p23"/>
+                        <outlet property="gallerySegmentControl" destination="aXm-H3-RTT" id="29D-SM-Sik"/>
+                        <outlet property="searchBar" destination="FaI-DN-gVh" id="Mhu-HV-pgz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MiJ-Hk-D7s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4368" y="1108"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CustomLoadActivityIndicator" width="40" height="40"/>
+        <image name="ErrorIcon" width="127" height="138"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
