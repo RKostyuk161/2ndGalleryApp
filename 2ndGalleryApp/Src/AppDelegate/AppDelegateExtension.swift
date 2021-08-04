@@ -19,9 +19,9 @@ extension AppDelegate {
             
         }
         DispatchQueue.main.async {
-            let navController = UINavigationController()
-            window.rootViewController = navController
-            StartConfigurator.open(navigationController: navController)
+            let navigationController = UINavigationController()
+            window.rootViewController = navigationController
+            StartConfigurator.open(navigationController: navigationController)
             window.makeKeyAndVisible()
         }
     }
@@ -36,7 +36,7 @@ extension AppDelegate {
         }
         DispatchQueue.main.async {
             let rootView = R.storyboard.mainGallery.instantiateInitialViewController()
-
+            
             window.rootViewController = rootView
             window.makeKeyAndVisible()
         }

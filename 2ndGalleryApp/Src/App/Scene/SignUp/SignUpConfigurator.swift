@@ -10,7 +10,7 @@ import UIKit
 
 class SignUpConfigurator {
     func config(view: SignUpViewController) {
-        let router = SignUpRouter()
+        let router = SignUpRouter(view: view)
         let presenter = SignUpPresenterImp(view: view,
                                            registrationUseCase: DI.resolve(),
                                            userUseCase: DI.resolve(),
@@ -22,6 +22,7 @@ class SignUpConfigurator {
     static func open(navigationController: UINavigationController) {
         let identifier = R.storyboard.signUp.signUpViewController.identifier
         let vc = R.storyboard.signUp().instantiateViewController(withIdentifier: identifier)
+        SignUpConfigurator().config(view: vc as! SignUpViewController)
         navigationController.pushViewController(vc, animated: true)
         navigationController.setNavigationBarHidden(false, animated: true)
     }

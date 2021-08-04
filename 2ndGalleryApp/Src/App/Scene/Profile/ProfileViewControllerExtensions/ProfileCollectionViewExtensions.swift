@@ -16,18 +16,18 @@ extension ProfileViewController: UICollectionViewDelegate {
 
 extension ProfileViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        presenter.setupSizeForCell(itemsPerLine: 4)
+        getCGSizeForGalleryCell(itemsPerLine: 4)
     }
 }
 
 extension ProfileViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        presenter.createNumberOfCells()
+        createNumberOfCells()
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        presenter.createCellsForUsersItems(indexPath: indexPath)
+        createCellsForUsersItems(indexPath: indexPath)
     }
 }
 

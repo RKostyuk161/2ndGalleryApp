@@ -7,7 +7,14 @@
 
 import UIKit
 
-class SignInRouter {
+class SignInRouter: BaseRouter {
+    
+    var view: UIViewController!
+    
+    init(view: SignInViewController) {
+        self.view = view
+    }
+    
     func openMainGallery()  {
         let mainTabBar = R.storyboard.mainGallery.instantiateInitialViewController()!
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBar, flipFromRight: true)

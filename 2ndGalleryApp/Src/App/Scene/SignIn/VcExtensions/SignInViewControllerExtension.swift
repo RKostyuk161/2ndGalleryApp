@@ -12,6 +12,7 @@ extension SignInViewController: UITextFieldDelegate {
     func setupTextFieldsDelegate() {
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

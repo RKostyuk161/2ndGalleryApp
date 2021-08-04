@@ -13,7 +13,8 @@ class AddChosenPhotoPresenterImp: AddChosenPhotoPresenter {
     var view: AddChosenPhotoView
     var router: AddChosenPhotoRouter
     var settings: Settings
-    var usecase: UserUseCase
+    var userUseCase: UserUseCase
+    var imageUseCase: ImageUseCase
     var disposeBag = DisposeBag()
     var image: UIImage
     var model = ImageEntity()
@@ -23,25 +24,27 @@ class AddChosenPhotoPresenterImp: AddChosenPhotoPresenter {
          router: AddChosenPhotoRouter,
          image: UIImage,
          settings: Settings,
-         usecase: UserUseCase) {
+         userUseCase: UserUseCase,
+         imageUseCase: ImageUseCase) {
         self.view = view
         self.router = router
         self.image = image
         self.settings = settings
-        self.usecase = usecase
+        self.userUseCase = userUseCase
+        self.imageUseCase = imageUseCase
     }
     
     func addPhoto(image: UIImage, name: String, description: String) {
         if !isLoadingInProgress {
             isLoadingInProgress = true
     
-        return usecase.addPhoto(image: image, name: name, description: description)
+        return imageUseCase.addPhoto(image: image, name: name, description: description)
             .do(onSubscribe: {
                 CustomActivityIndicatorConfigurator.open()
             },
             onDispose: {
                 self.isLoadingInProgress = false
-                self.view.dismissPresentedController()
+                self.router.dismissPresentedController()
             })
             .subscribe(onCompleted: { [weak self] in
                 guard let self = self else { return }
@@ -69,7 +72,7 @@ class AddChosenPhotoPresenterImp: AddChosenPhotoPresenter {
     }
     
     func takeFullImageRequest() {
-        let imageData = usecase.imageModel
+        let imageData = imageUseCase.imageModel
         guard let name = imageData.name,
               let desc = imageData.description,
               let imageName = imageData.image?.name else { return }

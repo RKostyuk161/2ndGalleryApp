@@ -17,12 +17,6 @@ protocol UserGateway {
     
     func updateUserPass(userId: Int, user: UpdatePasswordEntity) -> Single<UpdatePasswordEntity>
     
-    func addPhoto(addPhoto: UploadFile) -> Single<FileEntity>
-    
-    func uploadPhotoDetails(photo: UploadPhoto) -> Single<ImageEntity>
-    
-    func getUserImages(userId: Int) -> Single<ImageEntities>
-    
     func getUserModel(id: String) -> Single<UserEntity>
     
     func deleteUser(id: Int) -> Single<DeleteUserEntity>

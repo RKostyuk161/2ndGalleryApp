@@ -20,10 +20,13 @@ class SignInViewController: UIViewController  {
     @IBAction func signUpButton(_ sender: UIButton) {
         presenter.openSignUpScene()
     }
+    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var signInButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        SignInConfigurator().config(view: self)
         setupTextFieldsDelegate()
+        setupButtons()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,6 +63,13 @@ class SignInViewController: UIViewController  {
         cancelButton.image = R.image.backButton()
         cancelButton.tintColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
         self.navigationItem.leftBarButtonItem = cancelButton
+    }
+    
+    func setupButtons() {
+        signInButton.layer.cornerRadius = 10
+        signUpButton.layer.cornerRadius = 10
+        signUpButton.layer.borderWidth = 1
+        signUpButton.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     }
 }
 

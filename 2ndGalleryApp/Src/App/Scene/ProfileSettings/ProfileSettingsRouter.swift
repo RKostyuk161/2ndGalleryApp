@@ -6,9 +6,23 @@
 //
 
 import Foundation
+import UIKit
 
-class ProfileSettingsRouter {
-    func moveToProfile() {
-        
+class ProfileSettingsRouter: BaseRouter {
+    var view: UIViewController!
+    
+    init(view: ProfileSettingsViewController) {
+        self.view = view
+    }
+    
+    func routeToProfile(currentUser: UserEntity) {
+        guard let navigationController = getNavigationController() else { return }
+        navigationController.popViewController(animated: true)
+        ProfileConfigurator.config(view: ProfileViewController(), currentUser: currentUser)
+    }
+    
+    func routeToStartView() {
+        let mainTabBar = R.storyboard.main.instantiateInitialViewController()!
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBar, flipFromRight: true)
     }
 }

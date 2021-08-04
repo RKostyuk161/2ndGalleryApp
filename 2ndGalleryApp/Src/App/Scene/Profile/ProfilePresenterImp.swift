@@ -10,7 +10,9 @@ import RxSwift
 
 class ProfilePresenterImp: ProfilePresenter {
     
+    
     var userUseCase: UserUseCase
+    var imageUseCase: ImageUseCase
     var view: ProfileView
     var router: ProfileRouter
     var settings: Settings
@@ -20,11 +22,16 @@ class ProfilePresenterImp: ProfilePresenter {
     var userPhotoItems = [ImageEntity]()
     var currentUser = UserEntity(user: SignUpEntity())
     
-    init(view: ProfileViewController, router: ProfileRouter, settings: Settings, useCase: UserUseCase) {
+    init(view: ProfileViewController,
+         router: ProfileRouter,
+         settings: Settings,
+         userUseCase: UserUseCase,
+         imageUseCase: ImageUseCase) {
         self.view = view
         self.router = router
         self.settings = settings
-        self.userUseCase = useCase
+        self.userUseCase = userUseCase
+        self.imageUseCase = imageUseCase
     }
     
     func routeToSettings() {
@@ -32,7 +39,7 @@ class ProfilePresenterImp: ProfilePresenter {
     }
     
     func subscribeOnUserImages() {
-        userUseCase.source
+        imageUseCase.source
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] (result: [ImageEntity]) in
                 guard let self = self else { return }
@@ -52,7 +59,7 @@ class ProfilePresenterImp: ProfilePresenter {
         if !isLoadingInProgress {
             isLoadingInProgress = true
             guard let userId = settings.account?.id else { return }
-            userUseCase.getUserImages(userId: userId)
+            imageUseCase.getUserImages(userId: userId)
                 .observeOn(MainScheduler.instance)
                 .do(onDispose: {
                     self.isLoadingInProgress = false
@@ -77,5 +84,23 @@ class ProfilePresenterImp: ProfilePresenter {
     func setUser() {
         guard let user = getUser() else { return }
         self.currentUser = user
+    }
+    
+    func getSelfUserModel() -> UserEntity {
+        let model = UserEntity(user: SignUpEntity())
+        guard let name = settings.account?.username,
+              let bitrh = settings.account?.birthday else { return model }
+        model.username = name
+        model.birthday = bitrh
+        return model
+    }
+    
+    func moveToFullImage(indexPath: IndexPath) {
+        let model = userPhotoItems[indexPath.item]
+        let userModel = getSelfUserModel()
+        guard let nc = self.router.getNavigationController() else { return }
+        FullImageInfoConfigurator.open(navigationController: nc,
+                                       imageModel: model,
+                                       userModel: userModel)
     }
 }

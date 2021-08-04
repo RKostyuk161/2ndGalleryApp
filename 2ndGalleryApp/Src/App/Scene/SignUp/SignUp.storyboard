@@ -109,11 +109,12 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JYt-GK-CsB">
                                                         <rect key="frame" x="146.5" y="15" width="120" height="36"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="120" id="8gS-PT-Wsx"/>
                                                             <constraint firstAttribute="height" constant="36" id="ABi-Tx-CBL"/>
                                                         </constraints>
-                                                        <state key="normal" title="Button" image="EntrySignUpSignUpButton"/>
+                                                        <state key="normal" title="Sign Up"/>
                                                         <connections>
                                                             <action selector="signUpButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="dPM-uT-DeD"/>
                                                         </connections>
@@ -124,7 +125,9 @@
                                                             <constraint firstAttribute="height" constant="36" id="bQf-B3-7kY"/>
                                                             <constraint firstAttribute="width" constant="120" id="p3v-IV-Vf0"/>
                                                         </constraints>
-                                                        <state key="normal" title="Button" image="EntrySignUpSingInButton"/>
+                                                        <state key="normal" title="Sign In">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="signInButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="EFI-by-Dqs"/>
                                                         </connections>
@@ -169,6 +172,8 @@
                         <outlet property="confirmPassTextField" destination="kLo-Xy-X10" id="xSg-Qd-0uT"/>
                         <outlet property="emailTextField" destination="bSC-Lm-39e" id="5db-bc-IhN"/>
                         <outlet property="oldPasswordTextField" destination="gsG-H8-fgf" id="AIk-f4-YLi"/>
+                        <outlet property="signInButton" destination="vLd-Ue-Vwq" id="pGG-VV-qKi"/>
+                        <outlet property="signUpButton" destination="JYt-GK-CsB" id="lZs-KZ-jDn"/>
                         <outlet property="usernameTextField" destination="htY-oF-eYO" id="ZLy-XK-AKW"/>
                     </connections>
                 </viewController>
@@ -179,8 +184,6 @@
     </scenes>
     <resources>
         <image name="EntrySignUpLogo" width="105" height="37"/>
-        <image name="EntrySignUpSignUpButton" width="120" height="36"/>
-        <image name="EntrySignUpSingInButton" width="120" height="36"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

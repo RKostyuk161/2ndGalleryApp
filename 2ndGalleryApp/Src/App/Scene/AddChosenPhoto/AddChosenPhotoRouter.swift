@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-class AddChosenPhotoRouter {
-    var view: AddChosenPhotoViewController
+class AddChosenPhotoRouter: BaseRouter {
+    var view: UIViewController!
     
     init(view: AddChosenPhotoViewController) {
         self.view = view

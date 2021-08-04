@@ -38,11 +38,13 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLq-ce-V8r">
                                                 <rect key="frame" x="37" y="0.0" width="340" height="36"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="340" id="0V3-CD-nu3"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="340" id="0V3-CD-nu3"/>
                                                     <constraint firstAttribute="height" constant="36" id="7ag-TG-tjf"/>
                                                 </constraints>
-                                                <state key="normal" title="Button" image="EntryFirstScreenSignUpButton"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
+                                                <state key="normal" title="Create an account"/>
                                                 <connections>
                                                     <action selector="signUpButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bg8-hz-oae"/>
                                                 </connections>
@@ -50,10 +52,13 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vnz-dG-LTY">
                                                 <rect key="frame" x="37" y="50" width="340" height="36"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="340" id="242-lq-c1o"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="340" id="242-lq-c1o"/>
                                                     <constraint firstAttribute="height" constant="36" id="k09-RZ-2Tf"/>
                                                 </constraints>
-                                                <state key="normal" title="Button" image="EntryFirstScreenSignInButton"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
+                                                <state key="normal" title="I already have an account">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="signInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ioS-gn-y2z"/>
                                                 </connections>
@@ -86,6 +91,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IUt-kE-B0y"/>
+                    <connections>
+                        <outlet property="signInButton" destination="Vnz-dG-LTY" id="mcF-uS-WM6"/>
+                        <outlet property="signUpButton" destination="hLq-ce-V8r" id="Mt2-Yg-n0u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -113,8 +122,6 @@
     </scenes>
     <resources>
         <image name="EntryFirstScreenLogo" width="136" height="139"/>
-        <image name="EntryFirstScreenSignInButton" width="343" height="36"/>
-        <image name="EntryFirstScreenSignUpButton" width="343" height="36"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

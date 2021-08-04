@@ -66,5 +66,9 @@ class ProfileViewController: UIViewController {
         textToLabels(currentUser: presenter.getUser())
         presenter.subscribeOnUserImages()
     }
+    
+    func getCGSizeForGalleryCell(itemsPerLine: Int) -> CGSize {
+        return CGSize(width: view.frame.width / CGFloat(itemsPerLine)-10, height: view.frame.width / CGFloat(itemsPerLine)-10)
+    }
 
 }

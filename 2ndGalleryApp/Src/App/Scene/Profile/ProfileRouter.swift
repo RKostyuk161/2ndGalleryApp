@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
-class ProfileRouter {
-    var view: ProfileViewController!
+class ProfileRouter: BaseRouter {
+    
+    var view: UIViewController!
     
     init(view: ProfileViewController) {
         self.view = view

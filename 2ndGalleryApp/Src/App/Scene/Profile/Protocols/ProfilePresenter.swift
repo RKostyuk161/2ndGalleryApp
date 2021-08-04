@@ -10,6 +10,7 @@ import UIKit
 
 protocol ProfilePresenter {
     var userUseCase: UserUseCase { get }
+    var userPhotoItems: [ImageEntity] { get }
     var settings: Settings { get }
     
     func subscribeOnUserImages()
@@ -17,8 +18,5 @@ protocol ProfilePresenter {
     func getCurrentUserImages()
     func setUser()
     func getUser() -> UserEntity?
-    func createCellsForUsersItems(indexPath: IndexPath) -> UICollectionViewCell
-    func createNumberOfCells() -> Int
-    func setupSizeForCell(itemsPerLine: Int) -> CGSize
     func moveToFullImage(indexPath: IndexPath)
 }

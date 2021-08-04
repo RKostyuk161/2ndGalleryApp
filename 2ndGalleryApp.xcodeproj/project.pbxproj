@@ -25,10 +25,17 @@
 		8E00659D26B981EE004862D9 /* AddChosenPhotoExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E00659C26B981EE004862D9 /* AddChosenPhotoExtensions.swift */; };
 		8E00659F26B98222004862D9 /* AddChosenPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E00659E26B98222004862D9 /* AddChosenPhotoView.swift */; };
 		8E0065A126B9843E004862D9 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0065A026B9843E004862D9 /* ProfileView.swift */; };
-		8E0065A426B988FF004862D9 /* ProfilePresenterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0065A326B988FF004862D9 /* ProfilePresenterExtensions.swift */; };
+		8E0065A426B988FF004862D9 /* ProfileViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0065A326B988FF004862D9 /* ProfileViewExtensions.swift */; };
 		8E0065A726B9897C004862D9 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0065A626B9897C004862D9 /* ImageExtension.swift */; };
 		8E0065A926B989B8004862D9 /* SegmentControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0065A826B989B8004862D9 /* SegmentControlExtension.swift */; };
 		8E0065AB26B98B54004862D9 /* MainGalleryCollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0065AA26B98B54004862D9 /* MainGalleryCollectionViewExtensions.swift */; };
+		8E0065AF26B99D0A004862D9 /* ProfileSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0065AE26B99D0A004862D9 /* ProfileSettingsView.swift */; };
+		8E0065B226B99F49004862D9 /* ProfileSettingsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0065B126B99F49004862D9 /* ProfileSettingsExtensions.swift */; };
+		8E0065B626BAC875004862D9 /* ImagesGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0065B526BAC875004862D9 /* ImagesGateway.swift */; };
+		8E0065B826BAC8A0004862D9 /* ApiImagesGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0065B726BAC8A0004862D9 /* ApiImagesGateway.swift */; };
+		8E0065BB26BAC933004862D9 /* ImageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0065BA26BAC933004862D9 /* ImageUseCase.swift */; };
+		8E0065BD26BAC940004862D9 /* ImageUseCaseImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0065BC26BAC940004862D9 /* ImageUseCaseImp.swift */; };
+		8E0065BF26BACD89004862D9 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0065BE26BACD89004862D9 /* BaseRouter.swift */; };
 		8E038F962673A32D000E56AC /* AddPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E038F952673A32D000E56AC /* AddPhotoViewController.swift */; };
 		8E038F9A2673A37F000E56AC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E038F992673A37F000E56AC /* ProfileViewController.swift */; };
 		8E038FA12678F709000E56AC /* Statesments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E038FA02678F709000E56AC /* Statesments.swift */; };
@@ -54,7 +61,7 @@
 		8E0729B426725DD90071FF46 /* ImageEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0729B326725DD90071FF46 /* ImageEntities.swift */; };
 		8E18C74A2698644B004EFC69 /* AppDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18C7492698644B004EFC69 /* AppDelegateExtension.swift */; };
 		8E18C74D269C3EED004EFC69 /* ALerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18C74C269C3EED004EFC69 /* ALerts.swift */; };
-		8E18C751269C5683004EFC69 /* ProfileViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18C750269C5683004EFC69 /* ProfileViewControllerExtensions.swift */; };
+		8E18C751269C5683004EFC69 /* ProfileCollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18C750269C5683004EFC69 /* ProfileCollectionViewExtensions.swift */; };
 		8E18C753269C568F004EFC69 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18C752269C568F004EFC69 /* ProfilePresenter.swift */; };
 		8E18C755269C5697004EFC69 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18C754269C5697004EFC69 /* ProfileRouter.swift */; };
 		8E18C757269C56A2004EFC69 /* ProfileConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18C756269C56A2004EFC69 /* ProfileConfigurator.swift */; };
@@ -159,10 +166,17 @@
 		8E00659C26B981EE004862D9 /* AddChosenPhotoExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChosenPhotoExtensions.swift; sourceTree = "<group>"; };
 		8E00659E26B98222004862D9 /* AddChosenPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChosenPhotoView.swift; sourceTree = "<group>"; };
 		8E0065A026B9843E004862D9 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		8E0065A326B988FF004862D9 /* ProfilePresenterExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenterExtensions.swift; sourceTree = "<group>"; };
+		8E0065A326B988FF004862D9 /* ProfileViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewExtensions.swift; sourceTree = "<group>"; };
 		8E0065A626B9897C004862D9 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 		8E0065A826B989B8004862D9 /* SegmentControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlExtension.swift; sourceTree = "<group>"; };
 		8E0065AA26B98B54004862D9 /* MainGalleryCollectionViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGalleryCollectionViewExtensions.swift; sourceTree = "<group>"; };
+		8E0065AE26B99D0A004862D9 /* ProfileSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsView.swift; sourceTree = "<group>"; };
+		8E0065B126B99F49004862D9 /* ProfileSettingsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsExtensions.swift; sourceTree = "<group>"; };
+		8E0065B526BAC875004862D9 /* ImagesGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesGateway.swift; sourceTree = "<group>"; };
+		8E0065B726BAC8A0004862D9 /* ApiImagesGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiImagesGateway.swift; sourceTree = "<group>"; };
+		8E0065BA26BAC933004862D9 /* ImageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUseCase.swift; sourceTree = "<group>"; };
+		8E0065BC26BAC940004862D9 /* ImageUseCaseImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUseCaseImp.swift; sourceTree = "<group>"; };
+		8E0065BE26BACD89004862D9 /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
 		8E038F952673A32D000E56AC /* AddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
 		8E038F992673A37F000E56AC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		8E038FA02678F709000E56AC /* Statesments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statesments.swift; sourceTree = "<group>"; };
@@ -188,7 +202,7 @@
 		8E0729B326725DD90071FF46 /* ImageEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEntities.swift; sourceTree = "<group>"; };
 		8E18C7492698644B004EFC69 /* AppDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateExtension.swift; sourceTree = "<group>"; };
 		8E18C74C269C3EED004EFC69 /* ALerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALerts.swift; sourceTree = "<group>"; };
-		8E18C750269C5683004EFC69 /* ProfileViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewControllerExtensions.swift; sourceTree = "<group>"; };
+		8E18C750269C5683004EFC69 /* ProfileCollectionViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewExtensions.swift; sourceTree = "<group>"; };
 		8E18C752269C568F004EFC69 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		8E18C754269C5697004EFC69 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
 		8E18C756269C56A2004EFC69 /* ProfileConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileConfigurator.swift; sourceTree = "<group>"; };
@@ -328,7 +342,7 @@
 		8E00654F26B7DCBB004862D9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8E00656426B7F583004862D9 /* BaseView */,
+				8E00656426B7F583004862D9 /* Base */,
 				8E18C74B269C3E92004EFC69 /* Alerts */,
 				8E0729AE26725D440071FF46 /* MainGalleryCells */,
 				8E26FF8D269EF67A00A82B66 /* CustomActivityIndicator */,
@@ -359,10 +373,11 @@
 			isa = PBXGroup;
 			children = (
 				8E41344E269302B500C69ECE /* ApiBaseGateway.swift */,
+				8E0065B726BAC8A0004862D9 /* ApiImagesGateway.swift */,
+				8E4134522693076600C69ECE /* ApiUserGateway.swift */,
 				8E41345826931A8100C69ECE /* ApiGalleryPaginationGateway.swift */,
 				8E4134562693182E00C69ECE /* ApiRegistrationGateway.swift */,
 				8E413450269303E200C69ECE /* ApiAuthGateway.swift */,
-				8EAF7C622684CBBD0048A936 /* UserGateway.swift */,
 			);
 			path = Gateway;
 			sourceTree = "<group>";
@@ -409,14 +424,15 @@
 			path = VcExtensions;
 			sourceTree = "<group>";
 		};
-		8E00656426B7F583004862D9 /* BaseView */ = {
+		8E00656426B7F583004862D9 /* Base */ = {
 			isa = PBXGroup;
 			children = (
 				8E00656526B7F5A8004862D9 /* BaseView.swift */,
+				8E0065BE26BACD89004862D9 /* BaseRouter.swift */,
 				8E0065A626B9897C004862D9 /* ImageExtension.swift */,
 				8E0065A826B989B8004862D9 /* SegmentControlExtension.swift */,
 			);
-			path = BaseView;
+			path = Base;
 			sourceTree = "<group>";
 		};
 		8E00658B26B81948004862D9 /* SignUpExtensions */ = {
@@ -464,10 +480,27 @@
 		8E0065A226B9849B004862D9 /* ProfileViewControllerExtensions */ = {
 			isa = PBXGroup;
 			children = (
-				8E18C750269C5683004EFC69 /* ProfileViewControllerExtensions.swift */,
-				8E0065A326B988FF004862D9 /* ProfilePresenterExtensions.swift */,
+				8E18C750269C5683004EFC69 /* ProfileCollectionViewExtensions.swift */,
+				8E0065A326B988FF004862D9 /* ProfileViewExtensions.swift */,
 			);
 			path = ProfileViewControllerExtensions;
+			sourceTree = "<group>";
+		};
+		8E0065B026B99F2C004862D9 /* ProfileSettingsExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				8E0065B126B99F49004862D9 /* ProfileSettingsExtensions.swift */,
+			);
+			path = ProfileSettingsExtensions;
+			sourceTree = "<group>";
+		};
+		8E0065B926BAC917004862D9 /* ImageUseCase */ = {
+			isa = PBXGroup;
+			children = (
+				8E0065BA26BAC933004862D9 /* ImageUseCase.swift */,
+				8E0065BC26BAC940004862D9 /* ImageUseCaseImp.swift */,
+			);
+			path = ImageUseCase;
 			sourceTree = "<group>";
 		};
 		8E038F9D2678EE32000E56AC /* Gateway */ = {
@@ -476,7 +509,8 @@
 				8EAF7C86268F561E0048A936 /* GalleryPaginationGateway.swift */,
 				8EAF7C70268B18DD0048A936 /* RegistrationGateway.swift */,
 				8EAF7C66268613DB0048A936 /* AuthGateway.swift */,
-				8E4134522693076600C69ECE /* ApiUserGateway.swift */,
+				8EAF7C622684CBBD0048A936 /* UserGateway.swift */,
+				8E0065B526BAC875004862D9 /* ImagesGateway.swift */,
 				8EAF7C522684BCCF0048A936 /* Settings.swift */,
 			);
 			path = Gateway;
@@ -651,6 +685,7 @@
 		8E18C75A269C7EC9004EFC69 /* ProfileSettings */ = {
 			isa = PBXGroup;
 			children = (
+				8E0065B026B99F2C004862D9 /* ProfileSettingsExtensions */,
 				8EAAE9DD26AAE5040073C65A /* Protocols */,
 				8E18C75D269C7EFB004EFC69 /* ProfileSettings.storyboard */,
 				8E18C75B269C7EEB004EFC69 /* ProfileSettingsViewController.swift */,
@@ -755,6 +790,7 @@
 			isa = PBXGroup;
 			children = (
 				8E18C761269C7F22004EFC69 /* ProfileSettingsPresenter.swift */,
+				8E0065AE26B99D0A004862D9 /* ProfileSettingsView.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -870,6 +906,7 @@
 		8EBA5C75267B4F9D00941513 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				8E0065B926BAC917004862D9 /* ImageUseCase */,
 				8EAF7C5D2684C89D0048A936 /* UserUseCase */,
 				8EAF7C542684BE6A0048A936 /* AuthUseCase */,
 				8EAF7C6B268B16B80048A936 /* RegistrationUseCase */,
@@ -1049,7 +1086,7 @@
 				8E41347F2695A24600C69ECE /* ExtendedResponseHandler.swift in Sources */,
 				8E038F962673A32D000E56AC /* AddPhotoViewController.swift in Sources */,
 				8E00659A26B9543B004862D9 /* AddPhotoExtensions.swift in Sources */,
-				8E0065A426B988FF004862D9 /* ProfilePresenterExtensions.swift in Sources */,
+				8E0065A426B988FF004862D9 /* ProfileViewExtensions.swift in Sources */,
 				8EAF7C4B26849BFB0048A936 /* TokenEntitiy.swift in Sources */,
 				8E26E683269733D90002F82A /* SIgnInConfigurator.swift in Sources */,
 				8E26FFA026A18F0000A82B66 /* FullImageInfoPresenterImp.swift in Sources */,
@@ -1057,7 +1094,7 @@
 				8EAF7C532684BCCF0048A936 /* Settings.swift in Sources */,
 				8E0729A626725BD20071FF46 /* MainGalleryViewController.swift in Sources */,
 				8EAF7C612684C9310048A936 /* UserUseCaseImp.swift in Sources */,
-				8E18C751269C5683004EFC69 /* ProfileViewControllerExtensions.swift in Sources */,
+				8E18C751269C5683004EFC69 /* ProfileCollectionViewExtensions.swift in Sources */,
 				8EAF7C87268F561E0048A936 /* GalleryPaginationGateway.swift in Sources */,
 				8E0729AB26725C7F0071FF46 /* MainGalleryPresenterImp.swift in Sources */,
 				8E26FFAA26A4A34300A82B66 /* AddPhotoRouter.swift in Sources */,
@@ -1068,6 +1105,7 @@
 				8E4134632693650800C69ECE /* SignUpConfigurator.swift in Sources */,
 				8E00658F26B827FB004862D9 /* MainGalleryView.swift in Sources */,
 				8E038F9A2673A37F000E56AC /* ProfileViewController.swift in Sources */,
+				8E0065B826BAC8A0004862D9 /* ApiImagesGateway.swift in Sources */,
 				8EAF7C83268F26ED0048A936 /* PaginationUseCaseImp.swift in Sources */,
 				8E41346A269465DE00C69ECE /* UserDefaultsKey.swift in Sources */,
 				8E00656626B7F5A8004862D9 /* BaseView.swift in Sources */,
@@ -1081,6 +1119,7 @@
 				8E26FFB326A4B04F00A82B66 /* AddChosenPhotoPresenterImp.swift in Sources */,
 				8E07299D267255CC0071FF46 /* SignUpViewController.swift in Sources */,
 				8E00659426B828DF004862D9 /* MainGalleryPresenterExtensions.swift in Sources */,
+				8E0065BF26BACD89004862D9 /* BaseRouter.swift in Sources */,
 				8E26E6852697341A0002F82A /* SignInRouter.swift in Sources */,
 				8E26FFAF26A4B02C00A82B66 /* AddChosenPhotoViewController.swift in Sources */,
 				8EAF7C67268613DB0048A936 /* AuthGateway.swift in Sources */,
@@ -1088,6 +1127,8 @@
 				8EBA5C79267B9E3700941513 /* FullImageInfoConfigurator.swift in Sources */,
 				8E0729992672424C0071FF46 /* SignInViewController.swift in Sources */,
 				8E41345926931A8100C69ECE /* ApiGalleryPaginationGateway.swift in Sources */,
+				8E0065B226B99F49004862D9 /* ProfileSettingsExtensions.swift in Sources */,
+				8E0065BB26BAC933004862D9 /* ImageUseCase.swift in Sources */,
 				8EAF7C76268B1BA40048A936 /* SignUpPresenterImp.swift in Sources */,
 				8E4134532693076600C69ECE /* ApiUserGateway.swift in Sources */,
 				8EAF7C7C268DBF670048A936 /* ApiEndPoint.swift in Sources */,
@@ -1102,6 +1143,7 @@
 				8E00658D26B81963004862D9 /* SignUpExtensions.swift in Sources */,
 				8E18C753269C568F004EFC69 /* ProfilePresenter.swift in Sources */,
 				8EBA5C7F267BA15E00941513 /* ImageEntity.swift in Sources */,
+				8E0065B626BAC875004862D9 /* ImagesGateway.swift in Sources */,
 				8EAAE9DF26AEB7480073C65A /* MainGalleryFooterCollectionReusableView.swift in Sources */,
 				8E41344D2692FBE700C69ECE /* DI.swift in Sources */,
 				8E0729B426725DD90071FF46 /* ImageEntities.swift in Sources */,
@@ -1122,7 +1164,9 @@
 				8EAF7C81268F25040048A936 /* PaginationUseCase.swift in Sources */,
 				8E18C766269C7F3A004EFC69 /* ProfileSettingsConfigurator.swift in Sources */,
 				8EAF7C71268B18DD0048A936 /* RegistrationGateway.swift in Sources */,
+				8E0065AF26B99D0A004862D9 /* ProfileSettingsView.swift in Sources */,
 				8E00658826B80679004862D9 /* R.generated.swift in Sources */,
+				8E0065BD26BAC940004862D9 /* ImageUseCaseImp.swift in Sources */,
 				8E18C74D269C3EED004EFC69 /* ALerts.swift in Sources */,
 				8EAF7C6D268B16DD0048A936 /* RegistrationUseCase.swift in Sources */,
 				8EAF7C582684BEB40048A936 /* AuthUseCaseImp.swift in Sources */,

@@ -34,14 +34,4 @@ extension BaseView {
                           buttonMessage: buttonMessage,
                           view: view)
     }
-    
-    func dismissPresentedController() {
-        guard let view = (self as? UIViewController) else { return }
-        view.presentedViewController?.dismiss(animated: true, completion: nil)
-    }
-    
-    func getNavigationController() -> UINavigationController? {
-        guard let navigationController = (self as? UIViewController)?.navigationController else { return nil }
-        return navigationController
-    }
 }

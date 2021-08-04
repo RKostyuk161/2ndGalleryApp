@@ -33,7 +33,7 @@ class SignInPresenterImp: SignInPresenter {
                 CustomActivityIndicatorConfigurator.open()
             },
             onDispose: {
-                self.view.dismissPresentedController()
+                self.router.dismissPresentedController()
             })
             .subscribe(onCompleted: { [weak self] in
                 guard let self = self,
@@ -59,7 +59,7 @@ class SignInPresenterImp: SignInPresenter {
     }
     
     func openSignUpScene() {
-        guard let navigationController = self.view.getNavigationController() else { return }
+        guard let navigationController = self.router.getNavigationController() else { return }
         router.openSignUpScreen(navigationController: navigationController)
     }
     

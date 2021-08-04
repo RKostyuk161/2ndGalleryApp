@@ -78,6 +78,5 @@ extension MainGalleryViewController: UISearchBarDelegate {
         self.presenter.getSearchImagesRequest(imageName: searchBar.text!, currentCollection: self.presenter.currentCollection)
         self.galleryCollectionView.reloadData()
         self.galleryCollectionView.reloadData()
-
     }
 }

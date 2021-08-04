@@ -14,7 +14,6 @@ protocol MainGalleryPresenter {
     var currentCollection: CollectionType { get set }
     var newImageEntityArray: [ImageEntity] { get set }
     var popularImageEntityArray: [ImageEntity] { get set }
-    var searchItemsEntityArray: [ImageEntity] { get set }
     var isfistPopularImageRequest: Bool { get set }
     
     func getMoreImages(collectionType: CollectionType, indexPath: IndexPath)

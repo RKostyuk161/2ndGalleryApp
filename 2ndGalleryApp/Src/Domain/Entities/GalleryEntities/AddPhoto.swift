@@ -31,10 +31,10 @@ struct UploadPhoto: JsonBodyConvertible {
     var popular: Bool
     var new: Bool
     
-    init(name: String?, description: String?, id: Int?, iri: String) {
+    init(name: String?, description: String?, id: Int?) {
         self.name = name
         self.description = description
-        self.image = "\(iri)\(id ?? 0)"
+        self.image = "/api/media_objects/\(id ?? 0)"
         self.popular = false
         self.new = true
     }

@@ -11,9 +11,11 @@ import UIKit
 protocol ProfileSettingsPresenter {
     
     var settings: Settings { get }
+    var currentUser: UserEntity { get set }
     
     func setTextFields()
     func saveSettings()
     func updatePass(oldPass: String, newPass: String)
     func deleteAcc()
+    func changeRootView()
 }

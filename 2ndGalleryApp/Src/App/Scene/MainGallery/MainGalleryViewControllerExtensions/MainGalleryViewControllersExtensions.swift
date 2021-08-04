@@ -31,25 +31,11 @@ extension MainGalleryViewController: MainGalleryView {
     func createCellForMainGalleryCollectionView(indexPath: IndexPath) -> UICollectionViewCell {
         let cell = galleryCollectionView.dequeueReusableCell(withReuseIdentifier: R.nib.mainGalleryCollectionViewCell.name, for: indexPath) as! MainGalleryCollectionViewCell
         var imageUrl = ImageEntity()
-        
-        switch presenter.currentGalleryState {
-        case .gallery:
-            switch presenter.currentCollection {
-            case .new:
-                imageUrl = presenter.newImageEntityArray[indexPath.item]
-            case .popular:
-                imageUrl = presenter.popularImageEntityArray[indexPath.item]
-            }
-        case .search:
-            isLastPaginationPage = true
-            switch presenter.currentCollection {
-            case .new:
-                presenter.newImageEntityArray = presenter.searchItemsEntityArray
-                imageUrl = presenter.newImageEntityArray[indexPath.item]
-            case .popular:
-                presenter.popularImageEntityArray = presenter.searchItemsEntityArray
-                imageUrl = presenter.popularImageEntityArray[indexPath.item]
-            }
+        switch presenter.currentCollection {
+        case .new:
+            imageUrl = presenter.newImageEntityArray[indexPath.item]
+        case .popular:
+            imageUrl = presenter.popularImageEntityArray[indexPath.item]
         }
         cell.setupCell(url: (imageUrl.image?.name)!)
         return cell

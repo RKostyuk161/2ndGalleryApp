@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Foundation
 
 class SignUpViewController: UIViewController {
     
@@ -18,7 +17,10 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var oldPasswordTextField: UITextField!
     @IBOutlet weak var confirmPassTextField: UITextField!
+    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var signInButton: UIButton!
     let datePicker = UIDatePicker()
+    var currentDate: String?
     
     @IBAction func signUpButton(_ sender: UIButton) {
         checkFieldsAndReg()
@@ -31,9 +33,9 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        SignUpConfigurator().config(view: self)
         setupTextFieldsDelegate()
         setDatePicker()
+        setupButtons()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,8 +57,21 @@ class SignUpViewController: UIViewController {
     
     func getDateFromPicker() {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.dateFormat = "d MMM, yyyy"
         birthdayTextField.text = formatter.string(from: datePicker.date)
+        self.currentDate = birthdayTextField.text
+        
+//        let dateFormatterGet = DateFormatter()
+//        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//
+//        let dateFormatterPrint = DateFormatter()
+//        dateFormatterPrint.dateFormat = "MMM dd,yyyy"
+//
+//        if let date = dateFormatterGet.date(from: "2016-02-29 12:24:26") {
+//            print(dateFormatterPrint.string(from: date))
+//        } else {
+//           print("There was an error decoding the string")
+//        }
     }
     
     func routeToSignUpScreen() {
@@ -87,7 +102,7 @@ class SignUpViewController: UIViewController {
                                buttonMessage: R.string.alert.okMessage())
         }
         
-        let query: String? = (birthPasswordText.isEmpty) ? nil : birthPasswordText
+        let query: String? = (birthPasswordText.isEmpty) ? nil : currentDate
         let user = SignUpEntity(username: userNameText,
                                 birthday: query,
                                 email: emailText,
@@ -97,6 +112,7 @@ class SignUpViewController: UIViewController {
     
     func setDatePicker() {
         datePicker.preferredDatePickerStyle = .wheels
+        datePicker.datePickerMode = .date
         birthdayTextField.inputView = datePicker
         datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
         let tapped = UITapGestureRecognizer(target: self, action: #selector(closeDataPicker))
@@ -117,5 +133,10 @@ class SignUpViewController: UIViewController {
         cancelButton.tintColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
         self.navigationItem.leftBarButtonItem = cancelButton
     }
-    
+    func setupButtons() {
+        signUpButton.layer.cornerRadius = 10
+        signInButton.layer.cornerRadius = 10
+        signInButton.layer.borderWidth = 1
+        signInButton.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    }
 }

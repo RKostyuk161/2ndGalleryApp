@@ -11,7 +11,7 @@ import UIKit
 class ProfileSettingsConfigurator {
     
     func config(view: ProfileSettingsViewController, currentUser: UserEntity) {
-        let router = ProfileSettingsRouter()
+        let router = ProfileSettingsRouter(view: view)
         let presenter = ProfileSettingsPresenterImp(view: view,
                                                     router: router,
                                                     settings: DI.resolve(),

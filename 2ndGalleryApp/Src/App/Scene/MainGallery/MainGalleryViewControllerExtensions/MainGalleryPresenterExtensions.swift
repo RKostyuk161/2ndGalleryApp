@@ -11,18 +11,12 @@ import UIKit
 extension MainGalleryPresenterImp {
 
     func setupNumberOfCellsForMainGalleryCollectionView(collectionType: CollectionType) -> Int {
-        
-        switch currentGalleryState {
-        case .gallery:
             switch currentCollection {
             case .new:
                 return newImageEntityArray.count
             case .popular:
                 return popularImageEntityArray.count
             }
-        case .search:
-            return searchItemsEntityArray.count
-        }
     }
     
     func setupSizeForCell(itemsPerLine: Int) -> CGSize {

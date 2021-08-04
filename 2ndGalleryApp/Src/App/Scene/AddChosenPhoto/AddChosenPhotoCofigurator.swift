@@ -15,7 +15,8 @@ class AddChosenPhotoConfigurator {
                                                    router: router,
                                                    image: image,
                                                    settings: DI.resolve(),
-                                                   usecase: DI.resolve())
+                                                   userUseCase: DI.resolve(),
+                                                   imageUseCase: DI.resolve())
         view.presenter = prenseter
     }
     static func open(navigationController: UINavigationController, image: UIImage) {

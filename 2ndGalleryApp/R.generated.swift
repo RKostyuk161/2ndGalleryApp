@@ -460,8 +460,12 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 3 localization tables.
   struct string {
-    /// This `R.string.alert` struct is generated, and contains static references to 14 localization keys.
+    /// This `R.string.alert` struct is generated, and contains static references to 15 localization keys.
     struct alert {
+      /// en translation: Acc is Deleted
+      ///
+      /// Locales: en, ru
+      static let accIsDeleteMessage = Rswift.StringResource(key: "AccIsDeleteMessage", tableName: "Alert", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
       /// en translation: Auth is ok
       ///
       /// Locales: en, ru
@@ -518,6 +522,21 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, ru
       static let galleryString = Rswift.StringResource(key: "GalleryString", tableName: "Alert", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+
+      /// en translation: Acc is Deleted
+      ///
+      /// Locales: en, ru
+      static func accIsDeleteMessage(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("AccIsDeleteMessage", tableName: "Alert", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Alert", preferredLanguages: preferredLanguages) else {
+          return "AccIsDeleteMessage"
+        }
+
+        return NSLocalizedString("AccIsDeleteMessage", tableName: "Alert", bundle: bundle, comment: "")
+      }
 
       /// en translation: Auth is ok
       ///
@@ -995,8 +1014,6 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if UIKit.UIImage(named: "EntryFirstScreenLogo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'EntryFirstScreenLogo' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "EntryFirstScreenSignInButton", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'EntryFirstScreenSignInButton' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "EntryFirstScreenSignUpButton", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'EntryFirstScreenSignUpButton' is used in storyboard 'Main', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.main().entryNavigationController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'entryNavigationController' could not be loaded from storyboard 'Main' as 'UIKit.UINavigationController'.") }
@@ -1086,8 +1103,6 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if UIKit.UIImage(named: "EnrtySignInLogo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'EnrtySignInLogo' is used in storyboard 'SignIn', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "EntrySignInSignInButton", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'EntrySignInSignInButton' is used in storyboard 'SignIn', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "EntrySignInSignUpButton", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'EntrySignInSignUpButton' is used in storyboard 'SignIn', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.signIn().signInViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'signInViewController' could not be loaded from storyboard 'SignIn' as 'SignInViewController'.") }
@@ -1109,8 +1124,6 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if UIKit.UIImage(named: "EntrySignUpLogo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'EntrySignUpLogo' is used in storyboard 'SignUp', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "EntrySignUpSignUpButton", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'EntrySignUpSignUpButton' is used in storyboard 'SignUp', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "EntrySignUpSingInButton", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'EntrySignUpSingInButton' is used in storyboard 'SignUp', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.signUp().signUpViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'signUpViewController' could not be loaded from storyboard 'SignUp' as 'SignUpViewController'.") }

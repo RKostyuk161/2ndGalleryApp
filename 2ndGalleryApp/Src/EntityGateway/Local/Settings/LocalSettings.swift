@@ -40,6 +40,4 @@ class LocalSettings: Settings {
         self.account = nil
         self.userDefaults.resetUserDefaults()
     }
-    
-    
 }

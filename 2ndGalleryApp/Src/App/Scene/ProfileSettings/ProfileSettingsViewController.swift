@@ -29,8 +29,7 @@ class ProfileSettingsViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func signOutButton(_ sender: UIButton) {
         presenter.settings.clearUserData()
-        let mainTabBar = R.storyboard.main.instantiateInitialViewController()!
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBar, flipFromRight: true)
+        presenter.changeRootView()
     }
     
     override func viewDidLoad() {
@@ -79,6 +78,7 @@ class ProfileSettingsViewController: UIViewController, UITextFieldDelegate {
     
     func setDatePicker() {
         datePicker.preferredDatePickerStyle = .wheels
+        datePicker.datePickerMode = .date
         birthTextField.inputView = datePicker
         datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
         let tapped = UITapGestureRecognizer(target: self, action: #selector(closeDataPicker))
@@ -194,6 +194,27 @@ class ProfileSettingsViewController: UIViewController, UITextFieldDelegate {
         confirmPassTextField.delegate = self
         
         presenter.setTextFields()
+    }
+    
+    func routeUsersData() -> UserEntity {
+        guard let settings = presenter.settings.account,
+              let id = settings.id else { return UserEntity(user: SignUpEntity()) }
+        let user = UserEntity(id: id,
+                              username: usernameTextField.text,
+                              email: emailTextField.text,
+                              pass: oldPassTextField.text,
+                              dateOfBirth: birthTextField.text)
+        return user
+    }
+    
+    func setTextFields() {
+        usernameTextField.text = presenter.currentUser.username ?? "no data"
+        emailTextField.text = presenter.currentUser.email ?? "no data"
+        birthTextField.placeholder = presenter.currentUser.birthday ?? "no data"
+        guard var date = presenter.currentUser.birthday else { return }
+        let range = date.index(date.endIndex, offsetBy: -15)..<date.endIndex
+        date.removeSubrange(range)
+        birthTextField.text = date
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

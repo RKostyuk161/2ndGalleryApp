@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainGalleryRouter {
+class MainGalleryRouter: BaseRouter {
     weak var view: UIViewController!
     
     

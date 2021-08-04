@@ -68,6 +68,10 @@ class DI {
             .as(AuthGateway.self)
             .lifetime(.single)
         
+        self.container.register(ApiImagesGateway.init)
+            .as(ImagesGateway.self)
+            .lifetime(.single)
+        
         self.container.register(ApiUserGateway.init)
             .as(UserGateway.self)
             .lifetime(.single)
@@ -89,6 +93,9 @@ class DI {
         
         self.container.register(UserUseCaseImp.init)
             .as(UserUseCase.self)
+        
+        self.container.register(ImageUseCaseImp.init)
+            .as(ImageUseCase.self)
         
         self.container.register { PaginationUseCaseImp(gateway: $0,
                                                      settings: $1) }

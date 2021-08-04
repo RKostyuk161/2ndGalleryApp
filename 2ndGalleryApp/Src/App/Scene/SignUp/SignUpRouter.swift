@@ -7,7 +7,13 @@
 
 import UIKit
 
-class SignUpRouter {
+class SignUpRouter: BaseRouter {
+    var view: UIViewController!
+    
+    init(view: SignUpViewController) {
+        self.view = view
+    }
+    
     func openSignInScreen(navigationController: UINavigationController) {
         SignInConfigurator.open(navCon: navigationController)
     }

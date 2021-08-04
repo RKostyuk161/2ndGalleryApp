@@ -22,9 +22,7 @@ class MainGalleryPresenterImp: MainGalleryPresenter {
     
     var popularImageEntityArray = [ImageEntity]()
     var indexPathToScrollPopularCollection = IndexPath()
-    
-    var searchItemsEntityArray = [ImageEntity]()
-    
+        
     var responseDisposeBag = DisposeBag()
     var paginationDisposeBag = DisposeBag()
     var searchDisposeBag = DisposeBag()
@@ -116,14 +114,20 @@ class MainGalleryPresenterImp: MainGalleryPresenter {
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] (reult: [ImageEntity]) in
             guard let self = self else { return }
-                self.searchItemsEntityArray.removeAll()
+                switch self.currentCollection {
+                case .new:
+                    self.newImageEntityArray = reult
+                
+                case .popular:
+                    self.popularImageEntityArray = reult
+                }
 
-                self.searchItemsEntityArray = reult
-                if self.searchItemsEntityArray.isEmpty {
+                if reult.isEmpty {
                     self.view.showErrorOnGallery(show: true)
                 } else {
                     self.view.showErrorOnGallery(show: false)
                 }
+                
                 self.view.collectionViewReloadData()
             })
         .disposed(by: paginationDisposeBag)
@@ -137,7 +141,7 @@ class MainGalleryPresenterImp: MainGalleryPresenter {
             .do(onSubscribe: {
                 CustomActivityIndicatorConfigurator.open()
             }, onDispose: {
-                self.view.dismissPresentedController()
+                self.router.dismissPresentedController()
             })
             .subscribe(onError: {
                 [weak self] error in
@@ -166,7 +170,7 @@ class MainGalleryPresenterImp: MainGalleryPresenter {
             .do(onSubscribe: {
                 CustomActivityIndicatorConfigurator.open()
             }, onDispose: {
-                self.view.dismissPresentedController()
+                self.router.dismissPresentedController()
             })
             .subscribe(onError: { [weak self] error in
                 guard let self = self else { return }
@@ -182,39 +186,27 @@ class MainGalleryPresenterImp: MainGalleryPresenter {
     }
     
     func prepeareForRoute(indexPath: IndexPath) {
-        
-        switch currentGalleryState {
-        case .search:
-            self.imageModel = searchItemsEntityArray[indexPath.item]
+        switch currentCollection {
+        case .new:
+            self.imageModel = newImageEntityArray[indexPath.item]
             guard let userId = imageModel.user else {
                 openFullImageController()
                 return
             }
             getUserModel(id: userId)
-        case .gallery:
-            switch currentCollection {
-            case .new:
-                self.imageModel = newImageEntityArray[indexPath.item]
-                guard let userId = imageModel.user else {
-                    openFullImageController()
-                    return
-                }
-                getUserModel(id: userId)
-            case .popular:
-                self.imageModel = popularImageEntityArray[indexPath.item]
-                guard let userId = imageModel.user else {
-                    openFullImageController()
-                    return
-                }
-                getUserModel(id: userId)
+        case .popular:
+            self.imageModel = popularImageEntityArray[indexPath.item]
+            guard let userId = imageModel.user else {
+                openFullImageController()
+                return
             }
+            getUserModel(id: userId)
         }
-        
     }
     
     func openFullImageController() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            guard let navigationController = self.view.getNavigationController() else { return }
+            guard let navigationController = self.router.getNavigationController() else { return }
             self.router.openFuillImageController(navigationController: navigationController, imageModel: self.imageModel, userModel: self.userModel)
         }
     }
