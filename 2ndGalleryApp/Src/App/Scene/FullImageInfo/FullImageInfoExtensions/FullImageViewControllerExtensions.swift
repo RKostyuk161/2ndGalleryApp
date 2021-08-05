@@ -60,8 +60,6 @@ extension FullImageInfoViewController: FullImageInfoView {
         self.userNameLabel.text = username ?? R.string.alert.nodataMessage()
         self.birthDayUserNameLabel.text = userDate ?? R.string.alert.nodataMessage()
         guard var date = userDate else { return }
-        let range = date.index(date.endIndex, offsetBy: -15)..<date.endIndex
-        date.removeSubrange(range)
         self.birthDayUserNameLabel.text = date
     }
 }

@@ -272,7 +272,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="birthTextField" destination="bIE-sg-ueK" id="zac-c2-XSH"/>
+                        <outlet property="birthdayTextField" destination="bIE-sg-ueK" id="ojP-N7-cw3"/>
                         <outlet property="confirmPassTextField" destination="Eg6-uo-RxT" id="ZiV-dc-JHI"/>
                         <outlet property="emailTextField" destination="rpB-Rf-hsk" id="t6V-4s-3SS"/>
                         <outlet property="newPassTextField" destination="2yu-oa-5B8" id="7A6-VS-ukd"/>

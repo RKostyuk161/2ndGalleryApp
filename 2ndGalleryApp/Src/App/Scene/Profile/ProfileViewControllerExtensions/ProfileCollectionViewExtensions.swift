@@ -10,7 +10,7 @@ import UIKit
 
 extension ProfileViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presenter.moveToFullImage(indexPath: indexPath)
+        presenter.routeToFullImage(indexPath: indexPath)
     }
 }
 

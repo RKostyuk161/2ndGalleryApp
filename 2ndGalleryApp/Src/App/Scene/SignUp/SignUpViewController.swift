@@ -57,21 +57,13 @@ class SignUpViewController: UIViewController {
     
     func getDateFromPicker() {
         let formatter = DateFormatter()
-        formatter.dateFormat = "d MMM, yyyy"
-        birthdayTextField.text = formatter.string(from: datePicker.date)
-        self.currentDate = birthdayTextField.text
+        let humanFormatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        humanFormatter.dateFormat = "d MMM, yyyy"
         
-//        let dateFormatterGet = DateFormatter()
-//        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
-//
-//        let dateFormatterPrint = DateFormatter()
-//        dateFormatterPrint.dateFormat = "MMM dd,yyyy"
-//
-//        if let date = dateFormatterGet.date(from: "2016-02-29 12:24:26") {
-//            print(dateFormatterPrint.string(from: date))
-//        } else {
-//           print("There was an error decoding the string")
-//        }
+        birthdayTextField.text = humanFormatter.string(from: datePicker.date)
+        self.currentDate = formatter.string(from: datePicker.date)
+        HumanDateFormatter.currentUsersDate = humanFormatter.string(from: datePicker.date)
     }
     
     func routeToSignUpScreen() {

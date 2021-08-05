@@ -83,19 +83,24 @@ class ProfilePresenterImp: ProfilePresenter {
     
     func setUser() {
         guard let user = getUser() else { return }
+        
         self.currentUser = user
+        guard let userDate = user.birthday else { return }
+        self.currentUser.birthday = user.birthday
+        HumanDateFormatter.currentUsersDate = HumanDateFormatter.humanityDateConverter(date: userDate)
     }
     
     func getSelfUserModel() -> UserEntity {
         let model = UserEntity(user: SignUpEntity())
         guard let name = settings.account?.username,
-              let bitrh = settings.account?.birthday else { return model }
+              let bitrthday = settings.account?.birthday else { return model }
+        HumanDateFormatter.currentUsersDate = HumanDateFormatter.humanityDateConverter(date: bitrthday)
         model.username = name
-        model.birthday = bitrh
+        model.birthday = bitrthday
         return model
     }
     
-    func moveToFullImage(indexPath: IndexPath) {
+    func routeToFullImage(indexPath: IndexPath) {
         let model = userPhotoItems[indexPath.item]
         let userModel = getSelfUserModel()
         guard let nc = self.router.getNavigationController() else { return }

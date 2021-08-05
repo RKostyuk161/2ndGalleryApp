@@ -35,7 +35,7 @@ class ProfileSettingsPresenterImp: ProfileSettingsPresenter {
     }
     
     func saveSettings() {
-
+        
         let user = self.view.routeUsersData()
         userUseCase.updateUserInfo(user: user)
             .observeOn(MainScheduler.instance)
@@ -47,18 +47,24 @@ class ProfileSettingsPresenterImp: ProfileSettingsPresenter {
             })
             .subscribe(onCompleted: { [weak self] in
                 guard let self = self else { return }
-                self.view.addInfoModuleWithFunc(alertTitle: R.string.alert.succsessMessage(),
-                                                 alertMessage: nil,
-                                                 buttonMessage: R.string.alert.okMessage(),
-                                                 completion: { [ weak self ] in
-                                                    self?.router.dismissPresentedController()
-                                                    self?.saveDataAndPopController()
-                                                 })
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    
+                    self.view.addInfoModuleWithFunc(alertTitle: R.string.alert.succsessMessage(),
+                                                    alertMessage: nil,
+                                                    buttonMessage: R.string.alert.okMessage(),
+                                                    completion: { [ weak self ] in
+                                                        self?.router.dismissPresentedController()
+                                                        self?.saveDataAndPopController()
+                                                    })
+                }
             },
             onError: { error in
-                self.view.addInfoModuleWithFunc(alertTitle: R.string.alert.errorMessage(),
-                                                alertMessage: error.localizedDescription,
-                                                buttonMessage: R.string.alert.okMessage())
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    
+                    self.view.addInfoModuleWithFunc(alertTitle: R.string.alert.errorMessage(),
+                                                    alertMessage: error.localizedDescription,
+                                                    buttonMessage: R.string.alert.okMessage())
+                }
                 
             })
             .disposed(by: disposeBag)

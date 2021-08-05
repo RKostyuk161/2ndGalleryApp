@@ -36,11 +36,7 @@ class ProfileViewController: UIViewController {
     func textToLabels(currentUser: UserEntity?) {
         guard let user = currentUser else { return }
         nameLabel.text = user.username ?? "no data"
-        birthdayLabel.text = user.birthday ?? ""
-        guard var date = user.birthday else { return }
-        let range = date.index(date.endIndex, offsetBy: -15)..<date.endIndex
-        date.removeSubrange(range)
-        birthdayLabel.text = date
+        birthdayLabel.text = HumanDateFormatter.currentUsersDate ?? ""
     }
     
     func showErrorOnGallery(show: Bool) {

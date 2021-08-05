@@ -8,6 +8,8 @@
 import Foundation
 
 protocol ProfileSettingsView: BaseView {
+    var currentDate: String? { get set }
+
     func setTextFields()
     func routeUsersData() -> UserEntity
 }

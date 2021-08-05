@@ -13,12 +13,13 @@ class ProfileSettingsViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var profilePhoto: UIImageView!
     @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var birthTextField: UITextField!
+    @IBOutlet weak var birthdayTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var oldPassTextField: UITextField!
     @IBOutlet weak var newPassTextField: UITextField!
     @IBOutlet weak var confirmPassTextField: UITextField!
     let datePicker = UIDatePicker()
+    var currentDate: String?
     
     @IBAction func uploadProfilePhotoButton(_ sender: UIButton) {
     }
@@ -79,7 +80,7 @@ class ProfileSettingsViewController: UIViewController, UITextFieldDelegate {
     func setDatePicker() {
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.datePickerMode = .date
-        birthTextField.inputView = datePicker
+        birthdayTextField.inputView = datePicker
         datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
         let tapped = UITapGestureRecognizer(target: self, action: #selector(closeDataPicker))
         self.view.addGestureRecognizer(tapped)
@@ -89,8 +90,12 @@ class ProfileSettingsViewController: UIViewController, UITextFieldDelegate {
     
     func getDateFromPicker() {
         let formatter = DateFormatter()
+        let humanFormatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
-        birthTextField.text = formatter.string(from: datePicker.date)
+        humanFormatter.dateFormat = "d MMM, yyyy"
+        
+        birthdayTextField.text = humanFormatter.string(from: datePicker.date)
+        self.currentDate = formatter.string(from: datePicker.date)
     }
     
     
@@ -187,7 +192,7 @@ class ProfileSettingsViewController: UIViewController, UITextFieldDelegate {
     
     func setupTextFields() {
         usernameTextField.delegate = self
-        birthTextField.delegate = self
+        birthdayTextField.delegate = self
         emailTextField.delegate = self
         oldPassTextField.delegate = self
         newPassTextField.delegate = self
@@ -203,18 +208,16 @@ class ProfileSettingsViewController: UIViewController, UITextFieldDelegate {
                               username: usernameTextField.text,
                               email: emailTextField.text,
                               pass: oldPassTextField.text,
-                              dateOfBirth: birthTextField.text)
+                              dateOfBirth: currentDate)
         return user
     }
     
     func setTextFields() {
         usernameTextField.text = presenter.currentUser.username ?? "no data"
         emailTextField.text = presenter.currentUser.email ?? "no data"
-        birthTextField.placeholder = presenter.currentUser.birthday ?? "no data"
-        guard var date = presenter.currentUser.birthday else { return }
-        let range = date.index(date.endIndex, offsetBy: -15)..<date.endIndex
-        date.removeSubrange(range)
-        birthTextField.text = date
+        birthdayTextField.placeholder = presenter.currentUser.birthday ?? "no data"
+        guard presenter.currentUser.birthday != nil else { return }
+        birthdayTextField.text = HumanDateFormatter.currentUsersDate ?? ""
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

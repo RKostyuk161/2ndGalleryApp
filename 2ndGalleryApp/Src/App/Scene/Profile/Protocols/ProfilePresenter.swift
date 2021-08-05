@@ -18,5 +18,5 @@ protocol ProfilePresenter {
     func getCurrentUserImages()
     func setUser()
     func getUser() -> UserEntity?
-    func moveToFullImage(indexPath: IndexPath)
+    func routeToFullImage(indexPath: IndexPath)
 }
