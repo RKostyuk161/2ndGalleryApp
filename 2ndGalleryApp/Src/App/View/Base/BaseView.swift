@@ -18,6 +18,7 @@ extension BaseView {
                            buttonMessage: String,
                            completion: (() -> Void)? = nil)  {
         guard let view = (self as? UIViewController) else { return }
+        
         Alerts().addAlert(alertTitle: alertTitle,
                           alertMessage: alertMessage,
                           buttonMessage: buttonMessage,

@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 class AddChosenPhotoConfigurator {
+   
     func configure(view: AddChosenPhotoViewController, image: UIImage)  {
         let router = AddChosenPhotoRouter(view: view)
         let prenseter = AddChosenPhotoPresenterImp(view: view,

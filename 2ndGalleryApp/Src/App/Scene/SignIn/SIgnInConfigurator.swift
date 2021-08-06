@@ -8,6 +8,7 @@
 import UIKit
 
 class SignInConfigurator {
+    
     func config(view: SignInViewController)  {
         let router = SignInRouter(view: view)
         let presenter = SignInPresenterImp(view: view,
@@ -19,8 +20,8 @@ class SignInConfigurator {
     }
     static func open(navCon: UINavigationController) {
         let identifier = R.storyboard.signIn.signInViewController.identifier
-        let vc = R.storyboard.signIn().instantiateViewController(withIdentifier: identifier)
-        SignInConfigurator().config(view: vc as! SignInViewController)
+        guard let vc = R.storyboard.signIn().instantiateViewController(withIdentifier: identifier) as? SignInViewController else { return }
+        SignInConfigurator().config(view: vc)
         navCon.pushViewController(vc, animated: true)
         navCon.navigationController?.setNavigationBarHidden(false, animated: true)
     }

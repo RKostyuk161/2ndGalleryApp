@@ -16,22 +16,19 @@ class MainGalleryPresenterImp: MainGalleryPresenter {
     var userUseCase: UserUseCase
     var currentCollection: CollectionType
     var currentGalleryState: GalleryType
-    
     var newImageEntityArray = [ImageEntity]()
     var indexPathToScrollNewCollection = IndexPath()
-    
     var popularImageEntityArray = [ImageEntity]()
     var indexPathToScrollPopularCollection = IndexPath()
-        
     var responseDisposeBag = DisposeBag()
     var paginationDisposeBag = DisposeBag()
     var searchDisposeBag = DisposeBag()
     var userModel = UserEntity(user: SignUpEntity())
     var imageModel = ImageEntity()
-    
     var isLoadingInProgress = false
     var isfistPopularImageRequest = true
     
+   
     init(view: MainGalleryViewController,
          router: MainGalleryRouter,
          currentGalleryState: GalleryType,

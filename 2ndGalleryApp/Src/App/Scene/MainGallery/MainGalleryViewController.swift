@@ -20,17 +20,14 @@ class MainGalleryViewController: UIViewController {
     } ()
     var isLastPaginationPage = true
     static var isNeedFlipToProfile = false
-    
     @IBOutlet weak var galleryCollectionView: UICollectionView!
     @IBOutlet weak var gallerySegmentControl: UISegmentedControl!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var errorImage: UIImageView!
-    
-    
-    
     @IBAction func galleryActionSegmentControl(_ sender: UISegmentedControl) {
         gallerySegmentControlAction()
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,6 +8,7 @@
 import UIKit
 
 class StartConfigurator {
+   
     func config(view: StartViewController) {
         let router = StartRouter(view: view)
         view.router = router

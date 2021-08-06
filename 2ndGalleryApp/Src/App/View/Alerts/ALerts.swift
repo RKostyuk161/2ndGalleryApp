@@ -10,20 +10,18 @@ import UIKit
 
 class Alerts {
     
-    var selfFunc: (() -> Void)?
-    
-    func makeFunc(action: (() -> Void)? = nil)  {
-        self.selfFunc = action
-    }
-    
+//    var selfFunc: (() -> Void)?
+//
+//    func makeFunc(action: (() -> Void)? = nil)  {
+//        self.selfFunc = action
+//    }
+//
     func addAlert(alertTitle: String,
                          alertMessage: String?,
                          buttonMessage: String,
                          view: UIViewController,
                          function: (() -> Void)? = nil) {
-        
-        function?()
-        
+                
         let alert = UIAlertController(title: alertTitle,
                                       message: alertMessage,
                                       preferredStyle: .alert)
@@ -34,8 +32,9 @@ class Alerts {
             button =  UIAlertAction(title: buttonMessage,
                                     style: .cancel) {
                 (action) -> Void in
-                self.makeFunc(action: function)
-                self.selfFunc!()
+                function?()
+//                self.makeFunc(action: function)
+//                self.selfFunc?()
             }
         }
         

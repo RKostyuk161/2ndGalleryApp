@@ -9,10 +9,12 @@ import Foundation
 import Kingfisher
 
 class FullImageInfoPresenterImp: FullImageInfoPresenter {
+    
     weak var view: FullImageInfoView!
     var settings: Settings
     let imageModel: ImageEntity
     let userModel: UserEntity
+    
     
     init(view: FullImageInfoViewController, imageModel: ImageEntity,
          userModel: UserEntity, settings: Settings) {

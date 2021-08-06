@@ -9,7 +9,9 @@ import Foundation
 import UIKit
 
 class ProfileSettingsRouter: BaseRouter {
+    
     var view: UIViewController!
+    
     
     init(view: ProfileSettingsViewController) {
         self.view = view

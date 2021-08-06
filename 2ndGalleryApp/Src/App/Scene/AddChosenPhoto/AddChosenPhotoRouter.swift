@@ -9,7 +9,9 @@ import Foundation
 import UIKit
 
 class AddChosenPhotoRouter: BaseRouter {
+    
     weak var view: UIViewController!
+    
     
     init(view: AddChosenPhotoViewController) {
         self.view = view

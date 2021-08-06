@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 
 class AddChosenPhotoPresenterImp: AddChosenPhotoPresenter {
+    
     weak var view: AddChosenPhotoView!
     var router: AddChosenPhotoRouter
     var settings: Settings
@@ -19,6 +20,7 @@ class AddChosenPhotoPresenterImp: AddChosenPhotoPresenter {
     var image: UIImage
     var model = ImageEntity()
     var isLoadingInProgress = false
+    
     
     init(view: AddChosenPhotoViewController,
          router: AddChosenPhotoRouter,

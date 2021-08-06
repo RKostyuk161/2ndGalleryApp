@@ -15,6 +15,7 @@ class AddChosenPhotoViewController: UIViewController {
     @IBOutlet weak var imageToAdd: UIImageView!
     @IBOutlet weak var descriptionTextField: UITextField!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addNavBarButtons()

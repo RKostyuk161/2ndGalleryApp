@@ -21,6 +21,7 @@ class ProfileSettingsViewController: UIViewController, UITextFieldDelegate {
     let datePicker = UIDatePicker()
     var currentDate: String?
     
+    
     @IBAction func uploadProfilePhotoButton(_ sender: UIButton) {
     }
     

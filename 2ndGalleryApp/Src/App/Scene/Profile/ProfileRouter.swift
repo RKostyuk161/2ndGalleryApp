@@ -12,6 +12,7 @@ class ProfileRouter: BaseRouter {
     
     weak var view: UIViewController!
     
+    
     init(view: ProfileViewController) {
         self.view = view
     }

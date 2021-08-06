@@ -16,6 +16,7 @@ class SignInPresenterImp: SignInPresenter {
     var disposeBag = DisposeBag()
     var router: SignInRouter
     
+    
     init(view: SignInView,
          loginUseCase: AuthUseCase,
          settings: Settings,

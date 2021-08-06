@@ -21,6 +21,7 @@ class ProfilePresenterImp: ProfilePresenter {
     var userPhotoItems = [ImageEntity]()
     var currentUser = UserEntity(user: SignUpEntity())
     
+    
     init(view: ProfileViewController,
          router: ProfileRouter,
          settings: Settings,

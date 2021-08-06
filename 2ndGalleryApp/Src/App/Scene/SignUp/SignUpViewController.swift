@@ -10,8 +10,6 @@ import UIKit
 class SignUpViewController: UIViewController {
     
     var presenter: SignUpPresenter!
-    
-
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var birthdayTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
