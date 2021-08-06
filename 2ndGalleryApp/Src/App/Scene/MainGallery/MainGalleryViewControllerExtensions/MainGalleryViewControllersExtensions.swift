@@ -37,7 +37,9 @@ extension MainGalleryViewController: MainGalleryView {
         case .popular:
             imageUrl = presenter.popularImageEntityArray[indexPath.item]
         }
-        cell.setupCell(url: (imageUrl.image?.name)!)
+        if let url = imageUrl.image?.name {
+            cell.setupCell(url: url)
+        }
         return cell
     }
 }

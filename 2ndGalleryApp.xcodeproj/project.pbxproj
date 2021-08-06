@@ -395,6 +395,7 @@
 		8E00655A26B7E6FF004862D9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8E0065C026BAF0FE004862D9 /* HumanDateFormatter.swift */,
 				8E00655B26B7E70F004862D9 /* Strings */,
 			);
 			path = Resources;
@@ -404,7 +405,6 @@
 			isa = PBXGroup;
 			children = (
 				8E00657E26B80176004862D9 /* Alert.strings */,
-				8E0065C026BAF0FE004862D9 /* HumanDateFormatter.swift */,
 			);
 			path = Strings;
 			sourceTree = "<group>";

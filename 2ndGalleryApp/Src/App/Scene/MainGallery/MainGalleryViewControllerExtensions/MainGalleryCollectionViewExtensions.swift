@@ -75,7 +75,8 @@ extension MainGalleryViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        self.presenter.getSearchImagesRequest(imageName: searchBar.text!, currentCollection: self.presenter.currentCollection)
+        guard let imageName = searchBar.text else { return }
+        self.presenter.getSearchImagesRequest(imageName: imageName, currentCollection: self.presenter.currentCollection)
         self.galleryCollectionView.reloadData()
         self.galleryCollectionView.reloadData()
     }

@@ -68,7 +68,7 @@ class ImageUseCaseImp: ImageUseCase {
             .do(onSuccess: { [weak self] result in
                 guard let self = self else { return }
                 guard let data = result.data else { return }
-                self.userTotalItemsOfImages = result.totalItems!
+                self.userTotalItemsOfImages = result.totalItems ?? 0
                 self.userItems = data
                 self.source.onNext(self.userItems)
             },

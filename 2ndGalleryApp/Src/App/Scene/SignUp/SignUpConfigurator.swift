@@ -21,8 +21,8 @@ class SignUpConfigurator {
     }
     static func open(navigationController: UINavigationController) {
         let identifier = R.storyboard.signUp.signUpViewController.identifier
-        let vc = R.storyboard.signUp().instantiateViewController(withIdentifier: identifier)
-        SignUpConfigurator().config(view: vc as! SignUpViewController)
+        guard let vc = R.storyboard.signUp().instantiateViewController(withIdentifier: identifier) as? SignUpViewController else { return }
+        SignUpConfigurator().config(view: vc)
         navigationController.pushViewController(vc, animated: true)
         navigationController.setNavigationBarHidden(false, animated: true)
     }

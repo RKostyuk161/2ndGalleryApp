@@ -8,7 +8,7 @@
 import UIKit
 
 class SignUpRouter: BaseRouter {
-    var view: UIViewController!
+    weak var view: UIViewController!
     
     init(view: SignUpViewController) {
         self.view = view
@@ -19,7 +19,7 @@ class SignUpRouter: BaseRouter {
     }
     
     func openMainGallery() {
-        let mainTabBar = R.storyboard.mainGallery.instantiateInitialViewController()!
+        guard let mainTabBar = R.storyboard.mainGallery.instantiateInitialViewController() else { return }
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBar, flipFromRight: true)
     }
 }

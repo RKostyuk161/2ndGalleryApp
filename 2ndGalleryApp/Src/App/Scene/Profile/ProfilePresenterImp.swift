@@ -10,10 +10,9 @@ import RxSwift
 
 class ProfilePresenterImp: ProfilePresenter {
     
-    
     var userUseCase: UserUseCase
     var imageUseCase: ImageUseCase
-    var view: ProfileView
+    weak var view: ProfileView!
     var router: ProfileRouter
     var settings: Settings
     var disposeBag = DisposeBag()

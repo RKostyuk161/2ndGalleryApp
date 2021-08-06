@@ -64,7 +64,7 @@ class PaginationUseCaseImp: PaginationUseCase {
                 case .new:
                     do {
                         self.newCurrentPage += 1
-                        self.newTotalItems = result.totalItems!
+                        self.newTotalItems = result.totalItems ?? 0
                         guard let data = result.data else { return }
                         self.newItems.append(contentsOf: data)
                         self.source.onNext(self.newItems)
@@ -74,7 +74,7 @@ class PaginationUseCaseImp: PaginationUseCase {
                 case .popular:
                     do {
                         self.popularCurrentPage += 1
-                        self.popularTotalItems = result.totalItems!
+                        self.popularTotalItems = result.totalItems ?? 0
                         guard let data = result.data else { return }
                         self.popularItems.append(contentsOf: data)
                         self.source.onNext(self.popularItems)

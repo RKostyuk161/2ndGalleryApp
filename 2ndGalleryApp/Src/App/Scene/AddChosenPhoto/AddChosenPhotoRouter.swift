@@ -9,14 +9,14 @@ import Foundation
 import UIKit
 
 class AddChosenPhotoRouter: BaseRouter {
-    var view: UIViewController!
+    weak var view: UIViewController!
     
     init(view: AddChosenPhotoViewController) {
         self.view = view
     }
     
     func openProfileImage() {
-        let mainTabBar = R.storyboard.mainGallery.instantiateInitialViewController()!
+        guard let mainTabBar = R.storyboard.mainGallery.instantiateInitialViewController() else { return }
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBar, flipFromRight: true)
     }
 }

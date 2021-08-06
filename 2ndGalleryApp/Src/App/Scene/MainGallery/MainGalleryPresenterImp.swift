@@ -10,7 +10,7 @@ import RxSwift
 
 class MainGalleryPresenterImp: MainGalleryPresenter {    
 
-    var view: MainGalleryView!
+    weak var view: MainGalleryView!
     var router: MainGalleryRouter!
     var paginationUseCase: PaginationUseCase
     var userUseCase: UserUseCase
@@ -130,7 +130,7 @@ class MainGalleryPresenterImp: MainGalleryPresenter {
                 
                 self.view.collectionViewReloadData()
             })
-        .disposed(by: paginationDisposeBag)
+        .disposed(by: searchDisposeBag)
     }
     
     func getSearchImagesRequest(imageName: String, currentCollection: CollectionType) {

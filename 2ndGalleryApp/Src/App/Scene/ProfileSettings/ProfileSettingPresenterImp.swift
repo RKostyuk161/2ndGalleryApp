@@ -11,12 +11,13 @@ import RxSwift
 
 class ProfileSettingsPresenterImp: ProfileSettingsPresenter {
     
-    var view: ProfileSettingsView
+    weak var view: ProfileSettingsView!
     var userUseCase: UserUseCase
     var router: ProfileSettingsRouter
     var settings: Settings
     var disposeBag = DisposeBag()
     var currentUser: UserEntity
+    
     
     init(view: ProfileSettingsViewController,
          router: ProfileSettingsRouter,

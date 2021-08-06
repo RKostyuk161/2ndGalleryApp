@@ -11,7 +11,7 @@ import RxNetworkApiClient
 
 class StartViewController: UIViewController {
     
-    var router: StartRouter!
+    weak var router: StartRouter!
     
     @IBAction func signInButton(_ sender: UIButton) {
         router.openSingInScene()

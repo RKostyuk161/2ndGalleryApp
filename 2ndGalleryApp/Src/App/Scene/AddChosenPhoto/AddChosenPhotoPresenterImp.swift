@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 
 class AddChosenPhotoPresenterImp: AddChosenPhotoPresenter {
-    var view: AddChosenPhotoView
+    weak var view: AddChosenPhotoView!
     var router: AddChosenPhotoRouter
     var settings: Settings
     var userUseCase: UserUseCase

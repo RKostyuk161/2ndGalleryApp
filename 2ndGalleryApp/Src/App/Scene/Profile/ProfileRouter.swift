@@ -10,7 +10,7 @@ import UIKit
 
 class ProfileRouter: BaseRouter {
     
-    var view: UIViewController!
+    weak var view: UIViewController!
     
     init(view: ProfileViewController) {
         self.view = view

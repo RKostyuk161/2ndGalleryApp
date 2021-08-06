@@ -13,7 +13,9 @@ extension ProfileViewController {
         let cell = usersPostsCollectionView.dequeueReusableCell(withReuseIdentifier: "MainGalleryCollectionViewCell", for: indexPath) as! MainGalleryCollectionViewCell
         var imageUrl = ImageEntity()
         imageUrl = presenter.userPhotoItems[indexPath.item]
-        cell.setupCell(url: (imageUrl.image?.name)!)
+        if let url = imageUrl.image?.name {
+            cell.setupCell(url: (imageUrl.image?.name)!)
+        }
         return cell
     }
     
