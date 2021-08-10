@@ -34,7 +34,10 @@ class MainGalleryFooterCollectionReusableView: UICollectionReusableView {
     func startTimer() {
         self.footerActivityIndicator.isHidden = false
         if timer == nil {
-            timer = Timer.scheduledTimer(timeInterval:0.0, target: self, selector: #selector(self.animateView), userInfo: nil, repeats: false)
+            timer = Timer.scheduledTimer(timeInterval: 0.0,
+                                         target: self, selector: #selector(self.animateView),
+                                         userInfo: nil,
+                                         repeats: false)
         }
     }
 }

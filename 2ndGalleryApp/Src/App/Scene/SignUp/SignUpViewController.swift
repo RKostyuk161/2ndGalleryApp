@@ -101,7 +101,7 @@ class SignUpViewController: UIViewController {
     }
     
     func setDatePicker() {
-        datePicker.preferredDatePickerStyle = .wheels
+//        datePicker.preferredDatePickerStyle = .wheels
         datePicker.datePickerMode = .date
         birthdayTextField.inputView = datePicker
         datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)

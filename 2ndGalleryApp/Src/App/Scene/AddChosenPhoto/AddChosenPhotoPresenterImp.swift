@@ -43,29 +43,22 @@ class AddChosenPhotoPresenterImp: AddChosenPhotoPresenter {
         return imageUseCase.addPhoto(image: image, name: name, description: description)
             .do(onSubscribe: {
                 CustomActivityIndicatorConfigurator.open()
-            },
-            onDispose: {
+            }, onDispose: {
                 self.isLoadingInProgress = false
                 self.router.dismissPresentedController()
             })
             .subscribe(onCompleted: { [weak self] in
                 guard let self = self else { return }
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    self.view.addInfoModuleWithFunc(alertTitle: R.string.alert.succsessMessage(),
+                self.view.addInfoModuleWithFunc(alertTitle: R.string.alert.succsessMessage(),
                                                     alertMessage: nil,
                                                     buttonMessage: R.string.alert.okMessage(),
                                                     completion: { [weak self ] in
                                                         self?.routeToProfileImage()
                                                     })
-                }
-            },
-            onError: { error in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            }, onError: { error in
                     self.view.addInfoModule(alertTitle: R.string.alert.errorMessage(),
                                             alertMessage: error.localizedDescription,
                                             buttonMessage: R.string.alert.okMessage())
-                }
             })
             .disposed(by: disposeBag)
         } else {

@@ -27,7 +27,6 @@ class MainGalleryPresenterImp: MainGalleryPresenter {
     var imageModel = ImageEntity()
     var isLoadingInProgress = false
     var isfistPopularImageRequest = true
-    
    
     init(view: MainGalleryViewController,
          router: MainGalleryRouter,
@@ -132,10 +131,12 @@ class MainGalleryPresenterImp: MainGalleryPresenter {
     
     func getSearchImagesRequest(imageName: String, currentCollection: CollectionType) {
         view.isLastPaginationPage = true
+        // TODO: - один метод на получение картинок
         paginationUseCase.searchImages(imageName: imageName,
                                        currentCollection: currentCollection)
             .observeOn(MainScheduler.instance)
             .do(onSubscribe: {
+                // TODO: - Почистить
                 CustomActivityIndicatorConfigurator.open()
             }, onDispose: {
                 self.router.dismissPresentedController()
@@ -202,10 +203,12 @@ class MainGalleryPresenterImp: MainGalleryPresenter {
     }
     
     func openFullImageController() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            // TODO: - убрать хуйню
             guard let navigationController = self.router.getNavigationController() else { return }
-            self.router.openFuillImageController(navigationController: navigationController, imageModel: self.imageModel, userModel: self.userModel)
-        }
+            self.router.openFuillImageController(navigationController: navigationController,
+                                                 imageModel: self.imageModel,
+                                                 userModel: self.userModel)
+        
     }
     
     func refresh() {

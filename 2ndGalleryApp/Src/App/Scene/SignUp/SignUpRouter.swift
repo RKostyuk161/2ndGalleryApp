@@ -20,6 +20,6 @@ class SignUpRouter: BaseRouter {
     
     func openMainGallery() {
         guard let mainTabBar = R.storyboard.mainGallery.instantiateInitialViewController() else { return }
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBar, flipFromRight: true)
+        (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(mainTabBar, flipFromRight: true)
     }
 }

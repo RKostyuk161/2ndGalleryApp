@@ -43,29 +43,25 @@ class SignUpPresenterImp: SignUpPresenter {
             .andThen(self.logingUseCase.sighIn(login: usersEmail,
                                                password: usersPass))
             .do(onSubscribe: {
-                CustomActivityIndicatorConfigurator.open()
+//                CustomActivityIndicatorConfigurator.open()
             }, onDispose: {
-                self.router.dismissPresentedController()
+//                self.router.dismissPresentedController()
             })
             .subscribe(onCompleted: { [weak self] in
                 guard let self = self else { return }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     self.view?.addInfoModuleWithFunc(alertTitle: R.string.alert.authIsOkMessage(),
                                                      alertMessage: nil,
                                                      buttonMessage: R.string.alert.okMessage(),
                                                      completion: { [weak self] in
                                                         self?.changeRootView()
                                                      })
-                }
 
             },
 
             onError: { [weak self] error in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                     self?.view?.addInfoModule(alertTitle: R.string.alert.errorMessage(),
                                               alertMessage: error.localizedDescription,
                                               buttonMessage: R.string.alert.okMessage())
-                }
             })
             .disposed(by: disposeBag)
     }

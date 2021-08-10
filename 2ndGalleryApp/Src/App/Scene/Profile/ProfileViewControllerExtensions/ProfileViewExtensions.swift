@@ -14,7 +14,7 @@ extension ProfileViewController {
         var imageUrl = ImageEntity()
         imageUrl = presenter.userPhotoItems[indexPath.item]
         if let url = imageUrl.image?.name {
-            cell.setupCell(url: (imageUrl.image?.name)!)
+            cell.setupCell(url: url)
         }
         return cell
     }

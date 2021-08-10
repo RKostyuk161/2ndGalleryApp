@@ -48,8 +48,6 @@ class ProfileSettingsPresenterImp: ProfileSettingsPresenter {
             })
             .subscribe(onCompleted: { [weak self] in
                 guard let self = self else { return }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    
                     self.view.addInfoModuleWithFunc(alertTitle: R.string.alert.succsessMessage(),
                                                     alertMessage: nil,
                                                     buttonMessage: R.string.alert.okMessage(),
@@ -57,15 +55,11 @@ class ProfileSettingsPresenterImp: ProfileSettingsPresenter {
                                                         self?.router.dismissPresentedController()
                                                         self?.saveDataAndPopController()
                                                     })
-                }
             },
             onError: { error in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    
                     self.view.addInfoModuleWithFunc(alertTitle: R.string.alert.errorMessage(),
                                                     alertMessage: error.localizedDescription,
                                                     buttonMessage: R.string.alert.okMessage())
-                }
                 
             })
             .disposed(by: disposeBag)
@@ -101,29 +95,26 @@ class ProfileSettingsPresenterImp: ProfileSettingsPresenter {
             })
             .observeOn(MainScheduler.instance)
             .subscribe(onCompleted: {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    self.view.addInfoModuleWithFunc(alertTitle: R.string.alert.accIsDeleteMessage(),
-                                                    alertMessage: nil,
-                                                    buttonMessage: R.string.alert.okMessage(),
-                                                    completion: { [ weak self ] in
-                                                        self?.settings.clearUserData()
-                                                        self?.changeRootView()
-                                                    })
-                }
+                
+                self.view.addInfoModuleWithFunc(alertTitle: R.string.alert.accIsDeleteMessage(),
+                                                alertMessage: nil,
+                                                buttonMessage: R.string.alert.okMessage(),
+                                                completion: { [ weak self ] in
+                                                    self?.settings.clearUserData()
+                                                    self?.changeRootView()
+                                                })
             }, onError: { [weak self] error in
                 guard error is ResponseErrorEntity else { return }
                 guard let self = self else { return }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    
-                        self.view.addInfoModule(alertTitle: R.string.alert.errorMessage(),
-                                                alertMessage: error.localizedDescription,
-                                                buttonMessage: R.string.alert.okMessage())
-                }
+                self.view.addInfoModule(alertTitle: R.string.alert.errorMessage(),
+                                        alertMessage: error.localizedDescription,
+                                        buttonMessage: R.string.alert.okMessage())
+                
             })
             .disposed(by: disposeBag)
         
     }
-
+    
     func changeRootView()  {
         settings.clearUserData()
         router.routeToStartView()

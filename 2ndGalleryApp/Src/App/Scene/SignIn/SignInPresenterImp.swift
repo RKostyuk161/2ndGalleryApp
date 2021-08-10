@@ -40,21 +40,17 @@ class SignInPresenterImp: SignInPresenter {
                 guard let self = self,
                       let _ = self.settings.account else { return }
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     self.view?.addInfoModuleWithFunc(alertTitle: R.string.alert.authIsOkMessage(),
                                                     alertMessage: nil,
                                                     buttonMessage: R.string.alert.okMessage(),
                                                     completion: { [weak self] in
                                                         self?.changeRootView()
                                                     })
-                }
             },
             onError: { error in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     self.view?.addInfoModule(alertTitle: R.string.alert.errorMessage(),
                                             alertMessage: error.localizedDescription,
                                             buttonMessage: R.string.alert.okMessage())
-                }
             })
             .disposed(by: disposeBag)
     }

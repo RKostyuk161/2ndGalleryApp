@@ -18,12 +18,12 @@ class SignInRouter: BaseRouter {
     
     func openMainGallery()  {
         guard let mainTabBar = R.storyboard.mainGallery.instantiateInitialViewController() else { return }
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBar, flipFromRight: true)
+        (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(mainTabBar, flipFromRight: true)
     }
     
     func openSignUpScreen(navigationController: UINavigationController) {
-        let indefier = R.storyboard.signUp.signUpViewController.identifier
-        guard let vc = R.storyboard.signUp().instantiateViewController(identifier: indefier) as? SignUpViewController else { return }
+        let identifier = R.storyboard.signUp.signUpViewController.identifier
+        guard let vc = R.storyboard.signUp().instantiateViewController(withIdentifier: identifier)  as? SignUpViewController else { return }
         SignUpConfigurator().config(view: vc)
         navigationController.pushViewController(vc, animated: true)
         navigationController.setNavigationBarHidden(false, animated: true)

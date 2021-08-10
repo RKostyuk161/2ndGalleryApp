@@ -458,7 +458,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.string` struct is generated, and contains static references to 3 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
     /// This `R.string.alert` struct is generated, and contains static references to 15 localization keys.
     struct alert {
@@ -751,55 +751,6 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.launchScreen` struct is generated, and contains static references to 0 localization keys.
-    struct launchScreen {
-      fileprivate init() {}
-    }
-
-    /// This `R.string.main` struct is generated, and contains static references to 2 localization keys.
-    struct main {
-      /// ru translation: Button
-      ///
-      /// Locales: ru
-      static let hLqCeV8rNormalTitle = Rswift.StringResource(key: "hLq-ce-V8r.normalTitle", tableName: "Main", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
-      /// ru translation: Button
-      ///
-      /// Locales: ru
-      static let vnzDGLTYNormalTitle = Rswift.StringResource(key: "Vnz-dG-LTY.normalTitle", tableName: "Main", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
-
-      /// ru translation: Button
-      ///
-      /// Locales: ru
-      static func hLqCeV8rNormalTitle(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("hLq-ce-V8r.normalTitle", tableName: "Main", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Main", preferredLanguages: preferredLanguages) else {
-          return "hLq-ce-V8r.normalTitle"
-        }
-
-        return NSLocalizedString("hLq-ce-V8r.normalTitle", tableName: "Main", bundle: bundle, comment: "")
-      }
-
-      /// ru translation: Button
-      ///
-      /// Locales: ru
-      static func vnzDGLTYNormalTitle(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("Vnz-dG-LTY.normalTitle", tableName: "Main", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Main", preferredLanguages: preferredLanguages) else {
-          return "Vnz-dG-LTY.normalTitle"
-        }
-
-        return NSLocalizedString("Vnz-dG-LTY.normalTitle", tableName: "Main", bundle: bundle, comment: "")
-      }
-
-      fileprivate init() {}
-    }
-
     fileprivate init() {}
   }
 
@@ -1000,13 +951,8 @@ struct _R: Rswift.Validatable {
       typealias InitialController = UIKit.UINavigationController
 
       let bundle = R.hostingBundle
-      let entryNavigationController = StoryboardViewControllerResource<UIKit.UINavigationController>(identifier: "EntryNavigationController")
       let name = "Main"
       let startViewController = StoryboardViewControllerResource<StartViewController>(identifier: "StartViewController")
-
-      func entryNavigationController(_: Void = ()) -> UIKit.UINavigationController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: entryNavigationController)
-      }
 
       func startViewController(_: Void = ()) -> StartViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: startViewController)
@@ -1016,7 +962,6 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "EntryFirstScreenLogo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'EntryFirstScreenLogo' is used in storyboard 'Main', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
-        if _R.storyboard.main().entryNavigationController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'entryNavigationController' could not be loaded from storyboard 'Main' as 'UIKit.UINavigationController'.") }
         if _R.storyboard.main().startViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'startViewController' could not be loaded from storyboard 'Main' as 'StartViewController'.") }
       }
 
@@ -1092,7 +1037,9 @@ struct _R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    struct signIn: Rswift.StoryboardResourceType, Rswift.Validatable {
+    struct signIn: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = SignInViewController
+
       let bundle = R.hostingBundle
       let name = "SignIn"
       let signInViewController = StoryboardViewControllerResource<SignInViewController>(identifier: "SignInViewController")
@@ -1113,7 +1060,9 @@ struct _R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    struct signUp: Rswift.StoryboardResourceType, Rswift.Validatable {
+    struct signUp: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = SignUpViewController
+
       let bundle = R.hostingBundle
       let name = "SignUp"
       let signUpViewController = StoryboardViewControllerResource<SignUpViewController>(identifier: "SignUpViewController")

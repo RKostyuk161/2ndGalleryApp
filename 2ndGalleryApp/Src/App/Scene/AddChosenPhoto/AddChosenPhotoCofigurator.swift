@@ -22,7 +22,7 @@ class AddChosenPhotoConfigurator {
     }
     static func open(navigationController: UINavigationController, image: UIImage) {
         MainGalleryViewController.isNeedFlipToProfile = true
-        guard let vc = R.storyboard.addChosenPhoto().instantiateViewController(identifier: R.storyboard.addChosenPhoto.name) as? AddChosenPhotoViewController else { return }
+        guard let vc = R.storyboard.addChosenPhoto().instantiateViewController(withIdentifier: R.storyboard.addChosenPhoto.name) as? AddChosenPhotoViewController else { return }
         AddChosenPhotoConfigurator().configure(view: vc, image: image)
         navigationController.pushViewController(vc, animated: true)
     }

@@ -12,13 +12,12 @@ class AddChosenPhotoRouter: BaseRouter {
     
     weak var view: UIViewController!
     
-    
     init(view: AddChosenPhotoViewController) {
         self.view = view
     }
     
     func openProfileImage() {
         guard let mainTabBar = R.storyboard.mainGallery.instantiateInitialViewController() else { return }
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBar, flipFromRight: true)
+        (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(mainTabBar, flipFromRight: true)
     }
 }

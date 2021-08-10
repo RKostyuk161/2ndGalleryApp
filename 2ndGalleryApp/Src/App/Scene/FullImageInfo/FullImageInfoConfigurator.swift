@@ -18,7 +18,7 @@ class FullImageInfoConfigurator {
     static func open(navigationController: UINavigationController,
                      imageModel: ImageEntity,
                      userModel: UserEntity) {
-        guard let view = R.storyboard.fullImageInfo().instantiateViewController(identifier: R.storyboard.fullImageInfo.name) as? FullImageInfoViewController else { return }
+        guard let view = R.storyboard.fullImageInfo().instantiateViewController(withIdentifier: R.storyboard.fullImageInfo.name) as? FullImageInfoViewController else { return }
         FullImageInfoConfigurator().configure(view: view, imageModel: imageModel, userModel: userModel)
         navigationController.pushViewController(view, animated: true)
         

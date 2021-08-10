@@ -59,7 +59,7 @@ extension FullImageInfoViewController: FullImageInfoView {
                        userDate: String?) {
         self.userNameLabel.text = username ?? R.string.alert.nodataMessage()
         self.birthDayUserNameLabel.text = userDate ?? R.string.alert.nodataMessage()
-        guard var date = userDate else { return }
+        guard let date = userDate else { return }
         self.birthDayUserNameLabel.text = date
     }
 }

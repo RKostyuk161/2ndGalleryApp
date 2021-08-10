@@ -25,6 +25,6 @@ class ProfileSettingsRouter: BaseRouter {
     
     func routeToStartView() {
         guard let mainTabBar = R.storyboard.main.instantiateInitialViewController() else { return }
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBar, flipFromRight: true)
+        (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(mainTabBar, flipFromRight: true)
     }
 }

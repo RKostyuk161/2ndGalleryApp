@@ -57,27 +57,21 @@ extension MainGalleryViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         isLastPaginationPage = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0)  {
             self.presenter.currentGalleryState = .search
             self.galleryCollectionView.reloadData()
-        }
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0)  {
-            
             if searchBar.text == "" {
                 self.presenter.currentGalleryState = .gallery
                 self.galleryCollectionView.reloadData()
             }
-        }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         guard let imageName = searchBar.text else { return }
         self.presenter.getSearchImagesRequest(imageName: imageName, currentCollection: self.presenter.currentCollection)
-        self.galleryCollectionView.reloadData()
         self.galleryCollectionView.reloadData()
     }
 }

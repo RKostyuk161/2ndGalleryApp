@@ -37,6 +37,7 @@
 		8E0065BD26BAC940004862D9 /* ImageUseCaseImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0065BC26BAC940004862D9 /* ImageUseCaseImp.swift */; };
 		8E0065BF26BACD89004862D9 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0065BE26BACD89004862D9 /* BaseRouter.swift */; };
 		8E0065C126BAF0FE004862D9 /* HumanDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0065C026BAF0FE004862D9 /* HumanDateFormatter.swift */; };
+		8E0065C326C181DF004862D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E0065C226C181DE004862D9 /* Main.storyboard */; };
 		8E038F962673A32D000E56AC /* AddPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E038F952673A32D000E56AC /* AddPhotoViewController.swift */; };
 		8E038F9A2673A37F000E56AC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E038F992673A37F000E56AC /* ProfileViewController.swift */; };
 		8E038FA12678F709000E56AC /* Statesments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E038FA02678F709000E56AC /* Statesments.swift */; };
@@ -46,7 +47,6 @@
 		8E072972267205A90071FF46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E072971267205A90071FF46 /* AppDelegate.swift */; };
 		8E072974267205A90071FF46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E072973267205A90071FF46 /* SceneDelegate.swift */; };
 		8E072976267205A90071FF46 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E072975267205A90071FF46 /* StartViewController.swift */; };
-		8E072979267205A90071FF46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E072977267205A90071FF46 /* Main.storyboard */; };
 		8E07297C267205A90071FF46 /* _ndGalleryApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8E07297A267205A90071FF46 /* _ndGalleryApp.xcdatamodeld */; };
 		8E072981267205AA0071FF46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E07297F267205AA0071FF46 /* LaunchScreen.storyboard */; };
 		8E07299526721D9A0071FF46 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E07299426721D9A0071FF46 /* SignUp.storyboard */; };
@@ -151,12 +151,9 @@
 		8E00655F26B7E940004862D9 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		8E00656126B7EA52004862D9 /* SignInViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewControllerExtension.swift; sourceTree = "<group>"; };
 		8E00656526B7F5A8004862D9 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
-		8E00657826B8009F004862D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
-		8E00657926B8009F004862D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		8E00657D26B80176004862D9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Alert.strings; sourceTree = "<group>"; };
 		8E00658426B80229004862D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Alert.strings; sourceTree = "<group>"; };
 		8E00658526B803C4004862D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = ru.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8E00658626B803C6004862D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = ru.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8E00658726B80679004862D9 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = 2ndGalleryApp/R.generated.swift; sourceTree = SOURCE_ROOT; };
 		8E00658926B8191A004862D9 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		8E00658C26B81963004862D9 /* SignUpExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpExtensions.swift; sourceTree = "<group>"; };
@@ -179,6 +176,7 @@
 		8E0065BC26BAC940004862D9 /* ImageUseCaseImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUseCaseImp.swift; sourceTree = "<group>"; };
 		8E0065BE26BACD89004862D9 /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
 		8E0065C026BAF0FE004862D9 /* HumanDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanDateFormatter.swift; sourceTree = "<group>"; };
+		8E0065C226C181DE004862D9 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8E038F952673A32D000E56AC /* AddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
 		8E038F992673A37F000E56AC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		8E038FA02678F709000E56AC /* Statesments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statesments.swift; sourceTree = "<group>"; };
@@ -576,7 +574,7 @@
 				8E072975267205A90071FF46 /* StartViewController.swift */,
 				8E41346026935FD200C69ECE /* StartConfigurator.swift */,
 				8E41345E26935F8B00C69ECE /* StartRouter.swift */,
-				8E072977267205A90071FF46 /* Main.storyboard */,
+				8E0065C226C181DE004862D9 /* Main.storyboard */,
 				8E07297F267205AA0071FF46 /* LaunchScreen.storyboard */,
 			);
 			path = FirstEntryScreen;
@@ -984,11 +982,11 @@
 				8E00657C26B80176004862D9 /* Alert.strings in Resources */,
 				8EBA5C7D267B9F5A00941513 /* FullImageInfo.storyboard in Resources */,
 				8E00655326B7DF20004862D9 /* AddPhoto.storyboard in Resources */,
+				8E0065C326C181DF004862D9 /* Main.storyboard in Resources */,
 				8E07299726721DB10071FF46 /* SignIn.storyboard in Resources */,
 				8E0729A0267257D90071FF46 /* MainGallery.storyboard in Resources */,
 				8E26FF93269F052D00A82B66 /* CustomActivityIndicatorStoryBoard.storyboard in Resources */,
 				8E07299526721D9A0071FF46 /* SignUp.storyboard in Resources */,
-				8E072979267205A90071FF46 /* Main.storyboard in Resources */,
 				8E18C75E269C7EFB004EFC69 /* ProfileSettings.storyboard in Resources */,
 				8E26FFAD26A4B01700A82B66 /* AddChosenPhoto.storyboard in Resources */,
 				8EAF7C49268477470048A936 /* Assets.xcassets in Resources */,
@@ -1199,19 +1197,9 @@
 			name = Alert.strings;
 			sourceTree = "<group>";
 		};
-		8E072977267205A90071FF46 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8E00657826B8009F004862D9 /* ru */,
-				8E00658626B803C6004862D9 /* ru */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8E07297F267205AA0071FF46 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8E00657926B8009F004862D9 /* ru */,
 				8E00658526B803C4004862D9 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
@@ -1272,7 +1260,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1328,7 +1316,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1347,6 +1335,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4KFJNQ2Z7A;
 				INFOPLIST_FILE = 2ndGalleryApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1367,6 +1356,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4KFJNQ2Z7A;
 				INFOPLIST_FILE = 2ndGalleryApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
